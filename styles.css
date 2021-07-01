@@ -109,10 +109,9 @@ span.prettyprint {
     padding-bottom: 2rem;
     color: #000;
 }
-.header span {
-    padding-top: 2rem;
+.header .badges {
+    padding-top: 3rem;
 }
-
 @media (min-width: 40rem) {
     .header {
         padding-top: 5rem;
