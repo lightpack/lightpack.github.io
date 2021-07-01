@@ -1,1 +1,125 @@
-h1 {color: #cd5959}
+.navigation {
+    background: #e03131;
+    border-bottom: .1rem solid #ff0500;
+    display: block;
+    height: 5.2rem;
+    left: 0;
+    max-width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.navigation .navigation-link, .navigation .navigation-title, .navigation .title {
+    display: inline;
+    font-size: 1.6rem;
+    line-height: 5.2rem;
+    padding: 0;
+    text-decoration: none;
+    color: #fff;
+}
+.wrapper .navbar {
+    padding: 0 2rem;
+}
+.wrapper .container {
+    max-width: 80rem;
+}
+.wrapper .features {
+    max-width: 100rem;
+}
+.features .card {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px dotted #ddd;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+.features .card .dot {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+    background: #FC5653;
+    border: 2px solid #FC5653;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+.card .title {
+    color: #000;
+    margin-bottom: 2rem;
+}
+.navigation .navigation-list {
+    list-style: none;
+    margin-bottom: 0;
+    margin-right: 5rem;
+}
+.navigation .navigation-item {
+    float: left;
+    margin-bottom: 0;
+    margin-left: 2.5rem;
+    position: relative;
+}
+.navigation .navigation-link, .navigation .navigation-title, .navigation .title {
+    display: inline;
+    font-size: 1.6rem;
+    line-height: 5.2rem;
+    padding: 0;
+    text-decoration: none;
+}
+.navigation .img {
+    fill: #fff;
+    height: 2rem;
+    position: relative;
+    top: .3rem;
+    margin-right: 1rem;
+}
+.navigation .navigation-title {
+    font-weight: 700;
+}
+.prettyprint.code {
+    background: #f4f5f6;
+    border: 0;
+    border-left: .4rem solid #FC5653;
+    color: #655d5d;
+    margin-top: 0;
+    position: relative;
+}
+span.prettyprint {
+    padding: 1.5rem;
+    border: 1px solid #888;
+}
+.header .container {
+    border-top: 0;
+    padding-bottom: 7.5rem;
+    padding-top: 7.5rem;
+    position: relative;
+    text-align: center;
+}
+.header .img {
+    height: 6rem;
+    margin-bottom: 2rem;
+    color: #FC5653;
+}
+.header h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    padding-bottom: 2rem;
+    color: #000;
+}
+.header .badges {
+    padding-top: 3rem;
+}
+@media (min-width: 40rem) {
+    .header {
+        padding-top: 5rem;
+    }
+}
+@media (min-width: 80rem) {
+    .navigation .navigation-list {
+        margin-right: 0;
+    }
+}
