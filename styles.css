@@ -74,6 +74,7 @@
     height: 2rem;
     position: relative;
     top: .3rem;
+    margin-right: 1rem;
 }
 .navigation .navigation-title {
     font-weight: 700;
@@ -98,7 +99,7 @@ span.prettyprint {
     text-align: center;
 }
 .header .img {
-    height: 10rem;
+    height: 6rem;
     margin-bottom: 2rem;
     color: #FC5653;
 }
