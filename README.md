@@ -1,1 +1,3 @@
-Read The Docs (https://lightpack.github.io/docs/#/)
+# Lightpack PHP Web Framework
+
+https://lightpack.github.io
