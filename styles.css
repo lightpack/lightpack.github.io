@@ -51,6 +51,9 @@
     color: #000;
     margin-bottom: 2rem;
 }
+.card-anchor {
+    color: #606c76;
+}
 .navigation .navigation-list {
     list-style: none;
     margin-bottom: 0;
