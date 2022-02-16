@@ -126,3 +126,12 @@ span.prettyprint {
         margin-right: 0;
     }
 }
+/* mobile media query */
+@media (max-width: 40rem) {
+    .navigation .navigation-list {
+        margin-right: 0;
+    }
+    .navigation .navigation-item {
+        margin-left: 1rem;
+    }
+}
