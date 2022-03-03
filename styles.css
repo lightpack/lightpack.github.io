@@ -134,4 +134,7 @@ span.prettyprint {
     .navigation .navigation-item {
         margin-left: 1rem;
     }
+    .row .column-33 {
+        max-width: 100% !important;
+    }
 }
