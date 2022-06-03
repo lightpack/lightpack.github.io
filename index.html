@@ -6,6 +6,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
   <link rel="icon" type="image/png" href="logo.ico" sizes="32x32" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="manifest" href="favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
@@ -22,7 +41,7 @@
             <path style="stroke: rgb(255, 255, 255); fill: rgb(255, 255, 255);"
               d="M 134.358 92.91 L 175.025 97.546 L 170.203 81.548 L 138.328 111.265 L 175.93 100.308" />
           </svg>
-          Lightpack PHP
+          Lightpack
         </a>
         <ul class="navigation-list float-right">
           <li class="navigation-item">
@@ -44,7 +63,12 @@
             d="M 134.358 92.91 L 175.025 97.546 L 170.203 81.548 L 138.328 111.265 L 175.93 100.308" />
         </svg>
         <h1 class="title">Lightpack PHP</h1>
-        <span class="code prettyprint">A modern PHP web framework with extreme performance and small footprint.</span>
+        <!-- <span class="code prettyprint">A modern PHP web framework with extreme performance and small footprint.</span> -->
+        <div class="features">
+          <div class="card">
+            <div class="body">A modern PHP web framework with extreme performance and small footprint.</div>
+          </div>
+        </div>
         <div class="badges">
           <a href="https://travis-ci.com/lightpack/framework">
             <img src="https://travis-ci.com/lightpack/framework.svg?branch=main" alt="Build Status">
@@ -143,14 +167,14 @@
       </div>
       <div class="row">
         <div class="column">
-          <a class="card-anchor" href="https://lightpack.github.io/docs/#/modules">
+          <a class="card-anchor" href="https://lightpack.github.io/docs/#/environments">
             <div class="card">
               <div class="title">
                 <span class="dot">✓</span>
-                <b>Modules</b>
+                <b>Environments</b>
               </div>
               <div class="body">
-                Achieve code scalability with MVC based modules for large scale.
+                Easily manage your application config environments as per your needs.
               </div>
             </div>
           </a>
@@ -225,6 +249,60 @@
       </div>
       <div class="row">
         <div class="column">
+          <a class="card-anchor" href="https://lightpack.github.io/docs/#/moment">
+            <div class="card">
+              <div class="title">
+                <span class="dot">✓</span>
+                <b>Moment</b>
+              </div>
+              <div class="body">
+                Flexible date and time utility library class functions.
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="column">
+          <a class="card-anchor" href="https://lightpack.github.io/docs/#/mails">
+            <div class="card">
+              <div class="title">
+                <span class="dot">✓</span>
+                <b>Mails</b>
+              </div>
+              <div class="body">
+                Send rich HTML mails using any SMTP service provider.
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="column">
+          <a class="card-anchor" href="https://lightpack.github.io/docs/#/jobs">
+            <div class="card">
+              <div class="title">
+                <span class="dot">✓</span>
+                <b>Jobs</b>
+              </div>
+              <div class="body">
+                Process time consuming jobs in background with ease.
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column column-33">
+          <a class="card-anchor" href="https://lightpack.github.io/docs/#/authentication">
+            <div class="card">
+              <div class="title">
+                <span class="dot">✓</span>
+                <b>Authentication</b>
+              </div>
+              <div class="body">
+                Session-Cookie or API token based authentication.
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="column">
           <a class="card-anchor" href="https://lightpack.github.io/docs/#/testing">
             <div class="card">
               <div class="title">
@@ -237,7 +315,6 @@
             </div>
           </a>
         </div>
-        <div class="column"></div>
         <div class="column"></div>
       </div>
     </section>
