@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrow into a box for Request -->
+  <rect x="5" y="9" width="14" height="10" rx="2" stroke="#000000" stroke-width="1" fill="none"/>
+  <path d="M12 5v8" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+  <path d="M9 8l3-3 3 3" stroke="#000000" stroke-width="1" stroke-linecap="round" fill="none"/>
+</svg>
