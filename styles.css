@@ -52,6 +52,34 @@ header {
 }
 
 /* Feature Card Tweaks */
+
+/* Custom nav-pills for feature tabs */
+#feature-tabs .nav-link {
+  color: #111 !important;
+  background: none !important;
+  border: none;
+  transition: background 0.15s, color 0.15s;
+}
+#feature-tabs .nav-link.active {
+  background: #222 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+#feature-tabs .nav-link:not(.active) {
+  color: #111 !important;
+  background: none !important;
+}
+
+@media (max-width: 767.98px) {
+  #feature-tabs {
+    display: none !important;
+  }
+  #feature-search {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 .feature-card {
     background: #fff;
     padding: 2rem;
