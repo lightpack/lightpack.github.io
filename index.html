@@ -6,517 +6,640 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/logo.ico" type="image/x-icon">
     <title>Lightpack PHP Web Framework</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="assets/logo-primary.svg" alt="Lightpack PHP" class="logo-icon" style="border-radius: 5px;">
-                <span style="font-style: italic;">Lightpack</span>
+<body class="bg-white">
+    <header class="bg-white position-relative overflow-hidden">
+        <nav class="container py-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2 fs-4 fw-bold">
+                <img src="assets/logo-primary.svg" alt="Lightpack PHP" class="rounded" width="32" height="32">
+                <span class="fst-italic">Lightpack PHP</span>
             </div>
-            <div class="nav-links">
-                <a href="https://github.com/lightpack/framework" target="_blank">GitHub</a>
+            <div>
+                <a href="https://github.com/lightpack" target="_blank"
+                    class="text-dark text-decoration-none opacity-75 d-none d-md-inline">GitHub</a>
             </div>
         </nav>
-        <div class="hero">
-            <div class="hero-content">
-                <div class="hero-left">
-                    <h1>Built for <span>stability</span> and <span>peace</span> of mind.</h1>
-                    <p>Craft powerful PHP applications with elegant simplicity. Lightpack delivers the essentials without the bloat, ensuring rapid development and rock-solid performance. </p>
-                    <section class="hero-quote" style="display: flex; align-items: flex-start; justify-content: start; margin: 2.5em 0 2em 0; margin-bottom: 0;">
-                        <blockquote style="background: #f9f9f9; border-left: 4px solid #3fb984; padding: 0.5em; border-radius: 10px; font-size: 1rem; color: #333; max-width: 540px; margin: 0; box-shadow: 0 2px 8px rgba(63,185,132,0.05);">
-                            <span style="font-size: 1.25em; font-weight: 600; color: #222;">“</span>Feature-rich, lightweight abstractions - nothing more.<span style="font-size: 1.25em; font-weight: 600; color: #222;">”</span>
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h1 class="fw-bold mb-3" style="font-size: 3em;">Built for <span
+                            class="text-danger position-relative bg-highlight">stability</span> and <span
+                            class="text-danger position-relative bg-highlight">peace</span> of mind.</h1>
+                    <p class="mb-4">Craft powerful PHP applications with elegant simplicity. Lightpack delivers the
+                        essentials without the bloat, ensuring rapid development and rock-solid performance.</p>
+                    <section class="mb-4">
+                        <blockquote class="blockquote bg-light border-start border-success ps-3 py-2 rounded shadow-sm"
+                            style="font-size: 1em;">
+                            <span class="fw-semibold text-dark" style="font-size:1.25em;">“</span>Feature-rich,
+                            lightweight abstractions - nothing more.<span class="fw-semibold text-dark"
+                                style="font-size:1.25em;">”</span>
                         </blockquote>
                     </section>
-                    <div class="cta-buttons">
-                        <a href="https://lightpack.github.io/docs" class="btn btn-primary">
-                            Get Started
-                        </a>
-                        <a href="https://github.com/lightpack" class="btn btn-secondary" target="_blank">
+                    <div class="d-flex gap-3 mt-4 hero-actions">
+                        <a href="https://lightpack.github.io/docs" class="btn btn-lg btn-danger px-4">Get Started</a>
+                        <a href="https://github.com/lightpack"
+                            class="btn btn-lg btn-outline-danger px-4 d-flex align-items-center gap-2" target="_blank">
                             View on GitHub
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                                height="24">
                                 <path
                                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                             </svg>
                         </a>
                     </div>
-
                 </div>
-                <div class="hero-right">
-                    <img src="assets/hero-image.png" width="420px" style="border-radius: 15px; border: 5px solid #ccc" />
+                <div class="col-lg-6 text-center">
+                    <img src="assets/hero-image.png" class="img-fluid rounded-4 border border-2 border-secondary shadow"
+                        style="width: 100%; max-width:420px;" alt="Hero">
                 </div>
             </div>
         </div>
     </header>
-
     <main>
-        <section class="features">
-            <div class="feature-grid">
-                <a href="https://lightpack.github.io/docs/#/routing" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/routing-dark.svg" alt="Routing" class="feature-icon">
-                        <h3>Routing</h3>
-                    </div>
-                    <p>Dead simple and fast routing that is easy to learn and use.</p>
-                </a>
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/routing"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/routing-dark.svg" alt="Routing" class="feature-icon">
+                                <h3>Routing</h3>
+                            </div>
+                            <p>Dead simple and fast routing that is easy to learn and use.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/controllers" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/controllers-dark.svg" alt="Controllers" class="feature-icon">
-                        <h3>Controllers</h3>
-                    </div>
-                    <p>Efficient controllers that define actions as per current request.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/controllers"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/controllers-dark.svg" alt="Controllers" class="feature-icon">
+                                <h3>Controllers</h3>
+                            </div>
+                            <p>Efficient controllers that define actions as per current request.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/orm-introduction" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/orm-dark.svg" alt="Lucid ORM" class="feature-icon">
-                        <h3>Lucid ORM</h3>
-                    </div>
-                    <p>Extremely fast and easy to learn Active Record implementation.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/orm-introduction"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/orm-dark.svg" alt="Lucid ORM" class="feature-icon">
+                                <h3>Lucid ORM</h3>
+                            </div>
+                            <p>Extremely fast and easy to learn Active Record implementation.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/events" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/events-dark.svg" alt="Events" class="feature-icon">
-                        <h3>Events</h3>
-                    </div>
-                    <p>Achieve code modularity with events that promote low code coupling.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/events"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/events-dark.svg" alt="Events" class="feature-icon">
+                                <h3>Events</h3>
+                            </div>
+                            <p>Achieve code modularity with events that promote low code coupling.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/filters" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/filters-dark.svg" alt="Filters" class="feature-icon">
-                        <h3>Filters</h3>
-                    </div>
-                    <p>Control incoming HTTP request data and your application response level.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/filters"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/filters-dark.svg" alt="Filters" class="feature-icon">
+                                <h3>Filters</h3>
+                            </div>
+                            <p>Control incoming HTTP request data and your application response level.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/filesystem" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/filesystem-dark.svg" alt="Filesystem" class="feature-icon">
-                        <h3>Filesystem</h3>
-                    </div>
-                    <p>Simple filesystem abstraction that just works for your app needs.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/filesystem"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/filesystem-dark.svg" alt="Filesystem" class="feature-icon">
+                                <h3>Filesystem</h3>
+                            </div>
+                            <p>Simple filesystem abstraction that just works for your app needs.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/environments" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/environments-dark.svg" alt="Environments" class="feature-icon">
-                        <h3>Environments</h3>
-                    </div>
-                    <p>Easily manage your application config environments as per your needs.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/environments"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/environments-dark.svg" alt="Environments" class="feature-icon">
+                                <h3>Environments</h3>
+                            </div>
+                            <p>Easily manage your application config environments as per your needs.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/validation" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/validation-dark.svg" alt="Validator" class="feature-icon">
-                        <h3>Validator</h3>
-                    </div>
-                    <p>Validate form request data with rules to achieve simplicity.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/validation"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/validation-dark.svg" alt="Validator" class="feature-icon">
+                                <h3>Validator</h3>
+                            </div>
+                            <p>Validate form request data with rules to achieve simplicity.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/console" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/cli-dark.svg" alt="Console CLI" class="feature-icon">
-                        <h3>Console CLI</h3>
-                    </div>
-                    <p>Simple console library that generates code for you and is extendible too.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/console"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/cli-dark.svg" alt="Console CLI" class="feature-icon">
+                                <h3>Console CLI</h3>
+                            </div>
+                            <p>Simple console library that generates code for you and is extendible too.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/caching" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/cache-dark.svg" alt="Caching" class="feature-icon">
-                        <h3>Caching</h3>
-                    </div>
-                    <p>In-built driver based cache service that is easy to understand and use.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/caching"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/cache-dark.svg" alt="Caching" class="feature-icon">
+                                <h3>Caching</h3>
+                            </div>
+                            <p>In-built driver based cache service that is easy to understand and use.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/logging" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/logger-dark.svg" alt="Logging" class="feature-icon">
-                        <h3>Logging</h3>
-                    </div>
-                    <p>PSR-3 compatible logging library for your application.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/logging"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/logger-dark.svg" alt="Logging" class="feature-icon">
+                                <h3>Logging</h3>
+                            </div>
+                            <p>PSR-3 compatible logging library for your application.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/containers" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/container-dark.svg" alt="Containers" class="feature-icon">
-                        <h3>Containers</h3>
-                    </div>
-                    <p>Bind services in container for easy access throughout app life cycle.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/containers"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/container-dark.svg" alt="Containers" class="feature-icon">
+                                <h3>Containers</h3>
+                            </div>
+                            <p>Bind services in container for easy access throughout app life cycle.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/moment" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/date-dark.svg" alt="Moment" class="feature-icon">
-                        <h3>Moment</h3>
-                    </div>
-                    <p>Flexible date and time utility library class functions.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/moment"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/date-dark.svg" alt="Moment" class="feature-icon">
+                                <h3>Moment</h3>
+                            </div>
+                            <p>Flexible date and time utility library class functions.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/mails" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/mailing-dark.svg" alt="Mails" class="feature-icon">
-                        <h3>Mails</h3>
-                    </div>
-                    <p>Send rich HTML mails using any SMTP service provider.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/mails"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/mailing-dark.svg" alt="Mails" class="feature-icon">
+                                <h3>Mails</h3>
+                            </div>
+                            <p>Send rich HTML mails using any SMTP service provider.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/queue" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/queue-dark.svg" alt="Jobs" class="feature-icon">
-                        <h3>Jobs</h3>
-                    </div>
-                    <p>Process time consuming jobs in background with ease.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/queue"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/queue-dark.svg" alt="Jobs" class="feature-icon">
+                                <h3>Jobs</h3>
+                            </div>
+                            <p>Process time consuming jobs in background with ease.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/authentication" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/auth-dark.svg" alt="Authentication" class="feature-icon">
-                        <h3>Authentication</h3>
-                    </div>
-                    <p>Session-Cookie or API access token based authentication.</p>
-                </a>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/authentication"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/auth-dark.svg" alt="Authentication" class="feature-icon">
+                                <h3>Authentication</h3>
+                            </div>
+                            <p>Session-Cookie or API access token based authentication.</p>
+                        </a></div>
 
-                <a href="https://lightpack.github.io/docs/#/testing" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/testing-dark.svg" alt="Testing" class="feature-icon">
-                        <h3>Testing</h3>
-                    </div>
-                    <p>Feature test your application routes, responses, and JSON endpoints.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/cable" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/realtime-dark.svg" alt="Realtime" class="feature-icon">
-                        <h3>Cable</h3>
-                    </div>
-                    <p>Push live updates to clients with HTTP live polling support.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/settings" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/settings-dark.svg" alt="Settings" class="feature-icon">
-                        <h3>Settings</h3>
-                    </div>
-                    <p>Manage dynamic app settings with a simple, intuitive API.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/secrets" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/secrets-dark.svg" alt="Secrets" class="feature-icon">
-                        <h3>Secrets</h3>
-                    </div>
-                    <p>Securely store and access sensitive configuration secrets.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/captcha" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/captcha-dark.svg" alt="Captcha" class="feature-icon">
-                        <h3>Captcha</h3>
-                    </div>
-                    <p>Protect forms with built-in, easy-to-integrate CAPTCHA.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/audit" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/audit-dark.svg" alt="Audit" class="feature-icon">
-                        <h3>Audit</h3>
-                    </div>
-                    <p>Track user actions and system changes for full auditability.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/ai-service" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/ai-dark.svg" alt="AI" class="feature-icon">
-                        <h3>AI</h3>
-                    </div>
-                    <p>Integrate AI-powered features and workflows with ease.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/mfa" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/mfa-dark.svg" alt="MFA" class="feature-icon">
-                        <h3>MFA</h3>
-                    </div>
-                    <p>Add multi-factor authentication for enhanced account security.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/rbac" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/rbac-dark.svg" alt="RBAC" class="feature-icon">
-                        <h3>RBAC</h3>
-                    </div>
-                    <p>Role-based access control for fine-grained permission management.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/tags" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/tags-dark.svg" alt="Tags" class="feature-icon">
-                        <h3>Tags</h3>
-                    </div>
-                    <p>Flexible tagging system for organizing and searching your data.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/taxonomies" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/taxonomies-dark.svg" alt="Taxonomies" class="feature-icon">
-                        <h3>Taxonomies</h3>
-                    </div>
-                    <p>Powerful hierarchical classification for complex data sets.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/sms" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/sms-dark.svg" alt="SMS" class="feature-icon">
-                        <h3>SMS</h3>
-                    </div>
-                    <p>Send SMS notifications and alerts via pluggable gateways.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/uploads" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/uploads-dark.svg" alt="Uploads" class="feature-icon">
-                        <h3>Uploads</h3>
-                    </div>
-                    <p>Handle file uploads securely with flexible storage options.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/utility-functions" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/utils-dark.svg" alt="Utils" class="feature-icon">
-                        <h3>Utils</h3>
-                    </div>
-                    <p>Essential utility functions for everyday PHP development.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/rate-limiter" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/limiter-dark.svg" alt="Limiter" class="feature-icon">
-                        <h3>Limiter</h3>
-                    </div>
-                    <p>Protect endpoints with robust rate limiting strategies.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/image-utils" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/image-dark.svg" alt="Image" class="feature-icon">
-                        <h3>Image</h3>
-                    </div>
-                    <p>Process, resize, and optimize images effortlessly.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/encryption-decryption-utils" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/crypto-dark.svg" alt="Crypto" class="feature-icon">
-                        <h3>Crypto</h3>
-                    </div>
-                    <p>Modern cryptography tools for secure data handling.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/asset-loading-utils" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/asset-dark.svg" alt="Asset" class="feature-icon">
-                        <h3>Asset</h3>
-                    </div>
-                    <p>Efficient asset management and versioning for web apps.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/otp-utils" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/otp-dark.svg" alt="OTP" class="feature-icon">
-                        <h3>OTP</h3>
-                    </div>
-                    <p>Generate and verify one-time passwords for authentication.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/social-auth" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/social-auth-dark.svg" alt="Social Auth" class="feature-icon">
-                        <h3>Social Auth</h3>
-                    </div>
-                    <p>Easy integration with major social login providers.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/csv-utils" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/csv-dark.svg" alt="CSV" class="feature-icon">
-                        <h3>CSV</h3>
-                    </div>
-                    <p>Stream and export CSV data with high performance.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/pdf" class="feature">
-                    <div class="feature-header">
-                        <img src="assets/pdf-dark.svg" alt="PDF" class="feature-icon">
-                        <h3>PDF</h3>
-                    </div>
-                    <p>Generate PDF documents from templates or raw data.</p>
-                </a>
-                <a href="https://lightpack.github.io/docs/#/views" class="feature">
-        <div class="feature-header">
-            <img src="assets/views-dark.svg" alt="Views" class="feature-icon">
-            <h3>Views</h3>
-        </div>
-        <p>Render dynamic HTML templates and layouts with ease.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/request" class="feature">
-        <div class="feature-header">
-            <img src="assets/request-dark.svg" alt="Request" class="feature-icon">
-            <h3>Request</h3>
-        </div>
-        <p>Access and manage HTTP request data in a simple, unified way.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/response" class="feature">
-        <div class="feature-header">
-            <img src="assets/response-dark.svg" alt="Response" class="feature-icon">
-            <h3>Response</h3>
-        </div>
-        <p>Send structured HTTP responses, JSON, and more.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/sessions" class="feature">
-        <div class="feature-header">
-            <img src="assets/sessions-dark.svg" alt="Sessions" class="feature-icon">
-            <h3>Sessions</h3>
-        </div>
-        <p>Manage user session data securely and efficiently.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/cookies" class="feature">
-        <div class="feature-header">
-            <img src="assets/cookies-dark.svg" alt="Cookies" class="feature-icon">
-            <h3>Cookies</h3>
-        </div>
-        <p>Work with HTTP cookies for stateful browser interactions.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/configuration" class="feature">
-        <div class="feature-header">
-            <img src="assets/configuration-dark.svg" alt="Configuration" class="feature-icon">
-            <h3>Configuration</h3>
-        </div>
-        <p>Centralized configuration management for your application.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/migrations" class="feature">
-        <div class="feature-header">
-            <img src="assets/migrations-dark.svg" alt="Migrations" class="feature-icon">
-            <h3>Migrations</h3>
-        </div>
-        <p>Version and manage your database schema changes.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/seeder" class="feature">
-        <div class="feature-header">
-            <img src="assets/seeder-dark.svg" alt="Seeder" class="feature-icon">
-            <h3>Seeder</h3>
-        </div>
-        <p>Seed your database with initial or test data.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/factory" class="feature">
-        <div class="feature-header">
-            <img src="assets/factory-dark.svg" alt="Factory" class="feature-icon">
-            <h3>Factory</h3>
-        </div>
-        <p>Generate fake data for testing and development.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/collections" class="feature">
-        <div class="feature-header">
-            <img src="assets/collections-dark.svg" alt="Collections" class="feature-icon">
-            <h3>Collections</h3>
-        </div>
-        <p>Work with powerful, chainable data collection utilities.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/transformers" class="feature">
-        <div class="feature-header">
-            <img src="assets/transformers-dark.svg" alt="Transformers" class="feature-icon">
-            <h3>Transformers</h3>
-        </div>
-        <p>Transform data for APIs and output formatting with ease.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/password" class="feature">
-        <div class="feature-header">
-            <img src="assets/password-dark.svg" alt="Password" class="feature-icon">
-            <h3>Password</h3>
-        </div>
-        <p>Secure password hashing and verification utilities.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/url" class="feature">
-        <div class="feature-header">
-            <img src="assets/url-dark.svg" alt="URL" class="feature-icon">
-            <h3>URL</h3>
-        </div>
-        <p>Helpers for generating and parsing URLs.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/mutex-lock" class="feature">
-        <div class="feature-header">
-            <img src="assets/mutex-lock-dark.svg" alt="Mutex Lock" class="feature-icon">
-            <h3>Mutex Lock</h3>
-        </div>
-        <p>Prevent race conditions with atomic mutex locking.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/process" class="feature">
-        <div class="feature-header">
-            <img src="assets/process-dark.svg" alt="Process" class="feature-icon">
-            <h3>Process</h3>
-        </div>
-        <p>Run and manage system processes from your app.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/array-utils" class="feature">
-        <div class="feature-header">
-            <img src="assets/array-dark.svg" alt="Array" class="feature-icon">
-            <h3>Array</h3>
-        </div>
-        <p>Convenient helpers for working with arrays.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/string-utils" class="feature">
-        <div class="feature-header">
-            <img src="assets/string-dark.svg" alt="String" class="feature-icon">
-            <h3>String</h3>
-        </div>
-        <p>Powerful string manipulation utilities.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/js-utils" class="feature">
-        <div class="feature-header">
-            <img src="assets/js-dark.svg" alt="PHP to JS" class="feature-icon">
-            <h3>PHP to JS</h3>
-        </div>
-        <p>Seamlessly share PHP data with JavaScript.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/schedule" class="feature">
-        <div class="feature-header">
-            <img src="assets/schedule-dark.svg" alt="Schedule" class="feature-icon">
-            <h3>Schedule</h3>
-        </div>
-        <p>Automate tasks and commands on a schedule.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/providers" class="feature">
-        <div class="feature-header">
-            <img src="assets/providers-dark.svg" alt="Providers" class="feature-icon">
-            <h3>Providers</h3>
-        </div>
-        <p>Register and bootstrap services for your app.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/cors" class="feature">
-        <div class="feature-header">
-            <img src="assets/cors-dark.svg" alt="CORS" class="feature-icon">
-            <h3>CORS</h3>
-        </div>
-        <p>Configure cross-origin resource sharing policies.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/http-client" class="feature">
-        <div class="feature-header">
-            <img src="assets/http-client-dark.svg" alt="HTTP Client" class="feature-icon">
-            <h3>HTTP Client</h3>
-        </div>
-        <p>Make robust HTTP requests to external APIs and services.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/faker" class="feature">
-        <div class="feature-header">
-            <img src="assets/faker-dark.svg" alt="Faker" class="feature-icon">
-            <h3>Faker</h3>
-        </div>
-        <p>Generate fake data for testing and seeding.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/webhook" class="feature">
-        <div class="feature-header">
-            <img src="assets/webhook-dark.svg" alt="Webhook" class="feature-icon">
-            <h3>Webhook</h3>
-        </div>
-        <p>Send and receive webhooks for event-driven integrations.</p>
-    </a>
-    <a href="https://lightpack.github.io/docs/#/storage" class="feature">
-        <div class="feature-header">
-            <img src="assets/storage-dark.svg" alt="Storage" class="feature-icon">
-            <h3>Storage</h3>
-        </div>
-        <p>Manage file storage across local and cloud drivers.</p>
-    </a>
-</div>
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/testing"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/testing-dark.svg" alt="Testing" class="feature-icon">
+                                <h3>Testing</h3>
+                            </div>
+                            <p>Feature test your application routes, responses, and JSON endpoints.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/cable"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/realtime-dark.svg" alt="Realtime" class="feature-icon">
+                                <h3>Cable</h3>
+                            </div>
+                            <p>Push live updates to clients with HTTP live polling support.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/settings"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/settings-dark.svg" alt="Settings" class="feature-icon">
+                                <h3>Settings</h3>
+                            </div>
+                            <p>Manage dynamic app settings with a simple, intuitive API.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/secrets"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/secrets-dark.svg" alt="Secrets" class="feature-icon">
+                                <h3>Secrets</h3>
+                            </div>
+                            <p>Securely store and access sensitive configuration secrets.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/captcha"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/captcha-dark.svg" alt="Captcha" class="feature-icon">
+                                <h3>Captcha</h3>
+                            </div>
+                            <p>Protect forms with built-in, easy-to-integrate CAPTCHA.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/audit"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/audit-dark.svg" alt="Audit" class="feature-icon">
+                                <h3>Audit</h3>
+                            </div>
+                            <p>Track user actions and system changes for full auditability.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/ai-service"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/ai-dark.svg" alt="AI" class="feature-icon">
+                                <h3>AI</h3>
+                            </div>
+                            <p>Integrate AI-powered features and workflows with ease.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/mfa"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/mfa-dark.svg" alt="MFA" class="feature-icon">
+                                <h3>MFA</h3>
+                            </div>
+                            <p>Add multi-factor authentication for enhanced account security.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/rbac"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/rbac-dark.svg" alt="RBAC" class="feature-icon">
+                                <h3>RBAC</h3>
+                            </div>
+                            <p>Role-based access control for fine-grained permission management.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/tags"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/tags-dark.svg" alt="Tags" class="feature-icon">
+                                <h3>Tags</h3>
+                            </div>
+                            <p>Flexible tagging system for organizing and searching your data.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/taxonomies"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/taxonomies-dark.svg" alt="Taxonomies" class="feature-icon">
+                                <h3>Taxonomies</h3>
+                            </div>
+                            <p>Powerful hierarchical classification for complex data sets.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/sms"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/sms-dark.svg" alt="SMS" class="feature-icon">
+                                <h3>SMS</h3>
+                            </div>
+                            <p>Send SMS notifications and alerts via pluggable gateways.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/uploads"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/uploads-dark.svg" alt="Uploads" class="feature-icon">
+                                <h3>Uploads</h3>
+                            </div>
+                            <p>Handle file uploads securely with flexible storage options.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/utility-functions"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/utils-dark.svg" alt="Utils" class="feature-icon">
+                                <h3>Utils</h3>
+                            </div>
+                            <p>Essential utility functions for everyday PHP development.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/rate-limiter"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/limiter-dark.svg" alt="Limiter" class="feature-icon">
+                                <h3>Limiter</h3>
+                            </div>
+                            <p>Protect endpoints with robust rate limiting strategies.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/image-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/image-dark.svg" alt="Image" class="feature-icon">
+                                <h3>Image</h3>
+                            </div>
+                            <p>Process, resize, and optimize images effortlessly.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/encryption-decryption-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/crypto-dark.svg" alt="Crypto" class="feature-icon">
+                                <h3>Crypto</h3>
+                            </div>
+                            <p>Modern cryptography tools for secure data handling.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/asset-loading-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/asset-dark.svg" alt="Asset" class="feature-icon">
+                                <h3>Asset</h3>
+                            </div>
+                            <p>Efficient asset management and versioning for web apps.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/otp-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/otp-dark.svg" alt="OTP" class="feature-icon">
+                                <h3>OTP</h3>
+                            </div>
+                            <p>Generate and verify one-time passwords for authentication.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/social-auth"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/social-auth-dark.svg" alt="Social Auth" class="feature-icon">
+                                <h3>Social Auth</h3>
+                            </div>
+                            <p>Easy integration with major social login providers.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/csv-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/csv-dark.svg" alt="CSV" class="feature-icon">
+                                <h3>CSV</h3>
+                            </div>
+                            <p>Stream and export CSV data with high performance.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/pdf"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/pdf-dark.svg" alt="PDF" class="feature-icon">
+                                <h3>PDF</h3>
+                            </div>
+                            <p>Generate PDF documents from templates or raw data.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/views"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/views-dark.svg" alt="Views" class="feature-icon">
+                                <h3>Views</h3>
+                            </div>
+                            <p>Render dynamic HTML templates and layouts with ease.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/request"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/request-dark.svg" alt="Request" class="feature-icon">
+                                <h3>Request</h3>
+                            </div>
+                            <p>Access and manage HTTP request data in a simple, unified way.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/response"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/response-dark.svg" alt="Response" class="feature-icon">
+                                <h3>Response</h3>
+                            </div>
+                            <p>Send structured HTTP responses, JSON, and more.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/sessions"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/sessions-dark.svg" alt="Sessions" class="feature-icon">
+                                <h3>Sessions</h3>
+                            </div>
+                            <p>Manage user session data securely and efficiently.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/cookies"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/cookies-dark.svg" alt="Cookies" class="feature-icon">
+                                <h3>Cookies</h3>
+                            </div>
+                            <p>Work with HTTP cookies for stateful browser interactions.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/configuration"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/configuration-dark.svg" alt="Configuration" class="feature-icon">
+                                <h3>Configuration</h3>
+                            </div>
+                            <p>Centralized configuration management for your application.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/migrations"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/migrations-dark.svg" alt="Migrations" class="feature-icon">
+                                <h3>Migrations</h3>
+                            </div>
+                            <p>Version and manage your database schema changes.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/seeder"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/seeder-dark.svg" alt="Seeder" class="feature-icon">
+                                <h3>Seeder</h3>
+                            </div>
+                            <p>Seed your database with initial or test data.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/factory"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/factory-dark.svg" alt="Factory" class="feature-icon">
+                                <h3>Factory</h3>
+                            </div>
+                            <p>Generate fake data for testing and development.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/collections"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/collections-dark.svg" alt="Collections" class="feature-icon">
+                                <h3>Collections</h3>
+                            </div>
+                            <p>Work with powerful, chainable data collection utilities.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/transformers"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/transformers-dark.svg" alt="Transformers" class="feature-icon">
+                                <h3>Transformers</h3>
+                            </div>
+                            <p>Transform data for APIs and output formatting with ease.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/password"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/password-dark.svg" alt="Password" class="feature-icon">
+                                <h3>Password</h3>
+                            </div>
+                            <p>Secure password hashing and verification utilities.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/url"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/url-dark.svg" alt="URL" class="feature-icon">
+                                <h3>URL</h3>
+                            </div>
+                            <p>Helpers for generating and parsing URLs.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/mutex-lock"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/mutex-lock-dark.svg" alt="Mutex Lock" class="feature-icon">
+                                <h3>Mutex Lock</h3>
+                            </div>
+                            <p>Prevent race conditions with atomic mutex locking.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/process"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/process-dark.svg" alt="Process" class="feature-icon">
+                                <h3>Process</h3>
+                            </div>
+                            <p>Run and manage system processes from your app.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/array-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/array-dark.svg" alt="Array" class="feature-icon">
+                                <h3>Array</h3>
+                            </div>
+                            <p>Convenient helpers for working with arrays.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/string-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/string-dark.svg" alt="String" class="feature-icon">
+                                <h3>String</h3>
+                            </div>
+                            <p>Powerful string manipulation utilities.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/js-utils"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/js-dark.svg" alt="PHP to JS" class="feature-icon">
+                                <h3>PHP to JS</h3>
+                            </div>
+                            <p>Seamlessly share PHP data with JavaScript.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/schedule"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/schedule-dark.svg" alt="Schedule" class="feature-icon">
+                                <h3>Schedule</h3>
+                            </div>
+                            <p>Automate tasks and commands on a schedule.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/providers"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/providers-dark.svg" alt="Providers" class="feature-icon">
+                                <h3>Providers</h3>
+                            </div>
+                            <p>Register and bootstrap services for your app.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/cors"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/cors-dark.svg" alt="CORS" class="feature-icon">
+                                <h3>CORS</h3>
+                            </div>
+                            <p>Configure cross-origin resource sharing policies.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/http-client"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/http-client-dark.svg" alt="HTTP Client" class="feature-icon">
+                                <h3>HTTP Client</h3>
+                            </div>
+                            <p>Make robust HTTP requests to external APIs and services.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/faker"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/faker-dark.svg" alt="Faker" class="feature-icon">
+                                <h3>Faker</h3>
+                            </div>
+                            <p>Generate fake data for testing and seeding.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/webhook"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/webhook-dark.svg" alt="Webhook" class="feature-icon">
+                                <h3>Webhook</h3>
+                            </div>
+                            <p>Send and receive webhooks for event-driven integrations.</p>
+                        </a></div>
+
+                    <div class="col"><a href="https://lightpack.github.io/docs/#/storage"
+                            class="feature-card col text-decoration-none" target="_blank">
+                            <div class="feature-header">
+                                <img src="assets/storage-dark.svg" alt="Storage" class="feature-icon">
+                                <h3>Storage</h3>
+                            </div>
+                            <p>Manage file storage across local and cloud drivers.</p>
+                        </a></div>
+
+                </div>
+            </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
