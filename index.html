@@ -67,8 +67,23 @@
     <main>
         <section class="py-5 bg-light">
             <div class="container">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/routing"
+                <div class="mb-4 d-flex flex-column flex-md-row align-items-md-center gap-3 justify-content-between">
+                    <ul class="nav nav-pills flex-wrap d-none d-md-flex" id="feature-tabs">
+                        <li class="nav-item"><button class="nav-link active" data-category="all">All</button></li>
+                        <li class="nav-item"><button class="nav-link" data-category="basics">Basics</button></li>
+                        <li class="nav-item"><button class="nav-link" data-category="databases">Databases</button></li>
+                        <li class="nav-item"><button class="nav-link" data-category="lucid-orm">ORM</button></li>
+                        <li class="nav-item"><button class="nav-link"
+                                data-category="authentication">Authentication</button></li>
+                        <li class="nav-item"><button class="nav-link" data-category="utilities">Utilities</button></li>
+                        <li class="nav-item"><button class="nav-link" data-category="advanced">Advanced</button></li>
+                    </ul>
+                    <input type="text" class="form-control w-100" id="feature-search" placeholder="Search"
+                        style="max-width:260px;">
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="feature-cards">
+
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/routing"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/routing-dark.svg" alt="Routing" class="feature-icon">
@@ -77,7 +92,7 @@
                             <p>Dead simple and fast routing that is easy to learn and use.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/controllers"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/controllers"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/controllers-dark.svg" alt="Controllers" class="feature-icon">
@@ -86,7 +101,8 @@
                             <p>Efficient controllers that define actions as per current request.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/orm-introduction"
+                    <div class="col" data-category="lucid-orm"><a
+                            href="https://lightpack.github.io/docs/#/orm-introduction"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/orm-dark.svg" alt="Lucid ORM" class="feature-icon">
@@ -95,7 +111,7 @@
                             <p>Extremely fast and easy to learn Active Record implementation.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/events"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/events"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/events-dark.svg" alt="Events" class="feature-icon">
@@ -104,7 +120,7 @@
                             <p>Achieve code modularity with events that promote low code coupling.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/filters"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/filters"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/filters-dark.svg" alt="Filters" class="feature-icon">
@@ -113,7 +129,7 @@
                             <p>Control incoming HTTP request data and your application response level.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/filesystem"
+                    <div class="col" data-category="databases"><a href="https://lightpack.github.io/docs/#/filesystem"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/filesystem-dark.svg" alt="Filesystem" class="feature-icon">
@@ -122,7 +138,7 @@
                             <p>Simple filesystem abstraction that just works for your app needs.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/environments"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/environments"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/environments-dark.svg" alt="Environments" class="feature-icon">
@@ -131,7 +147,7 @@
                             <p>Easily manage your application config environments as per your needs.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/validation"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/validation"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/validation-dark.svg" alt="Validator" class="feature-icon">
@@ -140,7 +156,7 @@
                             <p>Validate form request data with rules to achieve simplicity.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/console"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/console"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/cli-dark.svg" alt="Console CLI" class="feature-icon">
@@ -149,7 +165,7 @@
                             <p>Simple console library that generates code for you and is extendible too.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/caching"
+                    <div class="col" data-category="databases"><a href="https://lightpack.github.io/docs/#/caching"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/cache-dark.svg" alt="Caching" class="feature-icon">
@@ -158,7 +174,7 @@
                             <p>In-built driver based cache service that is easy to understand and use.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/logging"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/logging"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/logger-dark.svg" alt="Logging" class="feature-icon">
@@ -167,7 +183,7 @@
                             <p>PSR-3 compatible logging library for your application.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/containers"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/containers"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/container-dark.svg" alt="Containers" class="feature-icon">
@@ -176,7 +192,7 @@
                             <p>Bind services in container for easy access throughout app life cycle.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/moment"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/moment"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/date-dark.svg" alt="Moment" class="feature-icon">
@@ -185,7 +201,7 @@
                             <p>Flexible date and time utility library class functions.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/mails"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/mails"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/mailing-dark.svg" alt="Mails" class="feature-icon">
@@ -194,7 +210,7 @@
                             <p>Send rich HTML mails using any SMTP service provider.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/queue"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/queue"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/queue-dark.svg" alt="Jobs" class="feature-icon">
@@ -203,7 +219,8 @@
                             <p>Process time consuming jobs in background with ease.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/authentication"
+                    <div class="col" data-category="authentication"><a
+                            href="https://lightpack.github.io/docs/#/authentication"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/auth-dark.svg" alt="Authentication" class="feature-icon">
@@ -212,7 +229,7 @@
                             <p>Session-Cookie or API access token based authentication.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/testing"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/testing"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/testing-dark.svg" alt="Testing" class="feature-icon">
@@ -221,7 +238,7 @@
                             <p>Feature test your application routes, responses, and JSON endpoints.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/cable"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/cable"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/realtime-dark.svg" alt="Realtime" class="feature-icon">
@@ -230,7 +247,7 @@
                             <p>Push live updates to clients with HTTP live polling support.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/settings"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/settings"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/settings-dark.svg" alt="Settings" class="feature-icon">
@@ -239,7 +256,7 @@
                             <p>Manage dynamic app settings with a simple, intuitive API.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/secrets"
+                    <div class="col" data-category="authentication"><a href="https://lightpack.github.io/docs/#/secrets"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/secrets-dark.svg" alt="Secrets" class="feature-icon">
@@ -248,7 +265,7 @@
                             <p>Securely store and access sensitive configuration secrets.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/captcha"
+                    <div class="col" data-category="authentication"><a href="https://lightpack.github.io/docs/#/captcha"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/captcha-dark.svg" alt="Captcha" class="feature-icon">
@@ -257,7 +274,7 @@
                             <p>Protect forms with built-in, easy-to-integrate CAPTCHA.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/audit"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/audit"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/audit-dark.svg" alt="Audit" class="feature-icon">
@@ -266,7 +283,7 @@
                             <p>Track user actions and system changes for full auditability.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/ai-service"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/ai-service"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/ai-dark.svg" alt="AI" class="feature-icon">
@@ -275,7 +292,7 @@
                             <p>Integrate AI-powered features and workflows with ease.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/mfa"
+                    <div class="col" data-category="authentication"><a href="https://lightpack.github.io/docs/#/mfa"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/mfa-dark.svg" alt="MFA" class="feature-icon">
@@ -284,7 +301,7 @@
                             <p>Add multi-factor authentication for enhanced account security.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/rbac"
+                    <div class="col" data-category="authentication"><a href="https://lightpack.github.io/docs/#/rbac"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/rbac-dark.svg" alt="RBAC" class="feature-icon">
@@ -293,7 +310,7 @@
                             <p>Role-based access control for fine-grained permission management.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/tags"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/tags"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/tags-dark.svg" alt="Tags" class="feature-icon">
@@ -302,7 +319,7 @@
                             <p>Flexible tagging system for organizing and searching your data.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/taxonomies"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/taxonomies"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/taxonomies-dark.svg" alt="Taxonomies" class="feature-icon">
@@ -311,7 +328,7 @@
                             <p>Powerful hierarchical classification for complex data sets.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/sms"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/sms"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/sms-dark.svg" alt="SMS" class="feature-icon">
@@ -320,7 +337,7 @@
                             <p>Send SMS notifications and alerts via pluggable gateways.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/uploads"
+                    <div class="col" data-category="databases"><a href="https://lightpack.github.io/docs/#/uploads"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/uploads-dark.svg" alt="Uploads" class="feature-icon">
@@ -329,7 +346,8 @@
                             <p>Handle file uploads securely with flexible storage options.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/utility-functions"
+                    <div class="col" data-category="utilities"><a
+                            href="https://lightpack.github.io/docs/#/utility-functions"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/utils-dark.svg" alt="Utils" class="feature-icon">
@@ -338,7 +356,8 @@
                             <p>Essential utility functions for everyday PHP development.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/rate-limiter"
+                    <div class="col" data-category="authentication"><a
+                            href="https://lightpack.github.io/docs/#/rate-limiter"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/limiter-dark.svg" alt="Limiter" class="feature-icon">
@@ -347,7 +366,7 @@
                             <p>Protect endpoints with robust rate limiting strategies.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/image-utils"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/image-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/image-dark.svg" alt="Image" class="feature-icon">
@@ -356,7 +375,8 @@
                             <p>Process, resize, and optimize images effortlessly.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/encryption-decryption-utils"
+                    <div class="col" data-category="authentication"><a
+                            href="https://lightpack.github.io/docs/#/encryption-decryption-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/crypto-dark.svg" alt="Crypto" class="feature-icon">
@@ -365,7 +385,8 @@
                             <p>Modern cryptography tools for secure data handling.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/asset-loading-utils"
+                    <div class="col" data-category="utilities"><a
+                            href="https://lightpack.github.io/docs/#/asset-loading-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/asset-dark.svg" alt="Asset" class="feature-icon">
@@ -374,7 +395,8 @@
                             <p>Efficient asset management and versioning for web apps.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/otp-utils"
+                    <div class="col" data-category="authentication"><a
+                            href="https://lightpack.github.io/docs/#/otp-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/otp-dark.svg" alt="OTP" class="feature-icon">
@@ -383,7 +405,7 @@
                             <p>Generate and verify one-time passwords for authentication.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/social-auth"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/social-auth"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/social-auth-dark.svg" alt="Social Auth" class="feature-icon">
@@ -392,7 +414,7 @@
                             <p>Easy integration with major social login providers.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/csv-utils"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/csv-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/csv-dark.svg" alt="CSV" class="feature-icon">
@@ -401,7 +423,7 @@
                             <p>Stream and export CSV data with high performance.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/pdf"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/pdf"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/pdf-dark.svg" alt="PDF" class="feature-icon">
@@ -410,7 +432,7 @@
                             <p>Generate PDF documents from templates or raw data.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/views"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/views"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/views-dark.svg" alt="Views" class="feature-icon">
@@ -419,7 +441,7 @@
                             <p>Render dynamic HTML templates and layouts with ease.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/request"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/request"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/request-dark.svg" alt="Request" class="feature-icon">
@@ -428,7 +450,7 @@
                             <p>Access and manage HTTP request data in a simple, unified way.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/response"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/response"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/response-dark.svg" alt="Response" class="feature-icon">
@@ -437,7 +459,7 @@
                             <p>Send structured HTTP responses, JSON, and more.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/sessions"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/sessions"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/sessions-dark.svg" alt="Sessions" class="feature-icon">
@@ -446,7 +468,7 @@
                             <p>Manage user session data securely and efficiently.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/cookies"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/cookies"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/cookies-dark.svg" alt="Cookies" class="feature-icon">
@@ -455,7 +477,7 @@
                             <p>Work with HTTP cookies for stateful browser interactions.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/configuration"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/configuration"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/configuration-dark.svg" alt="Configuration" class="feature-icon">
@@ -464,7 +486,7 @@
                             <p>Centralized configuration management for your application.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/migrations"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/migrations"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/migrations-dark.svg" alt="Migrations" class="feature-icon">
@@ -473,7 +495,7 @@
                             <p>Version and manage your database schema changes.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/seeder"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/seeder"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/seeder-dark.svg" alt="Seeder" class="feature-icon">
@@ -482,7 +504,7 @@
                             <p>Seed your database with initial or test data.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/factory"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/factory"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/factory-dark.svg" alt="Factory" class="feature-icon">
@@ -491,7 +513,7 @@
                             <p>Generate fake data for testing and development.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/collections"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/collections"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/collections-dark.svg" alt="Collections" class="feature-icon">
@@ -500,7 +522,7 @@
                             <p>Work with powerful, chainable data collection utilities.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/transformers"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/transformers"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/transformers-dark.svg" alt="Transformers" class="feature-icon">
@@ -509,7 +531,8 @@
                             <p>Transform data for APIs and output formatting with ease.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/password"
+                    <div class="col" data-category="authentication"><a
+                            href="https://lightpack.github.io/docs/#/password"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/password-dark.svg" alt="Password" class="feature-icon">
@@ -518,7 +541,7 @@
                             <p>Secure password hashing and verification utilities.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/url"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/url"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/url-dark.svg" alt="URL" class="feature-icon">
@@ -527,7 +550,7 @@
                             <p>Helpers for generating and parsing URLs.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/mutex-lock"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/mutex-lock"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/mutex-lock-dark.svg" alt="Mutex Lock" class="feature-icon">
@@ -536,7 +559,7 @@
                             <p>Prevent race conditions with atomic mutex locking.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/process"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/process"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/process-dark.svg" alt="Process" class="feature-icon">
@@ -545,7 +568,7 @@
                             <p>Run and manage system processes from your app.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/array-utils"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/array-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/array-dark.svg" alt="Array" class="feature-icon">
@@ -554,7 +577,7 @@
                             <p>Convenient helpers for working with arrays.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/string-utils"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/string-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/string-dark.svg" alt="String" class="feature-icon">
@@ -563,7 +586,7 @@
                             <p>Powerful string manipulation utilities.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/js-utils"
+                    <div class="col" data-category="utilities"><a href="https://lightpack.github.io/docs/#/js-utils"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/js-dark.svg" alt="PHP to JS" class="feature-icon">
@@ -572,7 +595,7 @@
                             <p>Seamlessly share PHP data with JavaScript.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/schedule"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/schedule"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/schedule-dark.svg" alt="Schedule" class="feature-icon">
@@ -581,7 +604,7 @@
                             <p>Automate tasks and commands on a schedule.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/providers"
+                    <div class="col" data-category="basics"><a href="https://lightpack.github.io/docs/#/providers"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/providers-dark.svg" alt="Providers" class="feature-icon">
@@ -590,7 +613,7 @@
                             <p>Register and bootstrap services for your app.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/cors"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/cors"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/cors-dark.svg" alt="CORS" class="feature-icon">
@@ -599,7 +622,7 @@
                             <p>Configure cross-origin resource sharing policies.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/http-client"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/http-client"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/http-client-dark.svg" alt="HTTP Client" class="feature-icon">
@@ -608,7 +631,7 @@
                             <p>Make robust HTTP requests to external APIs and services.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/faker"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/faker"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/faker-dark.svg" alt="Faker" class="feature-icon">
@@ -617,7 +640,7 @@
                             <p>Generate fake data for testing and seeding.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/webhook"
+                    <div class="col" data-category="advanced"><a href="https://lightpack.github.io/docs/#/webhook"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/webhook-dark.svg" alt="Webhook" class="feature-icon">
@@ -626,7 +649,7 @@
                             <p>Send and receive webhooks for event-driven integrations.</p>
                         </a></div>
 
-                    <div class="col"><a href="https://lightpack.github.io/docs/#/storage"
+                    <div class="col" data-category="databases"><a href="https://lightpack.github.io/docs/#/storage"
                             class="feature-card col text-decoration-none" target="_blank">
                             <div class="feature-header">
                                 <img src="assets/storage-dark.svg" alt="Storage" class="feature-icon">
@@ -640,6 +663,40 @@
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Feature Tabs & Search Filtering
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('#feature-tabs .nav-link');
+            const searchInput = document.getElementById('feature-search');
+            const featureCards = document.querySelectorAll('#feature-cards .feature-card');
+            let activeCategory = 'all';
+            let searchTerm = '';
+
+            function filterFeatures() {
+                featureCards.forEach(card => {
+                    const category = card.parentNode.getAttribute('data-category');
+                    const text = card.innerText.toLowerCase();
+                    const matchesCategory = (activeCategory === 'all') || (category === activeCategory);
+                    const matchesSearch = text.includes(searchTerm);
+                    card.parentNode.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
+                });
+            }
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeCategory = this.getAttribute('data-category');
+                    filterFeatures();
+                });
+            });
+
+            searchInput.addEventListener('input', function () {
+                searchTerm = this.value.trim().toLowerCase();
+                filterFeatures();
+            });
+        });
+    </script>
 </body>
 
 </html>
