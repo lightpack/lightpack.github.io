@@ -100,7 +100,7 @@ if (file_exists($readmePath)) {
         'assetPath' => '/docs/assets',
         'navPrefix' => '/docs/'
     ]);
-    include __DIR__ . '/layouts/index.php';
+    include __DIR__ . '/layouts/default.php';
     file_put_contents(DIST_DIR . '/index.html', ob_get_clean());
 }
 
