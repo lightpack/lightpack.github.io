@@ -8,19 +8,22 @@ const CONTENT_DIR = __DIR__ . '/content';
 const DIST_DIR = __DIR__ . '/../docs';
 const NAV_FILE = __DIR__ . '/navigation.json';
 
-function parseFrontmatter(string $content): array
+function getPageMetadata(array $sidebar, string $filename): array
 {
-    if (preg_match('/^```json\s*\n(.*?)\n```\s*\n---\s*\n/s', $content, $matches, PREG_OFFSET_CAPTURE)) {
-        $frontmatter = json_decode($matches[1][0], true);
-        if (!is_array($frontmatter)) {
-            return ['frontmatter' => [], 'contentStart' => 0];
+    foreach ($sidebar as $section) {
+        foreach ($section['pages'] as $page) {
+            if ($page['file'] === $filename) {
+                return [
+                    'title' => $page['title'],
+                    'description' => $page['description'] ?? null
+                ];
+            }
         }
-        return [
-            'frontmatter' => $frontmatter,
-            'contentStart' => $matches[0][1] + strlen($matches[0][0])
-        ];
     }
-    return ['frontmatter' => [], 'contentStart' => 0];
+    return [
+        'title' => ucfirst(str_replace('-', ' ', $filename)),
+        'description' => null
+    ];
 }
 
 function ensureDir(string $path): void
@@ -85,13 +88,12 @@ foreach ($navConfig['sections'] as $section) {
 $readmePath = CONTENT_DIR . '/README.md';
 if (file_exists($readmePath)) {
     $readmeContent = file_get_contents($readmePath);
-    $parsed = parseFrontmatter($readmeContent);
-    $readmeBody = $parsed['contentStart'] ? substr($readmeContent, $parsed['contentStart']) : $readmeContent;
     
     ob_start();
     extract([
         'title' => 'Lightpack Documentation',
-        'content' => $parsedown->text($readmeBody),
+        'description' => 'A modern PHP web framework with extreme performance and small footprint',
+        'content' => $parsedown->text($readmeContent),
         'currentPage' => '',
         'sidebar' => $sidebar,
         'assetPath' => '/docs/assets',
@@ -114,23 +116,21 @@ foreach (glob(CONTENT_DIR . '/*.md') as $mdFile) {
         continue;
     }
     
-    $parsed = parseFrontmatter($mdContent);
-    $mdBody = $parsed['contentStart'] ? substr($mdContent, $parsed['contentStart']) : $mdContent;
-    
-    $title = $parsed['frontmatter']['title'] ?? ucfirst(str_replace('-', ' ', $basename));
+    $metadata = getPageMetadata($sidebar, $basename);
     
     $pageDir = DIST_DIR . '/' . $basename;
     ensureDir($pageDir);
     
-    $layoutFile = __DIR__ . '/layouts/' . ($parsed['frontmatter']['layout'] ?? 'default') . '.php';
+    $layoutFile = __DIR__ . '/layouts/default.php';
     if (!file_exists($layoutFile)) {
         $layoutFile = __DIR__ . '/layouts/default.php';
     }
     
     ob_start();
     extract([
-        'title' => $title,
-        'content' => $parsedown->text($mdBody),
+        'title' => $metadata['title'],
+        'description' => $metadata['description'],
+        'content' => $parsedown->text($mdContent),
         'currentPage' => $basename . '/',
         'sidebar' => $sidebar,
         'assetPath' => '../assets',
