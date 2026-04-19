@@ -6,8 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 const CONTENT_DIR = __DIR__ . '/content';
 const DIST_DIR = __DIR__ . '/../docs';
-const DEFAULT_SECTION = 'General';
-const DEFAULT_ORDER = 1000;
+const NAV_FILE = __DIR__ . '/navigation.json';
 
 function parseFrontmatter(string $content): array
 {
@@ -54,48 +53,34 @@ if (!is_dir(CONTENT_DIR)) {
     die("Error: content/ directory not found.\nRun: git clone https://github.com/lightpack/docs content\n");
 }
 
+if (!file_exists(NAV_FILE)) {
+    die("Error: navigation.json not found.\n");
+}
+
 ensureDir(DIST_DIR);
 
 $parsedown = new Parsedown();
-$sections = [];
+$navConfig = json_decode(file_get_contents(NAV_FILE), true);
 
-foreach (glob(CONTENT_DIR . '/*.md') as $mdFile) {
-    $mdContent = file_get_contents($mdFile);
-    if ($mdContent === false) {
-        error_log("Failed to read: $mdFile");
-        continue;
+if (!$navConfig || !isset($navConfig['sections'])) {
+    die("Error: Invalid navigation.json format.\n");
+}
+
+$sidebar = [];
+foreach ($navConfig['sections'] as $section) {
+    $pages = [];
+    foreach ($section['pages'] as $pageConfig) {
+        $pages[] = [
+            'title' => $pageConfig['title'],
+            'href' => $pageConfig['file'] . '/',
+            'file' => $pageConfig['file']
+        ];
     }
-    
-    $parsed = parseFrontmatter($mdContent);
-    $frontmatter = $parsed['frontmatter'];
-    $mdBody = $parsed['contentStart'] ? substr($mdContent, $parsed['contentStart']) : $mdContent;
-    
-    $basename = basename($mdFile, '.md');
-    $title = $frontmatter['title'] ?? ucfirst(str_replace('-', ' ', $basename));
-    $section = $frontmatter['section'] ?? DEFAULT_SECTION;
-    $order = $frontmatter['order'] ?? DEFAULT_ORDER;
-    
-    $sections[$section][] = [
-        'title' => $title,
-        'href' => $basename . '/',
-        'order' => $order,
-        'basename' => $basename,
-        'content' => $parsedown->text($mdBody),
-        'frontmatter' => $frontmatter
+    $sidebar[] = [
+        'section' => $section['section'],
+        'pages' => $pages
     ];
 }
-
-ksort($sections);
-foreach ($sections as &$pages) {
-    usort($pages, fn($a, $b) => $a['order'] <=> $b['order'] ?: strcmp($a['title'], $b['title']));
-}
-unset($pages);
-
-$sidebar = array_map(
-    fn($section, $pages) => ['section' => $section, 'pages' => $pages],
-    array_keys($sections),
-    $sections
-);
 
 $readmePath = CONTENT_DIR . '/README.md';
 if (file_exists($readmePath)) {
@@ -108,34 +93,51 @@ if (file_exists($readmePath)) {
         'title' => 'Lightpack Documentation',
         'content' => $parsedown->text($readmeBody),
         'currentPage' => '',
-        'sidebar' => $sidebar
+        'sidebar' => $sidebar,
+        'assetPath' => '/docs/assets',
+        'navPrefix' => '/docs/'
     ]);
     include __DIR__ . '/layouts/index.php';
     file_put_contents(DIST_DIR . '/index.html', ob_get_clean());
 }
 
-foreach ($sections as $sectionPages) {
-    foreach ($sectionPages as $page) {
-        $pageDir = DIST_DIR . '/' . $page['basename'];
-        ensureDir($pageDir);
-        
-        $layoutFile = __DIR__ . '/layouts/' . ($page['frontmatter']['layout'] ?? 'default') . '.php';
-        if (!file_exists($layoutFile)) {
-            $layoutFile = __DIR__ . '/layouts/default.php';
-        }
-        
-        ob_start();
-        extract([
-            'title' => $page['title'],
-            'content' => $page['content'],
-            'currentPage' => $page['basename'] . '/',
-            'sidebar' => $sidebar
-        ]);
-        include $layoutFile;
-        $html = ob_get_clean();
-        
-        file_put_contents("$pageDir/index.html", $html);
+foreach (glob(CONTENT_DIR . '/*.md') as $mdFile) {
+    $basename = basename($mdFile, '.md');
+    
+    if ($basename === 'README' || $basename === '_sidebar' || $basename === '_navbar' || $basename === '_coverpage') {
+        continue;
     }
+    
+    $mdContent = file_get_contents($mdFile);
+    if ($mdContent === false) {
+        error_log("Failed to read: $mdFile");
+        continue;
+    }
+    
+    $parsed = parseFrontmatter($mdContent);
+    $mdBody = $parsed['contentStart'] ? substr($mdContent, $parsed['contentStart']) : $mdContent;
+    
+    $title = $parsed['frontmatter']['title'] ?? ucfirst(str_replace('-', ' ', $basename));
+    
+    $pageDir = DIST_DIR . '/' . $basename;
+    ensureDir($pageDir);
+    
+    $layoutFile = __DIR__ . '/layouts/' . ($parsed['frontmatter']['layout'] ?? 'default') . '.php';
+    if (!file_exists($layoutFile)) {
+        $layoutFile = __DIR__ . '/layouts/default.php';
+    }
+    
+    ob_start();
+    extract([
+        'title' => $title,
+        'content' => $parsedown->text($mdBody),
+        'currentPage' => $basename . '/',
+        'sidebar' => $sidebar,
+        'assetPath' => '../assets',
+        'navPrefix' => '../'
+    ]);
+    include $layoutFile;
+    file_put_contents("$pageDir/index.html", ob_get_clean());
 }
 
 if (is_dir(__DIR__ . '/assets')) {
@@ -143,3 +145,4 @@ if (is_dir(__DIR__ . '/assets')) {
 }
 
 echo "✅ Build complete! Generated docs/ folder with friendly URLs.\n";
+echo "   Navigation structure defined in navigation.json\n";

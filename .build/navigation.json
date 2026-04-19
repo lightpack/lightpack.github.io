@@ -1,0 +1,114 @@
+{
+  "sections": [
+    {
+      "section": "Getting Started",
+      "pages": [
+        { "title": "Quick Install", "file": "install" }
+      ]
+    },
+    {
+      "section": "Basics",
+      "pages": [
+        { "title": "Routing", "file": "routing" },
+        { "title": "Controllers", "file": "controllers" },
+        { "title": "Views", "file": "views" },
+        { "title": "Request", "file": "request" },
+        { "title": "Response", "file": "response" },
+        { "title": "Sessions", "file": "sessions" },
+        { "title": "Cookies", "file": "cookies" },
+        { "title": "Validation", "file": "validation" },
+        { "title": "Filesystem", "file": "filesystem" },
+        { "title": "Configuration", "file": "configuration" },
+        { "title": "Environments", "file": "environments" },
+        { "title": "Date & Time", "file": "moment" },
+        { "title": "Utility Functions", "file": "utility-functions" }
+      ]
+    },
+    {
+      "section": "Databases",
+      "pages": [
+        { "title": "Connection", "file": "db-connection" },
+        { "title": "Query Builder", "file": "db-query-builder" },
+        { "title": "Migrations", "file": "migrations" },
+        { "title": "Seeder", "file": "seeder" },
+        { "title": "Factory", "file": "factory" }
+      ]
+    },
+    {
+      "section": "Lucid ORM",
+      "pages": [
+        { "title": "Introduction", "file": "orm-introduction" },
+        { "title": "Models", "file": "models" },
+        { "title": "Relationships", "file": "relationships" },
+        { "title": "Eager Loading", "file": "eager-loading" },
+        { "title": "Collections", "file": "collections" },
+        { "title": "Transformers", "file": "transformers" },
+        { "title": "Multi-Tenancy", "file": "multi-tenancy" }
+      ]
+    },
+    {
+      "section": "Authentication",
+      "pages": [
+        { "title": "Introduction", "file": "authentication" },
+        { "title": "API Access Tokens", "file": "api-access-tokens" },
+        { "title": "Configuration", "file": "auth-configuration" },
+        { "title": "Extending Auth", "file": "custom-auth" },
+        { "title": "Route Filters", "file": "auth-filters" }
+      ]
+    },
+    {
+      "section": "Utilities",
+      "pages": [
+        { "title": "Password", "file": "password" },
+        { "title": "Crypto", "file": "encryption-decryption-utils" },
+        { "title": "URL", "file": "url" },
+        { "title": "Image", "file": "image-utils" },
+        { "title": "Rate Limit", "file": "rate-limiter" },
+        { "title": "Mutex Lock", "file": "mutex-lock" },
+        { "title": "Process", "file": "process" },
+        { "title": "Array", "file": "array-utils" },
+        { "title": "String", "file": "string-utils" },
+        { "title": "OTP", "file": "otp-utils" },
+        { "title": "Assets", "file": "asset-loading-utils" },
+        { "title": "CSV", "file": "csv-utils" },
+        { "title": "PHP to JS", "file": "js-utils" }
+      ]
+    },
+    {
+      "section": "Advanced",
+      "pages": [
+        { "title": "Mails", "file": "mails" },
+        { "title": "Queue", "file": "queue" },
+        { "title": "Schedule", "file": "schedule" },
+        { "title": "Filters", "file": "filters" },
+        { "title": "Events", "file": "events" },
+        { "title": "Caching", "file": "caching" },
+        { "title": "Logging", "file": "logging" },
+        { "title": "Providers", "file": "providers" },
+        { "title": "Containers", "file": "containers" },
+        { "title": "CORS", "file": "cors" },
+        { "title": "HTTP Client", "file": "http-client" },
+        { "title": "Console", "file": "console" },
+        { "title": "Testing", "file": "testing" },
+        { "title": "Secrets", "file": "secrets" },
+        { "title": "Settings", "file": "settings" },
+        { "title": "Tags", "file": "tags" },
+        { "title": "Taxonomies", "file": "taxonomies" },
+        { "title": "Faker", "file": "faker" },
+        { "title": "Audit", "file": "audit" },
+        { "title": "RBAC", "file": "rbac" },
+        { "title": "Captcha", "file": "captcha" },
+        { "title": "Webhook", "file": "webhook" },
+        { "title": "AI", "file": "ai-service" },
+        { "title": "Cable", "file": "cable" },
+        { "title": "Uploads", "file": "uploads" },
+        { "title": "Social Auth", "file": "social-auth" },
+        { "title": "PDF", "file": "pdf" },
+        { "title": "SMS", "file": "sms" },
+        { "title": "MFA", "file": "mfa" },
+        { "title": "Storage", "file": "storage" },
+        { "title": "Pipeline", "file": "pipeline-pattern" }
+      ]
+    }
+  ]
+}
