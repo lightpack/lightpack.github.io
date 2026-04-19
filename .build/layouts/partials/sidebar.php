@@ -1,6 +1,6 @@
 <aside class="sidebar">
   <div class="sidebar-logo">
-    <img src="<?= $assetPath ?? '../assets' ?>/logo.svg" />
+    <img src="<?= $assetPath ?? '../assets' ?>/logo.svg" alt="Lightpack PHP MVC Web Framework" />
   </div>
   <?php if(isset($sidebar)): ?>
     <?php foreach ($sidebar as $group): ?>

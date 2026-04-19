@@ -6,11 +6,24 @@
     <title>Audit</title>
         <meta property="og:title" content="Audit">
     <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/docs/assets/styles.css">
     <style>
+      @font-face {
+        font-family: 'Montserrat';
+        src: url('/docs/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Montserrat';
+        src: url('/docs/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
       body {
-        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
       }
     </style>
 </head>
@@ -18,7 +31,7 @@
 <div class="container">
   <aside class="sidebar">
   <div class="sidebar-logo">
-    <img src="/docs/assets/logo.svg" />
+    <img src="/docs/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
   </div>
             <div class="sidebar-section">
         <div class="sidebar-section-title">Getting Started</div>
@@ -386,7 +399,7 @@
                       <li>
               <a href="/docs/ai-service"
                  >
-                AI Service              </a>
+                AI              </a>
             </li>
                       <li>
               <a href="/docs/cable"
