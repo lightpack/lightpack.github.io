@@ -75,7 +75,7 @@ foreach ($navConfig['sections'] as $section) {
     foreach ($section['pages'] as $pageConfig) {
         $pages[] = [
             'title' => $pageConfig['title'],
-            'href' => $pageConfig['file'] . '/',
+            'href' => $pageConfig['file'],
             'file' => $pageConfig['file'],
             'description' => $pageConfig['description'] ?? null
         ];
@@ -134,8 +134,8 @@ foreach (glob(CONTENT_DIR . '/*.md') as $mdFile) {
         'content' => $parsedown->text($mdContent),
         'currentPage' => $basename . '/',
         'sidebar' => $sidebar,
-        'assetPath' => '../assets',
-        'navPrefix' => '../'
+        'assetPath' => '/docs/assets',
+        'navPrefix' => '/docs/'
     ]);
     include $layoutFile;
     file_put_contents("$pageDir/index.html", ob_get_clean());
