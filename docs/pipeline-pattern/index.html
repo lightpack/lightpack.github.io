@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pipeline pattern</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   class="active" aria-current="page">
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Pipeline Pattern</h1>
+<p>The <strong>Pipeline</strong> pattern provides a clean way to pass data through a series of operations (pipes). Each pipe transforms the data and passes it to the next pipe. It's ideal for multi-step processes like order processing, data validation, file uploads, and request handling.</p>
+<p>Key features:</p>
+<ul>
+<li>Sequential data transformation</li>
+<li>Automatic dependency injection</li>
+<li>Mix closures, instances, and class names</li>
+<li>Clean, testable code</li>
+<li>Single responsibility per pipe</li>
+</ul>
+<p>You can create a pipeline using the <code>pipeline()</code> helper function:</p>
+<pre><code class="language-php">$result = pipeline($data)
+    -&gt;through([
+        ValidateData::class,
+        TransformData::class,
+        SaveData::class,
+    ])
+    -&gt;run();</code></pre>
+<h2>Basic Usage</h2>
+<h3>Simple Transformation</h3>
+<pre><code class="language-php">$result = pipeline(10)
+    -&gt;through([
+        fn($n) =&gt; $n * 2,  // 10 * 2 = 20
+        fn($n) =&gt; $n + 5,  // 20 + 5 = 25
+    ])
+    -&gt;run();
+
+// $result = 25</code></pre>
+<h3>String Processing</h3>
+<pre><code class="language-php">$result = pipeline('hello world')
+    -&gt;through([
+        fn($str) =&gt; strtoupper($str),           // HELLO WORLD
+        fn($str) =&gt; str_replace(' ', '_', $str), // HELLO_WORLD
+    ])
+    -&gt;run();
+
+// $result = 'HELLO_WORLD'</code></pre>
+<h2>Using Pipe Classes</h2>
+<p>Instead of closures, you can use dedicated pipe classes for better organization and reusability.</p>
+<h3>Creating a Pipe Class</h3>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Pipes;
+
+class UpperCasePipe
+{
+    public function __invoke($value)
+    {
+        return strtoupper($value);
+    }
+}</code></pre>
+<h3>Using the Pipe</h3>
+<pre><code class="language-php">use App\Pipes\UpperCasePipe;
+
+$result = pipeline('hello')
+    -&gt;through([
+        UpperCasePipe::class,  // Resolved from container
+    ])
+    -&gt;run();
+
+// $result = 'HELLO'</code></pre>
+<h2>Dependency Injection</h2>
+<p>Pipe classes support automatic dependency injection through the container.</p>
+<h3>Pipe with Dependencies</h3>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Pipes\Order;
+
+use App\Services\InventoryService;
+
+class ValidateInventory
+{
+    protected $inventoryService;
+
+    // Dependencies automatically injected
+    public function __construct(InventoryService $inventoryService)
+    {
+        $this-&gt;inventoryService = $inventoryService;
+    }
+
+    public function __invoke($order)
+    {
+        foreach ($order-&gt;items as $item) {
+            if (!$this-&gt;inventoryService-&gt;isAvailable($item)) {
+                throw new \Exception('Product out of stock');
+            }
+        }
+
+        return $order;
+    }
+}</code></pre>
+<h3>Using It</h3>
+<pre><code class="language-php">$order = pipeline($order)
+    -&gt;through([
+        ValidateInventory::class,  // InventoryService injected automatically
+    ])
+    -&gt;run();</code></pre>
+<h2>Real-World Examples</h2>
+<h3>Order Processing Pipeline</h3>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Controllers;
+
+use App\Pipes\Order\ValidateInventory;
+use App\Pipes\Order\ApplyDiscounts;
+use App\Pipes\Order\CalculateTax;
+use App\Pipes\Order\ProcessPayment;
+use App\Pipes\Order\ReserveInventory;
+use App\Pipes\Order\SendConfirmationEmail;
+
+class OrderController
+{
+    public function checkout($request)
+    {
+        $order = new Order;
+        $order-&gt;customer_id = $request-&gt;customer_id;
+        $order-&gt;save();
+
+        $order = pipeline($order)
+            -&gt;through([
+                ValidateInventory::class,
+                ApplyDiscounts::class,
+                CalculateTax::class,
+                ProcessPayment::class,
+                ReserveInventory::class,
+                SendConfirmationEmail::class,
+            ])
+            -&gt;run();
+
+        return response()-&gt;json($order);
+    }
+}</code></pre>
+<h3>File Upload Pipeline</h3>
+<pre><code class="language-php">$file = pipeline($request-&gt;file('document'))
+    -&gt;through([
+        ValidateFileType::class,
+        ValidateFileSize::class,
+        ScanForVirus::class,
+        OptimizeFile::class,
+        UploadToS3::class,
+        CreateDatabaseRecord::class,
+    ])
+    -&gt;run();</code></pre>
+<h3>Data Validation Pipeline</h3>
+<pre><code class="language-php">$data = pipeline($request-&gt;all())
+    -&gt;through([
+        SanitizeInput::class,
+        ValidateEmail::class,
+        CheckDuplicateEmail::class,
+        ValidatePassword::class,
+        NormalizePhone::class,
+    ])
+    -&gt;run();
+
+$user = User::create($data);</code></pre>
+<h3>Lead Scoring Pipeline (CRM)</h3>
+<pre><code class="language-php">$lead = pipeline($lead)
+    -&gt;through([
+        ScoreByCompanySize::class,    // +20 if &gt; 100 employees
+        ScoreByIndustry::class,       // +15 if tech
+        ScoreByEngagement::class,     // +10 per email open
+        ScoreByJobTitle::class,       // +25 if C-level
+        AssignSalesRep::class,        // Auto-assign if score &gt; 80
+    ])
+    -&gt;run();</code></pre>
+<h2>Mixing Pipe Types</h2>
+<p>You can mix class names, instances, and closures in the same pipeline:</p>
+<pre><code class="language-php">$result = pipeline($data)
+    -&gt;through([
+        ValidateData::class,              // Class name (DI)
+        new TransformData($config),       // Instance
+        fn($data) =&gt; $data['result'],     // Closure
+        ProcessData::class,               // Class name (DI)
+    ])
+    -&gt;run();</code></pre>
+<h2>Conditional Pipes</h2>
+<p>You can conditionally add pipes based on your business logic by building the pipes array dynamically:</p>
+<h3>Basic Conditional Pipes</h3>
+<pre><code class="language-php">// Build pipes array conditionally
+$pipes = [
+    ValidateInventory::class,
+];
+
+if ($order-&gt;hasCoupon()) {
+    $pipes[] = ApplyDiscount::class;
+}
+
+if ($order-&gt;isInternational()) {
+    $pipes[] = CalculateInternationalTax::class;
+} else {
+    $pipes[] = CalculateTax::class;
+}
+
+$pipes[] = ProcessPayment::class;
+
+// Run pipeline with conditional pipes
+$result = pipeline($order)
+    -&gt;through($pipes)
+    -&gt;run();</code></pre>
+<h3>Order Type Based Pipes</h3>
+<pre><code class="language-php">$pipes = [ValidateInventory::class];
+
+// Different pipes for different order types
+switch ($order-&gt;type) {
+    case 'wholesale':
+        $pipes[] = ApplyWholesaleDiscount::class;
+        // No tax for wholesale
+        break;
+
+    case 'international':
+        $pipes[] = ApplyStandardDiscount::class;
+        $pipes[] = CalculateInternationalTax::class;
+        $pipes[] = CheckCustomsRestrictions::class;
+        break;
+
+    default:
+        $pipes[] = ApplyStandardDiscount::class;
+        $pipes[] = CalculateTax::class;
+}
+
+$pipes[] = ProcessPayment::class;
+
+$result = pipeline($order)-&gt;through($pipes)-&gt;run();</code></pre>
+<h3>User Role Based Pipes</h3>
+<pre><code class="language-php">$pipes = [ValidateData::class];
+
+// Add pipes based on user role
+if ($user-&gt;isAdmin()) {
+    $pipes[] = SkipApproval::class;
+} else {
+    $pipes[] = RequireApproval::class;
+    $pipes[] = NotifyManager::class;
+}
+
+$pipes[] = SaveData::class;
+
+$result = pipeline($data)-&gt;through($pipes)-&gt;run();</code></pre>
+<h3>Feature Flag Based Pipes</h3>
+<pre><code class="language-php">$pipes = [ProcessOrder::class];
+
+// Add pipes based on feature flags
+if (feature('new_discount_engine')) {
+    $pipes[] = ApplyNewDiscounts::class;
+} else {
+    $pipes[] = ApplyLegacyDiscounts::class;
+}
+
+if (feature('fraud_detection')) {
+    $pipes[] = CheckFraud::class;
+}
+
+$pipes[] = CompleteOrder::class;
+
+$result = pipeline($order)-&gt;through($pipes)-&gt;run();</code></pre>
+<h3>Using Helper Method</h3>
+<p>For complex conditional logic, extract to a helper method:</p>
+<pre><code class="language-php">class OrderPipeline
+{
+    public static function getPipes(Order $order): array
+    {
+        $pipes = [ValidateInventory::class];
+
+        // Discount logic
+        if ($order-&gt;hasCoupon()) {
+            $pipes[] = ApplyDiscount::class;
+        }
+
+        // Tax logic
+        if ($order-&gt;isInternational()) {
+            $pipes[] = CalculateInternationalTax::class;
+            $pipes[] = CheckCustomsRestrictions::class;
+        } else {
+            $pipes[] = CalculateTax::class;
+        }
+
+        // Payment
+        $pipes[] = ProcessPayment::class;
+
+        // Post-processing
+        if ($order-&gt;requiresShipping()) {
+            $pipes[] = CalculateShipping::class;
+            $pipes[] = NotifyWarehouse::class;
+        }
+
+        return $pipes;
+    }
+}
+
+// Usage
+$result = pipeline($order)
+    -&gt;through(OrderPipeline::getPipes($order))
+    -&gt;run();</code></pre>
+<p>This approach keeps your controller clean while maintaining flexibility.</p>
+<h2>Error Handling</h2>
+<p>Pipes can throw exceptions to stop the pipeline:</p>
+<pre><code class="language-php">class ValidateInventory
+{
+    public function __invoke($order)
+    {
+        if (!$this-&gt;hasStock($order)) {
+            throw new OutOfStockException('Insufficient inventory');
+        }
+
+        return $order;
+    }
+}</code></pre>
+<p>Usage with error handling:</p>
+<pre><code class="language-php">try {
+    $order = pipeline($order)
+        -&gt;through([
+            ValidateInventory::class,
+            ProcessPayment::class,
+        ])
+        -&gt;run();
+} catch (OutOfStockException $e) {
+    return response()-&gt;json(['error' =&gt; $e-&gt;getMessage()], 400);
+}</code></pre>
+<h2>Testing Pipes</h2>
+<p>Each pipe can be tested independently:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace Tests\Pipes;
+
+use Tests\TestCase;
+use App\Pipes\Order\ValidateInventory;
+use App\Models\Order;
+use App\Models\Product;
+
+class ValidateInventoryTest extends TestCase
+{
+    public function testValidatesSuccessfully()
+    {
+        // Arrange
+        $product = new Product;
+        $product-&gt;stock = 100;
+        $product-&gt;save();
+
+        $order = new Order;
+        $order-&gt;save();
+        $order-&gt;items()-&gt;create([
+            'product_id' =&gt; $product-&gt;id,
+            'quantity' =&gt; 10,
+        ]);
+
+        // Act
+        $pipe = new ValidateInventory($this-&gt;inventoryService);
+        $result = $pipe($order);
+
+        // Assert
+        $this-&gt;assertInstanceOf(Order::class, $result);
+    }
+
+    public function testThrowsExceptionWhenOutOfStock()
+    {
+        // Test exception case
+        $this-&gt;expectException(OutOfStockException::class);
+
+        // ... test code
+    }
+}</code></pre>
+<h2>Best Practices</h2>
+<h3>Keep Pipes Small</h3>
+<p>Each pipe should have a single responsibility:</p>
+<pre><code class="language-php">// ✅ Good - single responsibility
+class ValidateInventory { ... }
+class ProcessPayment { ... }
+class SendEmail { ... }
+
+// ❌ Bad - doing too much
+class ProcessOrderAndSendEmailAndUpdateInventory { ... }</code></pre>
+<h3>Make Pipes Reusable</h3>
+<p>Design pipes to work in different contexts:</p>
+<pre><code class="language-php">// ✅ Good - reusable
+class ValidateEmail
+{
+    public function __invoke($data)
+    {
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            throw new ValidationException('Invalid email');
+        }
+        return $data;
+    }
+}
+
+// Can be used in multiple pipelines:
+// - User registration
+// - Profile update
+// - Contact form</code></pre>
+<h3>Use Dependency Injection</h3>
+<p>Let the container handle dependencies:</p>
+<pre><code class="language-php">// ✅ Good - uses DI
+class ProcessPayment
+{
+    public function __construct(PaymentGateway $gateway)
+    {
+        $this-&gt;gateway = $gateway;
+    }
+}
+
+// ❌ Bad - creates dependencies
+class ProcessPayment
+{
+    public function __invoke($order)
+    {
+        $gateway = new PaymentGateway(); // Hard to test
+    }
+}</code></pre>
+<h3>Return the Passable</h3>
+<p>Always return the data being passed through:</p>
+<pre><code class="language-php">// ✅ Good
+public function __invoke($order)
+{
+    $order-&gt;validated = true;
+    return $order;  // Return it!
+}
+
+// ❌ Bad
+public function __invoke($order)
+{
+    $order-&gt;validated = true;
+    // Forgot to return - breaks pipeline!
+}</code></pre>
+<h2>When to Use Pipeline</h2>
+<p><strong>Use Pipeline for:</strong></p>
+<ul>
+<li>✅ Multi-step processes (order checkout, file upload)</li>
+<li>✅ Data transformation chains</li>
+<li>✅ Validation workflows</li>
+<li>✅ Sequential operations that need to be reordered</li>
+<li>✅ Operations that benefit from testing in isolation</li>
+</ul>
+<p><strong>Don't use Pipeline for:</strong></p>
+<ul>
+<li>❌ Simple single-step operations</li>
+<li>❌ Operations that don't transform data</li>
+<li>❌ When a simple function call is clearer</li>
+</ul>
+<h2>Configuration-Driven Pipelines</h2>
+<p>You can make pipelines configurable:</p>
+<pre><code class="language-php">// config/pipelines.php
+return [
+    'order_processing' =&gt; [
+        'standard' =&gt; [
+            ValidateInventory::class,
+            ApplyDiscounts::class,
+            CalculateTax::class,
+            ProcessPayment::class,
+        ],
+        'wholesale' =&gt; [
+            ValidateInventory::class,
+            ApplyWholesaleDiscounts::class,
+            ProcessPayment::class,  // No tax for wholesale
+        ],
+    ],
+];
+
+// Usage
+$pipes = config("pipelines.order_processing.{$order-&gt;type}");
+
+$order = pipeline($order)
+    -&gt;through($pipes)
+    -&gt;run();</code></pre>
+<p>This allows you to change business logic without code changes.</p>
+<h2>API Reference</h2>
+<h3>pipeline($passable)</h3>
+<p>Create a new pipeline instance.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>$passable</code> (mixed) - The data to pass through the pipeline</li>
+</ul>
+<p><strong>Returns:</strong> <code>Pipeline</code> instance</p>
+<h3>through(array $pipes)</h3>
+<p>Set the pipes to pass data through.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>$pipes</code> (array) - Array of class names, instances, or closures</li>
+</ul>
+<p><strong>Returns:</strong> <code>Pipeline</code> instance (chainable)</p>
+<h3>run()</h3>
+<p>Execute the pipeline and return the result.</p>
+<p><strong>Returns:</strong> The transformed passable</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">$result = pipeline($data)
+    -&gt;through([...])
+    -&gt;run();</code></pre>    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

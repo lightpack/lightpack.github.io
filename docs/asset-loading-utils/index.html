@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asset loading utils</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   class="active" aria-current="page">
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Asset Utilities</h1>
+<p>Lightpack’s <code>Asset</code> utility provides a feature rich toolkit for managing, versioning, and rendering static assets (CSS, JS, images, fonts) in your PHP applications. It supports cache-busting, CDN integration, HTML tag generation, and Google Font management—all with a clear, expressive API and robust test coverage.</p>
+<hr />
+<h2>Overview</h2>
+<ul>
+<li><strong>Asset URL generation</strong> with optional versioning for cache busting</li>
+<li><strong>Manifest-based versioning</strong> for tracked asset directories</li>
+<li><strong>CDN/base URL support</strong> via environment variables</li>
+<li><strong>HTML helpers</strong> for CSS, JS, images, and ES modules</li>
+<li><strong>Import map generation</strong> for modern JavaScript workflows</li>
+<li><strong>Google Fonts downloader</strong> for local font hosting</li>
+<li><strong>Strong test coverage</strong> for all major features</li>
+</ul>
+<hr />
+<h2>Common Challenges</h2>
+<p>Lightpack's asset loading facility tries to solve some of the most common challenges for which developers usually prefer frontend build tools usually in <strong>Node.js</strong>.</p>
+<h3>1. Basic Asset Loading</h3>
+<p><strong>Problem:</strong> Managing and loading different types of assets</p>
+<ul>
+<li>CSS files</li>
+<li>JavaScript files</li>
+<li>Images</li>
+<li>Fonts</li>
+</ul>
+<p><strong>Pain Points:</strong></p>
+<ul>
+<li>Generating correct URLs</li>
+<li>Maintaining proper paths</li>
+<li>Handling different asset types</li>
+<li>Serving with correct headers</li>
+</ul>
+<h3>2. Cache Busting</h3>
+<p><strong>Problem:</strong> Browser caching of outdated assets</p>
+<ul>
+<li>Files change but browsers serve cached versions</li>
+<li>Need to force reload when files update</li>
+<li>Cache invalidation strategies</li>
+</ul>
+<p><strong>Pain Points:</strong></p>
+<ul>
+<li>When to invalidate cache</li>
+<li>How to version assets</li>
+<li>Maintaining cache headers</li>
+<li>Balancing cache vs fresh content</li>
+</ul>
+<h3>3. Development vs Production</h3>
+<p><strong>Problem:</strong> Different needs for different environments</p>
+<ul>
+<li>Development needs quick feedback</li>
+<li>Production needs optimization</li>
+<li>Different serving strategies</li>
+</ul>
+<p><strong>Pain Points:</strong></p>
+<ul>
+<li>Fast development cycle</li>
+<li>Production optimization</li>
+<li>Environment-specific configs</li>
+<li>Switching between environments</li>
+</ul>
+<h3>4. Asset Organization</h3>
+<p><strong>Problem:</strong> Managing multiple assets efficiently</p>
+<ul>
+<li>Multiple CSS files</li>
+<li>Multiple JS files</li>
+<li>Page-specific assets</li>
+<li>Shared assets</li>
+</ul>
+<p><strong>Pain Points:</strong></p>
+<ul>
+<li>Organizing assets logically</li>
+<li>Managing dependencies</li>
+<li>Loading order</li>
+<li>Code splitting</li>
+</ul>
+<h3>5. Module Dependencies</h3>
+<p><strong>Problem:</strong> Managing JavaScript module dependencies</p>
+<ul>
+<li>Files depending on other files</li>
+<li>Loading order matters</li>
+<li>Mix of local and CDN files</li>
+</ul>
+<p><strong>Pain Points:</strong></p>
+<ul>
+<li>Dependency management</li>
+<li>Module resolution</li>
+<li>Avoiding Node.js</li>
+<li>Browser compatibility</li>
+</ul>
+<h3>6. Performance</h3>
+<p><strong>Problem:</strong> Optimizing asset delivery</p>
+<ul>
+<li>Multiple HTTP requests</li>
+<li>Large file sizes</li>
+<li>Slow loading times</li>
+<li>Browser limitations</li>
+</ul>
+<p><strong>Pain Points:</strong></p>
+<ul>
+<li>Reducing requests</li>
+<li>File size optimization</li>
+<li>Loading strategies</li>
+<li>HTTP/2 optimization</li>
+</ul>
+<p>Read further to gain an understanding of how <strong>Asset</strong> utility solves above challenges and reduces the need to depend on external build tools.</p>
+<h2>Asset URL Generation &amp; Versioning</h2>
+<pre><code class="language-php">use Lightpack\Utils\Asset;
+
+$asset = new Asset(); // Defaults to assets in public directory
+
+// Asset url for public/css/app.css file
+$url = $asset-&gt;url('css/app.css'); </code></pre>
+<ul>
+<li>By default, URLs include a version query string (<code>?v=...</code>) for cache busting.</li>
+<li>Version is read from a manifest (<code>assets.json</code>) or falls back to file modification time.</li>
+</ul>
+<p><strong>Disable versioning if needed:</strong></p>
+<pre><code class="language-php">$url = $asset-&gt;url('css/app.css', false); // /css/app.css</code></pre>
+<p><strong>CDN Support:</strong></p>
+<ul>
+<li>Set <code>ASSET_URL</code> or <code>APP_URL</code> in your environment to prefix all asset URLs with a CDN or base URL.</li>
+</ul>
+<pre><code class="language-php">$asset-&gt;url('css/app.css'); // https://cdn.example.com/css/app.css?v=...</code></pre>
+<hr />
+<h2>HTML Helpers</h2>
+<h3>CSS &amp; JS</h3>
+<pre><code class="language-php">// Render CSS and JS tags
+$html = $asset-&gt;load(['css/app.css', 'js/app.js']);
+// &lt;link rel='stylesheet' ...&gt;&lt;script src='...' defer&gt;&lt;/script&gt;</code></pre>
+<p>JS files use <code>defer</code> attribute by default; pass <code>async</code> or null for other modes. Choose one based on the script's purpose:</p>
+<ul>
+<li><strong>async</strong>: For independent scripts (analytics, ads)</li>
+<li><strong>defer</strong>: For scripts that need DOM or depend on other scripts</li>
+</ul>
+<p>If neither <strong>defer</strong> nor <em>async</em> is used, the script is treated as "render-blocking" which means:</p>
+<ul>
+<li>Blocking Behavior</li>
+<li>HTML parsing stops</li>
+<li>Script is downloaded</li>
+<li>Script executes immediately</li>
+<li>Then HTML parsing continues</li>
+</ul>
+<p>This is useful when you have scripts that:</p>
+<ul>
+<li>Must execute before anything else</li>
+<li>Need to be available immediately</li>
+<li>Are critical for initial page functionality</li>
+</ul>
+<h3>Images</h3>
+<pre><code class="language-php">// Render an &lt;img&gt; tag with attributes
+$html = $asset-&gt;img('img/logo.png', ['alt' =&gt; 'Logo', 'width' =&gt; 200]);
+// &lt;img src='/img/logo.png?v=...' alt='Logo' width='200'&gt;</code></pre>
+<h3>ES Modules</h3>
+<pre><code class="language-php">// Render &lt;script type="module"&gt; for JS modules
+$html = $asset-&gt;module('js/app.js');
+$html = $asset-&gt;module(['js/app.js' =&gt; null, 'js/utils.js' =&gt; 'async']);</code></pre>
+<h3>Import Maps</h3>
+<pre><code class="language-php">// Generate an import map for ES modules
+$html = $asset-&gt;importMap([
+    'uikit' =&gt; 'js/uikit.js',
+    'app' =&gt; 'js/app.js',
+]);
+// &lt;script type='importmap'&gt;...&lt;/script&gt;</code></pre>
+<hr />
+<h2>Google Fonts Downloader</h2>
+<pre><code class="language-php">// Download and locally host a Google Font
+$asset-&gt;googleFont('Roboto', [400, 700]);
+// Downloads font files, generates local CSS, and updates manifest</code></pre>
+<ul>
+<li>Fonts are saved to <code>/fonts</code>, CSS to <code>/css/fonts.css</code>.</li>
+<li>Only the latin subset is downloaded for efficiency.</li>
+<li>Throws on download or file errors.</li>
+</ul>
+<hr />
+<h2>Version Manifest Management</h2>
+<ul>
+<li>The utility tracks asset versions for files in <code>css/</code>, <code>js/</code>, <code>fonts/</code>, and <code>img/</code> directories by default.</li>
+<li>Use <code>generateVersions()</code> to scan and update the <code>assets.json</code> manifest:</li>
+<li>Only files in tracked directories are included in the manifest.</li>
+</ul>
+<pre><code class="language-php">$asset-&gt;generateVersions();</code></pre>
+<h2>Asset Management Best Practices</h2>
+<ul>
+<li>Use versioned URLs for all assets to ensure users always get the latest files after deploys.</li>
+<li>Use a CDN for production by setting <code>ASSET_URL</code>.</li>
+<li>Regenerate the manifest (<code>generateVersions()</code>) after deploying new or updated assets.</li>
+<li>Organize assets in tracked directories for automatic versioning.</li>
+<li>Use the HTML helpers to keep your templates clean and DRY.</li>
+</ul>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

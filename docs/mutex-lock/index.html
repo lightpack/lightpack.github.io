@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutex lock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   class="active" aria-current="page">
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Lock Utility</h1>
+<p>The <strong>Lock</strong> utility provides a simple way to implement <strong>mutex locks</strong> in your application. It's ideal for ensuring that certain operations run exclusively. It uses Lightpack's <strong>Cache</strong> system with these key features:</p>
+<ul>
+<li>Atomic operations for reliability</li>
+<li>Automatic expiration via TTL</li>
+<li>Works with any cache driver</li>
+<li>No external dependencies</li>
+</ul>
+<p>You may create an instance of <strong>Lock</strong> class:</p>
+<pre><code class="language-php">$lock = new Lightpack\Utils\Lock;</code></pre>
+<p>Or simply call the utility function <code>lock()</code> which returns <strong>Lock</strong> class instance. </p>
+<p>The two most important methods it exposes is: <code>acquire()</code> and <code>release()</code>.</p>
+<h2>Basic Usage</h2>
+<pre><code class="language-php">// Try to acquire a lock
+if (lock()-&gt;acquire('daily-report')) {
+    try {
+        // generate daily report
+    } finally {
+        // Always release the lock
+        lock()-&gt;release('daily-report');
+    }
+}</code></pre>
+<h2>Lock Duration</h2>
+<p>By default, locks expire after 60 seconds. You can specify a custom duration:</p>
+<pre><code class="language-php">// Lock for 5 minutes
+if (lock()-&gt;acquire('backup-process', 300)) {
+    // ...
+}</code></pre>
+<h2>Practical Scenarios</h2>
+<h3>1. Scheduled Tasks</h3>
+<p>Prevent multiple instances of a scheduled task from running simultaneously:</p>
+<pre><code class="language-php">class DailyReportJob
+{
+    public function run()
+    {
+        // Only one instance can run at a time
+        if (lock()-&gt;acquire('daily-report') == false) {
+            echo "Report generation already in progress\n";
+            return;
+        }
+
+        try {
+            // Your report generation logic here
+        } finally {
+            lock()-&gt;release('daily-report');
+        }
+    }
+}</code></pre>
+<h3>2. Restricting multiple payment attempts</h3>
+<p>Implement a simple concurrency limit for API endpoints:</p>
+<pre><code class="language-php">class PaymentController
+{
+    public function processPayment($orderId)
+    {
+        $lockKey = "order:{$orderId}:payment";
+
+        if (lock()-&gt;acquire($lockKey, 30) == false) {
+            throw new Exception('Payment already in progress');
+        }
+
+        try {
+            // Process payment
+        } finally {
+            lock()-&gt;release($lockKey);
+        }
+    }
+}</code></pre>
+<h3>3. Cache Regeneration</h3>
+<p>Prevent cache stampede when multiple requests try to regenerate expired cache:</p>
+<pre><code class="language-php">class ProductCache
+{
+    public function getProduct($id)
+    {
+        $data = cache()-&gt;get("product:{$id}");
+
+        if ($data) {
+            return $data;
+        }
+
+        // Prevent multiple regenerations
+        if (lock()-&gt;acquire("rebuild:product:{$id}", 10) == false) {
+            // Wait and try getting from cache again
+            sleep(1);
+            return $this-&gt;cache-&gt;get("product:{$id}");
+        }
+
+        try {
+            $data = $this-&gt;fetchProductData($id);
+            cache()-&gt;set("product:{$id}", $data, 3600);
+            return $data;
+        } finally {
+            lock()-&gt;release("rebuild:product:{$id}");
+        }
+    }
+}</code></pre>
+<h2>Best Practices</h2>
+<ol>
+<li>
+<p><strong>Always Release Locks</strong></p>
+<ul>
+<li>Use try/finally to ensure locks are released</li>
+<li>Set appropriate TTL to auto-expire stale locks</li>
+</ul>
+</li>
+<li>
+<p><strong>Lock Naming</strong></p>
+<ul>
+<li>Use descriptive lock names</li>
+<li>Add prefixes for different contexts</li>
+<li>Include relevant IDs in lock names</li>
+</ul>
+</li>
+<li>
+<p><strong>Lock Duration</strong></p>
+<ul>
+<li>Set TTL slightly longer than expected operation time</li>
+<li>Consider network latency and processing time</li>
+<li>Don't set extremely long durations</li>
+</ul>
+</li>
+<li>
+<p><strong>Error Handling</strong></p>
+<ul>
+<li>Always handle lock acquisition failure gracefully</li>
+<li>Have a fallback plan when locks can't be acquired</li>
+<li>Log lock-related issues for monitoring</li>
+</ul>
+</li>
+</ol>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

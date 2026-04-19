@@ -1,0 +1,10 @@
+{
+    "name": "lightpack/docs-builder",
+    "description": "Build system for Lightpack documentation",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "erusev/parsedown": "^1.7"
+    }
+}

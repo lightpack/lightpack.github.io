@@ -1,0 +1,52 @@
+name: Build Documentation
+
+on:
+  repository_dispatch:
+    types: [docs-updated]
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.build/**'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout lightpack.github.io
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Checkout lightpack/docs into .build/content
+        uses: actions/checkout@v4
+        with:
+          repository: lightpack/docs
+          path: .build/content
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, dom
+      
+      - name: Install dependencies
+        working-directory: .build
+        run: composer install --no-dev --optimize-autoloader
+      
+      - name: Build static HTML with friendly URLs
+        working-directory: .build
+        run: php build.php
+      
+      - name: Commit and push generated docs
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "🤖 Auto-build docs from lightpack/docs"
+          git push

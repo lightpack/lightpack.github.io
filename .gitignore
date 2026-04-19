@@ -1,0 +1,5 @@
+.build/vendor/
+.build/composer.lock
+.build/content/
+.DS_Store
+DOCS_SETUP.md

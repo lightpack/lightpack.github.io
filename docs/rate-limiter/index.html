@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate limiter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   class="active" aria-current="page">
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Rate Limiting</h1>
+<p>Rate limiting (throttling) helps control access rates to any resource - from HTTP routes to API calls to background jobs. Lightpack provides a simple, efficient utility for <strong>rate limiting</strong> actions—such as login attempts, API requests, or any operation you want to restrict to a certain number of times within a time window.</p>
+<h2>Use Cases</h2>
+<ul>
+<li>API request throttling</li>
+<li>Login attempt limits</li>
+<li>Job processing controls</li>
+<li>Resource usage limits</li>
+<li>Database write throttling</li>
+</ul>
+<p>The <strong>rate limiter</strong> uses Lightpack's Cache system, supporting multiple drivers:</p>
+<ul>
+<li>Database (default)</li>
+<li>Redis</li>
+<li>File</li>
+<li>Array (for testing)</li>
+<li>Null (for disabled limiting)</li>
+</ul>
+<blockquote>
+<p>The configured cache driver becomes the backend for rate limiter. You do not need to separately configure the rate limiter.</p>
+</blockquote>
+<h2>Usage</h2>
+<p>You may create an instance of <code>Limiter</code> class:</p>
+<pre><code class="language-php">$limiter = new Lightpack\Utils\Limiter;</code></pre>
+<p>Or simply call the utility function <code>limiter()</code> which returns <strong>Limiter</strong> class instance.</p>
+<p>Call the <code>attempt()</code> method of <strong>Limiter</strong> class instance to rate limit a block of code or an operation to be executed.</p>
+<p><code>attempt(string $key, int $max, int $seconds)</code></p>
+<ul>
+<li>The <strong>first</strong> argument is a unique key (e.g., user ID, IP address, or action).</li>
+<li>The <strong>second</strong> argument is the max allowed attempts.</li>
+<li>The <strong>third</strong> argument is the window (in seconds).</li>
+</ul>
+<p><strong>Example:</strong> Rate limit user login to max 5 attempts per 60 seconds</p>
+<pre><code class="language-php">$loginAllowed = limiter()-&gt;attempt('login:user:123', 5, 60);</code></pre>
+<pre><code class="language-php">if($loginAllowed) {
+    // Allowed: perform the action
+} else {
+    // Rate limit exceeded: block or notify
+}</code></pre>
+<p><strong>Key Generation</strong></p>
+<p>Keys can be anything unique to what you're limiting:</p>
+<pre><code class="language-php">// Examples
+'ip:127.0.0.1'           // IP-based
+'user:123'               // User-based
+'api:endpoint:/users'     // API endpoint
+'upload:user:123'        // Resource usage
+'jobs:processor:1'       // Job processing</code></pre>
+<h2>Checking Status</h2>
+<h3>Get Current Hits</h3>
+<pre><code class="language-php">$hits = limiter()-&gt;getHits('login:user:123'); // returns int|null
+
+if ($hits !== null) {
+    echo "You've made {$hits} attempts";
+}</code></pre>
+<h3>Get Remaining Attempts</h3>
+<pre><code class="language-php">$remaining = limiter()-&gt;getRemaining('login:user:123', 5);
+echo "You have {$remaining} attempts remaining";</code></pre>
+<h2>How It Works</h2>
+<ul>
+<li>On the first attempt, the window is started and the hit count is set to 1.</li>
+<li>Each subsequent allowed attempt increments the count, but the window's TTL is preserved.</li>
+<li>If the max is reached, <code>attempt()</code> returns <code>false</code> until the window expires.</li>
+<li>Once expired, the count resets automatically.</li>
+</ul>
+<h3>Example: IP-Based Rate Limiting</h3>
+<pre><code class="language-php">// Allow 3 requests per 10 seconds from an IP
+$key = 'ip:' . request()-&gt;ip();
+
+if (!limiter()-&gt;attempt($key, 3, 10)) {
+    return response('Too many requests', 429);
+}
+
+// Process request</code></pre>
+<h2>HTTP Rate Limiting</h2>
+<p>You can rate limit HTTP routes using the rate limit filter.</p>
+<p><strong>Syntax:</strong> <code>limit:max,minutes</code></p>
+<ul>
+<li><code>max</code> - Maximum requests allowed</li>
+<li><code>minutes</code> - Time window in minutes</li>
+</ul>
+<pre><code class="language-php">// Allow 60 requests per 1 minute
+route()
+    -&gt;get('/api', ApiController::class)
+    -&gt;filter(['limit:60,1']);
+
+// Allow 1000 requests per 60 minutes (1 hour)
+route()-&gt;group(['filter' =&gt; ['limit:1000,60']], function() {
+    route()-&gt;get('/api/users', 'UserController::class');
+    route()-&gt;get('/api/posts', 'PostController::class');
+});
+
+// Allow 10 uploads per 60 minutes
+route()
+    -&gt;post('/upload', UploadController::class)
+    -&gt;filter(['auth', 'limit:10,60']);</code></pre>
+<p><strong>When rate limited, clients receive:</strong></p>
+<pre><code class="language-http">HTTP/1.1 429 Too Many Requests
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 1616721340
+Retry-After: 60
+
+Too many requests. Please try again in 1 minute.</code></pre>
+<hr />
+<h2>Job Rate Limiting</h2>
+<p>Rate limit background jobs to comply with external API limits.</p>
+<p><strong>Scenario:</strong> Email provider allows 2 requests per second, 50 emails per request.</p>
+<pre><code class="language-php">class SendEmailBatch extends Job
+{
+    protected $attempts = 5;
+    protected $retryAfter = '+30 seconds';
+
+    public function run()
+    {
+        $batchId = $this-&gt;payload['batch_id'];
+
+        // Rate limit: 2 requests per second
+        // Key 'email-api' is shared across all workers
+        if (limiter()-&gt;attempt('email-api', 2, 1) === false) {
+            // Rate limit hit - throw to retry later
+            throw new \Exception('Rate limit reached');
+        }
+
+        try {
+            // Send batch of 50 emails to provider
+            $this-&gt;sendEmailBatch($batchId);
+        } catch (\Exception $e) {
+            // Job will retry after 30 seconds
+            throw $e;
+        }
+    }
+}</code></pre>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Multiple workers process email batches concurrently</li>
+<li>Each worker checks rate limit before calling API</li>
+<li>If limit reached (2 req/sec), job throws exception</li>
+<li>Job automatically retries after 30 seconds</li>
+<li>Rate limit resets after 1 second</li>
+</ol>
+<p><strong>Result:</strong> Perfect compliance with API limits across distributed workers!</p>
+<hr />
+<h2>Available Methods</h2>
+<h3><code>attempt(string $key, int $max, int $seconds): bool</code></h3>
+<p>Attempt an action. Returns <code>true</code> if allowed, <code>false</code> if rate limited.</p>
+<pre><code class="language-php">if (limiter()-&gt;attempt('action:user:123', 5, 60)) {
+    // Allowed
+} else {
+    // Rate limited
+}</code></pre>
+<h3><code>getHits(string $key): ?int</code></h3>
+<p>Get current hit count for a key. Returns <code>null</code> if key doesn't exist.</p>
+<pre><code class="language-php">$hits = limiter()-&gt;getHits('action:user:123');</code></pre>
+<h3><code>getRemaining(string $key, int $max): int</code></h3>
+<p>Get remaining attempts for a key. Returns <code>0</code> if rate limited, <code>$max</code> if no attempts yet.</p>
+<pre><code class="language-php">$remaining = limiter()-&gt;getRemaining('login:user:123', 5);
+
+if ($remaining &gt; 0) {
+    echo "You have {$remaining} attempts remaining";
+} else {
+    echo "Rate limit exceeded. Please try again later.";
+}</code></pre>
+<hr />
+<h2>Best Practices</h2>
+<h3>1. Use Descriptive Keys</h3>
+<pre><code class="language-php">// Good
+'login:email:user@example.com'
+'api:user:123:endpoint:/posts'
+'upload:user:456:type:image'
+
+// Bad
+'user123'
+'limit'
+'check'</code></pre>
+<h3>2. Choose Appropriate Windows</h3>
+<pre><code class="language-php">// Login attempts: 5 per 5 minutes
+limiter()-&gt;attempt('login:' . $email, 5, 300);
+
+// API calls: 1000 per hour
+limiter()-&gt;attempt('api:' . $userId, 1000, 3600);
+
+// Sensitive operations: 3 per day
+limiter()-&gt;attempt('delete:' . $userId, 3, 86400);
+
+// Real-time operations: 10 per second
+limiter()-&gt;attempt('websocket:' . $userId, 10, 1);</code></pre>
+<h3>3. Provide User Feedback</h3>
+<pre><code class="language-php">$key = 'action:user:' . $userId;
+$max = 10;
+
+if (!limiter()-&gt;attempt($key, $max, 3600)) {
+    $hits = limiter()-&gt;getHits($key);
+    $remaining = limiter()-&gt;getRemaining($key, $max);
+
+    return response()-&gt;json([
+        'error' =&gt; 'Rate limit exceeded',
+        'limit' =&gt; $max,
+        'current' =&gt; $hits,
+        'remaining' =&gt; $remaining,
+        'reset_in' =&gt; '1 hour'
+    ], 429);
+}</code></pre>
+<h3>4. Different Limits for Different Users</h3>
+<pre><code class="language-php">$user = auth()-&gt;user();
+
+// Premium users get higher limits
+$max = $user-&gt;isPremium() ? 10000 : 1000;
+$window = 3600; // 1 hour
+
+if (!limiter()-&gt;attempt('api:user:' . $user-&gt;id, $max, $window)) {
+    return response('Rate limit exceeded', 429);
+}</code></pre>
+<hr />
+<h2>Distributed Systems</h2>
+<p>When running multiple servers/workers, the rate limiter works correctly because it uses a shared cache backend:</p>
+<p><strong>With Redis (Recommended for Production):</strong></p>
+<pre><code class="language-php">// config/cache.php
+return [
+    'driver' =&gt; 'redis',
+    // ...
+];</code></pre>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>All servers share the same Redis instance</li>
+<li>Rate limits are enforced globally across all servers</li>
+<li>No coordination needed between servers</li>
+</ul>
+<p><strong>Example: 3 servers, 100 req/min limit</strong></p>
+<pre><code>Server 1: User makes 40 requests → Redis counter = 40
+Server 2: User makes 35 requests → Redis counter = 75
+Server 3: User makes 25 requests → Redis counter = 100
+Server 1: User makes 1 request  → BLOCKED (limit reached)</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

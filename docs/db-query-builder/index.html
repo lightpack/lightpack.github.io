@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Db query builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   class="active" aria-current="page">
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Query Builder</h1>
+<p>While you can definitely write raw SQL queries, <strong>Lightpack</strong> does come with a fluent query builder that helps you build SQL queries programatically.</p>
+<p>It also helps you protect against SQL injection attacks by properly binding query parameters.</p>
+<h2>Getting Started</h2>
+<p>Call the <code>table()</code> method to get an instance of the query builder for the database connection.</p>
+<p>For example, this will create a query builder object for <code>products</code> table. </p>
+<pre><code class="language-php">$products = db()-&gt;table('products');</code></pre>
+<p>Now you can start building and executing queries as documented below.</p>
+<h2>Fetch all</h2>
+<p>Call the <code>all()</code> method to retrieve all the rows in a table.</p>
+<pre><code class="language-php">// SELECT * FROM products
+$products-&gt;all();</code></pre>
+<h2>Fetch one</h2>
+<p>To retrieve only a single record, call <code>one()</code> method instead.</p></p>
+<pre><code class="language-php">// SELECT * FROM products LIMIT 1
+$products-&gt;one();</code></pre>
+<h2>Fetch column</h2>
+<p>To retrieve a specific column value from a record:</p>
+<pre><code class="language-php">// SELECT name FROM products LIMIT 1
+$products-&gt;column('name');</code></pre>
+<h2>Select</h2>
+<p>You can specify table columns you need.</p>
+<pre><code class="language-php">// SELECT id, name FROM products
+$products-&gt;select('id', 'name')-&gt;all();</code></pre>
+<pre><code class="language-php">// SELECT id AS product_id, name FROM products
+$products-&gt;select('id AS product_id', 'name')-&gt;all();</code></pre>
+<pre><code class="language-php">// SELECT count(*) as total_products FROM products
+$products-&gt;select('count(*) AS total_products')-&gt;all();</code></pre>
+<h2>Alias</h2>
+<p>You can alias a table name using <code>alias()</code> method.</p>
+<pre><code class="language-php">// SELECT * FROM products AS p
+$products-&gt;alias('p')-&gt;all();</code></pre>
+<h2>Distinct</h2>
+<p>You can select distinct rows too.</p>
+<pre><code class="language-php">// SELECT DISTINCT name FROM products
+$products-&gt;select('name')-&gt;distinct()-&gt;all();</code></pre>
+<h2>Where</h2>
+<p>You can narrow result set using where clauses.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE id = ?
+$products-&gt;where('id', '=', 2)-&gt;all();
+
+// SELECT * FROM products WHERE id &gt; ?
+$products-&gt;where('id', '&gt;', 2)-&gt;all();
+
+// SELECT * FROM products WHERE id &gt; ? AND color = ?
+$products-&gt;where('id', '&gt;', 2)-&gt;where('color', '=', '#000')-&gt;all();
+
+// SELECT * FROM products WHERE id &gt; ? OR color = ?
+$products-&gt;where('id', '&gt;', 2)-&gt;orWhere('color', '=', '#000')-&gt;all();</code></pre>
+<h3>Where in</h3>
+<blockquote>
+<p><strong>Note:</strong> The SQL generated uses parentheses: <code>IN (?, ?, ?)</code>. If you pass an empty array to <code>whereIn</code>, the condition will always be false. If you pass an empty array to <code>whereNotIn</code>, the condition will always be true. You can also pass a closure for subqueries.</p>
+</blockquote>
+<pre><code class="language-php">// SELECT * FROM products WHERE id IN (?, ?, ?)
+$products-&gt;whereIn('id', [23, 24, 25])-&gt;all();
+
+// SELECT * FROM products WHERE id IN (?, ?, ?) OR color IN (?, ?)
+$products-&gt;whereIn('id', [23, 24, 25])-&gt;orWhereIn('color', ['#000', '#FFF'])-&gt;all();
+
+// SELECT * FROM products WHERE id NOT IN (?, ?, ?)
+$products-&gt;whereNotIn('id', [23, 24, 25])-&gt;all();
+
+// SELECT * FROM products WHERE id NOT IN (?, ?, ?) OR color NOT IN (?, ?)
+$products-&gt;whereNotIn('id', [23, 24, 25])-&gt;orWhereNotIn('color', ['#000', '#FFF'])-&gt;all();
+
+// Subquery support:
+$products-&gt;whereIn('size', function($q) {
+    $q-&gt;from('sizes')-&gt;select('id')-&gt;where('size', '=', 'XL');
+})-&gt;all();</code></pre>
+<h3>Where null</h3>
+<pre><code class="language-php">// SELECT * FROM products WHERE owner IS NULL
+$products-&gt;whereNull('owner')-&gt;all();
+
+// SELECT * FROM products WHERE owner IS NOT NULL
+$products-&gt;whereNotNull('owner')-&gt;all();
+
+// SELECT * FROM products WHERE owner IS NULL AND weight IS NULL
+$products-&gt;whereNull('owner')-&gt;whereNull('weight')-&gt;all();
+
+// SELECT * FROM products WHERE owner IS NULL OR weight IS NULL
+$products-&gt;whereNull('owner')-&gt;orWhereNull('weight')-&gt;all();
+
+// SELECT * FROM products WHERE owner IS NULL OR weight IS NOT NULL
+$products-&gt;whereNull('owner')-&gt;orWhereNotNull('weight')-&gt;all();</code></pre>
+<h3>Where between</h3>
+<blockquote>
+<p><strong>Note:</strong> You must provide exactly two values for the between clause, e.g. <code>[min, max]</code>.</p>
+</blockquote>
+<pre><code class="language-php">// SELECT * FROM products WHERE price BETWEEN ? AND ?
+$products-&gt;whereBetween('price', [10, 20]);</code></pre>
+<pre><code class="language-php">// SELECT * FROM products WHERE price NOT BETWEEN ? AND ?
+$products-&gt;whereNotBetween('price', [10, 20]);</code></pre>
+<pre><code class="language-php">// SELECT * FROM products WHERE price BETWEEN ? AND ? OR size BETWEEN ? AND ?
+$products-&gt;whereBetween('price', [10, 20])-&gt;orWhereBetween('size', ['M', 'L']);</code></pre>
+<pre><code class="language-php">// SELECT * FROM products WHERE price NOT BETWEEN ? AND ? OR size NOT BETWEEN ? AND ?
+$products-&gt;whereNotBetween('price', [10, 20])-&gt;orWhereNotBetween('size', ['M', 'L']);</code></pre>
+<h3>Logical Grouping</h3>
+<p>You can group <code>where</code> conditions logically by passing a callback. This callback will recieve an instance of query builder.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE (color = ? OR size = ?)
+$products-&gt;where(function($q) {
+    $q-&gt;where('color', '=', '#000')-&gt;orWhere('size', '=', 'XL');
+})-&gt;all();</code></pre>
+<pre><code class="language-php">// SELECT * FROM products WHERE id = ? AND (color = ? OR color = ?)
+$products-&gt;where('id', '=', 1)-&gt;where(function($q) {
+    $q-&gt;where('color', '=', '#000')-&gt;orWhere('color', '=', '#FFF');
+})-&gt;all();</code></pre>
+<h3>Subqueries</h3>
+<p>You can specify subqueries as callback functions in <code>where</code> clauses.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE size IN (SELECT id FROM sizes WHERE size = ?)
+$products-&gt;whereIn('size', function($q) {
+    $q-&gt;from('sizes')-&gt;select('id')-&gt;where('size', '=', 'XL');
+})-&gt;all();</code></pre>
+<h3>Where exists</h3>
+<p>To specify <code>WHERE EXISTS</code> subquery, use <code>whereExists()</code> method.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE EXISTS (SELECT id FROM sizes WHERE size = ?)';
+$products-&gt;whereExists(function($q) {
+    $q-&gt;from('sizes')-&gt;select('id')-&gt;where('size', '=', 'XL');
+});</code></pre>
+<p>To specify <code>WHERE NOT EXISTS</code> subquery, use <code>whereNotExists()</code> method.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE NOT EXISTS (SELECT id FROM sizes WHERE size = ?)';
+$products-&gt;whereNotExists(function($q) {
+    $q-&gt;from('sizes')-&gt;select('id')-&gt;where('size', '=', 'XL');
+});</code></pre>
+<h3>Raw queries</h3>
+<p>Sometimes it's handy to write complex <code>where</code> clauses using <strong>raw</strong> query strings. For such cases, use <code>whereRaw()</code> and <code>orWhereRaw()</code> methods.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE color = '#000' AND size = 'XL';
+$products-&gt;whereRaw("color = '#000' AND size = 'XL'");</code></pre>
+<p>To protect <strong>raw</strong> where queries against SQL injection attacks, you can pass an array of parameters as the second argument.</p>
+<pre><code class="language-php">// SELECT * FROM products WHERE color = ? AND size = ?';
+$products-&gt;whereRaw('color = ? AND size = ?', ['#000', 'XL']);</code></pre>
+<pre><code class="language-php">// SELECT * FROM products WHERE color = ? OR status = 'active'";
+$products-&gt;where('color', '=', '#000')-&gt;orWhereRaw("status = 'active'");</code></pre>
+<h2>Order By</h2>
+<p>You can specify order of result set.</p>
+<pre><code class="language-php">// SELECT id, name FROM products ORDER BY id ASC
+$products-&gt;select('id', 'name')-&gt;orderBy('id')-&gt;all();
+
+// SELECT id, name FROM products ORDER BY id DESC
+$products-&gt;select('id', 'name')-&gt;orderBy('id', 'DESC')-&gt;all();
+
+// SELECT id, name FROM products ORDER BY name DESC, id DESC
+$products-&gt;select('id', 'name')-&gt;orderBy('name', 'DESC')-&gt;orderBy('id', 'DESC')-&gt;all();</code></pre>
+<blockquote>
+<p><strong>Tip:</strong> You can also use <code>asc()</code> and <code>desc()</code> shortcuts. See <a href="#ordering-shortcuts">Ordering Shortcuts</a> in the Date &amp; Time Filters section.</p>
+</blockquote>
+<h2>Group By</h2>
+<p>You can group rows together.</p>
+<pre><code class="language-php">// SELECT * FROM products GROUP BY color
+$products-&gt;groupBy('color')-&gt;all();</code></pre>
+<pre><code class="language-php">// SELECT * FROM products GROUP BY color, size
+$products-&gt;groupBy('color', 'size')-&gt;all();</code></pre>
+<h2>Limit</h2>
+<pre><code class="language-php">// SELECT * FROM products LIMIT 10
+$products-&gt;limit(10)-&gt;all();</code></pre>
+<h2>Offset</h2>
+<pre><code class="language-php">// SELECT * FROM products LIMIT 10 OFFSET 2
+$products-&gt;limit(10)-&gt;offset(2)-&gt;all();</code></pre>
+<h2>Paginate</h2>
+<p>Use <code>paginate()</code> method to fetch the records page wise. </p>
+<p>So if the request URL is <code>http://domain.com?page=3</code>,</p>
+<pre><code class="language-php">// SELECT * FROM products LIMIT 10 OFFSET 20
+$rows = $products-&gt;paginate(10);</code></pre>
+<p>By default it will try to look for <code>page</code> query parameter from the URL string. But, you can also pass the current page value manually as second parameter. For example, following query will paginate the result with <code>10</code> results for <code>3rd</code> page.</p>
+<pre><code class="language-php">// SELECT * FROM products LIMIT 10 OFFSET 20
+$rows = $products-&gt;paginate(10, 3);</code></pre>
+<p>Now you can iterate the result as an array.</p>
+<pre><code class="language-php">foreach($rows as $product) {
+    $product-&gt;name;
+    $product-&gt;color;
+}</code></pre>
+<h2>Count</h2>
+<p>This methods returns the total number of rows in the table.</p>
+<pre><code class="language-php">// SELECT count(*) AS total FROM products
+$products-&gt;count();
+
+// SELECT count(*) AS total FROM products WHERE price &gt; 200
+$products-&gt;where('price', '&gt;', 200)-&gt;count();</code></pre>
+<h2>Exists / Not Exists</h2>
+<p>Check if any rows exist matching the query conditions:</p>
+<pre><code class="language-php">// Check if expensive products exist
+if ($products-&gt;where('price', '&gt;', 1000)-&gt;exists()) {
+    // Show premium category
+}
+
+// Check if out-of-stock products exist
+if ($products-&gt;where('stock', '=', 0)-&gt;notExists()) {
+    // All products are in stock
+}
+
+// Check if user has any orders
+$orders = db()-&gt;table('orders');
+if ($orders-&gt;where('user_id', '=', $userId)-&gt;exists()) {
+    // Show order history
+}</code></pre>
+<h2>Joins</h2>
+<p>You can also join multiple tables.</p>
+<pre><code class="language-php">// SELECT * FROM products INNER JOIN options ON products.id = options.product_id
+$products-&gt;join('options', 'products.id', 'options.product_id')-&gt;all();
+
+// SELECT * FROM products LEFT JOIN options ON products.id = options.product_id
+$products-&gt;leftJoin('options', 'products.id', 'options.product_id')-&gt;all();
+
+// SELECT * FROM products RIGHT JOIN options ON products.id = options.product_id
+$products-&gt;rightJoin('options', 'products.id', 'options.product_id')-&gt;all();
+
+// SELECT products.*, options.name AS oname FROM products INNER JOIN options ON products.id = options.product_id
+$products-&gt;select('products.*', 'options.name AS oname')-&gt;join('options', 'products.id', 'options.product_id')-&gt;all();</code></pre>
+<h2>Insert</h2>
+<p>Use <code>insert()</code> method to insert a new record. The method returns the result of the query execution (not the inserted ID).</p>
+<pre><code class="language-php">// INSERT INTO products (name, color) VALUES (?, ?)
+$products-&gt;insert([
+    'name' =&gt; 'Product 4',
+    'color' =&gt; '#CCC',
+]);</code></pre>
+<blockquote>
+<p><strong>Note:</strong> To get the last inserted auto-incremented ID, use the <code>lastInsertId()</code> method after insert.</p>
+</blockquote>
+<h3>Get Last Inserted ID</h3>
+<p>After performing an insert, you can retrieve the last auto-incremented primary key value using the <code>lastInsertId()</code> method. This is useful for working with records that use auto-incrementing IDs.</p>
+<pre><code class="language-php">$products-&gt;insert([
+    'name' =&gt; 'Product 4',
+    'color' =&gt; '#CCC',
+]);
+
+$lastId = $products-&gt;lastInsertId(); // Gets the last inserted ID</code></pre>
+<h3>Bulk Insert</h3>
+<p>To insert multiple records, simply pass an array of arrays to the <code>insert()</code> method:</p>
+<pre><code class="language-php">$products-&gt;insert([
+    ['name' =&gt; 'Product 1', 'color' =&gt; '#CCC'],
+    ['name' =&gt; 'Product 2', 'color' =&gt; '#DDD'],
+    ['name' =&gt; 'Product 3', 'color' =&gt; '#EEE'],
+]);</code></pre>
+<blockquote>
+<p><strong>Note:</strong> There is no <code>bulkInsert()</code> method. Use <code>insert()</code> for both single and multiple records.</p>
+</blockquote>
+<h2>Update</h2>
+<p>Use <code>update()</code> method to modify an existing record.</p>
+<pre><code class="language-php">// UPDATE products SET name = ?, color = ? WHERE id = 23
+$products-&gt;where('id', '=', 23)-&gt;update([
+    'name' =&gt; 'Product 4',
+    'color' =&gt; '#CCC',
+]);</code></pre>
+<h2>Delete</h2>
+<p>Use <code>delete()</code> method to delete an existing record.</p>
+<pre><code class="language-php">// DELETE FROM products WHERE id = 23
+$products-&gt;where('id', '=', 23)-&gt;delete();</code></pre>
+<h2>Insert Ignore</h2>
+<p>Insert a record, ignoring errors (like duplicate keys):</p>
+<pre><code class="language-php">$products-&gt;insertIgnore([
+    'name' =&gt; 'Product 4',
+    'color' =&gt; '#CCC',
+]);</code></pre>
+<h2>Upsert (Insert or Update)</h2>
+<p>Insert or update records using MySQL's ON DUPLICATE KEY UPDATE:</p>
+<pre><code class="language-php">$products-&gt;upsert(['id' =&gt; 1, 'name' =&gt; 'New Name']);</code></pre>
+<p>You can specify which columns to update:</p>
+<pre><code class="language-php">$products-&gt;upsert(['id' =&gt; 1, 'name' =&gt; 'New Name'], ['name']);</code></pre>
+<hr />
+<h2>toSql</h2>
+<p>To inspect the generated <code>SQL</code> query as string, use <code>toSql()</code> method:</p>
+<pre><code class="language-php">$products-&gt;toSql(); // SELECT * FROM products</code></pre>
+<p>Note that when you call <code>toSql()</code>, you cannot use methods that execute the query. For example, this is wrong to do:</p>
+<pre><code class="language-php">$products-&gt;all()-&gt;toSql(); // Error
+$products-&gt;one()-&gt;toSql(); // Error
+$products-&gt;where('id', '=', 23)-&gt;delete()-&gt;toSql(); // Error</code></pre>
+<p>This is because those methods actually execute the <code>SQL</code> query. So calling <code>toSql()</code> will result in error.</p>
+<hr />
+<h2>Raw Select Expressions</h2>
+<p>If you need to select expressions or use SQL functions, use <code>selectRaw()</code>:</p>
+<pre><code class="language-php">// SELECT id, SUM(score) AS total FROM products
+$products-&gt;select('id')-&gt;selectRaw('SUM(score) AS total')-&gt;groupBy('id')-&gt;all();</code></pre>
+<p>You can pass bindings as the second argument for safety:</p>
+<pre><code class="language-php">$products-&gt;selectRaw('SUM(score) &gt; ? AS high', [100]);</code></pre>
+<hr />
+<h2>HAVING Clauses</h2>
+<p>You can filter groups after aggregation using <code>having()</code>, <code>orHaving()</code>, <code>havingRaw()</code>, and <code>orHavingRaw()</code>:</p>
+<pre><code class="language-php">// SELECT category, COUNT(*) FROM products GROUP BY category HAVING COUNT(*) &gt; 5
+$products-&gt;select('category')-&gt;selectRaw('COUNT(*)')-&gt;groupBy('category')-&gt;having('COUNT(*)', '&gt;', 5)-&gt;all();</code></pre>
+<p>For more complex conditions, use raw SQL:</p>
+<pre><code class="language-php">$products-&gt;havingRaw('SUM(score) &gt; ?', [100]);</code></pre>
+<hr />
+<h2>Row Locking</h2>
+<p>You can lock rows for update using <code>forUpdate()</code>, or skip locked rows with <code>skipLocked()</code>:</p>
+<pre><code class="language-php">$products-&gt;where('stock', '&gt;', 0)-&gt;forUpdate()-&gt;all();
+$products-&gt;where('stock', '&gt;', 0)-&gt;forUpdate()-&gt;skipLocked()-&gt;all();</code></pre>
+<hr />
+<h2>Full-Text Search</h2>
+<p>To perform full-text search on indexed columns:</p>
+<pre><code class="language-php">// WHERE MATCH(title, body) AGAINST ('foo bar' IN BOOLEAN MODE)
+$products-&gt;search('foo bar', ['title', 'body'])-&gt;all();</code></pre>
+<hr />
+<h2>Boolean Shortcuts</h2>
+<p>You can quickly filter on boolean columns:</p>
+<pre><code class="language-php">$products-&gt;whereTrue('is_active')-&gt;all();
+$products-&gt;whereFalse('is_deleted')-&gt;all();
+$products-&gt;orWhereTrue('is_featured')-&gt;all();
+$products-&gt;orWhereFalse('is_archived')-&gt;all();</code></pre>
+<hr />
+<h2>Conditional Query Building</h2>
+<p>Add conditions only if a value is present:</p>
+<pre><code class="language-php">$products-&gt;whereIf($userId, 'user_id', '=', $userId);</code></pre>
+<p>Or, run a callback if a condition is true:</p>
+<pre><code class="language-php">$products-&gt;when($isAdmin, function($q) {
+    $q-&gt;where('is_admin', true);
+});</code></pre>
+<hr />
+<h2>Increment/Decrement</h2>
+<p>Atomically increase or decrease a column value. <strong>IMPORTANT:</strong> A <code>where()</code> clause is <strong>required</strong> - the operation will throw a <code>RuntimeException</code> if no where clause is present.</p>
+<pre><code class="language-php">// Increment stock by 5 for product with id 1
+$products-&gt;where('id', 1)-&gt;increment('stock', 5);
+
+// Decrement stock by 2 for product with id 1
+$products-&gt;where('id', 1)-&gt;decrement('stock', 2);
+
+// Default increment/decrement is 1
+$products-&gt;where('id', 1)-&gt;increment('views'); // +1
+$products-&gt;where('id', 1)-&gt;decrement('stock'); // -1</code></pre>
+<blockquote>
+<p><strong>Warning:</strong> Calling <code>increment()</code> or <code>decrement()</code> without a <code>where()</code> clause will throw: <code>RuntimeException: Increment/Decrement operations require a where clause</code></p>
+</blockquote>
+<hr />
+<h2>Chunked Processing</h2>
+<p>Process large datasets in batches:</p>
+<pre><code class="language-php">$products-&gt;chunk(100, function($chunk) {
+    foreach ($chunk as $product) {
+        // Process each product
+    }
+});</code></pre>
+<hr />
+<h2>Processing Large Datasets</h2>
+<p>For memory-efficient processing of large result sets, use <code>chunk()</code> which processes records in batches:</p>
+<pre><code class="language-php">$products-&gt;where('status', 'active')-&gt;chunk(1000, function($batch) {
+    foreach ($batch as $product) {
+        // Process one product at a time
+        // Memory: 1000 rows at a time
+    }
+});</code></pre>
+<h3>Chunk vs All</h3>
+<pre><code class="language-php">// ❌ all() - Loads ALL rows into memory
+$products = $products-&gt;all();
+foreach ($products as $product) {
+    // Process
+    // Memory: ALL rows loaded at once
+}
+
+// ✅ chunk() - Loads N rows at a time (memory efficient)
+$products-&gt;chunk(1000, function($batch) {
+    // Memory: 1000 rows at a time
+    foreach ($batch as $product) {
+        // Process batch
+    }
+});</code></pre>
+<h3>When to Use Chunk</h3>
+<p><strong>Use <code>chunk()</code> for:</strong></p>
+<ul>
+<li>✅ Processing large datasets (millions of records)</li>
+<li>✅ Exporting data (CSV, Excel)</li>
+<li>✅ Data migrations and transformations</li>
+<li>✅ Batch updates/deletes</li>
+<li>✅ Sending bulk emails</li>
+<li>✅ Rate-limited API calls</li>
+<li>✅ Any operation where memory is a concern</li>
+</ul>
+<p><strong>Use <code>all()</code> for:</strong></p>
+<ul>
+<li>✅ Small result sets (&lt; 1000 rows)</li>
+<li>✅ When you need the full collection</li>
+<li>✅ When you need to count/filter in PHP</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> Adjust chunk size based on your memory constraints. Typical values: 100-1000 rows per chunk.</p>
+</blockquote>
+<hr />
+<h2>Aggregates</h2>
+<p>You can use the following methods for aggregate queries:</p>
+<pre><code class="language-php">$products-&gt;sum('price');
+$products-&gt;avg('rating');
+$products-&gt;min('created_at');
+$products-&gt;max('updated_at');
+$products-&gt;countBy('category'); // returns an array of objects with counts for each group</code></pre>
+<hr />
+<h2>Date &amp; Time Filters</h2>
+<h3>Date Part Filtering</h3>
+<p>Filter records by specific parts of date/time columns:</p>
+<pre><code class="language-php">// Filter by date (ignores time)
+$orders-&gt;whereDate('created_at', '2024-01-15')-&gt;all();
+$orders-&gt;whereDate('created_at', '&gt;=', '2024-01-01')-&gt;all();
+
+// Filter by year
+$reports-&gt;whereYear('created_at', 2024)-&gt;all();
+$archives-&gt;whereYear('created_at', '&lt;', 2020)-&gt;all();
+
+// Filter by month (1-12 or month name)
+$sales-&gt;whereMonth('created_at', 12)-&gt;all();  // December
+$sales-&gt;whereMonth('created_at', 'dec')-&gt;all();  // Short name
+$sales-&gt;whereMonth('created_at', 'december')-&gt;all();  // Full name
+$sales-&gt;whereMonth('created_at', '&gt;=', 6)-&gt;all();
+
+// Filter by day of month (1-31)
+$payroll-&gt;whereDay('pay_date', 15)-&gt;all();
+$reminders-&gt;whereDay('due_date', '&lt;=', 5)-&gt;all();
+
+// Filter by time
+$appointments-&gt;whereTime('scheduled_at', '&gt;=', '09:00:00')-&gt;all();
+$appointments-&gt;whereTime('scheduled_at', '&lt;=', '17:00:00')-&gt;all();</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Month names are case-insensitive and support both short (jan, feb, mar) and full names (january, february, march).</p>
+</blockquote>
+<p>All date/time methods have OR variants:</p>
+<pre><code class="language-php">$records-&gt;whereYear('created_at', 2023)-&gt;orWhereYear('created_at', 2024)-&gt;all();
+$logs-&gt;whereDate('created_at', today())-&gt;orWhereDate('created_at', yesterday())-&gt;all();</code></pre>
+<h3>Relative Date Filters</h3>
+<p>Filter records using relative time periods:</p>
+<pre><code class="language-php">// Today's records
+$orders-&gt;today()-&gt;all();
+$orders-&gt;today('order_date')-&gt;all();  // Custom column
+
+// Yesterday's records
+$logs-&gt;yesterday()-&gt;all();
+
+// This week (Monday-Sunday)
+$tasks-&gt;thisWeek()-&gt;all();
+
+// Last week
+$reports-&gt;lastWeek()-&gt;all();
+
+// This month
+$sales-&gt;thisMonth()-&gt;all();
+
+// Last month
+$invoices-&gt;lastMonth()-&gt;all();
+
+// This year
+$users-&gt;thisYear()-&gt;all();
+
+// Last year
+$analytics-&gt;lastYear()-&gt;all();</code></pre>
+<h3>Last N Periods</h3>
+<p>Filter records from the last N days, weeks, or months:</p>
+<pre><code class="language-php">// Last N days
+$orders-&gt;lastDays(7)-&gt;all();   // Last 7 days
+$orders-&gt;lastDays(30)-&gt;all();  // Last 30 days
+$orders-&gt;lastDays(90)-&gt;all();  // Last 90 days
+
+// Last N weeks
+$reports-&gt;lastWeeks(4)-&gt;all();  // Last 4 weeks
+
+// Last N months
+$sales-&gt;lastMonths(3)-&gt;all();   // Last 3 months
+$sales-&gt;lastMonths(6)-&gt;all();   // Last 6 months
+$sales-&gt;lastMonths(12)-&gt;all();  // Last 12 months</code></pre>
+<h3>Age-Based Filtering</h3>
+<p>Filter records based on how old they are:</p>
+<pre><code class="language-php">// Records older than specified time
+$tickets-&gt;olderThan(7, 'days')-&gt;all();
+$tickets-&gt;olderThan(48, 'hours')-&gt;all();
+$leads-&gt;olderThan(30, 'days')-&gt;all();
+$cache-&gt;olderThan(1, 'hour')-&gt;all();
+
+// Records newer than specified time
+$activities-&gt;newerThan(24, 'hours')-&gt;all();
+$posts-&gt;newerThan(7, 'days')-&gt;all();
+
+// Supported units: 'minutes', 'hours', 'days', 'weeks', 'months', 'years'</code></pre>
+<h3>Before/After Shortcuts</h3>
+<p>Filter records before or after a specific date:</p>
+<pre><code class="language-php">// Before a specific date
+$orders-&gt;before('2024-01-01')-&gt;all();
+$orders-&gt;before('2024-01-01', 'shipped_at')-&gt;all();
+
+// After a specific date
+$orders-&gt;after('2024-01-01')-&gt;all();
+$orders-&gt;after('2024-01-01', 'shipped_at')-&gt;all();</code></pre>
+<h3>Weekday/Weekend Filtering</h3>
+<p>Filter records by day of week:</p>
+<pre><code class="language-php">// Weekdays only (Monday-Friday)
+$orders-&gt;weekdays()-&gt;all();
+
+// Weekends only (Saturday-Sunday)
+$orders-&gt;weekends()-&gt;all();</code></pre>
+<h3>Ordering Shortcuts</h3>
+<p>Quick methods for ascending/descending order:</p>
+<pre><code class="language-php">// Descending order (highest/newest first)
+$products-&gt;desc()-&gt;all();              // ORDER BY id DESC
+$products-&gt;desc('price')-&gt;all();       // ORDER BY price DESC
+$posts-&gt;desc('created_at')-&gt;all();     // ORDER BY created_at DESC
+
+// Ascending order (lowest/oldest first)
+$products-&gt;asc()-&gt;all();               // ORDER BY id ASC
+$products-&gt;asc('name')-&gt;all();         // ORDER BY name ASC
+$posts-&gt;asc('created_at')-&gt;all();      // ORDER BY created_at ASC
+
+// Multiple ordering
+$products-&gt;desc('price')-&gt;asc('name')-&gt;all();</code></pre>
+<h3>Real-World Examples</h3>
+<pre><code class="language-php">// Dashboard: Today's sales
+$todaySales = db()-&gt;table('orders')-&gt;today()-&gt;sum('amount');
+
+// Report: This month's signups
+$signups = db()-&gt;table('users')-&gt;thisMonth()-&gt;count();
+
+// Analytics: Last 30 days revenue
+$revenue = db()-&gt;table('orders')
+    -&gt;lastDays(30)
+    -&gt;where('status', 'completed')
+    -&gt;sum('amount');
+
+// CRM: Stale leads (no contact in 30 days)
+$staleLeads = db()-&gt;table('leads')
+    -&gt;olderThan(30, 'days', 'last_contact_at')
+    -&gt;where('status', 'active')
+    -&gt;all();
+
+// Support: Overdue tickets
+$overdue = db()-&gt;table('tickets')
+    -&gt;where('status', 'open')
+    -&gt;olderThan(48, 'hours')
+    -&gt;desc('created_at')
+    -&gt;all();
+
+// Weekend vs weekday sales
+$weekendSales = db()-&gt;table('orders')-&gt;thisMonth()-&gt;weekends()-&gt;sum('amount');
+$weekdaySales = db()-&gt;table('orders')-&gt;thisMonth()-&gt;weekdays()-&gt;sum('amount');</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

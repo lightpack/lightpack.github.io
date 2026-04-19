@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   class="active" aria-current="page">
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Filters</h1>
+<p>Filters in Lightpack are reusable hooks that run before or after a controller action. They are typically used for authentication, authorization, CSRF protection, rate limiting, CORS, and other request/response concerns.</p>
+<h2>How Filters Work</h2>
+<ul>
+<li><strong>Before filters</strong> can halt the request and return a response before the controller action runs.</li>
+<li><strong>After filters</strong> can modify the response after the controller action runs.</li>
+<li>Filters can be attached to individual routes or route groups.</li>
+</ul>
+<h2>Usage</h2>
+<h3>Attaching Filters to Routes</h3>
+<pre><code class="language-php">// Single filter
+route()-&gt;get('/dashboard', DashboardController::class)-&gt;filter('auth');
+
+// Multiple filters
+route()-&gt;post('/posts', PostController::class)-&gt;filter(['csrf', 'auth']);</code></pre>
+<h3>Grouping Filters</h3>
+<pre><code class="language-php">route()-&gt;group(['filter' =&gt; ['csrf', 'auth']], function() {
+    route()-&gt;get('/dashboard', DashboardController::class);
+});</code></pre>
+<h3>Halting or Modifying Requests</h3>
+<ul>
+<li>To halt a request early (e.g., unauthorized), return a <code>Response</code> from the filter’s <code>before()</code> method.</li>
+<li>To modify the response, return a new <code>Response</code> from the filter’s <code>after()</code> method.</li>
+</ul>
+<hr />
+<h2>Defining Custom Filters</h2>
+<pre><code class="language-cli">php console create:filter TrimFilter</code></pre>
+<p>A filter is a class implementing the <code>Lightpack\Filters\FilterInterface</code> interface:</p>
+<pre><code class="language-php">class TrimFilter implements FilterInterface
+{
+    public function before(Request $request, array $params = [])
+    {
+        // Logic before action
+    }
+
+    public function after(Request $request, Response $response, array $params = []): Response
+    {
+        // Logic after action
+        return $response;
+    }
+}</code></pre>
+<p><strong>Register your filter alias in <code>boot/filters.php</code>:</strong></p>
+<pre><code class="language-php">return [
+    'trim' =&gt; App\Filters\TrimFilter::class,
+];</code></pre>
+<hr />
+<h2>Built-in Filters</h2>
+<p>Lightpack provides many pre-defined filters that you can declare on your route definitions. Below are the built-in filters provided by Lightpack, their aliases, and what they do:</p>
+<h3>1. <code>auth</code></h3>
+<p><strong>Purpose:</strong> Restricts access to authenticated users (web or API).</p>
+<ul>
+<li><strong>Web:</strong> Redirects guests to login; stores intended URL for redirect after login.</li>
+<li><strong>API:</strong> Returns 401 JSON if token is missing or invalid.</li>
+<li><strong>Params:</strong> <code>['web']</code> (default) or <code>['api']</code>.</li>
+</ul>
+<h3>2. <code>guest</code></h3>
+<p><strong>Purpose:</strong> Restricts access to guests only.</p>
+<ul>
+<li>Redirects logged-in users to a default location (usually dashboard).</li>
+</ul>
+<h3>3. <code>csrf</code></h3>
+<p><strong>Purpose:</strong> Protects against CSRF attacks.</p>
+<ul>
+<li>Checks for a valid CSRF token on POST, PUT, PATCH, DELETE.</li>
+<li>Throws exceptions for missing or invalid tokens.</li>
+<li><strong>Bypasses</strong> in <code>APP_ENV=testing</code>.</li>
+</ul>
+<h3>4. <code>cors</code></h3>
+<p><strong>Purpose:</strong> Handles Cross-Origin Resource Sharing.</p>
+<ul>
+<li>Responds to OPTIONS requests with CORS headers.</li>
+<li>Adds CORS headers to all responses.</li>
+<li>Uses headers from <code>config('cors.headers')</code>.</li>
+</ul>
+<h3>5. <code>limit</code></h3>
+<p><strong>Purpose:</strong> API rate limiting.</p>
+<ul>
+<li>Limits requests per user or IP to a configurable max per time window.</li>
+<li>Throws 429 with rate limit headers if exceeded.</li>
+<li><strong>Params:</strong> <code>[maxRequests, minutes]</code>. Defaults from <code>config('limit.default')</code>.</li>
+</ul>
+<h3>6. <code>signed</code></h3>
+<p><strong>Purpose:</strong> Ensures URL signatures are valid.</p>
+<ul>
+<li>Returns 403 (JSON or error view) if the request signature is invalid.</li>
+</ul>
+<h3>7. <code>verifyemail</code></h3>
+<p><strong>Purpose:</strong> Restricts access to users with verified email addresses.</p>
+<ul>
+<li>Redirects or returns 403 JSON if user’s email is not verified.</li>
+</ul>
+<h3>8. <code>mfa</code></h3>
+<p><strong>Purpose:</strong> Enforces Multi-Factor Authentication.</p>
+<ul>
+<li>If MFA is enforced or user has enabled MFA, triggers MFA flow and redirects to verification screen.</li>
+<li>Skips if already passed in session.</li>
+</ul>
+<hr />
+<h2>Filter Parameters</h2>
+<p>You can pass parameters to filters via the route definition:</p>
+<pre><code class="language-php">route()-&gt;get('/api/data', ApiController::class)-&gt;filter(['limit:100,5']);</code></pre>
+<ul>
+<li>For <code>limit</code>, this would allow 100 requests per 5 minutes.</li>
+</ul>
+<hr />
+<h2>Best Practices</h2>
+<ul>
+<li><strong>Order matters:</strong> Filters run in the order they’re listed.</li>
+<li><strong>Return a Response:</strong> To halt further processing, return a <code>Response</code> from <code>before()</code>.</li>
+<li><strong>Chainable:</strong> Filters from groups and routes are merged and deduplicated.</li>
+<li><strong>Testing:</strong> CSRF filter is disabled in test environment.</li>
+</ul>
+<hr />
+<h2>Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Alias</th>
+<th>Description</th>
+<th>Typical Use/Params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auth</code></td>
+<td>Require authentication (web/API)</td>
+<td><code>auth:web</code>, <code>auth:api</code></td>
+</tr>
+<tr>
+<td><code>guest</code></td>
+<td>Require guest (not logged in)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>csrf</code></td>
+<td>CSRF protection on state-changing verbs</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cors</code></td>
+<td>Add CORS headers, handle preflight</td>
+<td></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>Rate limiting</td>
+<td><code>limit:60,1</code></td>
+</tr>
+<tr>
+<td><code>signed</code></td>
+<td>Require valid signed URL</td>
+<td></td>
+</tr>
+<tr>
+<td><code>verifyemail</code></td>
+<td>Require verified email</td>
+<td></td>
+</tr>
+<tr>
+<td><code>mfa</code></td>
+<td>Enforce multi-factor authentication</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

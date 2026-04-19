@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Http client</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   class="active" aria-current="page">
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Lightpack Http Client</h1>
+<p>Lightpack provide a lightweight <strong>HTTP client</strong> for making API requests.</p>
+<ul>
+<li><strong>Fluent API:</strong> Chain methods for configuration and requests.</li>
+<li><strong>Supports all major HTTP verbs:</strong> GET, POST, PUT, PATCH, DELETE.</li>
+<li><strong>Flexible data formats:</strong> JSON (default) and form-urlencoded.</li>
+<li><strong>Custom headers, bearer token, and file uploads.</strong></li>
+<li><strong>Timeouts, SSL options, and custom cURL settings.</strong></li>
+<li><strong>Simple helpers for response status, errors, and parsing.</strong></li>
+</ul>
+<hr />
+<h2>Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get($url, $query)</code></td>
+<td>Send GET request with optional query params</td>
+</tr>
+<tr>
+<td><code>post($url, $data)</code></td>
+<td>Send POST request with data (JSON or form)</td>
+</tr>
+<tr>
+<td><code>put($url, $data)</code></td>
+<td>Send PUT request with data</td>
+</tr>
+<tr>
+<td><code>patch($url, $data)</code></td>
+<td>Send PATCH request with data</td>
+</tr>
+<tr>
+<td><code>delete($url, $data)</code></td>
+<td>Send DELETE request with data</td>
+</tr>
+<tr>
+<td><code>headers([$k=&gt;$v])</code></td>
+<td>Set custom headers</td>
+</tr>
+<tr>
+<td><code>files([$k=&gt;$file])</code></td>
+<td>Attach files for upload (POST/PUT)</td>
+</tr>
+<tr>
+<td><code>token($token)</code></td>
+<td>Set Bearer token for Authorization</td>
+</tr>
+<tr>
+<td><code>timeout($seconds)</code></td>
+<td>Set request timeout</td>
+</tr>
+<tr>
+<td><code>insecure()</code></td>
+<td>Disable SSL verification (use with caution)</td>
+</tr>
+<tr>
+<td><code>options([$opt=&gt;$v])</code></td>
+<td>Set custom cURL options</td>
+</tr>
+<tr>
+<td><code>form()</code></td>
+<td>Send data as form-urlencoded</td>
+</tr>
+<tr>
+<td><code>download($url, $path)</code></td>
+<td>Download file to disk</td>
+</tr>
+<tr>
+<td><code>stream($method, $url, $data, $callback)</code></td>
+<td>Stream response in real-time with callback</td>
+</tr>
+<tr>
+<td><code>json()</code></td>
+<td>Get response as array (assumes JSON)</td>
+</tr>
+<tr>
+<td><code>body()</code></td>
+<td>Get raw response body</td>
+</tr>
+<tr>
+<td><code>status()</code></td>
+<td>Get HTTP status code</td>
+</tr>
+<tr>
+<td><code>error()</code></td>
+<td>Get transport error message, if any</td>
+</tr>
+<tr>
+<td><code>responseHeaders()</code></td>
+<td>Get all response headers as array</td>
+</tr>
+<tr>
+<td><code>responseHeader($name)</code></td>
+<td>Get specific response header (case-insensitive)</td>
+</tr>
+<tr>
+<td><code>ok()</code></td>
+<td>2xx status</td>
+</tr>
+<tr>
+<td><code>failed()</code></td>
+<td>Transport or HTTP error</td>
+</tr>
+<tr>
+<td><code>clientError()</code></td>
+<td>4xx status</td>
+</tr>
+<tr>
+<td><code>serverError()</code></td>
+<td>5xx status</td>
+</tr>
+<tr>
+<td><code>redirect()</code></td>
+<td>3xx status</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Creating a Client</h2>
+<pre><code class="language-php">use Lightpack\Http\Http;
+
+$http = new Http();</code></pre>
+<hr />
+<h2>Making Requests</h2>
+<h3>GET Request</h3>
+<pre><code class="language-php">$response = $http-&gt;get('https://api.example.com/users');
+$data = $response-&gt;json();</code></pre>
+<h3>GET with Query Parameters</h3>
+<pre><code class="language-php">$response = $http-&gt;get('https://api.example.com/users', [
+    'name' =&gt; 'alice',
+    'active' =&gt; true
+]);</code></pre>
+<h3>POST Request (JSON)</h3>
+<pre><code class="language-php">$response = $http-&gt;post('https://api.example.com/users', [
+    'name' =&gt; 'alice',
+    'email' =&gt; 'alice@example.com'
+]);</code></pre>
+<h3>POST Request (Form Data)</h3>
+<pre><code class="language-php">$response = $http
+    -&gt;form()
+    -&gt;post('https://api.example.com/login', [
+        'username' =&gt; 'alice',
+        'password' =&gt; 'secret',
+    ]);</code></pre>
+<h3>PUT/PATCH/DELETE Requests</h3>
+<pre><code class="language-php">$http-&gt;put($url, $data);
+$http-&gt;patch($url, $data);
+$http-&gt;delete($url, $data);</code></pre>
+<hr />
+<h2>Customizing Requests</h2>
+<h3>Custom Headers</h3>
+<pre><code class="language-php">$headers = ['X-Custom' =&gt; 'value', 'Accept' =&gt; 'application/json'];
+
+$response = $http-&gt;headers($headers)-&gt;get($url);</code></pre>
+<h3>Bearer Token Authentication</h3>
+<pre><code class="language-php">$response = $http-&gt;token('your-token')-&gt;get($url);</code></pre>
+<h3>File Uploads</h3>
+<pre><code class="language-php">$file = ['avatar' =&gt; '/path/to/file.jpg'];
+
+$response = $http-&gt;files()-&gt;post($url);</code></pre>
+<h3>Set Timeout</h3>
+<pre><code class="language-php">$response = $http-&gt;timeout(10)-&gt;get($url);</code></pre>
+<h3>Insecure Requests (Disable SSL Verification)</h3>
+<pre><code class="language-php">$response = $http-&gt;insecure()-&gt;get($url);</code></pre>
+<h3>Custom cURL Options</h3>
+<pre><code class="language-php">$curlOptions = [
+    CURLOPT_PROXY =&gt; 'proxy.example.com:8080',
+    CURLOPT_FOLLOWLOCATION =&gt; false
+];
+
+$response = $http-&gt;options()-&gt;get($url);</code></pre>
+<hr />
+<h2>Handling Responses</h2>
+<h3>Status and Error Checking</h3>
+<pre><code class="language-php">if ($response-&gt;ok()) {
+    // 2xx response
+}</code></pre>
+<pre><code class="language-php">if ($response-&gt;clientError()) {
+    // 4xx error
+}</code></pre>
+<pre><code class="language-php">if ($response-&gt;serverError()) {
+    // 5xx error
+}</code></pre>
+<pre><code class="language-php">if ($response-&gt;failed()) {
+    // Transport error (DNS, connection, SSL, etc.)
+    $error = $response-&gt;error();
+}</code></pre>
+<h3>Parsing Response Data</h3>
+<pre><code class="language-php">$array = $response-&gt;json(); // Array (assumes JSON)
+$text = $response-&gt;body();  // Raw body
+$status = $response-&gt;status(); // HTTP status code</code></pre>
+<h3>Accessing Response Headers</h3>
+<pre><code class="language-php">// Get all headers
+$headers = $response-&gt;responseHeaders();
+
+// Get specific header (case-insensitive)
+$contentType = $response-&gt;responseHeader('Content-Type');
+$rateLimit = $response-&gt;responseHeader('X-RateLimit-Remaining');
+$server = $response-&gt;responseHeader('server');</code></pre>
+<p><strong>Common use cases:</strong></p>
+<pre><code class="language-php">// Check rate limiting
+if ($response-&gt;responseHeader('X-RateLimit-Remaining') &lt; 10) {
+    // Slow down requests
+}
+
+// Get pagination info
+$nextPage = $response-&gt;responseHeader('X-Next-Page');
+
+// Check cache headers
+$cacheControl = $response-&gt;responseHeader('Cache-Control');</code></pre>
+<hr />
+<h2>Downloading Files</h2>
+<pre><code class="language-php">$success = $http-&gt;download('https://example.com/image.jpg', '/tmp/image.jpg');
+
+if ($success) {
+    // File downloaded
+}</code></pre>
+<hr />
+<h2>Streaming Requests</h2>
+<p>The <code>stream()</code> method allows you to process HTTP responses in real-time as chunks arrive, rather than waiting for the entire response to be buffered. This is useful for:</p>
+<ul>
+<li><strong>Long-running AI completions</strong> (OpenAI, Anthropic, etc.)</li>
+<li><strong>Large file downloads</strong> with progress tracking</li>
+<li><strong>Server-Sent Events (SSE)</strong> endpoints</li>
+<li><strong>Real-time data feeds</strong></li>
+</ul>
+<h3>Basic Streaming</h3>
+<pre><code class="language-php">$http-&gt;stream('GET', 'https://api.example.com/stream', null, function($chunk) {
+    echo $chunk;
+    flush();
+});</code></pre>
+<h3>Streaming POST Request</h3>
+<pre><code class="language-php">$http-&gt;stream('POST', 'https://api.example.com/generate', [
+    'prompt' =&gt; 'Write a story',
+    'temperature' =&gt; 0.7
+], function($chunk) {
+    // Process each chunk as it arrives
+    file_put_contents('output.txt', $chunk, FILE_APPEND);
+});</code></pre>
+<h3>Streaming with Headers and Timeout</h3>
+<pre><code class="language-php">$http
+    -&gt;headers(['Authorization' =&gt; 'Bearer token123'])
+    -&gt;timeout(30)
+    -&gt;stream('GET', 'https://api.example.com/events', null, function($chunk) {
+        processChunk($chunk);
+    });</code></pre>
+<h3>Collecting Streamed Data</h3>
+<pre><code class="language-php">$chunks = [];
+$fullContent = '';
+
+$http-&gt;stream('GET', 'https://api.example.com/stream', null, function($chunk) use (&amp;$chunks, &amp;$fullContent) {
+    $chunks[] = $chunk;
+    $fullContent .= $chunk;
+});
+
+echo "Received " . count($chunks) . " chunks\n";
+echo "Total content: " . $fullContent;</code></pre>
+<h3>Streaming with Different HTTP Methods</h3>
+<pre><code class="language-php">// GET request
+$http-&gt;stream('GET', $url, null, $callback);
+
+// POST request
+$http-&gt;stream('POST', $url, ['key' =&gt; 'value'], $callback);
+
+// PUT request
+$http-&gt;stream('PUT', $url, ['data' =&gt; 'update'], $callback);
+
+// DELETE request
+$http-&gt;stream('DELETE', $url, null, $callback);</code></pre>
+<h3>Error Handling with Streaming</h3>
+<p>Streaming requests throw exceptions on HTTP errors (4xx, 5xx) or transport errors:</p>
+<pre><code class="language-php">try {
+    $http-&gt;stream('GET', 'https://api.example.com/stream', null, function($chunk) {
+        echo $chunk;
+    });
+} catch (\Exception $e) {
+    // Handle streaming error
+    echo "Streaming failed: " . $e-&gt;getMessage();
+}</code></pre>
+<h2>Error Handling Explained</h2>
+<ul>
+<li>
+<p><strong>Transport Errors:</strong></p>
+<ul>
+<li>Occur before an HTTP response is received (DNS failure, timeout, SSL error, etc.)</li>
+<li><code>$response-&gt;error()</code> returns the error message</li>
+<li><code>$response-&gt;status()</code> returns 0</li>
+<li><code>$response-&gt;failed()</code> returns true</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP Errors:</strong></p>
+<ul>
+<li>Server returns 4xx or 5xx status</li>
+<li><code>$response-&gt;status()</code> returns the HTTP code</li>
+<li><code>$response-&gt;failed()</code> returns true</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Example: Complete Request Flow</h2>
+<pre><code class="language-php">$http = new Http();
+
+$response = $http
+    -&gt;token('abc123')
+    -&gt;headers(['Accept' =&gt; 'application/json'])
+    -&gt;timeout(10)
+    -&gt;get('https://api.example.com/profile');
+
+if ($response-&gt;ok()) {
+    $profile = $response-&gt;json();
+
+    // Check response headers
+    $rateLimit = $response-&gt;responseHeader('X-RateLimit-Remaining');
+    $contentType = $response-&gt;responseHeader('Content-Type');
+} elseif ($response-&gt;failed()) {
+    // Handle error
+    $error = $response-&gt;error();
+}</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

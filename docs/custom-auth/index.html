@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom auth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   class="active" aria-current="page">
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Extending Authentication</h1>
+<p><strong>Lightpack's</strong> authentication system is made up of two key building blocks: <code>Authenticators</code> and <code>Identifiers</code>.</p>
+<p>Understanding how these work together will help you confidently customize authentication for your application.</p>
+<h2>Concepts</h2>
+<p><strong>Authenticator</strong></p>
+<ul>
+<li>Handles the mechanics of authentication (e.g., parsing a JWT, validating a password, checking a cookie)</li>
+<li>Extracts identifying information (e.g., user ID) from the request</li>
+</ul>
+<p><strong>Identifier</strong></p>
+<ul>
+<li>Responsible for fetching the user (Identity) from a data source, given some identifying info (like user ID, email, etc.)</li>
+<li>Is agnostic to how the identifying info was obtained</li>
+</ul>
+<p><strong>How do they work together?</strong></p>
+<ul>
+<li>Authenticator verifies the request and extracts the identifier (e.g., user ID from JWT)</li>
+<li>Identifier loads the user from the database (or other source)</li>
+<li>This separation allows you to mix and match authentication strategies and user sources</li>
+</ul>
+<p><strong>When do you need a custom Identifier?</strong></p>
+<ul>
+<li>If your authentication method differs from email/password (e.g., username/password, phone/OTP, LDAP).</li>
+<li>If you need to fetch users from a different source (API, external database, etc.)</li>
+<li>If you need different database column names than the framework conventions.</li>
+</ul>
+<p><strong>Why this separation?</strong></p>
+<ul>
+<li>Encourages single responsibility and testability</li>
+<li>Makes it easy to add new authentication methods without rewriting user lookup logic</li>
+<li>Enables advanced scenarios (multi-tenancy, external user stores, etc.)</li>
+</ul>
+<p>Below we document in detail how to define your own custom authenticators and identifiers as required.</p>
+<h2>Authenticators</h2>
+<p>Authenticators are classes that extend <code>Lightpack\Auth\Authenticator</code> class. </p>
+<p>These classes are responsible for authenticating a request. You can create your own authenticator by extending this class. For example:</p>
+<pre><code class="language-php">class JwtAuthenticator extends Authenticator
+{
+    public function verify(): ?IdentityInterface
+    {
+        // custom auth logic goes here
+    }
+}</code></pre>
+<p>The <code>verify()</code> method should return an instance of <strong>\Lightpack\Auth\IdentityInterface</strong> (or <code>null</code> if authentication fails). </p>
+<p>To use your custom authenticator, you should register it using the <code>extend()</code> method. For example, in your login controller:</p>
+<pre><code class="language-php">class LoginController
+{
+    public function authenticate()
+    {
+        // Register custom authenticator
+        auth()-&gt;extend('jwt', JwtAuthenticator::class);
+
+        // Use it
+        $user = auth()-&gt;attempt();
+
+        if (!$user) {
+            return redirect()-&gt;to('login');
+        }
+
+        return redirect()-&gt;intendedRoute('dashboard');
+    }
+}</code></pre>
+<h2>Identifiers</h2>
+<p>Identifiers are classes that implement <code>Lightpack\Auth\IdentifierInterface</code> interface.</p>
+<p>These classes are responsible for <strong>fetching</strong> users and they act as user repository or user data service providers. You can create your own identifier by implementing this interface. For example:</p>
+<pre><code class="language-php">class CustomIdentifier implements IdentifierInterface
+{
+    public function findById($id): ?IdentityInterface
+    {
+        // custom logic to fetch user by id
+    }
+
+    public function findByRememberToken($id, string $token): ?IdentityInterface
+    {
+        // fetch user with matching remember_me token
+    }
+
+    public function findByCredentials(array $credentials): ?IdentityInterface
+    {
+        // fetch user by username/password credentials
+    }
+
+    public function updateLogin($id, array $fields)
+    {
+        // update login fields 
+    }
+}</code></pre>
+<h3>Configuration</h3>
+<p>Configure your custom identifier in <code>config/auth.php</code>:</p>
+<pre><code class="language-php">return [
+    'auth' =&gt; [
+        'drivers' =&gt; [
+            'default' =&gt; [
+                // ...
+            ],
+            'custom' =&gt; [
+                'model' =&gt; App\Models\User::class,
+                'identifier' =&gt; CustomIdentifier::class,
+                'remember_duration' =&gt; 60 * 24 * 30,
+            ],
+        ],
+        'routes' =&gt; [
+            'login' =&gt; 'login',
+            'home' =&gt; 'dashboard',
+        ],
+    ],
+];</code></pre>
+<p>To use your custom driver, call <code>setDriver()</code> before authentication:</p>
+<pre><code class="language-php">namespace App\Controllers;
+
+class LoginController
+{
+    public function authenticate()
+    {
+        $user = auth('custom')-&gt;attempt();
+
+        if (!$user) {
+            session()-&gt;flash('error', 'Invalid credentials.');
+            return redirect()-&gt;to('login');
+        }
+
+        return redirect()-&gt;intendedRoute('dashboard');
+    }
+}</code></pre>
+<h2>Quick Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>How to Customize</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Authenticator</strong></td>
+<td>Verifies requests (JWT, OAuth, etc.)</td>
+<td>Extend <code>Authenticator</code>, register with <code>extend()</code></td>
+</tr>
+<tr>
+<td><strong>Identifier</strong></td>
+<td>Fetches users from data source</td>
+<td>Implement <code>IdentifierInterface</code> interface, add to config</td>
+</tr>
+<tr>
+<td><strong>Driver</strong></td>
+<td>Combines model + identifier + config</td>
+<td>Add new driver in <code>config/auth.php</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Default Setup:</strong></p>
+<ul>
+<li>Authenticators: <code>FormAuthenticator</code>, <code>CookieAuthenticator</code>, <code>BearerAuthenticator</code></li>
+<li>Identifier: <code>EmailPasswordIdentifier</code></li>
+<li>Conventions: <code>email</code>, <code>password</code>, <code>remember_token</code>, <code>last_login_at</code> columns</li>
+</ul>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

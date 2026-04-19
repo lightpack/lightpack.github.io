@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logging</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   class="active" aria-current="page">
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Logging</h1>
+<p><strong>Lightpack</strong> provides logging functionality that is already configured as a service for you. You can access the logger instance as service using <code>logger()</code> which gives an instance of <code>Lightpack\Logger\Logger</code>. </p>
+<p>This class exposes following logging methods:</p>
+<pre><code class="language-php">logger()-&gt;log();
+logger()-&gt;info();
+logger()-&gt;alert();
+logger()-&gt;debug();
+logger()-&gt;notice();
+logger()-&gt;warning();
+logger()-&gt;critical();
+logger()-&gt;emergency();</code></pre>
+<h2>Log Drivers</h2>
+<p><strong>Lightpack</strong> ships with three log drivers:</p>
+<ul>
+<li><strong><code>file</code></strong> - Size-based rotation (default)</li>
+<li><strong><code>daily</code></strong> - Daily log files with date-based retention</li>
+<li><strong><code>null</code></strong> - Disables logging</li>
+</ul>
+<p>The default driver is <code>file</code>. You can change the driver by setting <code>LOG_DRIVER</code> in your <code>.env</code> file.</p>
+<h3>Configuration</h3>
+<p>To customize log driver settings, run the following command to create a <code>config/logs.php</code> configuration file:</p>
+<pre><code class="language-cli">php console create:config --support=logs</code></pre>
+<h3>File Driver (Size-Based Rotation)</h3>
+<p>The <strong>file</strong> driver rotates logs based on file size. When a log file reaches the maximum size, it's rotated with a timestamp and old logs are automatically cleaned up.</p>
+<pre><code class="language-env">LOG_DRIVER=file</code></pre>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Logs to: <code>storage/logs/lightpack.log</code></li>
+<li>Rotates when file reaches <code>max_file_size</code> (default: 10MB)</li>
+<li>Keeps last <code>max_log_files</code> rotated files (default: 10)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>storage/logs/
+  ├── lightpack.log              (current, 8MB)
+  ├── lightpack.20241103120000.log (10MB)
+  └── lightpack.20241102180000.log (10MB)</code></pre>
+<h3>Daily Driver (Date-Based Rotation)</h3>
+<p>The <strong>daily</strong> driver creates a new log file each day and automatically removes logs older than the specified retention period.</p>
+<p><strong>Configuration:</strong></p>
+<pre><code class="language-env">LOG_DRIVER=daily</code></pre>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Logs to: <code>storage/logs/lightpack-YYYY-MM-DD.log</code></li>
+<li>Creates new file each day automatically</li>
+<li>Keeps logs for <code>days_to_keep</code> days (default: 7)</li>
+<li>Old logs deleted automatically</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>storage/logs/
+  ├── lightpack-2024-11-03.log  (today)
+  ├── lightpack-2024-11-02.log  (yesterday)
+  └── lightpack-2024-11-01.log  (2 days ago)</code></pre>
+<h3>Null Driver (Disable Logging)</h3>
+<p>To <strong>disable</strong> logging completely, set the driver to <code>null</code>:</p>
+<pre><code class="language-env">LOG_DRIVER=null</code></pre>
+<p>This is useful for testing environments where you don't want log files created.</p>
+<h2>Available Methods</h2>
+<p>All logging methods accept two parameters:</p>
+<ol>
+<li><strong><code>$message</code></strong> (string) - The log message</li>
+<li><strong><code>$context</code></strong> (array, optional) - Additional structured data</li>
+</ol>
+<h3>log()</h3>
+<p>The generic logging method that accepts a log level as the first parameter.</p>
+<pre><code class="language-php">logger()-&gt;log('error', 'Database connection failed', [
+    'host' =&gt; 'localhost',
+    'port' =&gt; 3306,
+]);</code></pre>
+<h3>emergency()</h3>
+<p>System is unusable. Requires immediate attention.</p>
+<pre><code class="language-php">logger()-&gt;emergency('Database server is down', [
+    'error_code' =&gt; 2002,
+    'attempted_at' =&gt; time(),
+]);</code></pre>
+<p><strong>Use when:</strong> Complete system failure, data loss, security breach.</p>
+<h3>alert()</h3>
+<p>Action must be taken immediately.</p>
+<pre><code class="language-php">logger()-&gt;alert('Disk space critical: 95% full', [
+    'disk' =&gt; '/dev/sda1',
+    'available' =&gt; '500MB',
+]);</code></pre>
+<p><strong>Use when:</strong> Critical issues that need immediate attention but system still functioning.</p>
+<h3>critical()</h3>
+<p>Critical conditions that should be addressed quickly.</p>
+<pre><code class="language-php">logger()-&gt;critical('Payment gateway timeout', [
+    'gateway' =&gt; 'stripe',
+    'transaction_id' =&gt; 'txn_123',
+    'amount' =&gt; 99.99,
+]);</code></pre>
+<p><strong>Use when:</strong> Application component failures, critical business logic errors.</p>
+<h3>error()</h3>
+<p>Runtime errors that don't require immediate action but should be logged and monitored.</p>
+<pre><code class="language-php">logger()-&gt;error('Failed to send email', [
+    'recipient' =&gt; 'user@example.com',
+    'subject' =&gt; 'Welcome Email',
+    'smtp_error' =&gt; 'Connection refused',
+]);</code></pre>
+<p><strong>Use when:</strong> Recoverable errors, failed operations, exceptions.</p>
+<h3>warning()</h3>
+<p>Exceptional occurrences that are not errors.</p>
+<pre><code class="language-php">logger()-&gt;warning('API rate limit approaching', [
+    'current_usage' =&gt; 950,
+    'limit' =&gt; 1000,
+    'resets_at' =&gt; '2024-11-03 15:00:00',
+]);</code></pre>
+<p><strong>Use when:</strong> Deprecated API usage, poor use of API, things that aren't necessarily wrong.</p>
+<h3>notice()</h3>
+<p>Normal but significant events.</p>
+<pre><code class="language-php">logger()-&gt;notice('User password changed', [
+    'user_id' =&gt; 123,
+    'ip_address' =&gt; '192.168.1.1',
+]);</code></pre>
+<p><strong>Use when:</strong> Significant business events, security-relevant actions.</p>
+<h3>info()</h3>
+<p>Log events for informational purposes.</p>
+<pre><code class="language-php">logger()-&gt;info('User logged in', [
+    'user_id' =&gt; 123,
+    'username' =&gt; 'john_doe',
+]);</code></pre>
+<p><strong>Use when:</strong> General informational messages, tracking user actions.</p>
+<h3>debug()</h3>
+<p>Detailed debug information for development.</p>
+<pre><code class="language-php">logger()-&gt;debug('Cache miss for key', [
+    'key' =&gt; 'user_profile_123',
+    'ttl' =&gt; 3600,
+]);</code></pre>
+<p><strong>Use when:</strong> Development debugging, detailed diagnostic information.</p>
+<h2>Context Data</h2>
+<p>The <code>$context</code> array allows you to log structured data alongside your message. This is particularly useful for debugging and log analysis.</p>
+<pre><code class="language-php">logger()-&gt;error('Payment failed', [
+    'user_id' =&gt; 123,
+    'amount' =&gt; 99.99,
+    'currency' =&gt; 'USD',
+]);</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

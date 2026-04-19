@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array utils</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   class="active" aria-current="page">
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Array Utility Documentation</h1>
+<p>Lightpack's Array utility provides a powerful set of methods for working with arrays, featuring dot notation access, wildcard matching, array transformations, and hierarchical tree building.</p>
+<h2>Basic Usage</h2>
+<pre><code class="language-php">use Lightpack\Utils\Arr;
+
+$arr = new Arr();</code></pre>
+<p>Or simply call <code>arr()</code> utility function.</p>
+<p>It exposes following methods to efficiently workk with arrays:</p>
+<ul>
+<li>get()</li>
+<li>set()</li>
+<li>has()</li>
+<li>delete()</li>
+<li>tree()</li>
+<li>transpose()</li>
+</ul>
+<h3>Basic Operations</h3>
+<pre><code class="language-php">$data = [
+    'user' =&gt; [
+        'profile' =&gt; [
+            'name' =&gt; 'John Doe',
+            'email' =&gt; 'john@example.com'
+        ]
+    ]
+];
+
+// Check if key exists
+$exists = arr()-&gt;has('user.profile.name', $data);  // true
+
+// Get value
+$name = arr()-&gt;get('user.profile.name', $data);    // 'John Doe'
+$age = arr()-&gt;get('user.age', $data, 25);          // 25 (default value)
+
+// Set value
+arr()-&gt;set('user.profile.age', 30, $data);
+
+// Delete value
+arr()-&gt;delete('user.profile.email', $data);</code></pre>
+<h2>Dot Notation</h2>
+<h3>Basic Dot Notation</h3>
+<pre><code class="language-php">$data = [
+    'users' =&gt; [
+        'active' =&gt; [
+            'john' =&gt; ['age' =&gt; 25],
+            'jane' =&gt; ['age' =&gt; 30]
+        ]
+    ]
+];
+
+// Access nested data
+$johnsAge = arr()-&gt;get('users.active.john.age', $data);    // 25
+
+// Set nested data
+arr()-&gt;set('users.active.bob.age', 35, $data);
+
+// Check nested path
+if (arr()-&gt;has('users.active.jane', $data)) {
+    // Path exists
+}
+
+// Delete nested data
+arr()-&gt;delete('users.active.john', $data);</code></pre>
+<h3>Wildcard Matching</h3>
+<pre><code class="language-php">$data = [
+    'users' =&gt; [
+        'active' =&gt; [
+            'john' =&gt; ['age' =&gt; 25],
+            'jane' =&gt; ['age' =&gt; 30]
+        ],
+        'inactive' =&gt; [
+            'bob' =&gt; ['age' =&gt; 35]
+        ]
+    ]
+];
+
+// Get all ages using wildcard
+$ages = arr()-&gt;get('users.*.*.age', $data);
+// [25, 30, 35]
+
+// Get all active user ages
+$activeAges = arr()-&gt;get('users.active.*.age', $data);
+// [25, 30]</code></pre>
+<h2>Array Transformations</h2>
+<h3>Building Hierarchical Trees</h3>
+<pre><code class="language-php">// Flat array of categories
+$categories = [
+    ['id' =&gt; 1, 'parent_id' =&gt; 0, 'name' =&gt; 'Electronics'],
+    ['id' =&gt; 2, 'parent_id' =&gt; 1, 'name' =&gt; 'Phones'],
+    ['id' =&gt; 3, 'parent_id' =&gt; 1, 'name' =&gt; 'Laptops'],
+    ['id' =&gt; 4, 'parent_id' =&gt; 2, 'name' =&gt; 'iPhone'],
+    ['id' =&gt; 5, 'parent_id' =&gt; 2, 'name' =&gt; 'Android'],
+];
+
+// Convert to hierarchical tree
+$tree = arr()-&gt;tree($categories);
+
+/* Result:
+[
+    [
+        'id' =&gt; 1,
+        'parent_id' =&gt; 0,
+        'name' =&gt; 'Electronics',
+        'children' =&gt; [
+            [
+                'id' =&gt; 2,
+                'parent_id' =&gt; 1,
+                'name' =&gt; 'Phones',
+                'children' =&gt; [
+                    ['id' =&gt; 4, 'parent_id' =&gt; 2, 'name' =&gt; 'iPhone'],
+                    ['id' =&gt; 5, 'parent_id' =&gt; 2, 'name' =&gt; 'Android']
+                ]
+            ],
+            ['id' =&gt; 3, 'parent_id' =&gt; 1, 'name' =&gt; 'Laptops']
+        ]
+    ]
+]
+*/</code></pre>
+<pre><code class="language-php">// Custom key names
+$tree = arr()-&gt;tree($items, 0, 'category_id', 'parent_category_id');</code></pre>
+<h3>Array Transposition</h3>
+<pre><code class="language-php">// Column-based data
+$data = [
+    'name' =&gt; ['John', 'Jane', 'Bob'],
+    'age' =&gt; [25, 30, 35],
+    'city' =&gt; ['New York', 'London', 'Paris']
+];
+
+// Convert to row-based data
+$rows = arr()-&gt;transpose($data);
+
+/* Result:
+[
+    ['name' =&gt; 'John', 'age' =&gt; 25, 'city' =&gt; 'New York'],
+    ['name' =&gt; 'Jane', 'age' =&gt; 30, 'city' =&gt; 'London'],
+    ['name' =&gt; 'Bob', 'age' =&gt; 35, 'city' =&gt; 'Paris']
+]
+*/
+
+// Transpose specific keys only
+$rows = arr()-&gt;transpose($data, ['name', 'age']);</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

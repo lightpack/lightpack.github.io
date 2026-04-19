@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   class="active" aria-current="page">
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Authentication</h1>
+<blockquote>
+<p>Session-cookie or token based authentication made easy.</p>
+</blockquote>
+<p><strong>Lightpack</strong> provides a simple to use authentication system for authenticating web and api requests. The <code>auth()</code> helper exposes authentication methods:</p>
+<pre><code class="language-php">// Check authentication status
+auth()-&gt;isLoggedIn();  // Returns true if user is logged in
+auth()-&gt;isGuest();     // Returns true if user is not logged in
+
+// Get authenticated user
+auth()-&gt;id();          // Returns logged in user ID
+auth()-&gt;user();        // Returns logged in user object
+
+// Authenticate users
+auth()-&gt;attempt();     // Verify credentials and persist session
+auth()-&gt;loginAs($user); // Login as specific user (testing/impersonation)
+auth()-&gt;viaToken();    // Authenticate via Bearer token (API)
+auth()-&gt;recall();      // Auto-login via remember-me cookie
+
+// Logout
+auth()-&gt;logout();      // Clear session and cookies</code></pre>
+<h2>Installation</h2>
+<p>Before utilizing <strong>auth</strong> feature support, you need to migrate and publish configuration files as documented below.</p>
+<h3>Migration</h3>
+<p>Migrate required schema in order to use <strong>authentication</strong> features.</p>
+<p>Create schema migration file:</p>
+<pre><code class="language-cli">php console create:migration --support=users</code></pre>
+<p>Run migration:</p>
+<pre><code class="language-cli">php console migrate:up</code></pre>
+<h3>Configuration</h3>
+<p>Please run following command to create <strong>config/auth.php</strong> file.</p>
+<pre><code class="language-php">php console create:config --support=auth</code></pre>
+<h2>Logging In</h2>
+<h3>Login Methods Comparison</h3>
+<p>Different login methods serve different purposes. Choose the right one for your use case:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Sets Session</th>
+<th>Sets Cookie</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attempt()</code></td>
+<td><code>IdentityInterface\|null</code></td>
+<td>✅ Yes</td>
+<td>✅ Yes (if remember me)</td>
+<td>Web form login</td>
+</tr>
+<tr>
+<td><code>loginAs($user)</code></td>
+<td><code>Auth</code></td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>Testing/Admin impersonation</td>
+</tr>
+<tr>
+<td><code>viaToken()</code></td>
+<td><code>IdentityInterface\|null</code></td>
+<td>❌ No</td>
+<td>❌ No</td>
+<td>Bearer token authentication</td>
+</tr>
+<tr>
+<td><code>recall()</code></td>
+<td><code>IdentityInterface\|null</code></td>
+<td>✅ Yes (if valid)</td>
+<td>❌ No</td>
+<td>Auto-login from cookie</td>
+</tr>
+</tbody>
+</table>
+<h3>Web Form Login</h3>
+<p>To authenticate a user via <strong>session-cookie</strong> mechanism, use <code>attempt()</code> in your controller:</p>
+<pre><code class="language-php">public function login(LoginRequest $request)
+{
+    $user = auth()-&gt;attempt();
+
+    if (!$user) {
+        session()-&gt;flash('error', 'Invalid account credentials.');
+        return redirect()-&gt;to('login');
+    }
+
+    // Redirect to intended URL, or 'dashboard' route if none
+    return redirect()-&gt;intendedRoute('dashboard');
+}</code></pre>
+<h4>Login Request Validation</h4>
+<p>The <code>LoginRequest</code> class extends <code>FormRequest</code> to validate login credentials before attempting authentication:</p>
+<pre><code class="language-php">class LoginRequest extends FormRequest
+{
+    protected function rules()
+    {
+        $this-&gt;validator
+            -&gt;field('email')
+            -&gt;required()
+            -&gt;email();
+
+        $this-&gt;validator
+            -&gt;field('password')
+            -&gt;required();
+    }
+}</code></pre>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>When the <code>login()</code> method is called, the <code>LoginRequest</code> is automatically validated</li>
+<li>If validation <strong>fails</strong>: The user is redirected back with error messages</li>
+<li>If validation <strong>passes</strong>: The controller method executes</li>
+</ol>
+<p>This ensures that:</p>
+<ul>
+<li>The <code>email</code> field is present and contains a valid email address</li>
+<li>The <code>password</code> field is present</li>
+</ul>
+<p>You can customize validation rules based on your requirements. See <a href="validation.md">Validation</a> for more details on available rules.</p>
+<h4>Authentication Flow</h4>
+<p>Behind the scenes, <code>attempt()</code> performs the following:</p>
+<ol>
+<li>Retrieves <code>email</code> and <code>password</code> from request input</li>
+<li>Verifies credentials against the <strong>users</strong> table</li>
+<li>On <strong>success</strong>:<ul>
+<li>Returns the authenticated user (<code>IdentityInterface</code> object)</li>
+<li>Creates a session with <code>_logged_in</code> and <code>_auth_id</code></li>
+<li>Updates <code>last_login_at</code> timestamp</li>
+<li>Sets remember-me cookie (if <code>remember</code> input is checked)</li>
+</ul>
+</li>
+<li>On <strong>failure</strong>: Returns <code>null</code></li>
+</ol>
+<p><strong>Your controller</strong> is responsible for:</p>
+<ul>
+<li>Handling redirects</li>
+<li>Setting flash messages</li>
+<li>Deciding where to send the user</li>
+</ul>
+<h3>Remember Me</h3>
+<p>To enable "remember me" functionality, include a checkbox in your login form:</p>
+<pre><code class="language-html">&lt;input type="checkbox" name="remember"&gt;
+&lt;label&gt;Remember me&lt;/label&gt;</code></pre>
+<p>When checked, <code>attempt()</code> will set a long-lived cookie that allows automatic login on future visits.</p>
+<h3>API Login</h3>
+<p>For API authentication, use <code>attempt()</code> to verify credentials, then create an access token:</p>
+<pre><code class="language-php">public function login()
+{
+    $identity = auth()-&gt;attempt();
+
+    if (!$identity) {
+        return response()-&gt;json(['error' =&gt; 'Invalid credentials'], 401);
+    }
+
+    // Create API token
+    $token = $identity-&gt;createToken('api-token');
+
+    return response()-&gt;json([
+        'token' =&gt; $token-&gt;plainTextToken,
+        'user' =&gt; $identity,
+    ]);
+}</code></pre>
+<p><strong>Note:</strong> While <code>attempt()</code> creates a session, API clients typically ignore cookies and use the returned token for subsequent requests.</p>
+<h3>Bearer Token Authentication</h3>
+<p>To authenticate API requests with a <strong>Bearer</strong> token, use <code>viaToken()</code>:</p>
+<pre><code class="language-php">public function getProfile()
+{
+    $user = auth()-&gt;viaToken();
+
+    if (!$user) {
+        return response()-&gt;json(['error' =&gt; 'Unauthorized'], 401);
+    }
+
+    return response()-&gt;json(['user' =&gt; $user]);
+}</code></pre>
+<p>This method:</p>
+<ol>
+<li>Extracts the Bearer token from the <code>Authorization</code> header</li>
+<li>Verifies the token against the <code>access_tokens</code> table</li>
+<li>Returns the authenticated user or <code>null</code></li>
+<li>Updates <code>last_used_at</code> timestamp on the token</li>
+<li>Updates <code>last_login_at</code> on the user</li>
+</ol>
+<h3>Direct Login (Testing/Impersonation)</h3>
+<p>To log in as a specific user ID without credentials:</p>
+<pre><code class="language-php">$user = new User(1);
+auth()-&gt;loginAs($user);</code></pre>
+<p>This is useful for:</p>
+<ul>
+<li><strong>Testing</strong>: Quickly authenticate as different users</li>
+<li><strong>Admin impersonation</strong>: Allow admins to view the app as a specific user</li>
+</ul>
+<p>This method:</p>
+<ul>
+<li>Creates a session immediately</li>
+<li>Updates <code>last_login_at</code> timestamp</li>
+<li>Does NOT set remember-me cookie</li>
+<li>Returns the <code>Auth</code> instance for chaining</li>
+</ul>
+<h2>Logging Out</h2>
+<p>To logout a user, call <code>logout()</code> in your controller:</p>
+<pre><code class="language-php">public function logout()
+{
+    auth()-&gt;logout();
+    return redirect()-&gt;route('login');
+}</code></pre>
+<p>The <code>logout()</code> method:</p>
+<ul>
+<li>Clears the user identity</li>
+<li>Deletes the remember-me cookie</li>
+<li>Destroys the session</li>
+<li>Returns <code>void</code> (your controller handles the redirect)</li>
+</ul>
+<h2>Authenticated User</h2>
+<p>To access currently authenticated user's <strong>id</strong>, call <code>id()</code> method.</p>
+<pre><code class="language-php">auth()-&gt;id();</code></pre>
+<p>To access currently authenticated <strong>user</strong>, call <code>user()</code> method.</p>
+<pre><code class="language-php">auth()-&gt;user();</code></pre>
+<blockquote>
+<p><strong>Note:</strong> The <code>user()</code> method works for both session-based and token-based authentication.</p>
+</blockquote>
+<h2>Auto-Login (Recall)</h2>
+<p>The <code>recall()</code> method attempts to automatically log in a user from a remember-me cookie:</p>
+<pre><code class="language-php">public function dashboard()
+{
+    // Try to auto-login from remember-me cookie
+    auth()-&gt;recall();
+
+    if (auth()-&gt;isGuest()) {
+        return redirect()-&gt;route('login');
+    }
+
+    return view('dashboard');
+}</code></pre>
+<p>Behind the scenes, <code>recall()</code>:</p>
+<ol>
+<li>Checks if user is already logged in via session<ul>
+<li>If <strong>yes</strong>: Returns the user (no action needed)</li>
+</ul>
+</li>
+<li>If <strong>no</strong>: Checks for a valid <code>remember_token</code> cookie<ul>
+<li>If <strong>valid</strong>: Logs the user in and returns the user</li>
+<li>If <strong>invalid/missing</strong>: Returns <code>null</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note:</strong> The <code>AuthFilter</code> automatically calls <code>recall()</code>, so you typically don't need to call it manually if the filter applied on route.</p>
+<h3>Cookie Duration</h3>
+<p>By default, remember-me cookies last for <strong>30 days</strong>. Configure the duration in <code>config/auth.php</code>:</p>
+<pre><code class="language-php">'remember_duration' =&gt; 60 * 24 * 30, // 30 days in minutes</code></pre>
+<p>See <a href="auth-configuration.md#remember_duration">Configuration</a> for more details.</p>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

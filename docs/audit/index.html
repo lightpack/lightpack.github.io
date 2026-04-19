@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   class="active" aria-current="page">
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Lightpack Audit Facility</h1>
+<p>The Lightpack <strong>Audit</strong> module provides a simple, explicit, and powerful way to track and record changes, actions, and events in your application.</p>
+<p>Auditing is essential for security, compliance, debugging, and accountability. With Lightpack's audit facility, you can log who did what, when, and where—across your entire app.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Explicit API:</strong> Log audit events anywhere in your code—no hidden hooks.</li>
+<li><strong>Configurable:</strong> Choose what to audit and when to log.</li>
+<li><strong>Flexible Storage:</strong> Audit logs are stored in a dedicated <code>audit_logs</code> table.</li>
+<li><strong>Rich Context:</strong> Store user, action, before/after values, URL, IP, and more.</li>
+<li><strong>Easy Querying:</strong> Use the <code>AuditLog</code> model to fetch and analyze audit data.</li>
+</ul>
+<h2>Practical Use Cases for Audit Logging</h2>
+<p>Lightpack's audit facility is ideal for a wide range of real-world scenarios, including:</p>
+<ol>
+<li><strong>User Account Changes:</strong><ul>
+<li>Track profile updates, password changes, email changes, and other user modifications.</li>
+</ul>
+</li>
+<li><strong>Role &amp; Permission Management:</strong><ul>
+<li>Audit who assigned or removed roles/permissions to users for security and compliance.</li>
+</ul>
+</li>
+<li><strong>Sensitive Data Access:</strong><ul>
+<li>Log when users view, export, or download sensitive data (e.g., financial, medical records).</li>
+</ul>
+</li>
+<li><strong>CRUD Operations on Core Entities:</strong><ul>
+<li>Record creation, update, and deletion of business-critical records (posts, orders, invoices, etc.).</li>
+</ul>
+</li>
+<li><strong>System-Generated Events:</strong><ul>
+<li>Capture background jobs, scheduled tasks, or automated cleanups (e.g., token expiry, cron jobs).</li>
+</ul>
+</li>
+<li><strong>Security Events:</strong><ul>
+<li>Log logins, failed logins, password resets, and suspicious activity for audit and investigation.</li>
+</ul>
+</li>
+<li><strong>Multi-Entity Actions:</strong><ul>
+<li>Track cascading deletes/updates (e.g., deleting a user and all their posts or permissions).</li>
+</ul>
+</li>
+<li><strong>Regulatory Compliance:</strong><ul>
+<li>Provide a full audit trail for GDPR, HIPAA, SOX, or other compliance requirements.</li>
+</ul>
+</li>
+<li><strong>Admin Actions:</strong><ul>
+<li>Monitor all admin panel actions for accountability and transparency.</li>
+</ul>
+</li>
+<li><strong>API Usage:</strong><ul>
+<li>Log API calls that mutate data, including which user or system performed them.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>Migration</h2>
+<p>Create schema migration file:</p>
+<pre><code class="language-cli">php console create:migration --support=audits</code></pre>
+<p>Run migration:</p>
+<pre><code class="language-cli">php console migrate:up</code></pre>
+<h2>Schema</h2>
+<p>The <code>audit_logs</code> table has the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>bigint</td>
+<td>Primary key</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>bigint</td>
+<td>Acting user ID (nullable)</td>
+</tr>
+<tr>
+<td>action</td>
+<td>varchar</td>
+<td>Action performed</td>
+</tr>
+<tr>
+<td>audit_type</td>
+<td>varchar</td>
+<td>Class/model/table</td>
+</tr>
+<tr>
+<td>audit_id</td>
+<td>bigint</td>
+<td>Affected record ID (nullable)</td>
+</tr>
+<tr>
+<td>old_values</td>
+<td>text</td>
+<td>JSON-encoded old values (nullable)</td>
+</tr>
+<tr>
+<td>new_values</td>
+<td>text</td>
+<td>JSON-encoded new values (nullable)</td>
+</tr>
+<tr>
+<td>url</td>
+<td>varchar</td>
+<td>URL of the request (nullable)</td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>varchar</td>
+<td>IP address (nullable)</td>
+</tr>
+<tr>
+<td>user_agent</td>
+<td>varchar</td>
+<td>User agent (nullable)</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>Timestamp</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Usage</h2>
+<p>The module consists of:</p>
+<ul>
+<li><code>AuditLog.php</code> (the model representing audit_logs table)</li>
+<li><code>Audit.php</code> (the audit service class exposing auditing capabilities)</li>
+<li><code>AuditTrait.php</code> (make any model auditable using this trait)</li>
+</ul>
+<h3>Logging an Audit Event</h3>
+<p>Call the static <code>log</code> method from anywhere (controller, service, etc.):</p>
+<pre><code class="language-php">Audit::log([
+    'user_id'        =&gt; $userId,              // (int|null) ID of the acting user
+    'action'         =&gt; 'update',             // (string) Action performed
+    'audit_type' =&gt; 'User',          // (string) table
+    'audit_id'   =&gt; $user-&gt;id,            // (int|null) ID of affected record
+    'old_values'     =&gt; $old,                 // (array|null) Before values
+    'new_values'     =&gt; $new,                 // (array|null) After values
+    'url'            =&gt; $request-&gt;url(),      // (string|null) Request URL
+    'ip_address'     =&gt; $request-&gt;ip(),       // (string|null) IP address
+    'user_agent'     =&gt; $request-&gt;userAgent(),// (string|null) User agent
+    'message'        =&gt; 'User profile updated', // (string|null) Optional message
+]);</code></pre>
+<blockquote>
+<p>All fields are optional except <code>action</code> and <code>audit_type</code>.</p>
+</blockquote>
+<hr />
+<h2>Logging System-Generated Events and Messages</h2>
+<p>You can log system-generated events (with no user) or add custom messages to any audit event using the <code>message</code> field. This is useful for tracking background jobs, cron tasks, or internal system actions.</p>
+<h3>Example: System-Generated Event</h3>
+<pre><code class="language-php">Audit::log([
+    'action'     =&gt; 'system_cleanup',
+    'audit_type' =&gt; 'Token',
+    'audit_id'   =&gt; $tokenId,
+    'old_values' =&gt; $tokenData,
+    'user_agent' =&gt; 'system/cronjob',
+    'message'    =&gt; 'Expired token removed by scheduled job',
+]);</code></pre>
+<h3>Example: User Event with a Message</h3>
+<pre><code class="language-php">Audit::log([
+    'user_id'    =&gt; $userId,
+    'action'     =&gt; 'login',
+    'audit_type' =&gt; 'User',
+    'audit_id'   =&gt; $userId,
+    'ip_address' =&gt; $request-&gt;ip(),
+    'user_agent' =&gt; $request-&gt;userAgent(),
+    'message'    =&gt; 'User logged in successfully from web portal',
+]);</code></pre>
+<blockquote>
+<p>The <code>message</code> field is a free-form text column for any extra context, system notes, or explanations you want to attach to an audit entry.</p>
+</blockquote>
+<hr />
+<h2>Audting Models</h2>
+<p>Make any model audit capable using <code>AuditTriat</code> on it. This trait exposes <code>audit()</code> method on the model. You do not need to pass <code>audit_id</code> and <code>audit_type</code> values because <code>audit()</code> method automatically sets:</p>
+<ul>
+<li><code>audit_id</code> with model id,</li>
+<li><code>audit_type</code> with model table name.</li>
+</ul>
+<pre><code class="language-php">class User extends Model
+{
+    use AuditTrait;
+}</code></pre>
+<pre><code class="language-php">$user = new User(23);
+
+$user-&gt;audit([
+    'action'     =&gt; 'update',
+    'new_values' =&gt; $user-&gt;toArray(),
+    'message'    =&gt; 'User details updated.',
+]);</code></pre>
+<h2>Logging Multi-Entity Actions</h2>
+<p>If a single action (such as deleting a role) causes changes in multiple tables or entities (e.g., roles and their attached permissions), <strong>log a separate audit entry for each impacted entity</strong>. This ensures your audit trail is complete and granular.</p>
+<h3>Example: Cascading Delete (Role and Permissions)</h3>
+<p>Suppose you delete a role and it cascades to permissions:</p>
+<pre><code class="language-php">// Log the role deletion
+Audit::log([
+    'user_id'    =&gt; $adminId,
+    'action'     =&gt; 'delete',
+    'audit_type' =&gt; 'Role',
+    'audit_id'   =&gt; $role-&gt;id,
+    'old_values' =&gt; $role-&gt;toArray(),
+    'message'    =&gt; 'Role deleted by admin',
+]);
+
+// Log each affected permission
+foreach ($permissions as $permission) {
+    Audit::log([
+        'user_id'    =&gt; $adminId,
+        'action'     =&gt; 'cascade_delete',
+        'audit_type' =&gt; 'Permission',
+        'audit_id'   =&gt; $permission-&gt;id,
+        'old_values' =&gt; $permission-&gt;toArray(),
+        'message'    =&gt; 'Permission unlinked/deleted due to role deletion',
+    ]);
+}</code></pre>
+<blockquote>
+<p>Each audit entry's <code>audit_type</code> and <code>audit_id</code> point to the precise entity affected, making querying and reporting straightforward.</p>
+</blockquote>
+<hr />
+<h2>AuditLog Helpers for Building Audit Views</h2>
+<p>The audit facility provides several helpers to make building audit log screens and APIs easier:</p>
+<h3>1. Resolving User Information: <code>user()</code></h3>
+<p>The <code>AuditLog</code> model provides a <code>user()</code> relation that resolves the <code>user_id</code> field to an <code>AuthUser</code> instance.</p>
+<pre><code class="language-php">$log = AuditLog::query()-&gt;where('user_id', 5)-&gt;one();
+echo $log-&gt;user-&gt;name; // Outputs the user's name</code></pre>
+<p>If the action was performed by the system (no user), <code>$log-&gt;user</code> will be <code>null</code>.</p>
+<h3>2. Computing Changes</h3>
+<p>You can compute the difference between <code>old_values</code> and <code>new_values</code> using the <code>diff()</code> method:</p>
+<pre><code class="language-php">$log = AuditLog::query()-&gt;where('id', 123)-&gt;one();
+$diff = $log-&gt;diff();
+// $diff['added'] contains fields added or changed
+// $diff['removed'] contains fields removed or changed</code></pre>
+<h4>Example</h4>
+<p>Suppose:</p>
+<pre><code class="language-php">$log-&gt;old_values = ['name' =&gt; 'Alice', 'email' =&gt; 'alice@old.com', 'status' =&gt; 'active'];
+
+$log-&gt;new_values = ['name' =&gt; 'Alice B.', 'email' =&gt; 'alice@new.com', 'role' =&gt; 'admin'];
+
+$diff = $log-&gt;diff();</code></pre>
+<p>Result:</p>
+<pre><code class="language-php">[
+    'added' =&gt; [
+        'name' =&gt; 'Alice B.',         // changed value
+        'email' =&gt; 'alice@new.com',   // changed value
+        'role' =&gt; 'admin',            // new field
+    ],
+    'removed' =&gt; [
+        'name' =&gt; 'Alice',                // old value
+        'email' =&gt; 'alice@old.com',       // old value
+        'status' =&gt; 'active',             // removed field
+    ]
+]</code></pre>
+<ul>
+<li>Fields present in both but changed appear in both <code>added</code> (new value) and <code>removed</code> (old value).</li>
+<li>Fields only in <code>old_values</code> are in <code>removed</code>.</li>
+<li>Fields only in <code>new_values</code> are in <code>added</code>.</li>
+</ul>
+<h3>3. Query Scopes &amp; Filters</h3>
+<p>You can filter audit logs by user, action, or audit type using the <code>filters()</code> method:</p>
+<pre><code class="language-php">// By user
+$logs = AuditLog::filters(['user' =&gt; 5])-&gt;all();
+
+// By action
+$logs = AuditLog::filters(['action' =&gt; 'update'])-&gt;all();
+
+// By audit type
+$logs = AuditLog::filters(['auditType' =&gt; 'User'])-&gt;all();
+
+// Combine filters
+$logs = AuditLog::filters([
+    'user' =&gt; 5,
+    'action' =&gt; 'delete',
+    'auditType' =&gt; 'Post',
+])-&gt;all();</code></pre>
+<p>These helpers make it much easier to build rich, user-friendly audit log screens and APIs.</p>
+<hr />
+<h2>Content Versioning with Audit</h2>
+<h3>What is Content Versioning?</h3>
+<p>Content versioning is the practice of tracking, storing, and (optionally) restoring previous states of your application's data. This is essential for features like undo/redo, rollback, historical inspection, and regulatory compliance. Versioning is especially valuable for business-critical records (posts, orders, invoices, etc.) where you may need to see or revert changes over time.</p>
+<h3>Why Content Versioning?</h3>
+<ul>
+<li><strong>Accountability:</strong> Know exactly what changed, when, and by whom.</li>
+<li><strong>Recovery:</strong> Restore previous versions after mistakes or unwanted edits.</li>
+<li><strong>Auditability:</strong> Demonstrate compliance with regulations by showing historical changes.</li>
+<li><strong>Transparency:</strong> Enable users/admins to review or compare past versions.</li>
+</ul>
+<h3>How to Achieve Content Versioning in Lightpack</h3>
+<p>Lightpack's Audit module already provides the foundation for content versioning, thanks to its ability to log both <code>old_values</code> and <code>new_values</code> for every change. With minimal extra code, you can leverage these audit logs to implement versioning for any model or entity.</p>
+<h4>Basic Versioning Pattern</h4>
+<ol>
+<li><strong>Log Changes:</strong> Use <code>Audit::log()</code> to record every create, update, or delete, including full <code>old_values</code> and <code>new_values</code>.</li>
+<li><strong>Fetch Versions:</strong> Use the <code>AuditLog</code> model to retrieve all audit entries for a given record (by <code>audit_type</code> and <code>audit_id</code>).</li>
+<li><strong>Restore a Version:</strong> To "roll back" to a previous state, fetch the desired audit log and set your model's attributes to the <code>old_values</code> (for undo) or <code>new_values</code> (for redo), then save.</li>
+</ol>
+<h4>Example: Restoring a Previous Version</h4>
+<pre><code class="language-php">// Fetch the audit log entry you want to restore
+$auditLog = AuditLog::query()
+    -&gt;where('audit_type', 'User')
+    -&gt;where('audit_id', $user-&gt;id)
+    -&gt;where('id', $auditLogId)
+    -&gt;one();
+
+// Restore the old values
+$user-&gt;setAttributes($auditLog-&gt;old_values);
+$user-&gt;save();</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

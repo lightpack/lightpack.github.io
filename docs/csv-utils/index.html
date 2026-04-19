@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Csv utils</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   class="active" aria-current="page">
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>CSV Utility</h1>
+<p>Lightpack’s <code>Csv</code> utility provides a robust, memory-efficient, and highly flexible interface for reading, writing, streaming, and transforming CSV data. It is designed for both small and very large files, with a focus on practical ETL, data import/export, and reporting workflows.</p>
+<hr />
+<h2>Features</h2>
+<ul>
+<li><strong>Memory-efficient</strong>: Reads large files with generators, never loads all rows into memory.</li>
+<li><strong>Flexible mapping</strong>: Rename columns, transform values, or apply callables per column.</li>
+<li><strong>Type casting</strong>: Automatically cast columns to <code>int</code>, <code>float</code>, <code>bool</code>, or <code>date</code> (timestamp).</li>
+<li><strong>Column exclusion</strong>: Remove sensitive or unwanted columns.</li>
+<li><strong>Validation</strong>: Row-level validation with three error handling modes (<code>skip</code>, <code>collect</code>, <code>fail</code>).</li>
+<li><strong>Streaming</strong>: Stream CSV data to output (e.g., HTTP response) with consistent header order.</li>
+<li><strong>Customizable</strong>: Set delimiter, enclosure, and escape characters.</li>
+<li><strong>Header order</strong>: Control and cache column order for consistent output.</li>
+</ul>
+<hr />
+<h2>Basic Usage</h2>
+<h3>Reading CSV Files</h3>
+<pre><code class="language-php">use Lightpack\Utils\Csv;
+
+$csv = new Csv();
+
+// Read with headers (default)
+foreach ($csv-&gt;read('users.csv') as $row) {
+    echo $row['name'];
+}
+
+// Read without headers (returns indexed arrays)
+foreach ($csv-&gt;read('data.csv', false) as $row) {
+    echo $row[0];
+}</code></pre>
+<h3>Writing CSV Files</h3>
+<pre><code class="language-php">$data = [
+    ['name' =&gt; 'John', 'age' =&gt; 25],
+    ['name' =&gt; 'Jane', 'age' =&gt; 30],
+];
+
+// Write with auto-detected headers
+$csv-&gt;write('users.csv', $data);
+
+// Write with explicit header order
+$csv-&gt;write('users.csv', $data, ['name', 'age']);
+
+// Write from database using chunk for memory efficiency
+User::query()-&gt;chunk(1000, function($users) use ($csv) {
+    $csv-&gt;write('users.csv', $users, ['id', 'name', 'email']);
+});</code></pre>
+<hr />
+<h2>Data Transformation</h2>
+<h3>Column Mapping &amp; Value Transformation</h3>
+<ul>
+<li><strong>Rename columns</strong> (e.g., <code>user_id</code> → <code>id</code>) or <strong>transform values</strong> (e.g., uppercase names):</li>
+</ul>
+<pre><code class="language-php">// Rename columns and apply callables
+$csv-&gt;map([
+    'user_id' =&gt; 'id',               // Rename 'user_id' to 'id'
+    'user_name' =&gt; 'name',           // Rename 'user_name' to 'name'
+    'salary' =&gt; fn($v) =&gt; (float)$v, // Transform 'salary' to float
+    'name' =&gt; fn($v) =&gt; strtoupper($v), // Uppercase names
+]);</code></pre>
+<ul>
+<li><strong>Mapping is bidirectional:</strong> When writing, mapped headers are used; when reading, output keys are the mapped names.</li>
+</ul>
+<h3>Type Casting</h3>
+<ul>
+<li><strong>Supported types:</strong> <code>int</code>, <code>float</code>, <code>bool</code>, <code>date</code> (as UNIX timestamp)</li>
+<li><strong>Works on read and write</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;casts([
+    'age' =&gt; 'int',
+    'active' =&gt; 'bool',
+    'joined' =&gt; 'date', // Converts to timestamp on read, to Y-m-d H:i:s on write
+]);</code></pre>
+<h3>Excluding Columns</h3>
+<ul>
+<li><strong>Remove unwanted columns:</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;exclude(['password', 'token']);</code></pre>
+<h3>Chaining Transformations</h3>
+<ul>
+<li>All methods are chainable:</li>
+</ul>
+<pre><code class="language-php">$csv-&gt;map(['user_id' =&gt; 'id'])
+    -&gt;casts(['id' =&gt; 'int'])
+    -&gt;exclude(['password'])
+    -&gt;write('users.csv', $data, ['user_id', 'name']);</code></pre>
+<hr />
+<h2>Validation</h2>
+<h3>Row Validation (with error handling modes)</h3>
+<ul>
+<li><strong>Provide a closure:</strong> Return <code>true</code>, <code>false</code>, string, or array of errors.</li>
+<li><strong>Modes:</strong><ul>
+<li><code>'skip'</code> (default): skip invalid rows</li>
+<li><code>'collect'</code>: include all rows, collect errors</li>
+<li><code>'fail'</code>: throw on first invalid row</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-php">$csv-&gt;validate(function($row) {
+    if ($row['age'] &lt; 18) return 'Must be 18 or older';
+    return true;
+});
+
+$csv-&gt;validate(function($row) {
+    $errors = [];
+    if (!is_numeric($row['salary'])) $errors[] = 'Salary must be numeric';
+    if ($row['salary'] &lt; 0) $errors[] = 'Salary cannot be negative';
+    return $errors;
+}, 'collect');</code></pre>
+<ul>
+<li><strong>With Lightpack Validator:</strong></li>
+</ul>
+<pre><code class="language-php">use Lightpack\Validation\Validator;
+
+$csv-&gt;validate(function($row) {
+    $validator = new Validator();
+    $validator-&gt;field('email')-&gt;required()-&gt;email();
+    $validator-&gt;setInput($row);
+    $result = $validator-&gt;validate();
+    return $result-&gt;passes() ? true : $result-&gt;getErrors();
+}, 'collect');</code></pre>
+<ul>
+<li><strong>Get errors:</strong></li>
+</ul>
+<pre><code class="language-php">$errors = $csv-&gt;getErrors();</code></pre>
+<hr />
+<h2>Row Limits and Processing Control</h2>
+<h3>Maximum Rows (hard limit)</h3>
+<ul>
+<li><strong>Throws if file exceeds limit:</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;max(1000)-&gt;read('large.csv');</code></pre>
+<h3>Processing Limit (soft limit)</h3>
+<ul>
+<li><strong>Only process first N rows:</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;limit(500)-&gt;read('large.csv');</code></pre>
+<hr />
+<h2>Streaming Output</h2>
+<ul>
+<li><strong>Stream large datasets directly to output (e.g., HTTP response):</strong></li>
+<li><strong>Headers are written only once; column order is cached.</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;map(['Name' =&gt; 'name', 'Email' =&gt; 'email']);
+
+// First stream call writes headers
+$csv-&gt;stream([
+    ['name' =&gt; 'John', 'email' =&gt; 'john@example.com'],
+], ['Name', 'Email']);
+
+// Subsequent calls append rows (no headers)
+$csv-&gt;stream([
+    ['name' =&gt; 'Jane', 'email' =&gt; 'jane@example.com'],
+]);</code></pre>
+<hr />
+<h2>Header Order and Consistency</h2>
+<ul>
+<li><strong>Specify header order for write/stream:</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;map([
+    'User ID' =&gt; 'id',
+    'Full Name' =&gt; 'name',
+    'Email Address' =&gt; 'email',
+    'Age' =&gt; 'age',
+]);
+
+$csv-&gt;write('users.csv', $data, [
+    'Email Address', // first column
+    'Age',           // second
+    'Full Name',     // third
+    'User ID',       // last
+]);</code></pre>
+<ul>
+<li><strong>Order is preserved on subsequent stream calls.</strong></li>
+</ul>
+<hr />
+<h2>Error Handling</h2>
+<ul>
+<li><strong>Throws <code>RuntimeException</code> for:</strong><ul>
+<li>Unreadable files</li>
+<li>Unwritable directories</li>
+<li>Exceeding <code>max()</code></li>
+<li>Invalid arguments (e.g., negative limits)</li>
+</ul>
+</li>
+<li><strong>Validation errors:</strong><ul>
+<li>Collected via <code>getErrors()</code> if <code>'collect'</code> mode</li>
+<li>Skipped or thrown otherwise</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Advanced Usage &amp; Tips</h2>
+<ul>
+<li><strong>Generators and chunking:</strong> Use generators for reading and chunk() for database queries to handle huge files efficiently.</li>
+<li><strong>Custom delimiter, enclosure, escape:</strong></li>
+</ul>
+<pre><code class="language-php">$csv-&gt;setDelimiter(';')
+    -&gt;setEnclosure("'")
+    -&gt;setEscape('\\');</code></pre>
+<ul>
+<li><strong>Streaming to HTTP:</strong> Use <code>php://output</code> as the file path in <code>write()</code> for direct HTTP output, or use <code>stream()</code> for chunked output.</li>
+<li><strong>Chaining:</strong> All configuration and transformation methods are chainable.</li>
+<li><strong>Header caching:</strong> Once headers are set (by write or stream), order is preserved for all subsequent rows.</li>
+</ul>
+<hr />
+<h2>Practical Examples</h2>
+<h3>Export with Transformations and Column Order</h3>
+<pre><code class="language-php">$data = [
+    ['id' =&gt; 1, 'name' =&gt; 'JOHN', 'age' =&gt; 25],
+    ['id' =&gt; 2, 'name' =&gt; 'JANE', 'age' =&gt; 30],
+];
+
+$csv-&gt;map([
+    'user_id' =&gt; 'id',
+    'user_name' =&gt; 'name',
+])
+-&gt;casts(['age' =&gt; 'int'])
+-&gt;write('users.csv', $data, ['user_id', 'user_name', 'age']);
+// Output columns: user_id,user_name,age</code></pre>
+<h3>Import, Validate, and Collect Errors</h3>
+<pre><code class="language-php">$csv-&gt;validate(function($row) {
+    $errors = [];
+    if ($row['quantity'] &lt;= 0) $errors[] = 'Quantity must be positive';
+    if ($row['price'] &lt;= 0) $errors[] = 'Price must be positive';
+    return $errors;
+}, 'collect')
+-&gt;casts([
+    'quantity' =&gt; 'int',
+    'price' =&gt; 'float',
+])
+-&gt;read('orders.csv');
+
+foreach ($csv-&gt;getErrors() as $error) {
+    Log::error($error);
+}</code></pre>
+<hr />
+<h3>Generate Reports</h3>
+<pre><code class="language-php">$csv = new Csv();
+
+// Get sales data
+$sales = ProductSale::query
+    -&gt;select('product_id', 'quantity', 'price', 'created_at')
+    -&gt;all()
+    -&gt;toArray();
+
+// Generate sales report
+$csv-&gt;map([
+        'created_at' =&gt; fn($date) =&gt; date('Y-m-d', strtotime($date)),
+        'total' =&gt; fn($row) =&gt; $row['quantity'] * $row['price']
+    ])
+    -&gt;casts([
+        'quantity' =&gt; 'int',
+        'price' =&gt; 'float',
+        'total' =&gt; 'float'
+    ])
+    -&gt;write('sales_report.csv', $sales);</code></pre>
+<h2>ETL (Extract, Transform, Load) Operations</h2>
+<p>The CSV utility class is powerful enough to handle ETL operations, making it perfect for data pipeline processing.</p>
+<h3>Basic ETL Example</h3>
+<pre><code class="language-php">use Lightpack\Utils\Csv;
+
+$csv = new Csv();
+
+// Extract: Get users from database
+$users = User::query()
+    -&gt;where('status', 'active')
+    -&gt;all()
+    -&gt;toArray();
+
+// Transform: Clean and format data
+$csv-&gt;map([
+        // Format dates
+        'created_at' =&gt; fn($date) =&gt; date('Y-m-d', strtotime($date)),
+        // Calculate full name
+        'full_name' =&gt; fn($row) =&gt; $row['first_name'] . ' ' . $row['last_name'],
+        // Format currency
+        'salary' =&gt; fn($amount) =&gt; number_format($amount, 2)
+    ])
+    -&gt;casts([
+        'id' =&gt; 'int',
+        'age' =&gt; 'int',
+        'is_active' =&gt; 'bool'
+    ])
+    -&gt;except(['password', 'remember_token'])
+    -&gt;validate(function($row) {
+        $errors = [];
+        if ($row['age'] &lt; 18) $errors[] = 'Must be adult';
+        if ($row['salary'] &lt; 0) $errors[] = 'Invalid salary';
+        return $errors;
+    }, 'skip');
+
+// Load: Export to CSV
+$csv-&gt;write('processed_users.csv', $users);</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

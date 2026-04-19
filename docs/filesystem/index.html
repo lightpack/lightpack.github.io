@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filesystem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   class="active" aria-current="page">
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Filesystem</h1>
+<p><strong>PHP</strong> already has a rich support for working with local filesystem in your application. However some file operations can be abstracted to make performing operations like copying/moving/deleting files and/or folders much easier. <code>Lightpack</code> comes with a handy filesystem library to help you working with local filesystem.</p>
+<p>To get started, simply create an instance of <code>Lightpack\File\File</code> class.</p>
+<pre><code class="language-php">&lt;?php
+
+$file = new Lightpack\File\File();</code></pre>
+<p>Now you can access following listed methods as documented.</p>
+<pre><code class="language-php">$file-&gt;exists();
+$file-&gt;read();
+$file-&gt;write();
+$file-&gt;delete();
+$file-&gt;append();
+$file-&gt;copy();
+$file-&gt;rename();
+$file-&gt;move();
+$file-&gt;extension();
+$file-&gt;size();
+$file-&gt;modified();
+$file-&gt;info();
+$file-&gt;isDir();
+$file-&gt;makeDir();
+$file-&gt;copyDir();
+$file-&gt;emptyDir();
+$file-&gt;removeDir();
+$file-&gt;recent();
+$file-&gt;traverse();</code></pre>
+<h2>exists()</h2>
+<p>To check whether a file or folder exists, call <code>exists()</code> method. It returns a boolean <code>true</code> if it exists otherwise <code>false</code>.</p>
+<pre><code class="language-php">$file-&gt;exists('/path/to/file');</code></pre>
+<h2>read()</h2>
+<p>To read the entire contents of a file into a string, call <code>read()</code> method. It returns <code>null</code> if the file doesn't exist.</p>
+<pre><code class="language-php">$file-&gt;read('/path/to/file');</code></pre>
+<h2>write()</h2>
+<p>To write a string data to a file, call <code>write()</code> method. It will try to create the file if the file doesn't exist otherwise it will overwrite the existing file contents with new data.</p>
+<pre><code class="language-php">$file-&gt;write('/path/to/file', 'Hello World');</code></pre>
+<h2>delete()</h2>
+<p>To delete a file, call <code>delete</code> method. It returns <code>true</code> on success otherwise <code>false</code>.</p>
+<pre><code class="language-php">$file-&gt;delete('/path/to/file');</code></pre>
+<h2>append()</h2>
+<p>To append data to the end of the file, call <code>append()</code> method.</p>
+<pre><code class="language-php">$file-&gt;append('/path/to/file', 'Thanks.');</code></pre>
+<h2>copy()</h2>
+<p>To make a copy of a file, call <code>copy()</code> method. Pass it the source file path and destination path. If the destination path already exists, its content will be overwritten with source file contents.</p>
+<p>This method returns <code>true</code> on success otherwise <code>false</code>.</p>
+<pre><code class="language-php">$file-&gt;copy('/path/to/source', '/path/to/destination');</code></pre>
+<h2>rename()</h2>
+<p>To rename a file, call <code>rename()</code> method. This is same as <code>copy()</code> except that it will delete the source file.</p>
+<pre><code class="language-php">$file-&gt;rename('/path/to/source', '/path/to/destination');</code></pre>
+<h2>move()</h2>
+<p>This is an alias of the <code>rename()</code> method above. It moves a source file to a given destination path and deletes the source file.</p>
+<pre><code class="language-php">$file-&gt;move('/path/to/source', '/path/to/destination');</code></pre>
+<h2>extension()</h2>
+<p>To get the extension of a file (e.g. txt, jpg, png, etc.), call <code>extension()</code> method.</p>
+<pre><code class="language-php">$file-&gt;extension('path/to/file');</code></pre>
+<h2>size()</h2>
+<p>To get the size of a file in bytes, call <code>size()</code> method.</p>
+<pre><code class="language-php">$file-&gt;size('/path/to/file'); // 1024</code></pre>
+<p>You can also get the formatted file size as <code>B, KB, MB, GB, TB</code>. Pass <code>true</code> as second parameter to this method.</p>
+<pre><code class="language-php">$file-&gt;size('/path/to/file', true); // 1.00KB</code></pre>
+<h2>modified()</h2>
+<p>To get the time the file was last modified, call <code>modified()</code> method. </p>
+<pre><code class="language-php">$file-&gt;modified('/path/to/file');</code></pre>
+<p>It returns a UNIX timestamp by default. But you can also format the result by passing <code>true</code> as second parameter.</p>
+<p>This will return the last modified date formatted as <code>M d, Y</code>.</p>
+<pre><code class="language-php">$file-&gt;modified('/path/to/file', true); // Feb 7, 2020</code></pre>
+<p>You can pass the date format as third parameter to this method.</p>
+<pre><code class="language-php">$file-&gt;modified('/path/to/file', true, 'd-M, Y'); // 7-Feb, 2020</code></pre>
+<h2>info()</h2>
+<p>Calling <code>info()</code> method returns an instance of <code>SplFileInfo</code> class from PHP SPL library. This class provides an object-oriented access to the properties of a file or directory.</p>
+<ul>
+<li><strong>Returns <code>null</code> if the file does not exist.</strong></li>
+</ul>
+<p>It is worth your time to have a look at this class details.</p>
+<p><a href="https://www.php.net/manual/en/class.splfileinfo.php">SplFileInfo</a></p>
+<pre><code class="language-php">$fileinfo = $file-&gt;info('/path/to/file');</code></pre>
+<p>Now you can call all the methods defined in <code>SplFileInfo</code> class. For example:</p>
+<pre><code class="language-php">$fileinfo-&gt;getFilename();</code></pre>
+<h2>isDir()</h2>
+<p>To check if a filepath is a folder, call <code>isDir()</code> method. It returns <code>true</code> on success otherwise <code>false</code>.</p>
+<pre><code class="language-php">$file-&gt;isDir('/path/to/file');</code></pre>
+<h2>makeDir()</h2>
+<p>To create a new folder, call <code>makeDir()</code> method. This method returns <code>true</code> on success otherwise <code>false</code>.</p>
+<pre><code class="language-php">$file-&gt;makeDir('/path/to/file');</code></pre>
+<p>By default it tries to create the directory with a permission value <code>0777</code>. You can pass the permission as second parameter to this method.</p>
+<pre><code class="language-php">$file-&gt;makeDir('/path/to/file', 0775);</code></pre>
+<h2>copyDir()</h2>
+<p>To copy the contents of a source folder into another folder, call <code>copyDir()</code> method. It will recursively copy all the files and sub-folders from the source to the destination folder.</p>
+<ul>
+<li><strong>The third argument (<code>delete</code>) deletes the source folder after copy (useful for moves).</strong></li>
+</ul>
+<p>This returns <code>true</code> on success otherwise <code>false</code>. </p>
+<pre><code class="language-php">$file-&gt;copyDir('/path/to/source', '/path/to/destination');</code></pre>
+<p>If you want to delete the source folder after copy operation, pass <code>true</code> as third argument.</p>
+<pre><code class="language-php">$file-&gt;copyDir('/path/to/source', '/path/to/destination', true);</code></pre>
+<h2>emptyDir()</h2>
+<p>To empty a folder, call <code>emptyDir()</code> method. This method will delete all the files and folders in the source directory.</p>
+<p>It returns <code>true</code> on success otherwise <code>false</code> on failure.</p>
+<pre><code class="language-php">$file-&gt;emptyDir('/path/to/file');</code></pre>
+<p><strong>Note</strong> that this method will not delete the source folder itself.</p>
+<h2>removeDir()</h2>
+<p>To delete a folder and all its content, call <code>removeDir()</code> method.</p>
+<ul>
+<li><strong>The second argument (<code>delete</code>) controls whether the directory itself is deleted (default: <code>true</code>).</strong></li>
+</ul>
+<p>It returns <code>true</code> on success otherwise <code>false</code>.</p>
+<pre><code class="language-php">$file-&gt;removeDir('/path/to/file');</code></pre>
+<h2>recent()</h2>
+<p>To get the most recently modified file in a folder, call <code>recent()</code> method. </p>
+<ul>
+<li><strong>Returns <code>null</code> if there are no files in the directory.</strong></li>
+</ul>
+<p>This method returns an instance of <a href="https://www.php.net/manual/en/class.splfileinfo.php"><code>SplFileInfo</code></a> class which provides a number of methods to get the information about a file.</p>
+<pre><code class="language-php">$recent = $file-&gt;recent('/path/to/file');
+
+// Now you can access all methods in SplFileInfo class.
+$recent-&gt;getFilename();</code></pre>
+<h2>traverse()</h2>
+<p>To list all the files and folders in a given directory, call <code>traverse()</code> method. </p>
+<ul>
+<li><strong>Returns <code>null</code> if the path is not a directory.</strong></li>
+</ul>
+<p>This method will return an array of the contents of a folder with filepath as <code>key</code> and an instance of <code>SplFileInfo</code> as value.</p>
+<pre><code class="language-php">$files = $file-&gt;traverse('path/to/file');
+
+foreach($files as $file) {
+    echo $file-&gt;getFilename();
+}</code></pre>
+<hr />
+<h2>moveDir()</h2>
+<p>To move a directory and all its contents to a new location, call <code>moveDir()</code> method. This is a wrapper around <code>copyDir()</code> that deletes the source after copy.</p>
+<pre><code class="language-php">$file-&gt;moveDir('/path/to/source', '/path/to/destination');</code></pre>
+<h2>hash()</h2>
+<p>To get a cryptographic hash (checksum) of a file's contents, call <code>hash()</code> method. This is useful for verifying file integrity, cache-busting, or detecting changes.</p>
+<ul>
+<li><strong>Returns <code>null</code> if the file does not exist.</strong></li>
+</ul>
+<p>By default it uses <code>sha256</code> algorithm, but you can specify any hash algorithm supported by PHP.</p>
+<pre><code class="language-php">$file-&gt;hash('/path/to/file'); // sha256 by default
+$file-&gt;hash('/path/to/file', 'md5'); // using MD5
+$file-&gt;hash('/path/to/file', 'sha1'); // using SHA1</code></pre>
+<p>Common use cases:</p>
+<pre><code class="language-php">// Verify file integrity
+$hash1 = $file-&gt;hash('original.zip');
+$hash2 = $file-&gt;hash('downloaded.zip');
+if ($hash1 === $hash2) {
+    echo 'Files are identical';
+}
+
+// Cache busting
+$version = $file-&gt;hash('app.js'); // Use hash as version
+echo "&lt;script src='app.js?v={$version}'"&gt;&lt;/script&gt;";</code></pre>
+<h2>atomic()</h2>
+<p>To write contents to a file atomically, call <code>atomic()</code> method. This prevents partial or corrupted writes by writing to a temporary file first and then renaming it.</p>
+<p>This is especially useful for:</p>
+<ul>
+<li>Configuration files that must never be corrupted</li>
+<li>Cache files that need consistency</li>
+<li>Data files that are read by other processes</li>
+</ul>
+<pre><code class="language-php">$file-&gt;atomic('/path/to/config.json', $jsonData);</code></pre>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Writes content to a temporary file (e.g., <code>config.json.tmp.abc123</code>)</li>
+<li>If write succeeds, renames temp file to target file</li>
+<li>If anything fails, removes temp file and returns <code>false</code></li>
+</ol>
+<p>This ensures the target file is either completely written or not modified at all.</p>
+<h2>getIterator()</h2>
+<p>To get a non-recursive iterator for a directory, call <code>getIterator()</code> method. This returns a <code>FilesystemIterator</code> that lists only the immediate contents of a directory.</p>
+<ul>
+<li><strong>Returns <code>null</code> if the path is not a directory.</strong></li>
+</ul>
+<pre><code class="language-php">$iterator = $file-&gt;getIterator('/path/to/dir');
+
+foreach ($iterator as $file) {
+    echo $file-&gt;getFilename();
+}</code></pre>
+<p class="tip">Use this when you only need files in the immediate directory, not subdirectories.</p>
+<h2>getRecursiveIterator()</h2>
+<p>To get a recursive iterator that traverses through all subdirectories, call <code>getRecursiveIterator()</code> method. This returns a <code>RecursiveIteratorIterator</code>.</p>
+<ul>
+<li><strong>Returns <code>null</code> if the path is not a directory.</strong></li>
+</ul>
+<pre><code class="language-php">$iterator = $file-&gt;getRecursiveIterator('/path/to/dir');
+
+foreach ($iterator as $file) {
+    if ($file-&gt;isFile()) {
+        echo $file-&gt;getRealPath();
+    }
+}</code></pre>
+<p>You can also control the iteration mode:</p>
+<pre><code class="language-php">// Default: SELF_FIRST (parent before children)
+$iterator = $file-&gt;getRecursiveIterator('/path/to/dir');
+
+// CHILD_FIRST (children before parent, useful for deletion)
+$iterator = $file-&gt;getRecursiveIterator('/path/to/dir', RecursiveIteratorIterator::CHILD_FIRST);</code></pre>
+<h2>sanitizePath()</h2>
+<p>To sanitize a file path for safe usage, call <code>sanitizePath()</code> method. This helps prevent directory traversal attacks and path manipulation vulnerabilities.</p>
+<pre><code class="language-php">$userInput = $_GET['file'];
+$safePath = $file-&gt;sanitizePath($userInput);</code></pre>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Normalizes directory separators to the system standard</li>
+<li>Removes parent directory traversal sequences (<code>..</code>)</li>
+<li>Prevents path manipulation attacks</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">// Dangerous user input
+$input = '../../../etc/passwd';
+
+// Sanitized output
+$safe = $file-&gt;sanitizePath($input); // 'etcpasswd'</code></pre>
+<p class="tip">Always sanitize user-provided file paths before using them in file operations.</p>    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

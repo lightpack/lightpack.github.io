@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Utility functions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   class="active" aria-current="page">
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Lightpack Utility Functions</h1>
+<p>Lightpack provides few handy utility functions to simplify common usage scenarios in your application.</p>
+<h2>csrf_input()</h2>
+<p><strong>What it does:</strong>
+Outputs a hidden HTML input containing the current CSRF token (named <code>_token</code>).</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Always include this in every <code>&lt;form&gt;</code> that performs a POST, PUT, PATCH, or DELETE request.</li>
+<li>Protects your application from Cross-Site Request Forgery attacks.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">&lt;form method="POST"&gt;
+  &lt;?= csrf_input() ?&gt;
+  &lt;!-- other fields --&gt;
+&lt;/form&gt;</code></pre>
+<h2>csrf_token()</h2>
+<p><strong>What it does:</strong>
+Returns the current CSRF token as a string.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>When you need to access the token value directly (e.g., for AJAX requests or custom headers).</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">$token = csrf_token();
+// Use $token in an AJAX request header</code></pre>
+<h2>spoof_input()</h2>
+<p><code>spoof_input(string $method)</code></p>
+<p><strong>What it does:</strong>
+Outputs a hidden input to spoof HTTP methods (like PUT, PATCH, DELETE) in HTML forms.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>When you want to send a method other than GET or POST in a form submission.</li>
+<li>HTML forms only support GET and POST natively; this lets you use RESTful verbs.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">&lt;form method="POST" action="/resource/123"&gt;
+  &lt;?= csrf_input() ?&gt;
+  &lt;?= spoof_input('DELETE') ?&gt;
+  &lt;button type="submit"&gt;Delete&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<h2>hidden_input()</h2>
+<p><code>hidden_input(string $name, string $value = '')</code></p>
+<p><strong>What it does:</strong>
+Outputs a hidden HTML input field with automatic XSS protection. Both the name and value are automatically escaped using <code>htmlspecialchars()</code>.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>When you need to include hidden data in forms (user IDs, redirect URLs, etc.).</li>
+<li>Prefer this over manually writing <code>&lt;input type="hidden"&gt;</code> for automatic security.</li>
+<li>Any time you're passing user-generated or dynamic content in hidden fields.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">&lt;form method="POST" action="/profile/update"&gt;
+  &lt;?= csrf_input() ?&gt;
+  &lt;?= hidden_input('user_id', $user-&gt;id) ?&gt;
+  &lt;?= hidden_input('redirect_to', '/dashboard') ?&gt;
+  &lt;button type="submit"&gt;Update&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<pre><code class="language-php">// Automatically escapes malicious content
+&lt;?= hidden_input('data', '"&gt;&lt;script&gt;alert("XSS")&lt;/script&gt;') ?&gt;
+// Output: &lt;input type="hidden" name="data" value="&amp;quot;&amp;gt;&amp;lt;script&amp;gt;..."&gt;</code></pre>
+<h2>form_open()</h2>
+<p><code>form_open(string $action = '', string $method = 'POST', array $attributes = [], bool $csrf = true)</code></p>
+<p><strong>What it does:</strong>
+Opens an HTML form tag with automatic CSRF token injection and HTTP method spoofing support. Automatically escapes all attribute values for security.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>For all forms in your application—provides CSRF token hidden field by default.</li>
+<li>When you need PUT, PATCH, or DELETE methods (automatically adds method spoofing).</li>
+<li>To reduce boilerplate and prevent forgetting CSRF tokens.</li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>$action</code> - Form action URL</li>
+<li><code>$method</code> - HTTP method (GET, POST, PUT, PATCH, DELETE)</li>
+<li><code>$attributes</code> - Additional HTML attributes (class, id, data-*, etc.)</li>
+<li><code>$csrf</code> - Whether to include CSRF token (default: true)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">// Basic POST form with CSRF
+&lt;?= form_open('/profile/update') ?&gt;
+  &lt;input type="text" name="name" value="&lt;?= _e($user-&gt;name) ?&gt;"&gt;
+  &lt;button type="submit"&gt;Update&lt;/button&gt;
+&lt;?= form_close() ?&gt;</code></pre>
+<pre><code class="language-php">// GET form (no CSRF token)
+&lt;?= form_open('/search', 'GET') ?&gt;
+  &lt;input type="text" name="q" placeholder="Search..."&gt;
+  &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;?= form_close() ?&gt;</code></pre>
+<pre><code class="language-php">// DELETE with method spoofing
+&lt;?= form_open('/posts/123', 'DELETE') ?&gt;
+  &lt;button type="submit"&gt;Delete Post&lt;/button&gt;
+&lt;?= form_close() ?&gt;
+// Outputs: method="POST" with hidden _method=DELETE and CSRF token</code></pre>
+<pre><code class="language-php">// With custom attributes
+&lt;?= form_open('/profile', 'POST', [
+    'class' =&gt; 'profile-form',
+    'id' =&gt; 'user-form',
+    'enctype' =&gt; 'multipart/form-data'
+]) ?&gt;
+  &lt;!-- form fields --&gt;
+&lt;?= form_close() ?&gt;</code></pre>
+<pre><code class="language-php">// Disable CSRF for webhooks or public endpoints
+&lt;?= form_open('/webhook/stripe', 'POST', [], false) ?&gt;
+  &lt;!-- webhook payload --&gt;
+&lt;?= form_close() ?&gt;</code></pre>
+<p><strong>Important:</strong></p>
+<ul>
+<li>POST, PUT, PATCH, and DELETE forms automatically include CSRF tokens (unless disabled).</li>
+<li>PUT, PATCH, and DELETE are automatically converted to POST with method spoofing.</li>
+<li>GET forms never include CSRF tokens (even if <code>$csrf = true</code>).</li>
+<li>All attribute values are automatically escaped to prevent XSS attacks.</li>
+<li>Remember to add the <code>csrf</code> filter to your route for CSRF-protected forms.</li>
+</ul>
+<h2>form_close()</h2>
+<p><code>form_close()</code></p>
+<p><strong>What it does:</strong>
+Outputs a closing <code>&lt;/form&gt;</code> tag.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>To close forms opened with <code>form_open()</code>.</li>
+<li>Provides consistency and readability in your view templates.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">&lt;?= form_open('/profile/update') ?&gt;
+  &lt;!-- form fields --&gt;
+&lt;?= form_close() ?&gt;</code></pre>
+<h2>dd()</h2>
+<p><code>dd(...$args)</code></p>
+<p><strong>What it does:</strong>
+“Dump and Die”—outputs the contents of variables (like <code>var_dump</code>) and stops the script.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>For debugging: inspect variables, arrays, or objects at any point in your code.</li>
+<li>Use in development only; never leave in production code.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">dd($user, $posts);</code></pre>
+<h2>pp()</h2>
+<p><code>pp(...$args)</code></p>
+<p><strong>What it does:</strong>
+“Pretty Print”—outputs variables using <code>print_r</code> and stops the script. This function is useful for debugging purposes, especially when working with arrays and objects.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>For debugging: best for arrays and objects where structure matters. This provides a clear and readable representation of the data.</li>
+<li>Use in development only.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">pp($myArray);</code></pre>
+<pre><code class="language-php">pp($var1, $var2, $var3)</code></pre>
+<h2>halt()</h2>
+<p><code>halt(int $code, string $message = '', array $headers = [])</code></p>
+<p><strong>What it does:</strong>
+Immediately halts execution and throws an HTTP exception with the specified status code. If no message is provided, uses the standard HTTP status message (e.g., "Not Found" for 404).</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>When you need to stop request processing and return an HTTP error response.</li>
+<li>For access control (403 Forbidden), missing resources (404 Not Found), or server errors (500 Internal Server Error).</li>
+<li>As a clean way to handle error conditions in controllers, middleware, or route handlers.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">// Simple halt with standard message
+halt(404);  // Throws "Not Found"
+halt(403);  // Throws "Forbidden"
+
+// With custom message
+halt(404, 'User not found');
+halt(403, 'You need admin access');
+
+// With custom headers
+halt(503, 'Service Unavailable', ['Retry-After' =&gt; '3600']);
+
+// In conditional logic
+if (!$user) {
+    halt(404, 'User not found');
+}
+
+// One-liner
+if (!$user) halt(404);</code></pre>
+<h2>once()</h2>
+<p><code>once(callable $callback)</code></p>
+<p><strong>What it does:</strong>
+Executes a callback only once and caches the result. Subsequent calls with the same callback return the cached result without re-executing the callback.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Prevent duplicate expensive operations (database queries, API calls, file reads)</li>
+<li>Lazy loading with automatic caching</li>
+<li>Ensure idempotent operations within the same request</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">// In a model - expensive query runs only once
+class User
+{
+    public function permissions()
+    {
+        return once(function() {
+            // This query only runs once per request
+            return Permission::where('user_id', $this-&gt;id)-&gt;all();
+        });
+    }
+}
+
+$user-&gt;permissions(); // Executes query
+$user-&gt;permissions(); // Returns cached result
+$user-&gt;permissions(); // Returns cached result</code></pre>
+<pre><code class="language-php">// Prevent duplicate API calls
+$callback = function() {
+    return $httpClient-&gt;get('https://api.example.com/data');
+};
+
+$data1 = once($callback); // Makes API call
+$data2 = once($callback); // Returns cached response
+$data3 = once($callback); // Returns cached response</code></pre>
+<pre><code class="language-php">// Expensive computation
+class Report
+{
+    private $calculateStats;
+
+    public function __construct()
+    {
+        $this-&gt;calculateStats = function() {
+            // Heavy computation
+            return $this-&gt;processLargeDataset();
+        };
+    }
+
+    public function getStats()
+    {
+        return once($this-&gt;calculateStats);
+    }
+}
+
+$report = new Report();
+$stats = $report-&gt;getStats(); // Computes
+$stats = $report-&gt;getStats(); // Cached</code></pre>
+<p><strong>Important:</strong></p>
+<ul>
+<li>The callback must be the <strong>same instance</strong> to benefit from caching</li>
+<li>Different callback instances (even with identical code) are treated separately</li>
+<li>Cache persists only for the current request</li>
+</ul>
+<h2>optional()</h2>
+<p><code>optional($value, ?callable $callback = null)</code></p>
+<p><strong>What it does:</strong>
+Safely access properties and methods on a potentially null value without causing errors. Returns a null-safe object that allows chaining.</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Accessing nested properties that might be null</li>
+<li>Preventing "Attempt to read property on null" errors</li>
+<li>Cleaner code without excessive null checks</li>
+<li>Working with optional relationships or API responses</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">// Basic usage - no error even if $user is null
+$name = optional($user)-&gt;name;
+$email = optional($user)-&gt;profile-&gt;email;
+
+// Without optional (verbose)
+$name = $user !== null ? $user-&gt;name : null;
+$email = $user !== null &amp;&amp; $user-&gt;profile !== null ? $user-&gt;profile-&gt;email : null;
+
+// With optional (clean)
+$name = optional($user)-&gt;name;
+$email = optional($user)-&gt;profile-&gt;email;</code></pre>
+<pre><code class="language-php">// Real-world: fetching user from database
+$user = User::find($id); // Might return null
+
+// Safe access
+$userName = optional($user)-&gt;name;
+$userCity = optional($user)-&gt;address-&gt;city;
+$userEmail = optional($user)-&gt;getEmail();
+
+// All work without errors, even if $user is null</code></pre>
+<pre><code class="language-php">// With callback transformation
+$user = User::find($id);
+
+$displayName = optional($user, function($u) {
+    return strtoupper($u-&gt;firstName . ' ' . $u-&gt;lastName);
+});
+
+// If $user is null, $displayName is the null object
+// If $user exists, $displayName is the transformed string</code></pre>
+<pre><code class="language-php">// In views - prevent errors from missing data
+&lt;h1&gt;&lt;?= optional($post-&gt;author)-&gt;name ?&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;?= optional($order-&gt;customer-&gt;address)-&gt;city ?&gt;&lt;/p&gt;
+
+// In controllers
+public function show($id)
+{
+    $user = User::find($id);
+
+    return response()-&gt;json([
+        'name' =&gt; optional($user)-&gt;name,
+        'email' =&gt; optional($user)-&gt;profile-&gt;email,
+        'city' =&gt; optional($user)-&gt;address-&gt;city,
+    ]);
+}</code></pre>
+<pre><code class="language-php">// Chaining with method calls
+$user = User::find($id);
+
+// No error even if getProfile() returns null
+$email = optional($user-&gt;getProfile())-&gt;email;
+$phone = optional($user-&gt;getProfile())-&gt;getContactInfo()-&gt;phone;</code></pre>
+<p><strong>Important:</strong></p>
+<ul>
+<li>The null object converts to empty string when cast: <code>(string)optional(null)-&gt;property === ''</code></li>
+<li>For actual null checks, use <code>is_null()</code> or strict comparison</li>
+<li>Works with properties, methods, and deep chaining</li>
+<li>Callback is only executed if value is not null</li>
+</ul>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi tenancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   >
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   class="active" aria-current="page">
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>Multi-Tenancy</h1>
+<p>Lightpack provides built-in support for <strong>row-level multi-tenancy</strong> through the <code>TenantModel</code> class—making it simple to build SaaS applications and multi-tenant systems.</p>
+<hr />
+<h2>Understanding Multi-Tenancy</h2>
+<h3>What is a Tenant?</h3>
+<p>A <strong>tenant</strong> is an isolated group of users who share common access to your application with specific privileges. In practical terms:</p>
+<ul>
+<li><strong>SaaS Applications:</strong> A tenant is typically a customer organization (e.g., Company A, Company B)</li>
+<li><strong>E-commerce Platforms:</strong> A tenant could be an individual store or merchant</li>
+<li><strong>Educational Systems:</strong> A tenant might be a school or university</li>
+<li><strong>Healthcare Systems:</strong> A tenant could be a hospital or clinic</li>
+</ul>
+<p><strong>Key Principle:</strong> Each tenant's data must be completely isolated from other tenants—users in Tenant A should never see or access data belonging to Tenant B.</p>
+<h3>Real-World Example</h3>
+<p>Imagine you're building a project management SaaS application:</p>
+<pre><code class="language-table">Tenants in your application:
+-------------------------------------------------
+Tenant ID | Organization Name    | Users
+-------------------------------------------------
+1         | Acme Corporation     | john@acme.com, jane@acme.com
+2         | Beta Industries      | bob@beta.com, alice@beta.com
+3         | Gamma Solutions      | charlie@gamma.com
+-------------------------------------------------</code></pre>
+<p>When <code>john@acme.com</code> logs in:</p>
+<ul>
+<li>He should only see projects, tasks, and files belonging to <strong>Acme Corporation</strong> (Tenant 1)</li>
+<li>He should never see data from Beta Industries or Gamma Solutions</li>
+<li>All his actions (create, update, delete) should only affect Tenant 1's data</li>
+</ul>
+<p>This isolation is what multi-tenancy provides.</p>
+<hr />
+<h2>Multi-Tenancy Architectural Approaches</h2>
+<p>There are 3 main architectural approaches to multi-tenancy:</p>
+<h3>Approach 1: Database-per-Tenant (Separate Database)</h3>
+<pre><code>Tenant 1 → database_tenant_1
+Tenant 2 → database_tenant_2
+Tenant 3 → database_tenant_3</code></pre>
+<p><strong>Pros:</strong> Maximum isolation, easy backup per tenant<br />
+<strong>Cons:</strong> Resource intensive, complex connection management, scaling issues</p>
+<hr />
+<h3>Approach 2: Schema-per-Tenant (Separate Schema)</h3>
+<pre><code>Same Database:
+  ├─ schema_tenant_1 (tables: posts, users)
+  ├─ schema_tenant_2 (tables: posts, users)
+  └─ schema_tenant_3 (tables: posts, users)</code></pre>
+<p><strong>Pros:</strong> Good isolation, easier than separate databases<br />
+<strong>Cons:</strong> Schema switching overhead, complex migrations</p>
+<hr />
+<h3>Approach 3: Row-Level Tenancy (Shared Tables with Discriminator Column) ⭐</h3>
+<pre><code class="language-table">posts table:
+-------------------------------------------------
+id | tenant_id | title
+-------------------------------------------------
+1  | 1         | Post A
+2  | 1         | Post B
+3  | 2         | Post C  ← Different tenant</code></pre>
+<p><strong>Pros:</strong> Simple, scalable, database-agnostic, efficient<br />
+<strong>Cons:</strong> Requires careful query filtering, less isolation</p>
+<p>Lightpack chose <strong>Approach 3 (Row-Level Tenancy)</strong> because it provides the best balance for most applications:</p>
+<hr />
+<h2>Quick Start</h2>
+<h3>Step 1: Create Tenant-Aware Schema</h3>
+<p>Add a tenant identifier column <code>tenant_id</code> to your tables:</p>
+<pre><code class="language-sql">CREATE TABLE posts (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    tenant_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL,
+
+    INDEX idx_tenant_id (tenant_id)
+);</code></pre>
+<p class="tip"><b>Important:</b> Always index your tenant column for optimal performance.</p>
+<h3>Step 2: Create Tenant Models</h3>
+<p>Use the console command to generate a tenant model:</p>
+<pre><code class="language-terminal">php console create:model Post --tenant</code></pre>
+<p>This creates a model that extends <code>TenantModel</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Lightpack\Database\Lucid\TenantModel;
+
+class Post extends TenantModel
+{
+    protected $table = 'posts';
+}</code></pre>
+<h3>Step 3: Set Tenant Context</h3>
+<p>Set the tenant context using <code>TenantContext</code>:</p>
+<pre><code class="language-php">use Lightpack\Database\Lucid\TenantContext;
+
+// After authenticating user
+TenantContext::set($user-&gt;tenant_id);</code></pre>
+<h3>Step 4: Use Models Normally</h3>
+<p>Once tenant context is set, all queries are automatically scoped:</p>
+<pre><code class="language-php">// Only returns posts for current tenant
+$posts = Post::query()-&gt;all();
+
+// Auto-assigns tenant_id on create
+$post = new Post();
+$post-&gt;title = 'My Post';
+$post-&gt;save(); // tenant_id automatically set
+
+// Only updates current tenant's posts
+$post-&gt;title = 'Updated Title';
+$post-&gt;save();
+
+// Only deletes current tenant's posts
+$post-&gt;delete();</code></pre>
+<hr />
+<h2>How It Works</h2>
+<h3>Automatic Query Filtering</h3>
+<p>The <code>TenantModel</code> uses a <code>globalScope()</code> to automatically add a <code>WHERE tenant_id = ?</code> clause to all queries:</p>
+<pre><code class="language-php">// Your code
+Post::query()-&gt;where('status', 'published')-&gt;all();
+
+// Actual SQL executed
+SELECT * FROM posts WHERE status = 'published' AND tenant_id = 1</code></pre>
+<p>This applies to all operations:</p>
+<ul>
+<li><strong>SELECT</strong> - Only fetch current tenant's records</li>
+<li><strong>UPDATE</strong> - Only update current tenant's records</li>
+<li><strong>DELETE</strong> - Only delete current tenant's records</li>
+<li><strong>COUNT</strong> - Only count current tenant's records</li>
+</ul>
+<h3>Automatic Tenant Assignment</h3>
+<p>When creating new records, <code>TenantModel</code> automatically sets the tenant column:</p>
+<pre><code class="language-php">$post = new Post();
+$post-&gt;title = 'New Post';
+$post-&gt;save();
+// tenant_id is automatically set to current tenant</code></pre>
+<p>This works for both <code>save()</code> and <code>insert()</code> methods, ensuring you never accidentally create records without a tenant.</p>
+<hr />
+<h2>Customizing Tenant Column</h2>
+<p>By default, <code>TenantModel</code> uses <code>tenant_id</code> as the tenant column. You can customize this per model:</p>
+<pre><code class="language-php">class Article extends TenantModel
+{
+    protected $table = 'articles';
+    protected $tenantColumn = 'site_id';  // Custom column name
+}</code></pre>
+<hr />
+<h2>Tenant Resolution Strategies</h2>
+<p>You set the tenant context using <code>TenantContext</code>. Here are common patterns for different application types:</p>
+<h3>Strategy 1: Session-Based</h3>
+<p>Best for traditional web applications with cookie-based authentication.</p>
+<pre><code class="language-php">// In your route filter
+use Lightpack\Database\Lucid\TenantContext;
+
+$user = auth()-&gt;user();
+TenantContext::set(session()-&gt;get('tenant.id'));
+
+// Or get from authenticated user
+TenantContext::set($user-&gt;tenant_id);</code></pre>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Traditional multi-page web apps</li>
+<li>Cookie-based authentication</li>
+<li>Server-side session management</li>
+</ul>
+<h3>Strategy 2: JWT/Token-Based (API)</h3>
+<p>Best for RESTful APIs, mobile apps, and SPAs.</p>
+<pre><code class="language-php">// In your API authentication middleware
+use Lightpack\Database\Lucid\TenantContext;
+
+$user = auth()-&gt;user(); // From JWT token
+TenantContext::set($user-&gt;tenant_id);</code></pre>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>RESTful APIs</li>
+<li>Mobile applications</li>
+<li>Single Page Applications (SPAs)</li>
+<li>Stateless authentication</li>
+</ul>
+<h3>Strategy 3: Domain/Subdomain-Based</h3>
+<p>Best for SaaS applications where each tenant has their own domain or subdomain (e.g., <code>acme.yourapp.com</code>).</p>
+<pre><code class="language-php">// In your route filter or middleware
+use Lightpack\Database\Lucid\TenantContext;
+
+$domain = request()-&gt;host();
+$tenant = Tenant::query()-&gt;where('domain', $domain)-&gt;one();
+
+if ($tenant) {
+    TenantContext::set($tenant-&gt;id);
+}</code></pre>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Custom domain per tenant</li>
+<li>Subdomain-based tenancy</li>
+<li>Public-facing tenant pages</li>
+</ul>
+<p class="tip"><b>Performance Tip:</b> Cache domain-to-tenant lookups to avoid database queries on every request.</p>
+<h2>Bypassing Tenant Isolation</h2>
+<p>Sometimes you need to access data across all tenants—for example, in admin dashboards or analytics. Use <code>queryWithoutScopes()</code> to bypass tenant filtering:</p>
+<pre><code class="language-php">// Access all posts from all tenants
+$allPosts = Post::queryWithoutScopes()-&gt;all();
+
+// Count posts across all tenants
+$totalPosts = Post::queryWithoutScopes()-&gt;count();
+
+// Get posts from specific tenant
+$tenant2Posts = Post::queryWithoutScopes()
+    -&gt;where('tenant_id', 2)
+    -&gt;all();</code></pre>
+<p class="tip"><b>Security Warning:</b> Only use <code>queryWithoutScopes()</code> in admin areas with proper authorization checks.</p>
+<hr />
+<h2>Summary</h2>
+<p>Lightpack's multi-tenancy system provides:</p>
+<p>✅ <strong>Built-in multi-tenancy</strong> - No packages needed<br />
+✅ <strong>Automatic isolation</strong> - Queries filtered automatically via <code>TenantModel</code><br />
+✅ <strong>Flexible tenant context</strong> - Set via <code>TenantContext</code> from any source<br />
+✅ <strong>Simple API</strong> - <code>TenantContext::set()</code>, <code>get()</code>, <code>clear()</code>, <code>has()</code><br />
+✅ <strong>Clean separation</strong> - Context management separate from model logic<br />
+✅ <strong>Production-ready</strong> - Comprehensive test coverage  </p>
+<p>This makes it ideal for building SaaS applications and multi-tenant systems with minimal complexity and maximum flexibility.</p>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>

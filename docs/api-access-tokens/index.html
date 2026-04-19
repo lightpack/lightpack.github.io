@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Api access tokens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+      body {
+        font-family: 'Montserrat', Verdana, system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/logo.svg" />
+      </div>
+                              <div class="sidebar-section">
+              <div class="sidebar-section-title"> General </div>
+              <ul>
+                                  <li>
+                    <a href="ai-service/"
+   >
+  Ai service</a>
+                  </li>
+                                  <li>
+                    <a href="api-access-tokens/"
+   class="active" aria-current="page">
+  Api access tokens</a>
+                  </li>
+                                  <li>
+                    <a href="array-utils/"
+   >
+  Array utils</a>
+                  </li>
+                                  <li>
+                    <a href="asset-loading-utils/"
+   >
+  Asset loading utils</a>
+                  </li>
+                                  <li>
+                    <a href="audit/"
+   >
+  Audit</a>
+                  </li>
+                                  <li>
+                    <a href="auth-configuration/"
+   >
+  Auth configuration</a>
+                  </li>
+                                  <li>
+                    <a href="auth-filters/"
+   >
+  Auth filters</a>
+                  </li>
+                                  <li>
+                    <a href="authentication/"
+   >
+  Authentication</a>
+                  </li>
+                                  <li>
+                    <a href="cable/"
+   >
+  Cable</a>
+                  </li>
+                                  <li>
+                    <a href="caching/"
+   >
+  Caching</a>
+                  </li>
+                                  <li>
+                    <a href="captcha/"
+   >
+  Captcha</a>
+                  </li>
+                                  <li>
+                    <a href="collections/"
+   >
+  Collections</a>
+                  </li>
+                                  <li>
+                    <a href="configuration/"
+   >
+  Configuration</a>
+                  </li>
+                                  <li>
+                    <a href="console/"
+   >
+  Console</a>
+                  </li>
+                                  <li>
+                    <a href="containers/"
+   >
+  Containers</a>
+                  </li>
+                                  <li>
+                    <a href="controllers/"
+   >
+  Controllers</a>
+                  </li>
+                                  <li>
+                    <a href="cookies/"
+   >
+  Cookies</a>
+                  </li>
+                                  <li>
+                    <a href="cors/"
+   >
+  Cors</a>
+                  </li>
+                                  <li>
+                    <a href="csv-utils/"
+   >
+  Csv utils</a>
+                  </li>
+                                  <li>
+                    <a href="custom-auth/"
+   >
+  Custom auth</a>
+                  </li>
+                                  <li>
+                    <a href="db-connection/"
+   >
+  Db connection</a>
+                  </li>
+                                  <li>
+                    <a href="db-query-builder/"
+   >
+  Db query builder</a>
+                  </li>
+                                  <li>
+                    <a href="eager-loading/"
+   >
+  Eager loading</a>
+                  </li>
+                                  <li>
+                    <a href="encryption-decryption-utils/"
+   >
+  Encryption decryption utils</a>
+                  </li>
+                                  <li>
+                    <a href="environments/"
+   >
+  Environments</a>
+                  </li>
+                                  <li>
+                    <a href="events/"
+   >
+  Events</a>
+                  </li>
+                                  <li>
+                    <a href="factory/"
+   >
+  Factory</a>
+                  </li>
+                                  <li>
+                    <a href="faker/"
+   >
+  Faker</a>
+                  </li>
+                                  <li>
+                    <a href="filesystem/"
+   >
+  Filesystem</a>
+                  </li>
+                                  <li>
+                    <a href="filters/"
+   >
+  Filters</a>
+                  </li>
+                                  <li>
+                    <a href="http-client/"
+   >
+  Http client</a>
+                  </li>
+                                  <li>
+                    <a href="image-utils/"
+   >
+  Image utils</a>
+                  </li>
+                                  <li>
+                    <a href="install/"
+   >
+  Install</a>
+                  </li>
+                                  <li>
+                    <a href="introduction/"
+   >
+  Introduction</a>
+                  </li>
+                                  <li>
+                    <a href="js-utils/"
+   >
+  Js utils</a>
+                  </li>
+                                  <li>
+                    <a href="logging/"
+   >
+  Logging</a>
+                  </li>
+                                  <li>
+                    <a href="mails/"
+   >
+  Mails</a>
+                  </li>
+                                  <li>
+                    <a href="mfa/"
+   >
+  Mfa</a>
+                  </li>
+                                  <li>
+                    <a href="migrations/"
+   >
+  Migrations</a>
+                  </li>
+                                  <li>
+                    <a href="models/"
+   >
+  Models</a>
+                  </li>
+                                  <li>
+                    <a href="modules/"
+   >
+  Modules</a>
+                  </li>
+                                  <li>
+                    <a href="moment/"
+   >
+  Moment</a>
+                  </li>
+                                  <li>
+                    <a href="multi-tenancy/"
+   >
+  Multi tenancy</a>
+                  </li>
+                                  <li>
+                    <a href="mutex-lock/"
+   >
+  Mutex lock</a>
+                  </li>
+                                  <li>
+                    <a href="orm-introduction/"
+   >
+  Orm introduction</a>
+                  </li>
+                                  <li>
+                    <a href="otp-utils/"
+   >
+  Otp utils</a>
+                  </li>
+                                  <li>
+                    <a href="password/"
+   >
+  Password</a>
+                  </li>
+                                  <li>
+                    <a href="pdf/"
+   >
+  Pdf</a>
+                  </li>
+                                  <li>
+                    <a href="pipeline-pattern/"
+   >
+  Pipeline pattern</a>
+                  </li>
+                                  <li>
+                    <a href="process/"
+   >
+  Process</a>
+                  </li>
+                                  <li>
+                    <a href="providers/"
+   >
+  Providers</a>
+                  </li>
+                                  <li>
+                    <a href="queue/"
+   >
+  Queue</a>
+                  </li>
+                                  <li>
+                    <a href="README/"
+   >
+  README</a>
+                  </li>
+                                  <li>
+                    <a href="rate-limiter/"
+   >
+  Rate limiter</a>
+                  </li>
+                                  <li>
+                    <a href="rbac/"
+   >
+  Rbac</a>
+                  </li>
+                                  <li>
+                    <a href="relationships/"
+   >
+  Relationships</a>
+                  </li>
+                                  <li>
+                    <a href="repository/"
+   >
+  Repository</a>
+                  </li>
+                                  <li>
+                    <a href="request/"
+   >
+  Request</a>
+                  </li>
+                                  <li>
+                    <a href="response/"
+   >
+  Response</a>
+                  </li>
+                                  <li>
+                    <a href="routing/"
+   >
+  Routing</a>
+                  </li>
+                                  <li>
+                    <a href="schedule/"
+   >
+  Schedule</a>
+                  </li>
+                                  <li>
+                    <a href="secrets/"
+   >
+  Secrets</a>
+                  </li>
+                                  <li>
+                    <a href="seeder/"
+   >
+  Seeder</a>
+                  </li>
+                                  <li>
+                    <a href="sessions/"
+   >
+  Sessions</a>
+                  </li>
+                                  <li>
+                    <a href="settings/"
+   >
+  Settings</a>
+                  </li>
+                                  <li>
+                    <a href="sms/"
+   >
+  Sms</a>
+                  </li>
+                                  <li>
+                    <a href="social-auth/"
+   >
+  Social auth</a>
+                  </li>
+                                  <li>
+                    <a href="storage/"
+   >
+  Storage</a>
+                  </li>
+                                  <li>
+                    <a href="string-utils/"
+   >
+  String utils</a>
+                  </li>
+                                  <li>
+                    <a href="tags/"
+   >
+  Tags</a>
+                  </li>
+                                  <li>
+                    <a href="taxonomies/"
+   >
+  Taxonomies</a>
+                  </li>
+                                  <li>
+                    <a href="testing/"
+   >
+  Testing</a>
+                  </li>
+                                  <li>
+                    <a href="transformers/"
+   >
+  Transformers</a>
+                  </li>
+                                  <li>
+                    <a href="uploads/"
+   >
+  Uploads</a>
+                  </li>
+                                  <li>
+                    <a href="url/"
+   >
+  Url</a>
+                  </li>
+                                  <li>
+                    <a href="utility-functions/"
+   >
+  Utility functions</a>
+                  </li>
+                                  <li>
+                    <a href="validation/"
+   >
+  Validation</a>
+                  </li>
+                                  <li>
+                    <a href="views/"
+   >
+  Views</a>
+                  </li>
+                                  <li>
+                    <a href="webhook/"
+   >
+  Webhook</a>
+                  </li>
+                                  <li>
+                    <a href="_coverpage/"
+   >
+  _coverpage</a>
+                  </li>
+                                  <li>
+                    <a href="_navbar/"
+   >
+  _navbar</a>
+                  </li>
+                                  <li>
+                    <a href="_sidebar/"
+   >
+  _sidebar</a>
+                  </li>
+                              </ul>
+            </div>
+                        </aside>
+      <main>
+        <h1>API Access Tokens</h1>
+<p>API access tokens are secure, random strings issued to users or applications that allow them to authenticate and access protected resources over HTTP APIs. They are commonly used for stateless authentication in RESTful APIs, mobile apps, and third-party integrations. Each token can be associated with specific permissions ("abilities" or "scopes") and may have an expiration time, enabling fine-grained access control and easy revocation without relying on session state.</p>
+<hr />
+<h2>Authenticate API</h2>
+<p>Authenticate API requests using a bearer token provided in the <code>Authorization</code> header. This is the standard approach for stateless authentication in APIs.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>The client sends an HTTP header: <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+<li>The server extracts the token and verifies it against the <code>access_tokens</code> table.</li>
+<li>If valid and not expired, the associated user is authenticated for the request.</li>
+</ul>
+<pre><code class="language-php">// Authenticate the request using a bearer token
+$user = auth()-&gt;viaToken();
+
+if ($user) {
+    // The token is valid
+}</code></pre>
+<h2>Issue Access Tokens</h2>
+<p>A user can have one or more access tokens allowing them to authenticate future requests. Tokens can have specific abilities (scopes) and expiration dates.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Call <code>createToken()</code> on the user object, specifying a name, an array of abilities (permissions), and an optional expiration date.</li>
+<li>The method creates a hashed token in the database and returns a temporary <code>plainTextToken</code> for the client to store securely.</li>
+<li>The wildcard <code>'*'</code> grants all abilities.</li>
+</ul>
+<pre><code class="language-php">$user = auth()-&gt;user(); // Get the currently authenticated user</code></pre>
+<p>Following issues a never expiring API access token named <strong>site-manager</strong> with all the abilities/permissions.</p>
+<pre><code class="language-php">$token = $user-&gt;createToken('site-manager');</code></pre>
+<p>Following issues a token that expires in 30 days with limited abilities.</p>
+<pre><code class="language-php">$token = $user-&gt;createToken(
+    'site-manager',                
+    ['read:post', 'write:post'], 
+    moment()-&gt;travel('+30 days')
+);</code></pre>
+<p><strong>You should return the plain text token to the client:</strong></p>
+<pre><code class="language-php">return ['token' =&gt; $token-&gt;plainTextToken];</code></pre>
+<blockquote>
+<p><strong>Note:</strong> The <code>plainTextToken</code> property is only available immediately after creation. The client should store it securely as it cannot be retrieved again.</p>
+</blockquote>
+<hr />
+<h2>Check Token Abilities</h2>
+<p>You can authorize specific actions based on the abilities (scopes) assigned to the access token. This enables fine-grained access control for API clients.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Each token has an array of abilities (e.g., <code>['read:post', 'write:post']</code>).</li>
+<li>When handling a request, check if the authenticated user's token grants the required ability.</li>
+</ul>
+<pre><code class="language-php">if ($user-&gt;tokenCan('write:post')) {
+    // User can write posts
+}</code></pre>
+<pre><code class="language-php">if ($user-&gt;tokenCannot('write:post')) {
+    // User cannot write posts
+}</code></pre>
+<h2>Delete Tokens</h2>
+<p>Tokens can be deleted/revoked individually or in bulk.</p>
+<pre><code class="language-php">// Delete all tokens for the user
+$user-&gt;deleteTokens();        
+
+// Delete a specific token by its plaintext value
+$user-&gt;deleteTokens($plainTextToken); 
+
+// Delete current request access token 
+$user-&gt;deleteCurrentRequestToken();
+
+// Delete a token by ID
+$user-&gt;deleteTokensById(23);
+
+// Delete multiple tokens by ID
+$user-&gt;deleteTokensById([23, 24, 24]);</code></pre>
+<ul>
+<li>Deleting tokens immediately invalidates them for future authentication.</li>
+<li>Use this to implement logout-from-all-devices or token revocation endpoints.</li>
+</ul>
+<h2>Token Tracking</h2>
+<p>Access tokens automatically track usage information for monitoring and debugging:</p>
+<pre><code class="language-php">$token = AccessToken::find($id);
+
+echo $token-&gt;last_used_at;  // Timestamp of last authentication</code></pre>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li><strong>Detect stale tokens</strong>: Find tokens not used in 90+ days</li>
+<li><strong>Security monitoring</strong>: Track when/how tokens are used</li>
+<li><strong>Debugging</strong>: "When was this token last active?"</li>
+</ul>
+<pre><code class="language-php">// Find inactive tokens
+$staleTokens = AccessToken::query()
+    -&gt;where('last_used_at', '&lt;', date('Y-m-d H:i:s', strtotime('-90 days')))
+    -&gt;get();</code></pre>
+<h2>Best Practices</h2>
+<h3>1. Use Namespaced Abilities</h3>
+<p>Instead of generic abilities like <code>read</code> or <code>write</code>, use a <code>resource:action</code> format:</p>
+<pre><code class="language-php">$token = $user-&gt;createToken('api', [
+    'posts:read',
+    'posts:write',
+    'users:read',
+    'comments:delete',
+]);</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Clear what resource and action are allowed</li>
+<li>Easy to understand permissions</li>
+<li>Industry standard (OAuth scopes use this pattern)</li>
+</ul>
+<h3>2. Set Expiration Dates</h3>
+<p>Tokens should expire to limit security exposure:</p>
+<pre><code class="language-php">// Recommended: 30-90 days
+$token = $user-&gt;createToken(
+    'mobile-app',
+    ['*'],
+    date('Y-m-d H:i:s', strtotime('+30 days'))
+);</code></pre>
+<h3>3. Monitor Token Usage</h3>
+<p>Regularly check <code>last_used_at</code> to detect and revoke stale tokens:</p>
+<pre><code class="language-php">// Revoke tokens not used in 6 months
+$staleTokens = AccessToken::query()
+    -&gt;where('user_id', $userId)
+    -&gt;where('last_used_at', '&lt;', date('Y-m-d H:i:s', strtotime('-6 months')))
+    -&gt;get();
+
+foreach ($staleTokens as $token) {
+    $token-&gt;delete();
+}</code></pre>
+<h3>4. Limit Token Count</h3>
+<p>Consider limiting how many tokens a user can have:</p>
+<pre><code class="language-php">$tokenCount = AccessToken::query()
+    -&gt;where('user_id', '=', $user-&gt;id)
+    -&gt;count();
+
+if ($tokenCount &gt;= 10) {
+    return response()-&gt;json(['error' =&gt; 'Maximum token limit reached'], 400);
+}</code></pre>
+<h3>5. Revoke on Logout</h3>
+<p>Delete tokens when user logs out or changes password:</p>
+<pre><code class="language-php">// Logout from all devices
+$user-&gt;deleteTokens();
+
+// Or delete current token only
+$user-&gt;deleteCurrentRequestToken();</code></pre>
+<hr />    </main>
+    <nav class="toc"></nav>
+</div>
+<script src="assets/toc.js"></script>
+</body>
+</html>
