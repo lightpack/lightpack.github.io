@@ -97,6 +97,23 @@ $sidebar = array_map(
     $sections
 );
 
+$readmePath = CONTENT_DIR . '/README.md';
+if (file_exists($readmePath)) {
+    $readmeContent = file_get_contents($readmePath);
+    $parsed = parseFrontmatter($readmeContent);
+    $readmeBody = $parsed['contentStart'] ? substr($readmeContent, $parsed['contentStart']) : $readmeContent;
+    
+    ob_start();
+    extract([
+        'title' => 'Lightpack Documentation',
+        'content' => $parsedown->text($readmeBody),
+        'currentPage' => '',
+        'sidebar' => $sidebar
+    ]);
+    include __DIR__ . '/layouts/index.php';
+    file_put_contents(DIST_DIR . '/index.html', ob_get_clean());
+}
+
 foreach ($sections as $sectionPages) {
     foreach ($sectionPages as $page) {
         $pageDir = DIST_DIR . '/' . $page['basename'];
