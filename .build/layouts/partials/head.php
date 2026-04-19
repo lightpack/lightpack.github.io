@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Lightpack PHP Web Framework' ?></title>
-    <?php if (isset($description) && $description): ?>
+    <?php if ($description): ?>
     <meta name="description" content="<?= htmlspecialchars($description) ?>">
     <meta property="og:description" content="<?= htmlspecialchars($description) ?>">
     <?php endif; ?>

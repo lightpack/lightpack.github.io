@@ -76,7 +76,8 @@ foreach ($navConfig['sections'] as $section) {
         $pages[] = [
             'title' => $pageConfig['title'],
             'href' => $pageConfig['file'] . '/',
-            'file' => $pageConfig['file']
+            'file' => $pageConfig['file'],
+            'description' => $pageConfig['description'] ?? null
         ];
     }
     $sidebar[] = [

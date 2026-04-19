@@ -99,7 +99,7 @@
         { "title": "RBAC", "file": "rbac" },
         { "title": "Captcha", "file": "captcha" },
         { "title": "Webhook", "file": "webhook" },
-        { "title": "AI", "file": "ai-service", "description": "AI-powered features including embeddings, similarity search, and semantic analysis" },
+        { "title": "AI Service", "file": "ai-service", "description": "AI-powered features including embeddings, similarity search, and semantic analysis" },
         { "title": "Cable", "file": "cable" },
         { "title": "Uploads", "file": "uploads" },
         { "title": "Social Auth", "file": "social-auth" },
