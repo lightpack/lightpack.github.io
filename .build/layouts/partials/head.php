@@ -11,6 +11,7 @@
     <meta property="og:title" content="<?= htmlspecialchars($title ?? 'Lightpack Documentation') ?>">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="<?= $assetPath ?? '../assets' ?>/styles.css">
+    <link rel="stylesheet" href="<?= $assetPath ?? '../assets' ?>/prism.min.css">
     <style>
       @font-face {
         font-family: 'Montserrat';

@@ -274,6 +274,13 @@ pre > code {
   padding: 0;
 }
 
+/* Syntax highlighting */
+pre code .comment { color: #6a9955; font-style: italic; }
+pre code .string { color: #ce9178; }
+pre code .keyword { color: #569cd6; font-weight: 500; }
+pre code .variable { color: #9cdcfe; }
+pre code .number { color: #b5cea8; }
+
 /* Table */
 table {
   width: 100%;
