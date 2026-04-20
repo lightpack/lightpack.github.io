@@ -276,7 +276,11 @@ pre {
   overflow-x: auto;
 }
 pre > code {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', 'Menlo', 'Monaco', monospace;
+  font-size: 13px !important;
+  line-height: 1.6;
   padding: 0;
+  background: transparent;
 }
 
 /* Syntax highlighting */
