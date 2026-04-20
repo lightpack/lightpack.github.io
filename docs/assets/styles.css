@@ -146,7 +146,12 @@ nav a:hover, nav a.active {
 }
 .sidebar a:hover {
   background: var(--accent-fade);
-  color: var(--text);
+  color: var(--accent);
+}
+.sidebar a.active {
+  background: var(--accent-fade);
+  color: var(--accent);
+  font-weight: 500;
 }
 .sidebar a.active, .sidebar a[aria-current="page"] {
   color: var(--accent);

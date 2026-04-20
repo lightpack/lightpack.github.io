@@ -132,7 +132,7 @@ foreach (glob(CONTENT_DIR . '/*.md') as $mdFile) {
         'title' => $metadata['title'],
         'description' => $metadata['description'],
         'content' => $parsedown->text($mdContent),
-        'currentPage' => $basename . '/',
+        'currentPage' => $basename,
         'sidebar' => $sidebar,
         'assetPath' => '/docs/assets',
         'navPrefix' => '/docs/'
