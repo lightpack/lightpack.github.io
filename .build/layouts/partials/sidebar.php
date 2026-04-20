@@ -5,8 +5,10 @@
   <?php if(isset($sidebar)): ?>
     <?php foreach ($sidebar as $group): ?>
       <div class="sidebar-section">
-        <div class="sidebar-section-title"><?= htmlspecialchars($group['section']) ?></div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> <?= htmlspecialchars($group['section']) ?>
+        </div>
+        <ul class="sidebar-section-content" style="display: none;">
           <?php foreach ($group['pages'] as $page): ?>
             <li>
               <a href="<?= $navPrefix ?? '../' ?><?= htmlspecialchars($page['href']) ?>"

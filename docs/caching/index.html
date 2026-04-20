@@ -35,8 +35,9 @@
     <img src="/docs/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
   </div>
             <div class="sidebar-section">
-        <div class="sidebar-section-title">Getting Started</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Getting Started        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/install"
                  >
@@ -45,8 +46,9 @@
                   </ul>
       </div>
           <div class="sidebar-section">
-        <div class="sidebar-section-title">Basics</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Basics        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/routing"
                  >
@@ -115,8 +117,9 @@
                   </ul>
       </div>
           <div class="sidebar-section">
-        <div class="sidebar-section-title">Databases</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Databases        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/db-connection"
                  >
@@ -145,8 +148,9 @@
                   </ul>
       </div>
           <div class="sidebar-section">
-        <div class="sidebar-section-title">Lucid ORM</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Lucid ORM        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/orm-introduction"
                  >
@@ -185,8 +189,9 @@
                   </ul>
       </div>
           <div class="sidebar-section">
-        <div class="sidebar-section-title">Authentication</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Authentication        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/authentication"
                  >
@@ -215,8 +220,9 @@
                   </ul>
       </div>
           <div class="sidebar-section">
-        <div class="sidebar-section-title">Utilities</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Utilities        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/password"
                  >
@@ -285,8 +291,9 @@
                   </ul>
       </div>
           <div class="sidebar-section">
-        <div class="sidebar-section-title">Advanced</div>
-        <ul>
+        <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+          <span class="collapse-icon">▶</span> Advanced        </div>
+        <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/mails"
                  >
@@ -520,5 +527,24 @@ cache()-&gt;rememberForever();</code></pre>
     <script src="/docs/assets/prism-markup-templating.min.js"></script>
     <script src="/docs/assets/prism-php.min.js"></script>
     <script>Prism.highlightAll();</script>
+    <script>
+      // Collapsible sidebar sections
+      document.querySelectorAll('.sidebar-section-title').forEach(title => {
+        title.addEventListener('click', () => {
+          const content = title.nextElementSibling;
+          const icon = title.querySelector('.collapse-icon');
+          const isOpen = content.style.display !== 'none';
+          content.style.display = isOpen ? 'none' : 'block';
+          icon.textContent = isOpen ? '▶' : '▼';
+        });
+        
+        // Auto-expand section with active page
+        const content = title.nextElementSibling;
+        if (content.querySelector('.active, [aria-current="page"]')) {
+          content.style.display = 'block';
+          title.querySelector('.collapse-icon').textContent = '▼';
+        }
+      });
+    </script>
 </body>
 </html>
