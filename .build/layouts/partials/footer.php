@@ -44,6 +44,8 @@
         });
 
         Prism.highlightAll();
+
+        renderTableOfContents();
       }
     </script>
 

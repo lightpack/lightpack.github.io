@@ -1,7 +1,7 @@
 // LightPress Table of Contents Generator
 // Scans h2/h3 in main content and builds a nested ToC in .toc
 
-document.addEventListener('DOMContentLoaded', function () {
+function renderTableOfContents() {
   const main = document.querySelector('main');
   const toc = document.querySelector('.toc');
   if (!main || !toc) return;
@@ -73,4 +73,4 @@ document.addEventListener('DOMContentLoaded', function () {
       if (lastId) activateLink(lastId);
     });
   }
-});
+}
