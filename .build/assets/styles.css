@@ -116,8 +116,9 @@ nav a:hover, nav a.active {
 }
 .sidebar-section-title {
   margin-bottom: 0.7em;
-  color: #646464;
+  color: #000;
   font-size: 12px;
+  font-weight: bold;
   letter-spacing: 0.1px;
   margin-top: 2.1em;
   text-transform: uppercase;
