@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags</title>
-        <meta property="og:title" content="Tags">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/docs/assets/styles.css">
-    <link rel="stylesheet" href="/docs/assets/prism.min.css">
-    <style>
-      @font-face {
-        font-family: 'Montserrat';
-        src: url('/docs/assets/fonts/Montserrat-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Montserrat';
-        src: url('/docs/assets/fonts/Montserrat-Medium.woff2') format('woff2');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-      body {
-        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Tags</title>
+    <meta property="og:title" content="Tags">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/assets/styles.css">
+  <link rel="stylesheet" href="/docs/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+  </style>
 </head>
-<body>
-<div class="container">
+
+<body><div class="container" id="swup">
   <aside class="sidebar">
   <div class="sidebar-logo">
     <img src="/docs/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
@@ -40,7 +54,7 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/install"
-                 >
+                >
                 Quick Install              </a>
             </li>
                   </ul>
@@ -51,67 +65,67 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/routing"
-                 >
+                >
                 Routing              </a>
             </li>
                       <li>
               <a href="/docs/controllers"
-                 >
+                >
                 Controllers              </a>
             </li>
                       <li>
               <a href="/docs/views"
-                 >
+                >
                 Views              </a>
             </li>
                       <li>
               <a href="/docs/request"
-                 >
+                >
                 Request              </a>
             </li>
                       <li>
               <a href="/docs/response"
-                 >
+                >
                 Response              </a>
             </li>
                       <li>
               <a href="/docs/sessions"
-                 >
+                >
                 Sessions              </a>
             </li>
                       <li>
               <a href="/docs/cookies"
-                 >
+                >
                 Cookies              </a>
             </li>
                       <li>
               <a href="/docs/validation"
-                 >
+                >
                 Validation              </a>
             </li>
                       <li>
               <a href="/docs/filesystem"
-                 >
+                >
                 Filesystem              </a>
             </li>
                       <li>
               <a href="/docs/configuration"
-                 >
+                >
                 Configuration              </a>
             </li>
                       <li>
               <a href="/docs/environments"
-                 >
+                >
                 Environments              </a>
             </li>
                       <li>
               <a href="/docs/moment"
-                 >
+                >
                 Date &amp; Time              </a>
             </li>
                       <li>
               <a href="/docs/utility-functions"
-                 >
+                >
                 Utility Functions              </a>
             </li>
                   </ul>
@@ -122,27 +136,27 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/db-connection"
-                 >
+                >
                 Connection              </a>
             </li>
                       <li>
               <a href="/docs/db-query-builder"
-                 >
+                >
                 Query Builder              </a>
             </li>
                       <li>
               <a href="/docs/migrations"
-                 >
+                >
                 Migrations              </a>
             </li>
                       <li>
               <a href="/docs/seeder"
-                 >
+                >
                 Seeder              </a>
             </li>
                       <li>
               <a href="/docs/factory"
-                 >
+                >
                 Factory              </a>
             </li>
                   </ul>
@@ -153,37 +167,37 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/orm-introduction"
-                 >
+                >
                 Introduction              </a>
             </li>
                       <li>
               <a href="/docs/models"
-                 >
+                >
                 Models              </a>
             </li>
                       <li>
               <a href="/docs/relationships"
-                 >
+                >
                 Relationships              </a>
             </li>
                       <li>
               <a href="/docs/eager-loading"
-                 >
+                >
                 Eager Loading              </a>
             </li>
                       <li>
               <a href="/docs/collections"
-                 >
+                >
                 Collections              </a>
             </li>
                       <li>
               <a href="/docs/transformers"
-                 >
+                >
                 Transformers              </a>
             </li>
                       <li>
               <a href="/docs/multi-tenancy"
-                 >
+                >
                 Multi-Tenancy              </a>
             </li>
                   </ul>
@@ -194,27 +208,27 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/authentication"
-                 >
+                >
                 Introduction              </a>
             </li>
                       <li>
               <a href="/docs/api-access-tokens"
-                 >
+                >
                 API Access Tokens              </a>
             </li>
                       <li>
               <a href="/docs/auth-configuration"
-                 >
+                >
                 Configuration              </a>
             </li>
                       <li>
               <a href="/docs/custom-auth"
-                 >
+                >
                 Extending Auth              </a>
             </li>
                       <li>
               <a href="/docs/auth-filters"
-                 >
+                >
                 Route Filters              </a>
             </li>
                   </ul>
@@ -225,67 +239,67 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/password"
-                 >
+                >
                 Password              </a>
             </li>
                       <li>
               <a href="/docs/encryption-decryption-utils"
-                 >
+                >
                 Crypto              </a>
             </li>
                       <li>
               <a href="/docs/url"
-                 >
+                >
                 URL              </a>
             </li>
                       <li>
               <a href="/docs/image-utils"
-                 >
+                >
                 Image              </a>
             </li>
                       <li>
               <a href="/docs/rate-limiter"
-                 >
+                >
                 Rate Limit              </a>
             </li>
                       <li>
               <a href="/docs/mutex-lock"
-                 >
+                >
                 Mutex Lock              </a>
             </li>
                       <li>
               <a href="/docs/process"
-                 >
+                >
                 Process              </a>
             </li>
                       <li>
               <a href="/docs/array-utils"
-                 >
+                >
                 Array              </a>
             </li>
                       <li>
               <a href="/docs/string-utils"
-                 >
+                >
                 String              </a>
             </li>
                       <li>
               <a href="/docs/otp-utils"
-                 >
+                >
                 OTP              </a>
             </li>
                       <li>
               <a href="/docs/asset-loading-utils"
-                 >
+                >
                 Assets              </a>
             </li>
                       <li>
               <a href="/docs/csv-utils"
-                 >
+                >
                 CSV              </a>
             </li>
                       <li>
               <a href="/docs/js-utils"
-                 >
+                >
                 PHP to JS              </a>
             </li>
                   </ul>
@@ -296,163 +310,162 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/mails"
-                 >
+                >
                 Mails              </a>
             </li>
                       <li>
               <a href="/docs/queue"
-                 >
+                >
                 Queue              </a>
             </li>
                       <li>
               <a href="/docs/schedule"
-                 >
+                >
                 Schedule              </a>
             </li>
                       <li>
               <a href="/docs/filters"
-                 >
+                >
                 Filters              </a>
             </li>
                       <li>
               <a href="/docs/events"
-                 >
+                >
                 Events              </a>
             </li>
                       <li>
               <a href="/docs/caching"
-                 >
+                >
                 Caching              </a>
             </li>
                       <li>
               <a href="/docs/logging"
-                 >
+                >
                 Logging              </a>
             </li>
                       <li>
               <a href="/docs/providers"
-                 >
+                >
                 Providers              </a>
             </li>
                       <li>
               <a href="/docs/containers"
-                 >
+                >
                 Containers              </a>
             </li>
                       <li>
               <a href="/docs/cors"
-                 >
+                >
                 CORS              </a>
             </li>
                       <li>
               <a href="/docs/http-client"
-                 >
+                >
                 HTTP Client              </a>
             </li>
                       <li>
               <a href="/docs/console"
-                 >
+                >
                 Console              </a>
             </li>
                       <li>
               <a href="/docs/testing"
-                 >
+                >
                 Testing              </a>
             </li>
                       <li>
               <a href="/docs/secrets"
-                 >
+                >
                 Secrets              </a>
             </li>
                       <li>
               <a href="/docs/settings"
-                 >
+                >
                 Settings              </a>
             </li>
                       <li>
               <a href="/docs/tags"
-                 class="active" aria-current="page">
+                class="active" aria-current="page" >
                 Tags              </a>
             </li>
                       <li>
               <a href="/docs/taxonomies"
-                 >
+                >
                 Taxonomies              </a>
             </li>
                       <li>
               <a href="/docs/faker"
-                 >
+                >
                 Faker              </a>
             </li>
                       <li>
               <a href="/docs/audit"
-                 >
+                >
                 Audit              </a>
             </li>
                       <li>
               <a href="/docs/rbac"
-                 >
+                >
                 RBAC              </a>
             </li>
                       <li>
               <a href="/docs/captcha"
-                 >
+                >
                 Captcha              </a>
             </li>
                       <li>
               <a href="/docs/webhook"
-                 >
+                >
                 Webhook              </a>
             </li>
                       <li>
               <a href="/docs/ai-service"
-                 >
+                >
                 AI              </a>
             </li>
                       <li>
               <a href="/docs/cable"
-                 >
+                >
                 Cable              </a>
             </li>
                       <li>
               <a href="/docs/uploads"
-                 >
+                >
                 Uploads              </a>
             </li>
                       <li>
               <a href="/docs/social-auth"
-                 >
+                >
                 Social Auth              </a>
             </li>
                       <li>
               <a href="/docs/pdf"
-                 >
+                >
                 PDF              </a>
             </li>
                       <li>
               <a href="/docs/sms"
-                 >
+                >
                 SMS              </a>
             </li>
                       <li>
               <a href="/docs/mfa"
-                 >
+                >
                 MFA              </a>
             </li>
                       <li>
               <a href="/docs/storage"
-                 >
+                >
                 Storage              </a>
             </li>
                       <li>
               <a href="/docs/pipeline-pattern"
-                 >
+                >
                 Pipeline              </a>
             </li>
                   </ul>
       </div>
-      </aside>
-  <main>
+      </aside>  <main>
     <h1>Tags System</h1>
 <p>Lightpack’s Tags system provides framework-native way to add tagging support to any Lucid model. It is designed for many-to-many polymorphic tagging (e.g., posts, products, users can all be tagged).</p>
 <hr />
@@ -504,47 +517,71 @@ $posts = Post::filters(['tags' =&gt; [1, 2]])-&gt;all(); </code></pre>
 </ul>
 <hr />  </main>
   <nav class="toc"></nav>
-    </div>
+      </div>
     <script src="/docs/assets/toc.js"></script>
-    <script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
     <script src="/docs/assets/prism.min.js"></script>
     <script src="/docs/assets/prism-markup-templating.min.js"></script>
     <script src="/docs/assets/prism-php.min.js"></script>
-    <script>Prism.highlightAll();</script>
     <script>
-      // Collapsible sidebar sections
-      document.querySelectorAll('.sidebar-section-title').forEach(title => {
-        title.addEventListener('click', () => {
-          const content = title.nextElementSibling;
-          const icon = title.querySelector('.collapse-icon');
-          const isOpen = content.style.display !== 'none';
-          content.style.display = isOpen ? 'none' : 'block';
-          icon.textContent = isOpen ? '▶' : '▼';
-        });
-        
-        // Auto-expand section with active page
-        const content = title.nextElementSibling;
-        if (content.querySelector('.active, [aria-current="page"]')) {
-          content.style.display = 'block';
-          title.querySelector('.collapse-icon').textContent = '▼';
-        }
-      });
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
 
-      // Add copy icon to code blocks
-      document.querySelectorAll('pre').forEach(pre => {
-        const btn = document.createElement('button');
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
-        btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
-        btn.onclick = () => {
-          navigator.clipboard.writeText(pre.textContent);
-          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-          setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
-        };
-        pre.style.position = 'relative';
-        pre.onmouseenter = () => btn.style.opacity = '1';
-        pre.onmouseleave = () => btn.style.opacity = '0';
-        pre.appendChild(btn);
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+      }
+    </script>
+
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init()
       });
     </script>
-</body>
-</html>
+
+    </body>
+
+    </html>

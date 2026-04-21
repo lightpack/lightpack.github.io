@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relationships</title>
-        <meta property="og:title" content="Relationships">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/docs/assets/styles.css">
-    <link rel="stylesheet" href="/docs/assets/prism.min.css">
-    <style>
-      @font-face {
-        font-family: 'Montserrat';
-        src: url('/docs/assets/fonts/Montserrat-Regular.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Montserrat';
-        src: url('/docs/assets/fonts/Montserrat-Medium.woff2') format('woff2');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-      body {
-        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Relationships</title>
+    <meta property="og:title" content="Relationships">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/assets/styles.css">
+  <link rel="stylesheet" href="/docs/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+  </style>
 </head>
-<body>
-<div class="container">
+
+<body><div class="container" id="swup">
   <aside class="sidebar">
   <div class="sidebar-logo">
     <img src="/docs/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
@@ -40,7 +54,7 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/install"
-                 >
+                >
                 Quick Install              </a>
             </li>
                   </ul>
@@ -51,67 +65,67 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/routing"
-                 >
+                >
                 Routing              </a>
             </li>
                       <li>
               <a href="/docs/controllers"
-                 >
+                >
                 Controllers              </a>
             </li>
                       <li>
               <a href="/docs/views"
-                 >
+                >
                 Views              </a>
             </li>
                       <li>
               <a href="/docs/request"
-                 >
+                >
                 Request              </a>
             </li>
                       <li>
               <a href="/docs/response"
-                 >
+                >
                 Response              </a>
             </li>
                       <li>
               <a href="/docs/sessions"
-                 >
+                >
                 Sessions              </a>
             </li>
                       <li>
               <a href="/docs/cookies"
-                 >
+                >
                 Cookies              </a>
             </li>
                       <li>
               <a href="/docs/validation"
-                 >
+                >
                 Validation              </a>
             </li>
                       <li>
               <a href="/docs/filesystem"
-                 >
+                >
                 Filesystem              </a>
             </li>
                       <li>
               <a href="/docs/configuration"
-                 >
+                >
                 Configuration              </a>
             </li>
                       <li>
               <a href="/docs/environments"
-                 >
+                >
                 Environments              </a>
             </li>
                       <li>
               <a href="/docs/moment"
-                 >
+                >
                 Date &amp; Time              </a>
             </li>
                       <li>
               <a href="/docs/utility-functions"
-                 >
+                >
                 Utility Functions              </a>
             </li>
                   </ul>
@@ -122,27 +136,27 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/db-connection"
-                 >
+                >
                 Connection              </a>
             </li>
                       <li>
               <a href="/docs/db-query-builder"
-                 >
+                >
                 Query Builder              </a>
             </li>
                       <li>
               <a href="/docs/migrations"
-                 >
+                >
                 Migrations              </a>
             </li>
                       <li>
               <a href="/docs/seeder"
-                 >
+                >
                 Seeder              </a>
             </li>
                       <li>
               <a href="/docs/factory"
-                 >
+                >
                 Factory              </a>
             </li>
                   </ul>
@@ -153,37 +167,37 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/orm-introduction"
-                 >
+                >
                 Introduction              </a>
             </li>
                       <li>
               <a href="/docs/models"
-                 >
+                >
                 Models              </a>
             </li>
                       <li>
               <a href="/docs/relationships"
-                 class="active" aria-current="page">
+                class="active" aria-current="page" >
                 Relationships              </a>
             </li>
                       <li>
               <a href="/docs/eager-loading"
-                 >
+                >
                 Eager Loading              </a>
             </li>
                       <li>
               <a href="/docs/collections"
-                 >
+                >
                 Collections              </a>
             </li>
                       <li>
               <a href="/docs/transformers"
-                 >
+                >
                 Transformers              </a>
             </li>
                       <li>
               <a href="/docs/multi-tenancy"
-                 >
+                >
                 Multi-Tenancy              </a>
             </li>
                   </ul>
@@ -194,27 +208,27 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/authentication"
-                 >
+                >
                 Introduction              </a>
             </li>
                       <li>
               <a href="/docs/api-access-tokens"
-                 >
+                >
                 API Access Tokens              </a>
             </li>
                       <li>
               <a href="/docs/auth-configuration"
-                 >
+                >
                 Configuration              </a>
             </li>
                       <li>
               <a href="/docs/custom-auth"
-                 >
+                >
                 Extending Auth              </a>
             </li>
                       <li>
               <a href="/docs/auth-filters"
-                 >
+                >
                 Route Filters              </a>
             </li>
                   </ul>
@@ -225,67 +239,67 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/password"
-                 >
+                >
                 Password              </a>
             </li>
                       <li>
               <a href="/docs/encryption-decryption-utils"
-                 >
+                >
                 Crypto              </a>
             </li>
                       <li>
               <a href="/docs/url"
-                 >
+                >
                 URL              </a>
             </li>
                       <li>
               <a href="/docs/image-utils"
-                 >
+                >
                 Image              </a>
             </li>
                       <li>
               <a href="/docs/rate-limiter"
-                 >
+                >
                 Rate Limit              </a>
             </li>
                       <li>
               <a href="/docs/mutex-lock"
-                 >
+                >
                 Mutex Lock              </a>
             </li>
                       <li>
               <a href="/docs/process"
-                 >
+                >
                 Process              </a>
             </li>
                       <li>
               <a href="/docs/array-utils"
-                 >
+                >
                 Array              </a>
             </li>
                       <li>
               <a href="/docs/string-utils"
-                 >
+                >
                 String              </a>
             </li>
                       <li>
               <a href="/docs/otp-utils"
-                 >
+                >
                 OTP              </a>
             </li>
                       <li>
               <a href="/docs/asset-loading-utils"
-                 >
+                >
                 Assets              </a>
             </li>
                       <li>
               <a href="/docs/csv-utils"
-                 >
+                >
                 CSV              </a>
             </li>
                       <li>
               <a href="/docs/js-utils"
-                 >
+                >
                 PHP to JS              </a>
             </li>
                   </ul>
@@ -296,166 +310,165 @@
         <ul class="sidebar-section-content" style="display: none;">
                       <li>
               <a href="/docs/mails"
-                 >
+                >
                 Mails              </a>
             </li>
                       <li>
               <a href="/docs/queue"
-                 >
+                >
                 Queue              </a>
             </li>
                       <li>
               <a href="/docs/schedule"
-                 >
+                >
                 Schedule              </a>
             </li>
                       <li>
               <a href="/docs/filters"
-                 >
+                >
                 Filters              </a>
             </li>
                       <li>
               <a href="/docs/events"
-                 >
+                >
                 Events              </a>
             </li>
                       <li>
               <a href="/docs/caching"
-                 >
+                >
                 Caching              </a>
             </li>
                       <li>
               <a href="/docs/logging"
-                 >
+                >
                 Logging              </a>
             </li>
                       <li>
               <a href="/docs/providers"
-                 >
+                >
                 Providers              </a>
             </li>
                       <li>
               <a href="/docs/containers"
-                 >
+                >
                 Containers              </a>
             </li>
                       <li>
               <a href="/docs/cors"
-                 >
+                >
                 CORS              </a>
             </li>
                       <li>
               <a href="/docs/http-client"
-                 >
+                >
                 HTTP Client              </a>
             </li>
                       <li>
               <a href="/docs/console"
-                 >
+                >
                 Console              </a>
             </li>
                       <li>
               <a href="/docs/testing"
-                 >
+                >
                 Testing              </a>
             </li>
                       <li>
               <a href="/docs/secrets"
-                 >
+                >
                 Secrets              </a>
             </li>
                       <li>
               <a href="/docs/settings"
-                 >
+                >
                 Settings              </a>
             </li>
                       <li>
               <a href="/docs/tags"
-                 >
+                >
                 Tags              </a>
             </li>
                       <li>
               <a href="/docs/taxonomies"
-                 >
+                >
                 Taxonomies              </a>
             </li>
                       <li>
               <a href="/docs/faker"
-                 >
+                >
                 Faker              </a>
             </li>
                       <li>
               <a href="/docs/audit"
-                 >
+                >
                 Audit              </a>
             </li>
                       <li>
               <a href="/docs/rbac"
-                 >
+                >
                 RBAC              </a>
             </li>
                       <li>
               <a href="/docs/captcha"
-                 >
+                >
                 Captcha              </a>
             </li>
                       <li>
               <a href="/docs/webhook"
-                 >
+                >
                 Webhook              </a>
             </li>
                       <li>
               <a href="/docs/ai-service"
-                 >
+                >
                 AI              </a>
             </li>
                       <li>
               <a href="/docs/cable"
-                 >
+                >
                 Cable              </a>
             </li>
                       <li>
               <a href="/docs/uploads"
-                 >
+                >
                 Uploads              </a>
             </li>
                       <li>
               <a href="/docs/social-auth"
-                 >
+                >
                 Social Auth              </a>
             </li>
                       <li>
               <a href="/docs/pdf"
-                 >
+                >
                 PDF              </a>
             </li>
                       <li>
               <a href="/docs/sms"
-                 >
+                >
                 SMS              </a>
             </li>
                       <li>
               <a href="/docs/mfa"
-                 >
+                >
                 MFA              </a>
             </li>
                       <li>
               <a href="/docs/storage"
-                 >
+                >
                 Storage              </a>
             </li>
                       <li>
               <a href="/docs/pipeline-pattern"
-                 >
+                >
                 Pipeline              </a>
             </li>
                   </ul>
       </div>
-      </aside>
-  <main>
+      </aside>  <main>
     <h1>ORM Relationships</h1>
 <h2>Introduction</h2>
-<p><img src="_media/orm/orm-order-items-ui-prototype.svg" alt="Order UI and Entity Diagram" /></p>
+<p><img src="/docs/assets/_media/orm/orm-order-items-ui-prototype.svg" alt="Order UI and Entity Diagram" /></p>
 <p>ORMs turn the abstract relationships of your database into natural, intuitive code. By mapping database associations to model methods, you unlock the full power of relational data—without the pain of raw SQL joins.</p>
 <p>To set the context let's understand the diagram above. It shows a simplified version of an <strong>order</strong> screen on the left and associated table <strong>entities</strong> on the right. The <strong>order</strong> UI shows information about the associated <code>order</code>, <code>customer</code>, <code>order items</code>, and <code>payment</code> details.</p>
 <h3>Data Modelling</h3>
@@ -486,7 +499,7 @@
 <li>Many to One</li>
 <li>Many to Many</li>
 </ul>
-<p><img src="_media/orm/rdbms-association-types.svg" alt="Association Types between Entities" /></p>
+<p><img src="/docs/assets/_media/orm/rdbms-association-types.svg" alt="Association Types between Entities" /></p>
 <h3>Association Types</h3>
 <h4>One to One (1:1)</h4>
 <p>A <strong>One to One</strong> relationship means that each record in <strong>Table A</strong> is linked to one and only one record in <strong>Table B</strong>, and vice versa. </p>
@@ -548,7 +561,7 @@
 <p>Now that you’ve seen how relationships are structured at the database level, let’s translate these concepts into the world of ORMs. While the database focuses on tables, foreign keys, and junction tables, an ORM lets you work with your data as rich, interconnected objects—making your code more expressive, maintainable, and closer to how you think about your domain.</p>
 <p>In an ORM, each type of database relationship is represented by a specific method or association on your model classes. Instead of writing SQL joins, you define these relationships once, and then access related data as if you were simply navigating object properties.</p>
 <h3>Has One</h3>
-<p><img src="_media/orm/orm-one-to-one-association.svg" alt="ORM One to One Association" /></p>
+<p><img src="/docs/assets/_media/orm/orm-one-to-one-association.svg" alt="ORM One to One Association" /></p>
 <p>Use the relationship method <code>hasOne()</code> to define <strong>one to one</strong> relationhsip between <strong>order</strong> and <strong>payment</strong> entity.</p>
 <pre><code class="language-php">class Order extends Model
 {
@@ -588,7 +601,7 @@ $payment = new Payment(101);
 */
 $payment-&gt;order;</code></pre>
 <h3>Has Many</h3>
-<p><img src="_media/orm/orm-one-to-many-association.svg" alt="ORM One to Many Association" /></p>
+<p><img src="/docs/assets/_media/orm/orm-one-to-many-association.svg" alt="ORM One to Many Association" /></p>
 <p>Use the relationship method <code>hasMany()</code> to define a <strong>one to many</strong> relationship between the <strong>customer</strong> and <strong>order</strong> entities.</p>
 <pre><code class="language-php">class Customer extends Model
 {
@@ -628,7 +641,7 @@ $order = new Order(42);
  */
 $customer = $order-&gt;customer;</code></pre>
 <h3>Many to Many</h3>
-<p><img src="_media/orm/orm-many-to-many-association.svg" alt="ORM Many to Many Association" /></p>
+<p><img src="/docs/assets/_media/orm/orm-many-to-many-association.svg" alt="ORM Many to Many Association" /></p>
 <p>Use the relationship method <code>pivot()</code> to define a <strong>many to many</strong> relationship between the <strong>order</strong> and <strong>product</strong> entities, using a pivot table (like <code>order_item</code>).</p>
 <pre><code class="language-php">class Order extends Model
 {
@@ -793,7 +806,7 @@ $reviews = $author-&gt;reviews;</code></pre>
 <h3>Polymorphic Relationships</h3>
 <h4>Introduction</h4>
 <p>Polymorphic relationships are a powerful feature that let a single model relate to more than one type of parent model—using a unified, elegant approach. In Lightpack ORM, this is implemented with confidence and clarity, so you can tackle real-world use cases like comments, media attachments, or user avatars without convoluted table structures.</p>
-<p><img src="_media/orm/orm-polymorphic-relationships.svg" alt="Polymorphic Relationship Diagram" /></p>
+<p><img src="/docs/assets/_media/orm/orm-polymorphic-relationships.svg" alt="Polymorphic Relationship Diagram" /></p>
 <p><strong>Polymorphic Table Schema Example</strong></p>
 <p>Your polymorphic child table (e.g., <code>comments</code>) <strong>must</strong> have columns named exactly <code>morph_id</code> and <code>morph_type</code>:</p>
 <pre><code class="language-sql">CREATE TABLE comments (
@@ -889,7 +902,7 @@ $comments = $video-&gt;comments; // All comments for this video</code></pre>
 $parent = $comment-&gt;parent; // Could be a Post, Photo, or Video instance</code></pre>
 <hr />
 <h4>Morph To Many</h4>
-<p><img src="_media/orm/orm-polymorphic-many-to-many.svg" alt="Polymorphic Many-to-Many Relationship" /></p>
+<p><img src="/docs/assets/_media/orm/orm-polymorphic-many-to-many.svg" alt="Polymorphic Many-to-Many Relationship" /></p>
 <p>A polymorphic many-to-many relationship lets you share a single pivot table across multiple parent models. For example, both <strong>Posts</strong> and <strong>Videos</strong> can have <strong>Tags</strong>, but instead of creating separate <code>post_tag</code> and <code>video_tag</code> tables, you use one <code>tag_morphs</code> table that works for both.</p>
 <p><strong>Why use this?</strong></p>
 <p>When multiple models need the same many-to-many relationship (like tagging, categorization, or permissions), a polymorphic pivot table keeps your schema clean and your code DRY.</p>
@@ -1136,47 +1149,71 @@ $recent = $org-&gt;recentlyCreatedDepartments;</code></pre>
 <p>Each relationship method returns a query builder. This means you can chain and apply any filtering, sorting, or limiting logic directly within your relationship method. When you access a property like <code>$organization-&gt;activeDepartments</code>, the ORM executes the query as defined in your method—including all your custom conditions—and returns the result. This is why you can define as many semantic, filtered relationships as your application needs.</p>
 <hr />  </main>
   <nav class="toc"></nav>
-    </div>
+      </div>
     <script src="/docs/assets/toc.js"></script>
-    <script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
     <script src="/docs/assets/prism.min.js"></script>
     <script src="/docs/assets/prism-markup-templating.min.js"></script>
     <script src="/docs/assets/prism-php.min.js"></script>
-    <script>Prism.highlightAll();</script>
     <script>
-      // Collapsible sidebar sections
-      document.querySelectorAll('.sidebar-section-title').forEach(title => {
-        title.addEventListener('click', () => {
-          const content = title.nextElementSibling;
-          const icon = title.querySelector('.collapse-icon');
-          const isOpen = content.style.display !== 'none';
-          content.style.display = isOpen ? 'none' : 'block';
-          icon.textContent = isOpen ? '▶' : '▼';
-        });
-        
-        // Auto-expand section with active page
-        const content = title.nextElementSibling;
-        if (content.querySelector('.active, [aria-current="page"]')) {
-          content.style.display = 'block';
-          title.querySelector('.collapse-icon').textContent = '▼';
-        }
-      });
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
 
-      // Add copy icon to code blocks
-      document.querySelectorAll('pre').forEach(pre => {
-        const btn = document.createElement('button');
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
-        btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
-        btn.onclick = () => {
-          navigator.clipboard.writeText(pre.textContent);
-          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
-          setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
-        };
-        pre.style.position = 'relative';
-        pre.onmouseenter = () => btn.style.opacity = '1';
-        pre.onmouseleave = () => btn.style.opacity = '0';
-        pre.appendChild(btn);
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+      }
+    </script>
+
+    <script src="https://unpkg.com/swup@4"></script>
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init()
       });
     </script>
-</body>
-</html>
+
+    </body>
+
+    </html>
