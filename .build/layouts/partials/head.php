@@ -44,6 +44,12 @@
     body {
       font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
   </style>
 </head>
 
