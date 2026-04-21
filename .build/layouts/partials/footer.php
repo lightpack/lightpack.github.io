@@ -7,6 +7,7 @@
     <script src="<?= $assetPath ?? '../assets' ?>/prism.min.js"></script>
     <script src="<?= $assetPath ?? '../assets' ?>/prism-markup-templating.min.js"></script>
     <script src="<?= $assetPath ?? '../assets' ?>/prism-php.min.js"></script>
+    <script src="<?= $assetPath ?? '../assets' ?>/swup.min.js"></script>
     <script>
       function init() {
         // Collapsible sidebar sections
@@ -49,7 +50,6 @@
       }
     </script>
 
-    <script src="https://unpkg.com/swup@4"></script>
     <script>
       const swup = new Swup();
 
