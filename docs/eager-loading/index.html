@@ -474,18 +474,9 @@
       </aside>  <main>
     <h1>Eager Loading</h1>
 <p>Once again let us consider these three tables:</p>
-<pre><code class="language-table">Table: products
--------------------------------------------------
-id, title
--------------------------------------------------</code></pre>
-<pre><code class="language-table">Table: options
--------------------------------------------------
-id, product_id, name, color
--------------------------------------------------</code></pre>
-<pre><code class="language-table">Table: seo
--------------------------------------------------
-id, product_id, meta_title, meta_description
--------------------------------------------------</code></pre>
+<pre><code class="language-table">1. products (id, title)
+2. options (id, product_id, name, color)
+3. seo (id, product_id, meta_title, meta_description)</code></pre>
 <p>The association between these entities is:</p>
 <ul>
 <li>A <strong>product</strong> has many <strong>options</strong>.</li>
