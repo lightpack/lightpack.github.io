@@ -17,19 +17,22 @@
 }
 
 header {
-    background-image: radial-gradient(ellipse at center, #fff7f9 0%, #fff0f3 35%, #ffe3e7 60%, #ffd6db 80%, #fff 100%);
+    background-color: #f0eee6;
     background-attachment: fixed;
     background-size: cover;
     position: relative;
     overflow: hidden;
 }
 
-@media (max-width: 767.98px) {
-  header {
-    background-image: none !important;
-  }
+.container .features {
+    background: #f0eee6;
+    padding: 8px;
+    border-radius: 15px;
 }
 
+.container .features button {
+  font-size: 0.9rem;
+}
 
 
 /* Blockquote mobile improvements */
@@ -55,6 +58,7 @@ header {
 
 /* Custom nav-pills for feature tabs */
 #feature-tabs .nav-link {
+  padding: 8px 20px;
   color: #111 !important;
   background: none !important;
   border: none;
@@ -81,10 +85,9 @@ header {
 }
 
 .feature-card {
-    background: #fff;
+    background: #f0eee654;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     text-decoration: none;
     color: inherit;
     display: flex;
