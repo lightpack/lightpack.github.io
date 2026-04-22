@@ -132,3 +132,9 @@ header {
 .feature-card p {
   margin: 0;
 }
+
+/* Video thumbnail play button hover */
+.video-container:hover > div {
+  background: rgba(239, 83, 81, 1) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
