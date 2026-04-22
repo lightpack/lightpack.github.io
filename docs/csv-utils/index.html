@@ -712,7 +712,7 @@ foreach ($csv-&gt;getErrors() as $error) {
 <pre><code class="language-php">$csv = new Csv();
 
 // Get sales data
-$sales = ProductSale::query
+$sales = ProductSale::query()
     -&gt;select('product_id', 'quantity', 'price', 'created_at')
     -&gt;all()
     -&gt;toArray();
