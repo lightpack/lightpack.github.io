@@ -2,8 +2,8 @@
   --accent: #ef5351;
   --accent-fade: #fff4f2;
   --accent-light: #f7f7f7;
-  --bg: #fafbfc;
-  --sidebar-bg: #fff;
+  --bg: #fff;
+  --sidebar-bg: #f0eee6;
   --sidebar-border: #e6e6e6;
   --sidebar-shadow: 0 2px 16px 0 rgba(0,0,0,0.04);
   --nav-bg: #fff;
@@ -146,17 +146,17 @@ nav a:hover, nav a.active {
   transition: background var(--transition), color var(--transition);
 }
 .sidebar a:hover {
-  background: var(--accent-fade);
+  /* background: var(--accent-fade); */
   color: var(--accent);
 }
 .sidebar a.active {
-  background: var(--accent-fade);
+  /* background: var(--accent-fade); */
   color: var(--accent);
   font-weight: 500;
 }
 .sidebar a.active, .sidebar a[aria-current="page"] {
   color: var(--accent);
-  background: var(--accent-fade);
+  /* background: var(--accent-fade); */
   font-weight: 700;
 }
 .sidebar .sidebar-divider {
