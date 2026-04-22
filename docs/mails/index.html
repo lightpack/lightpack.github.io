@@ -605,7 +605,7 @@ $this-&gt;bcc('john@example.com', 'John');</code></pre>
 <h3>body()</h3>
 <p>Use this method to set a rich <code>HTML</code> email message.</p>
 <pre><code class="language-php">$this-&gt;body('&lt;p&gt;Hello Devs&lt;/p&gt;');</code></pre>
-<p>However, it is recommended to create and send <a href="/mails?id=html-templates">rich HTML</a>  email templates for a better email templates management.</p>
+<p>However, it is recommended to create and send <a href="/docs/mails?id=html-templates">rich HTML</a>  email templates for a better email templates management.</p>
 <h3>altBody()</h3>
 <p>Use this method to set a <code>plain</code> text email message.</p>
 <pre><code class="language-php">$this-&gt;altBody('Hello Devs');</code></pre>
@@ -1000,7 +1000,7 @@ abstract class AppMail extends Mail
             -&gt;assertMailContains('Hello');
     }
 }</code></pre>
-<p>You can view all the available assertions in the <a href="/testing?id=asserting-emails">MailAssertionTrait</a>.</p>
+<p>You can view all the available assertions in the <a href="/docs/testing?id=asserting-emails">MailAssertionTrait</a>.</p>
 <h2>Creating Custom Drivers</h2>
 <p>You can easily create custom drivers for any email service:</p>
 <h3>1. Create Driver Class</h3>

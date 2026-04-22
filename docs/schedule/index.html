@@ -625,7 +625,7 @@ schedule()-&gt;command(GenerateReports::class, ['--type' =&gt; 'weekly'])
         lock()-&gt;release('long-running-job');
     }
 }</code></pre>
-<p>See <a href="/mutex-lock.md">Mutex Lock documentation</a> for more details.</p>
+<p>See <a href="/docs/mutex-lock.md">Mutex Lock documentation</a> for more details.</p>
 <h3>Testing Schedules</h3>
 <p>You can test if events are scheduled correctly:</p>
 <pre><code class="language-php">$event = schedule()-&gt;job(MyJob::class)-&gt;daily()-&gt;at('09:00');

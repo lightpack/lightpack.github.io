@@ -831,10 +831,10 @@ if($user-&gt;email_verified_at == null) {
 <p>Once the <code>insert()</code> or <code>update()</code> method is called on the model instance, the ORM clears all the dirty attributes. So <code>isDirty()</code> method returns <strong>false</strong> and <code>getDirty()</code> method returns <strong>empty</strong> array after model persistence.</p>
 </blockquote>
 <h2>Query Builders</h2>
-<p><strong>Lightpack</strong> models are capable <a href="/db-query-builder">query builders</a> too. </p>
+<p><strong>Lightpack</strong> models are capable <a href="/docs/db-query-builder">query builders</a> too. </p>
 <p>To get a query builder on a model, call the static method <code>query()</code>:</p>
 <pre><code class="language-php">$productQuery = Product::query();</code></pre>
-<p>Now you can access all the methods on <a href="/query-builder">query builders</a>. Below are some example for using query builder on a model.</p>
+<p>Now you can access all the methods on <a href="/docs/query-builder">query builders</a>. Below are some example for using query builder on a model.</p>
 <p><strong>Fetch all products</strong></p>
 <pre><code class="language-php">$products = Product::query()-&gt;all();</code></pre>
 <p><strong>Fetch all active products</strong></p>
