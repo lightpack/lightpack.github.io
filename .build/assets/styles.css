@@ -434,6 +434,12 @@ table th, table td {
   text-decoration: none;
 }
 
+[data-theme="dark"] :not(.sidebar-logo) > img {
+  border-radius: 15px;
+    padding: 15px;
+    background: #fff;
+}
+
 [data-theme="dark"] .sidebar-section-title {
   color: #c9c9c9;
 }
