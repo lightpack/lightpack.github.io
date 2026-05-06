@@ -364,3 +364,134 @@ table th, table td {
     padding: 1.2rem 1rem;
   }
 }
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 12px;
+  right: 18px;
+  z-index: 200;
+  background: none;
+  border: 1.5px solid var(--sidebar-border);
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.theme-toggle:hover {
+  background: var(--accent-fade);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle {
+  border-color: #333;
+  color: #ccc;
+}
+[data-theme="dark"] .theme-toggle:hover {
+  background: #1a1a1a;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --bg: #000;
+  --text: #a9a9a9;
+  --sidebar-bg: #000;
+  --sidebar-border: #000;
+  --nav-bg: #000;
+  --text-soft: #999;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] .container,
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] main {
+  background: #000;
+}
+
+[data-theme="dark"] body {
+  color: var(--text);
+}
+
+[data-theme="dark"] a {
+  color: #c8c8c8;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+  color: #f05250;
+}
+
+[data-theme="dark"] .sidebar-section-title {
+  color: #c9c9c9;
+}
+
+[data-theme="dark"] :not(pre) > code {
+  background: #262626;
+}
+
+[data-theme="dark"] .sidebar {
+  border-right-color: #000;
+}
+
+[data-theme="dark"] .toc a.active {
+  background: inherit;
+}
+
+[data-theme="dark"] hr {
+  background: #222;
+}
+
+[data-theme="dark"] blockquote {
+  background: #111;
+}
+
+[data-theme="dark"] thead {
+  background: #111;
+}
+
+[data-theme="dark"] thead th {
+  color: #ddd;
+  border-bottom-color: #222;
+}
+
+[data-theme="dark"] tbody td {
+  color: #ccc;
+  border-bottom-color: #1a1a1a;
+}
+
+[data-theme="dark"] tbody tr:nth-child(even) {
+  background: #0d0d0d;
+}
+
+[data-theme="dark"] tbody tr:hover {
+  background: #1a1a1a;
+}
+
+[data-theme="dark"] table {
+  background: #000;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .toc a,
+[data-theme="dark"] .toc a:hover {
+  background-color: inherit;
+}
+
+@media (max-width: 950px) {
+  .theme-toggle {
+    top: 10px;
+    right: 12px;
+  }
+}
