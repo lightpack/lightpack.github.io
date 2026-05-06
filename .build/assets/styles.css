@@ -430,7 +430,8 @@ table th, table td {
 [data-theme="dark"] h2,
 [data-theme="dark"] h3,
 [data-theme="dark"] h4 {
-  color: #f05250;
+  color: #b93e3c;
+  text-decoration: none;
 }
 
 [data-theme="dark"] .sidebar-section-title {
