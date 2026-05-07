@@ -153,19 +153,3 @@ header {
   background: transparent !important;
   box-shadow: none !important;
 }
-
-.mesh-svg {
-  display: block;
-  background: transparent;
-}
-
-.mesh-joint {
-  opacity: 0.15;
-  animation: jointPulse 3s ease-out infinite;
-}
-
-@keyframes jointPulse {
-  0%, 100% { opacity: 0.15; }
-  12% { opacity: 1; }
-  35% { opacity: 0.15; }
-}
