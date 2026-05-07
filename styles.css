@@ -128,11 +128,6 @@ header {
 /* Hero visual containers */
 .hero-visual {
   position: relative;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
-  overflow: hidden;
-  background: #f0eee6;
 }
 
 .hero-visual::before {
@@ -147,9 +142,4 @@ header {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-}
-
-#hero-mesh {
-  background: transparent !important;
-  box-shadow: none !important;
 }
