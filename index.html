@@ -30,11 +30,10 @@
         <div class="container py-5">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <h1 class="fw-bold mb-3" style="font-size: 3em;">Built for <span
-                            class="text-danger position-relative bg-highlight">stability</span> and <span
-                            class="text-danger position-relative bg-highlight">peace</span> of mind.</h1>
-                    <p class="mb-4">Craft powerful PHP applications with elegant simplicity. Lightpack delivers the
-                        essentials without the bloat, ensuring rapid development and rock-solid performance.</p>
+                    <h1 class="fw-bold mb-3" style="font-size: 3em;">Craft powerful 
+                        <span class="text-danger position-relative bg-highlight">PHP applications</span> 
+                        with peace of mind.</h1>
+                    <p class="mb-4">Lightpack delivers the essentials without the bloat, ensuring rapid web development and rock-solid performance. It's feature rich batteries included components pack with minimal boot time and memory footprint.</p>
                     <div class="d-flex gap-3 mt-4 hero-actions">
                         <a href="/docs" class="btn btn-lg btn-danger px-4" style="font-size: 1em">View Docs</a>
                         <a href="https://github.com/lightpack"
@@ -49,16 +48,92 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); cursor: pointer;">
-                        <img 
-                            src="assets/lightpack-introduction.png" 
-                            alt="Lightpack Introduction" 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(239, 83, 81, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="white" style="margin-left: 4px;">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                        </div>
+                    <div class="hero-visual" id="hero-mesh">
+                        <svg viewBox="0 0 560 320" preserveAspectRatio="xMidYMid meet" class="mesh-svg">
+                            <defs>
+                                <filter id="meshGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                            </defs>
+
+                            <!-- Vertical dotted lines -->
+                            <line x1="40" y1="40" x2="40" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="150" y1="40" x2="150" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="260" y1="40" x2="260" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="280" y1="40" x2="280" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.35"/>
+                            <line x1="300" y1="40" x2="300" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="410" y1="40" x2="410" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="520" y1="40" x2="520" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+
+                            <!-- Horizontal dotted lines -->
+                            <line x1="40" y1="40" x2="520" y2="40" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="40" y1="100" x2="520" y2="100" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="40" y1="160" x2="520" y2="160" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.35"/>
+                            <line x1="40" y1="220" x2="520" y2="220" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+                            <line x1="40" y1="280" x2="520" y2="280" class="mesh-line" stroke="#ef5350" stroke-width="0.8" stroke-dasharray="2 6" opacity="0.25"/>
+
+                            <!-- Expanding pulse rings from center -->
+                            <circle cx="280" cy="160" r="0" fill="none" stroke="#ef5350" stroke-width="2" opacity="0.5" filter="url(#meshGlow)">
+                                <animate attributeName="r" values="0;320" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.5;0" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="280" cy="160" r="0" fill="none" stroke="#ef5350" stroke-width="1.5" opacity="0.3" filter="url(#meshGlow)">
+                                <animate attributeName="r" values="0;320" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.4;0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+                            </circle>
+
+                            <!-- Center core -->
+                            <circle cx="280" cy="160" r="3" fill="#ef5350" filter="url(#meshGlow)">
+                                <animate attributeName="r" values="3;5;3" dur="1.5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+                            </circle>
+
+                            <!-- Joints row 1 (y=40) -->
+                            <circle cx="40"  cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.31s"/>
+                            <circle cx="150" cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.52s"/>
+                            <circle cx="260" cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.05s"/>
+                            <circle cx="280" cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.03s"/>
+                            <circle cx="300" cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.05s"/>
+                            <circle cx="410" cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.52s"/>
+                            <circle cx="520" cy="40" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.31s"/>
+
+                            <!-- Joints row 2 (y=100) -->
+                            <circle cx="40"  cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.13s"/>
+                            <circle cx="150" cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.23s"/>
+                            <circle cx="260" cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.54s"/>
+                            <circle cx="280" cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.52s"/>
+                            <circle cx="300" cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.54s"/>
+                            <circle cx="410" cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.23s"/>
+                            <circle cx="520" cy="100" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.13s"/>
+
+                            <!-- Joints row 3 (y=160) -->
+                            <circle cx="40"  cy="160" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.07s"/>
+                            <circle cx="150" cy="160" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.12s"/>
+                            <circle cx="260" cy="160" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.17s"/>
+                            <circle cx="280" cy="160" r="4" fill="#fff" class="mesh-joint" style="animation-delay:0s"/>
+                            <circle cx="300" cy="160" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.17s"/>
+                            <circle cx="410" cy="160" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.12s"/>
+                            <circle cx="520" cy="160" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.07s"/>
+
+                            <!-- Joints row 4 (y=220) -->
+                            <circle cx="40"  cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.13s"/>
+                            <circle cx="150" cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.23s"/>
+                            <circle cx="260" cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.54s"/>
+                            <circle cx="280" cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.52s"/>
+                            <circle cx="300" cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:0.54s"/>
+                            <circle cx="410" cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.23s"/>
+                            <circle cx="520" cy="220" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.13s"/>
+
+                            <!-- Joints row 5 (y=280) -->
+                            <circle cx="40"  cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.31s"/>
+                            <circle cx="150" cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.52s"/>
+                            <circle cx="260" cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.05s"/>
+                            <circle cx="280" cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.03s"/>
+                            <circle cx="300" cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.05s"/>
+                            <circle cx="410" cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:1.52s"/>
+                            <circle cx="520" cy="280" r="2.5" fill="#ef5350" class="mesh-joint" style="animation-delay:2.31s"/>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -685,6 +760,7 @@
                 searchTerm = this.value.trim().toLowerCase();
                 filterFeatures();
             });
+
         });
     </script>
 </body>
