@@ -506,8 +506,11 @@ table th, table td {
   color: #c9c9c9;
 }
 
+[data-theme="dark"] pre,
+[data-theme="dark"] code,
 [data-theme="dark"] :not(pre) > code {
-  background: #262626;
+  background-color: #262626;
+  color: #c9c9c9;
 }
 
 [data-theme="dark"] .sidebar {
