@@ -18,8 +18,10 @@
 }
 
 header {
-  background-color: #000;
-  color: #888;
+  /* background-color: #000; */
+  /* color: #888; */
+  background-color: #f0eee6;
+  color: #494949;
 }
 
 .container .features {
