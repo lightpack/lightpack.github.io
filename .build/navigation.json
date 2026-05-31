@@ -3,111 +3,112 @@
     {
       "section": "Getting Started",
       "pages": [
-        { "title": "Quick Install", "file": "install" }
+        { "title": "Quick Install", "file": "install", "description": "Step-by-step guide to install Lightpack PHP via Composer and start your first project." }
       ]
     },
     {
       "section": "Basics",
       "pages": [
-        { "title": "Routing", "file": "routing" },
-        { "title": "Controllers", "file": "controllers" },
-        { "title": "Views", "file": "views" },
-        { "title": "Request", "file": "request" },
-        { "title": "Response", "file": "response" },
-        { "title": "Sessions", "file": "sessions" },
-        { "title": "Cookies", "file": "cookies" },
-        { "title": "Validation", "file": "validation" },
-        { "title": "Filesystem", "file": "filesystem" },
-        { "title": "Configuration", "file": "configuration" },
-        { "title": "Environments", "file": "environments" },
-        { "title": "Date & Time", "file": "moment" },
-        { "title": "Utility Functions", "file": "utility-functions" }
+        { "title": "Routing", "file": "routing", "description": "Define application routes, route parameters, route filters, and request handling patterns." },
+        { "title": "Controllers", "file": "controllers", "description": "Create and organize controllers to handle HTTP requests and application logic." },
+        { "title": "Views", "file": "views", "description": "Build responsive views using Lightpack's template engine with layouts and partials." },
+        { "title": "Request", "file": "request", "description": "Access and manipulate HTTP requests including headers, body, files, and query parameters." },
+        { "title": "Response", "file": "response", "description": "Craft HTTP responses with JSON, redirects, downloads, caching headers, and custom status codes." },
+        { "title": "Sessions", "file": "sessions", "description": "Manage user sessions securely with flash messages, intended URLs, and custom session drivers." },
+        { "title": "Cookies", "file": "cookies", "description": "Set, get, encrypt, and expire cookies with secure defaults and path scoping." },
+        { "title": "Validation", "file": "validation", "description": "Validate user input with built-in rules, custom validators, and error message handling." },
+        { "title": "Filesystem", "file": "filesystem", "description": "Work with local files and directory operations." },
+        { "title": "Configuration", "file": "configuration", "description": "Structure and load application configuration files per environment." },
+        { "title": "Environments", "file": "environments", "description": "Configure environment variables and settings for local, staging, and production." },
+        { "title": "Date & Time", "file": "moment", "description": "Parse, format, and manipulate dates and times with an expressive API." },
+        { "title": "Utility Functions", "file": "utility-functions", "description": "Handy helper functions for arrays, strings, URLs, paths, and common operations." }
       ]
     },
     {
       "section": "Databases",
       "pages": [
-        { "title": "Connection", "file": "db-connection" },
-        { "title": "Query Builder", "file": "db-query-builder" },
-        { "title": "Migrations", "file": "migrations" },
-        { "title": "Seeder", "file": "seeder" },
-        { "title": "Factory", "file": "factory" }
+        { "title": "Connection", "file": "db-connection", "description": "Configure and manage MySQL database connections." },
+        { "title": "Query Builder", "file": "db-query-builder", "description": "Compose database queries programmatically without writing raw SQL." },
+        { "title": "Migrations", "file": "migrations", "description": "Version-control your database schema with reversible migration scripts." },
+        { "title": "Seeder", "file": "seeder", "description": "Populate your database with test and sample data using seed classes." },
+        { "title": "Factory", "file": "factory", "description": "Generate realistic test data models programmatically for testing and development." },
+        { "title": "Pagination", "file": "pagination", "description": "Paginate database results using the query builder and Lucid ORM with built-in link generation." }
       ]
     },
     {
       "section": "Lucid ORM",
       "pages": [
-        { "title": "Introduction", "file": "orm-introduction" },
-        { "title": "Models", "file": "models" },
-        { "title": "Relationships", "file": "relationships" },
-        { "title": "Eager Loading", "file": "eager-loading" },
-        { "title": "Collections", "file": "collections" },
-        { "title": "Transformers", "file": "transformers" },
-        { "title": "Multi-Tenancy", "file": "multi-tenancy" }
+        { "title": "Introduction", "file": "orm-introduction", "description": "Get started with Lucid ORM, Lightpack's powerful and intuitive object-relational mapper." },
+        { "title": "Models", "file": "models", "description": "Define Lucid models, configure table mapping, mass assignment, timestamps, and soft deletes." },
+        { "title": "Relationships", "file": "relationships", "description": "Map one-to-one, one-to-many, and many-to-many relationships with eager loading support." },
+        { "title": "Eager Loading", "file": "eager-loading", "description": "Solve the N+1 query problem by preloading related model data efficiently." },
+        { "title": "Collections", "file": "collections", "description": "Transform query results into powerful collection objects with filtering and mapping methods." },
+        { "title": "Transformers", "file": "transformers", "description": "Serialize model data for APIs with field selection, includes, and nested resource control." },
+        { "title": "Multi-Tenancy", "file": "multi-tenancy", "description": "Build SaaS applications with tenant-isolated databases and row-level scoping." }
       ]
     },
     {
       "section": "Authentication",
       "pages": [
-        { "title": "Introduction", "file": "authentication" },
-        { "title": "API Access Tokens", "file": "api-access-tokens" },
-        { "title": "Configuration", "file": "auth-configuration" },
-        { "title": "Extending Auth", "file": "custom-auth" },
-        { "title": "Route Filters", "file": "auth-filters" }
+        { "title": "Introduction", "file": "authentication", "description": "Implement session and token-based authentication with guards and user providers." },
+        { "title": "API Access Tokens", "file": "api-access-tokens", "description": "Generate and authenticate API requests using secure personal access tokens." },
+        { "title": "Configuration", "file": "auth-configuration", "description": "Customize authentication drivers, user providers, and password hashing settings." },
+        { "title": "Extending Auth", "file": "custom-auth", "description": "Build custom authentication guards and user providers for specialized use cases." },
+        { "title": "Route Filters", "file": "auth-filters", "description": "Protect routes with built-in auth filters, role checks, and custom access policies." }
       ]
     },
     {
       "section": "Utilities",
       "pages": [
-        { "title": "Password", "file": "password" },
-        { "title": "Crypto", "file": "encryption-decryption-utils" },
-        { "title": "URL", "file": "url" },
-        { "title": "Image", "file": "image-utils" },
-        { "title": "Rate Limit", "file": "rate-limiter" },
-        { "title": "Mutex Lock", "file": "mutex-lock" },
-        { "title": "Process", "file": "process" },
-        { "title": "Array", "file": "array-utils" },
-        { "title": "String", "file": "string-utils" },
-        { "title": "OTP", "file": "otp-utils" },
-        { "title": "Assets", "file": "asset-loading-utils" },
-        { "title": "CSV", "file": "csv-utils" },
-        { "title": "PHP to JS", "file": "js-utils" }
+        { "title": "Password", "file": "password", "description": "Hash, verify, and validate passwords securely using industry-standard algorithms." },
+        { "title": "Crypto", "file": "encryption-decryption-utils", "description": "Encrypt and decrypt sensitive data with AES-256 and secure key management." },
+        { "title": "URL", "file": "url", "description": "Build, sign, and resolve application URLs with query parameters and named routes." },
+        { "title": "Image", "file": "image-utils", "description": "Resize, crop, watermark, and convert images with an expressive manipulation API." },
+        { "title": "Rate Limit", "file": "rate-limiter", "description": "Throttle HTTP requests per user or IP to prevent abuse and ensure fair usage." },
+        { "title": "Mutex Lock", "file": "mutex-lock", "description": "Prevent race conditions with distributed file and database-based locking mechanisms." },
+        { "title": "Process", "file": "process", "description": "Run background processes, shell commands, and manage output streams safely." },
+        { "title": "Array", "file": "array-utils", "description": "Filter, map, flatten, dot-access, and manipulate PHP arrays with utility helpers." },
+        { "title": "String", "file": "string-utils", "description": "Transform, truncate, slugify, randomize, and match strings with fluent helpers." },
+        { "title": "OTP", "file": "otp-utils", "description": "Generate and validate one-time passwords for two-factor authentication and secure verification." },
+        { "title": "Assets", "file": "asset-loading-utils", "description": "Cache-bust and load CSS, JavaScript, and image assets with versioned URLs." },
+        { "title": "CSV", "file": "csv-utils", "description": "Import and export CSV files with header mapping, type casting, and streaming support." },
+        { "title": "PHP to JS", "file": "js-utils", "description": "Pass server-side variables and configuration safely to client-side JavaScript." }
       ]
     },
     {
       "section": "Advanced",
       "pages": [
-        { "title": "Mails", "file": "mails" },
-        { "title": "Queue", "file": "queue" },
-        { "title": "Schedule", "file": "schedule" },
-        { "title": "Filters", "file": "filters" },
-        { "title": "Events", "file": "events" },
-        { "title": "Caching", "file": "caching" },
-        { "title": "Logging", "file": "logging" },
-        { "title": "Providers", "file": "providers" },
-        { "title": "Containers", "file": "containers" },
-        { "title": "CORS", "file": "cors" },
-        { "title": "HTTP Client", "file": "http-client" },
-        { "title": "Console", "file": "console" },
-        { "title": "Testing", "file": "testing" },
-        { "title": "Secrets", "file": "secrets" },
-        { "title": "Settings", "file": "settings" },
-        { "title": "Tags", "file": "tags" },
-        { "title": "Taxonomies", "file": "taxonomies" },
-        { "title": "Faker", "file": "faker" },
-        { "title": "Audit", "file": "audit" },
-        { "title": "RBAC", "file": "rbac" },
-        { "title": "Captcha", "file": "captcha" },
-        { "title": "Webhook", "file": "webhook" },
-        { "title": "AI", "file": "ai-service", "description": "AI-powered features including embeddings, similarity search, and semantic analysis" },
-        { "title": "Cable", "file": "cable" },
-        { "title": "Uploads", "file": "uploads" },
-        { "title": "Social Auth", "file": "social-auth" },
-        { "title": "PDF", "file": "pdf" },
-        { "title": "SMS", "file": "sms" },
-        { "title": "MFA", "file": "mfa" },
-        { "title": "Storage", "file": "storage" },
-        { "title": "Pipeline", "file": "pipeline-pattern" }
+        { "title": "Mails", "file": "mails", "description": "Send transactional and marketing emails with SMTP, attachments, and template support." },
+        { "title": "Queue", "file": "queue", "description": "Defer heavy tasks to background workers for improved application performance." },
+        { "title": "Schedule", "file": "schedule", "description": "Run recurring tasks, cron jobs, and scheduled commands with a fluent expression API." },
+        { "title": "Filters", "file": "filters", "description": "Create reusable before and after filters for cross-cutting request concerns." },
+        { "title": "Events", "file": "events", "description": "Decouple application logic with event-driven architecture and listener classes." },
+        { "title": "Caching", "file": "caching", "description": "Speed up responses with file, database, and in-memory caching strategies." },
+        { "title": "Logging", "file": "logging", "description": "Record application events with channel-based logging and severity levels." },
+        { "title": "Providers", "file": "providers", "description": "Register and boot application services with dependency injection containers." },
+        { "title": "Containers", "file": "containers", "description": "Manage dependency injection, service resolution, and container bindings." },
+        { "title": "CORS", "file": "cors", "description": "Configure cross-origin resource sharing policies for API and frontend applications." },
+        { "title": "HTTP Client", "file": "http-client", "description": "Make outbound HTTP requests with retries, timeouts, and JSON handling." },
+        { "title": "Console", "file": "console", "description": "Build custom CLI commands, artisan-style generators, and terminal tools." },
+        { "title": "Testing", "file": "testing", "description": "Write unit and feature tests with PHPUnit integration and test helpers." },
+        { "title": "Secrets", "file": "secrets", "description": "Store and retrieve sensitive configuration values with encrypted secrets management." },
+        { "title": "Settings", "file": "settings", "description": "Manage dynamic application settings with key-value persistence and caching." },
+        { "title": "Tags", "file": "tags", "description": "Implement tag-based categorization with polymorphic taggable relationships." },
+        { "title": "Taxonomies", "file": "taxonomies", "description": "Build hierarchical category systems with nested term relationships." },
+        { "title": "Faker", "file": "faker", "description": "Generate fake data for names, addresses, emails, and more in multiple locales." },
+        { "title": "Audit", "file": "audit", "description": "Track model changes, user actions, and data history with automatic audit logs." },
+        { "title": "RBAC", "file": "rbac", "description": "Implement role-based access control with permissions, roles, and user assignments." },
+        { "title": "Captcha", "file": "captcha", "description": "Protect forms from bots with image and invisible captcha challenges." },
+        { "title": "Webhook", "file": "webhook", "description": "Receive, verify signatures, and process incoming webhook payloads securely." },
+        { "title": "AI", "file": "ai-service", "description": "AI-powered features including embeddings, similarity search, tools, and semantic analysis" },
+        { "title": "Cable", "file": "cable", "description": "Real-time event broadcasting with channel subscriptions and event pushing." },
+        { "title": "Uploads", "file": "uploads", "description": "Handle multipart file uploads with validation, storage, and streaming support." },
+        { "title": "Social Auth", "file": "social-auth", "description": "Authenticate users via OAuth providers like Google, GitHub, and LinkedIn." },
+        { "title": "PDF", "file": "pdf", "description": "Generate PDF documents from HTML templates with header and footer control." },
+        { "title": "SMS", "file": "sms", "description": "Send text messages via Twilio and other SMS gateway providers." },
+        { "title": "MFA", "file": "mfa", "description": "Enable multi-factor authentication with TOTP and SMS-based verification codes." },
+        { "title": "Storage", "file": "storage", "description": "Abstract local and cloud file storage with unified disk-based APIs." },
+        { "title": "Pipeline", "file": "pipeline-pattern", "description": "Chain operations through a sequential pipeline pattern for data transformation." }
       ]
     }
   ]
