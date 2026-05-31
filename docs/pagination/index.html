@@ -582,7 +582,7 @@ $products-&gt;url(3); // /products?category=electronics&amp;page=3</code></pre>
 <p>Returns an array of page numbers to display in a pagination bar (useful for building custom link templates).</p>
 <pre><code class="language-php">$products-&gt;getPages(); // [1, 2, 3, 4, 5] (when on page 3 with 10 total pages)</code></pre>
 <h2>Lucid ORM Specific Features</h2>
-<p>When using the Lucid ORM, the returned <code>Pagination</code> instance includes additional ORM-specific methods.</p>
+<p>When using the <a href="/docs/orm-introduction">Lucid ORM</a>, the returned <code>Pagination</code> instance includes additional ORM-specific methods.</p>
 <h3>load(...$relations)</h3>
 <p>Lazy-load relationships for the current page's models.</p>
 <pre><code class="language-php">$products = Product::query()-&gt;paginate(10);
