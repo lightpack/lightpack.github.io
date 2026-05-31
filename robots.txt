@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — index our docs
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://lightpackphp.com/docs/v0.x/sitemap.xml
+Sitemap: https://lightpackphp.com/sitemap.xml

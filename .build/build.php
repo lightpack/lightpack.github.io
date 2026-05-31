@@ -150,9 +150,34 @@ if (is_dir($contentMediaDir)) {
     copyDirectory($contentMediaDir, DIST_DIR . '/assets/_media');
 }
 
+// Generate sitemap.xml for docs
+$sitemapUrls = [];
+$sitemapUrls[] = ['loc' => 'https://lightpackphp.com/docs/v0.x/', 'priority' => '1.0'];
+
+foreach ($navConfig['sections'] as $section) {
+    foreach ($section['pages'] as $page) {
+        $sitemapUrls[] = [
+            'loc' => 'https://lightpackphp.com/docs/v0.x/' . $page['file'] . '/',
+            'priority' => '0.8'
+        ];
+    }
+}
+
+$sitemapXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+$sitemapXml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+foreach ($sitemapUrls as $url) {
+    $sitemapXml .= "  <url>\n";
+    $sitemapXml .= "    <loc>" . htmlspecialchars($url['loc']) . "</loc>\n";
+    $sitemapXml .= "    <priority>" . $url['priority'] . "</priority>\n";
+    $sitemapXml .= "  </url>\n";
+}
+$sitemapXml .= "</urlset>\n";
+file_put_contents(DIST_DIR . '/sitemap.xml', $sitemapXml);
+
 // Prevent GitHub Pages from running Jekyll on the generated docs
 file_put_contents(DIST_DIR . '/.nojekyll', '');
 file_put_contents(dirname(DIST_DIR) . '/.nojekyll', '');
 
 echo "✅ Build complete! Generated docs/ folder with friendly URLs.\n";
+echo "   Sitemap: docs/v0.x/sitemap.xml\n";
 echo "   Navigation structure defined in navigation.json\n";
