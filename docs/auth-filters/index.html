@@ -524,7 +524,7 @@
 ],</code></pre>
 <p>Make sure you have a corresponding named route:</p>
 <pre><code class="language-php">route()-&gt;get('/login', AuthController::class, 'showLogin')-&gt;name('login');</code></pre>
-<p>See <a href="auth-configuration.md#routes-configuration">Configuration</a> for more details.</p>
+<p>See <a href="auth-configuration#routes-configuration">Configuration</a> for more details.</p>
 <h2>GuestFilter</h2>
 <p>The <code>GuestFilter</code> ensures only <strong>unauthenticated</strong> users can access certain routes. This is useful for login, registration, and password reset pages.</p>
 <pre><code class="language-php">route()-&gt;group(['filters' =&gt; 'guest'], function() {
