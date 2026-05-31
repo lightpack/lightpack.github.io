@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Image</title>
+      <meta name="description" content="Resize, crop, watermark, and convert images with an expressive manipulation API.">
+    <meta property="og:description" content="Resize, crop, watermark, and convert images with an expressive manipulation API.">
+    <meta property="og:title" content="Image">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  class="active" aria-current="page" >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Image Utilities</h1>
+<p>Lightpack’s <code>Image</code> utility provides a robust, chainable API for image manipulation, supporting all common operations for avatars, thumbnails, and web graphics. It is built on PHP’s GD extension and covers resizing, cropping, filters, format conversion, and more, with strong error handling and test coverage.</p>
+<hr />
+<h2>Overview</h2>
+<ul>
+<li><strong>Load from file or URL</strong> (JPEG, PNG, WebP)</li>
+<li><strong>Resize, crop, rotate, flip</strong> with aspect ratio and quality controls</li>
+<li><strong>Save</strong> to JPEG, PNG, or WebP with custom quality/compression</li>
+<li><strong>Generate avatars and thumbnails</strong> in standard sizes</li>
+<li><strong>Apply filters and effects:</strong> grayscale, brightness, contrast, blur, sharpen, colorize, sepia, invert, pixelate, emboss, edge detect, posterize</li>
+<li><strong>Watermark and text overlay</strong> support</li>
+<li><strong>Method chaining</strong> for expressive, fluent code</li>
+</ul>
+<hr />
+<h2>Basic Usage</h2>
+<pre><code class="language-php">use Lightpack\Utils\Image;
+
+// Load image
+$image = new Image('/path/to/photo.jpg');
+
+// Resize and save
+$image-&gt;resize(400, 300)-&gt;save('/path/to/output.jpg');
+
+// Crop, grayscale, and save as PNG
+$image = new Image('/path/to/photo.jpg');
+$image-&gt;crop(100, 100, 10, 10)
+      -&gt;grayscale()
+      -&gt;save('/path/to/cropped.png');</code></pre>
+<hr />
+<h2>Loading Images</h2>
+<ul>
+<li>Supports JPEG, PNG, WebP (file or URL)</li>
+<li>Throws if file/URL is missing or unsupported</li>
+</ul>
+<pre><code class="language-php">$image = new Image('photo.jpg');
+$image = new Image('https://example.com/pic.png');</code></pre>
+<hr />
+<h2>Resizing &amp; Cropping</h2>
+<pre><code class="language-php">// Resize (maintains aspect ratio if one dimension is zero)
+$image-&gt;resize(300, 0); // 300px wide, proportional height
+
+// Crop (x, y, width, height)
+$image-&gt;crop(100, 100, 10, 10);</code></pre>
+<hr />
+<h2>Saving &amp; Format Conversion</h2>
+<p>The <code>save()</code> method writes the current image to disk, automatically selecting the format (JPEG, PNG, or WebP) based on the file extension you provide. It also lets you control quality and compression for each format.</p>
+<pre><code class="language-php">// Save as JPEG (with quality)
+$image-&gt;save('output.jpg', 90);    // 90% quality (default is 80)
+
+// Save as PNG (with compression)
+$image-&gt;save('output.png');        // Compression defaults to 7 (0 = none, 9 = max)
+$image-&gt;setDefaultPngCompression(4); // Set default for future PNG saves
+
+// Save as WebP (with quality)
+$image-&gt;save('output.webp', 80);   // 80% quality (default is 80)</code></pre>
+<p><strong>Format detection:</strong></p>
+<ul>
+<li>The format is determined by the file extension (<code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.webp</code>).</li>
+<li>Throws an exception for unsupported extensions.</li>
+</ul>
+<p><strong>Quality &amp; Compression:</strong></p>
+<ul>
+<li>JPEG/WebP: Quality is 0–100 (higher = better quality, larger file).</li>
+<li>PNG: Compression is 0–9 (higher = smaller file, slower save, no quality loss).</li>
+<li>You can set global defaults for each format.</li>
+</ul>
+<p><strong>Directory checks:</strong></p>
+<ul>
+<li>Throws if the target directory does not exist or is not writable.</li>
+<li>Does not create directories automatically.</li>
+</ul>
+<p><strong>Overwriting:</strong></p>
+<ul>
+<li>If the target file exists, it will be overwritten without warning.</li>
+</ul>
+<p><strong>Image object state after save:</strong></p>
+<ul>
+<li>After saving, the internal image resource is destroyed to free memory.</li>
+<li>The <code>Image</code> object cannot be reused for further operations or additional saves.</li>
+<li><strong>To perform multiple saves or edits, reload the image or clone before saving:</strong></li>
+</ul>
+<pre><code class="language-php">$image = new Image('photo.jpg');
+$image-&gt;resize(200, 200)-&gt;save('small.jpg');
+
+// Need to reload or re-instantiate for further use:
+$image = new Image('photo.jpg');
+$image-&gt;resize(400, 400)-&gt;save('large.jpg');</code></pre>
+<blockquote>
+<p><strong>Tip:</strong> If you want to save multiple versions (e.g., different sizes or formats), clone the <code>Image</code> object before calling <code>save()</code>:</p>
+<pre><code class="language-php">$img = new Image('photo.jpg');
+$clone = clone $img;
+$img-&gt;resize(200, 200)-&gt;save('small.jpg');
+$clone-&gt;resize(400, 400)-&gt;save('large.jpg');</code></pre>
+</blockquote>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Always check that your target directory exists and is writable.</li>
+<li>Use explicit file extensions to control output format.</li>
+<li>Reload or clone the image for multiple operations after saving.</li>
+</ul>
+<blockquote>
+<p><strong>Warning:</strong> If you try to use the same <code>Image</code> object after <code>save()</code>, you will get an error because the underlying image resource has been destroyed.</p>
+</blockquote>
+<hr />
+<h2>Quality &amp; Compression Settings</h2>
+<pre><code class="language-php">$image-&gt;setDefaultJpegQuality(85);
+$image-&gt;setDefaultWebpQuality(90);
+$image-&gt;setDefaultPngCompression(6); // 0 (none) to 9 (max)</code></pre>
+<hr />
+<h2>Avatars &amp; Thumbnails</h2>
+<p>Lightpack’s <code>Image</code> utility provides dedicated methods for generating standardized avatar and thumbnail images—ideal for user profiles, listings, galleries, blog posts, and more. These helpers automate resizing and format selection, ensuring consistency and optimal display across your application.</p>
+<h3>What Are Avatars and Thumbnails?</h3>
+<ul>
+<li><strong>Avatars:</strong> Square images, typically used for user profile pictures, comments, or account listings. Sizes are chosen for clarity at different UI scales.</li>
+<li><strong>Thumbnails:</strong> Rectangular or square images, optimized for previews, cards, or gallery grids. Useful for content teasers and fast-loading image lists.</li>
+</ul>
+<h3>Standard Sizes</h3>
+<ul>
+<li><strong>Avatars:</strong><ul>
+<li><code>small</code>: 48x48 px (comments, lists)</li>
+<li><code>medium</code>: 96x96 px (profile preview)</li>
+<li><code>large</code>: 192x192 px (profile page)</li>
+</ul>
+</li>
+<li><strong>Thumbnails:</strong><ul>
+<li><code>small</code>: 300px wide (height auto)</li>
+<li><code>medium</code>: 600px wide (height auto)</li>
+<li><code>large</code>: 1200px wide (height auto)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Thumbnail height is automatically calculated to preserve the original aspect ratio.</p>
+</blockquote>
+<h3>Generating Avatars</h3>
+<pre><code class="language-php">$image = new Image('userpic.jpg');
+$paths = $image-&gt;avatar('avatars/user123');
+// $paths['small']  =&gt; 'avatars/user123_avatar_small.webp'
+// $paths['medium'] =&gt; 'avatars/user123_avatar_medium.webp'
+// $paths['large']  =&gt; 'avatars/user123_avatar_large.webp'</code></pre>
+<ul>
+<li>Avatars are always saved as WebP for modern browser support and efficient storage.</li>
+<li>You can specify which sizes to generate:</li>
+</ul>
+<pre><code class="language-php">$paths = $image-&gt;avatar('avatars/user123', ['small', 'large']);</code></pre>
+<h3>Generating Thumbnails</h3>
+<pre><code class="language-php">$image = new Image('photo.jpg');
+$thumbs = $image-&gt;thumbnail('thumbs/photo123');
+// $thumbs['small']  =&gt; 'thumbs/photo123_thumb_small.jpg'
+// $thumbs['medium'] =&gt; 'thumbs/photo123_thumb_medium.jpg'
+// $thumbs['large']  =&gt; 'thumbs/photo123_thumb_large.jpg'</code></pre>
+<ul>
+<li>Thumbnails are always saved as JPEG for maximum compatibility and fast loading.</li>
+<li>You can specify which sizes to generate:</li>
+</ul>
+<pre><code class="language-php">$thumbs = $image-&gt;thumbnail('thumbs/photo123', ['medium']);</code></pre>
+<h3>File Naming Conventions</h3>
+<ul>
+<li>Avatars: <code>{base}_avatar_{size}.webp</code></li>
+<li>Thumbnails: <code>{base}_thumb_{size}.jpg</code></li>
+</ul>
+<h3>Custom Sizes &amp; Error Handling</h3>
+<ul>
+<li>Both methods accept a custom array of sizes (must match supported keys).</li>
+<li>Throws an <code>InvalidArgumentException</code> if an invalid size is given.</li>
+<li>The original image is not modified; each output is generated from a clone.</li>
+</ul>
+<h3>Method Chaining &amp; Reuse</h3>
+<ul>
+<li>Both <code>avatar()</code> and <code>thumbnail()</code> clone the image internally, so you can reuse the original <code>Image</code> object for other operations.</li>
+<li>The returned array contains the full paths to each generated image.</li>
+</ul>
+<h3>Best Practices</h3>
+<ul>
+<li>Store avatars and thumbnails in dedicated directories for easy management.</li>
+<li>Always check that your output directories exist and are writable.</li>
+<li>Use the returned paths for referencing images in your application.</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> You can combine avatars, thumbnails, and other manipulations by chaining methods or by working with clones for batch processing.</p>
+</blockquote>
+<hr />
+<h2>Filters &amp; Effects</h2>
+<pre><code class="language-php">$image-&gt;grayscale()-&gt;contrast(-20)-&gt;brightness(30)-&gt;blur(2)-&gt;sharpen();
+$image-&gt;colorize(255, 0, 0)-&gt;sepia()-&gt;invert()-&gt;pixelate(8);
+$image-&gt;emboss()-&gt;edgedetect()-&gt;posterize();</code></pre>
+<ul>
+<li>All filters are chainable</li>
+</ul>
+<hr />
+<h2>Watermark &amp; Text Overlay</h2>
+<pre><code class="language-php">// Overlay PNG watermark at (x, y), opacity 0-100
+$image-&gt;watermark('logo.png', 10, 10, 60);
+
+// Overlay text (x, y, size, color, font)
+$image-&gt;text('Sample', 20, 40, 16, '#ff0000', '/path/to/font.ttf');</code></pre>
+<hr />
+<h2>Rotating &amp; Flipping</h2>
+<pre><code class="language-php">$image-&gt;rotate(90); // Degrees, counter-clockwise
+$image-&gt;flip('vertical'); // or 'horizontal'</code></pre>
+<hr />
+<h2>Error Handling &amp; Edge Cases</h2>
+<ul>
+<li>Throws exceptions for missing files, unsupported formats, invalid sizes, or failed operations</li>
+<li>All operations require GD extension</li>
+<li>Output image is destroyed after save (reload to reuse)</li>
+<li>Method chaining is supported for all mutators</li>
+</ul>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

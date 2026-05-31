@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>HTTP Client</title>
+      <meta name="description" content="Make outbound HTTP requests with retries, timeouts, and JSON handling.">
+    <meta property="og:description" content="Make outbound HTTP requests with retries, timeouts, and JSON handling.">
+    <meta property="og:title" content="HTTP Client">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  class="active" aria-current="page" >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Lightpack Http Client</h1>
+<p>Lightpack provide a lightweight <strong>HTTP client</strong> for making API requests.</p>
+<ul>
+<li><strong>Fluent API:</strong> Chain methods for configuration and requests.</li>
+<li><strong>Supports all major HTTP verbs:</strong> GET, POST, PUT, PATCH, DELETE.</li>
+<li><strong>Flexible data formats:</strong> JSON (default) and form-urlencoded.</li>
+<li><strong>Custom headers, bearer token, and file uploads.</strong></li>
+<li><strong>Timeouts, SSL options, and custom cURL settings.</strong></li>
+<li><strong>Simple helpers for response status, errors, and parsing.</strong></li>
+</ul>
+<hr />
+<h2>Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get($url, $query)</code></td>
+<td>Send GET request with optional query params</td>
+</tr>
+<tr>
+<td><code>post($url, $data)</code></td>
+<td>Send POST request with data (JSON or form)</td>
+</tr>
+<tr>
+<td><code>put($url, $data)</code></td>
+<td>Send PUT request with data</td>
+</tr>
+<tr>
+<td><code>patch($url, $data)</code></td>
+<td>Send PATCH request with data</td>
+</tr>
+<tr>
+<td><code>delete($url, $data)</code></td>
+<td>Send DELETE request with data</td>
+</tr>
+<tr>
+<td><code>headers([$k=&gt;$v])</code></td>
+<td>Set custom headers</td>
+</tr>
+<tr>
+<td><code>files([$k=&gt;$file])</code></td>
+<td>Attach files for upload (POST/PUT)</td>
+</tr>
+<tr>
+<td><code>token($token)</code></td>
+<td>Set Bearer token for Authorization</td>
+</tr>
+<tr>
+<td><code>timeout($seconds)</code></td>
+<td>Set request timeout</td>
+</tr>
+<tr>
+<td><code>insecure()</code></td>
+<td>Disable SSL verification (use with caution)</td>
+</tr>
+<tr>
+<td><code>options([$opt=&gt;$v])</code></td>
+<td>Set custom cURL options</td>
+</tr>
+<tr>
+<td><code>form()</code></td>
+<td>Send data as form-urlencoded</td>
+</tr>
+<tr>
+<td><code>download($url, $path)</code></td>
+<td>Download file to disk</td>
+</tr>
+<tr>
+<td><code>stream($method, $url, $data, $callback)</code></td>
+<td>Stream response in real-time with callback</td>
+</tr>
+<tr>
+<td><code>json()</code></td>
+<td>Get response as array (assumes JSON)</td>
+</tr>
+<tr>
+<td><code>body()</code></td>
+<td>Get raw response body</td>
+</tr>
+<tr>
+<td><code>status()</code></td>
+<td>Get HTTP status code</td>
+</tr>
+<tr>
+<td><code>error()</code></td>
+<td>Get transport error message, if any</td>
+</tr>
+<tr>
+<td><code>responseHeaders()</code></td>
+<td>Get all response headers as array</td>
+</tr>
+<tr>
+<td><code>responseHeader($name)</code></td>
+<td>Get specific response header (case-insensitive)</td>
+</tr>
+<tr>
+<td><code>ok()</code></td>
+<td>2xx status</td>
+</tr>
+<tr>
+<td><code>failed()</code></td>
+<td>Transport or HTTP error</td>
+</tr>
+<tr>
+<td><code>clientError()</code></td>
+<td>4xx status</td>
+</tr>
+<tr>
+<td><code>serverError()</code></td>
+<td>5xx status</td>
+</tr>
+<tr>
+<td><code>redirect()</code></td>
+<td>3xx status</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Creating a Client</h2>
+<pre><code class="language-php">use Lightpack\Http\Http;
+
+$http = new Http();</code></pre>
+<hr />
+<h2>Making Requests</h2>
+<h3>GET Request</h3>
+<pre><code class="language-php">$response = $http-&gt;get('https://api.example.com/users');
+$data = $response-&gt;json();</code></pre>
+<h3>GET with Query Parameters</h3>
+<pre><code class="language-php">$response = $http-&gt;get('https://api.example.com/users', [
+    'name' =&gt; 'alice',
+    'active' =&gt; true
+]);</code></pre>
+<h3>POST Request (JSON)</h3>
+<pre><code class="language-php">$response = $http-&gt;post('https://api.example.com/users', [
+    'name' =&gt; 'alice',
+    'email' =&gt; 'alice@example.com'
+]);</code></pre>
+<h3>POST Request (Form Data)</h3>
+<pre><code class="language-php">$response = $http
+    -&gt;form()
+    -&gt;post('https://api.example.com/login', [
+        'username' =&gt; 'alice',
+        'password' =&gt; 'secret',
+    ]);</code></pre>
+<h3>PUT/PATCH/DELETE Requests</h3>
+<pre><code class="language-php">$http-&gt;put($url, $data);
+$http-&gt;patch($url, $data);
+$http-&gt;delete($url, $data);</code></pre>
+<hr />
+<h2>Customizing Requests</h2>
+<h3>Custom Headers</h3>
+<pre><code class="language-php">$headers = ['X-Custom' =&gt; 'value', 'Accept' =&gt; 'application/json'];
+
+$response = $http-&gt;headers($headers)-&gt;get($url);</code></pre>
+<h3>Bearer Token Authentication</h3>
+<pre><code class="language-php">$response = $http-&gt;token('your-token')-&gt;get($url);</code></pre>
+<h3>File Uploads</h3>
+<pre><code class="language-php">$file = ['avatar' =&gt; '/path/to/file.jpg'];
+
+$response = $http-&gt;files()-&gt;post($url);</code></pre>
+<h3>Set Timeout</h3>
+<pre><code class="language-php">$response = $http-&gt;timeout(10)-&gt;get($url);</code></pre>
+<h3>Insecure Requests (Disable SSL Verification)</h3>
+<pre><code class="language-php">$response = $http-&gt;insecure()-&gt;get($url);</code></pre>
+<h3>Custom cURL Options</h3>
+<pre><code class="language-php">$curlOptions = [
+    CURLOPT_PROXY =&gt; 'proxy.example.com:8080',
+    CURLOPT_FOLLOWLOCATION =&gt; false
+];
+
+$response = $http-&gt;options()-&gt;get($url);</code></pre>
+<hr />
+<h2>Handling Responses</h2>
+<h3>Status and Error Checking</h3>
+<pre><code class="language-php">if ($response-&gt;ok()) {
+    // 2xx response
+}</code></pre>
+<pre><code class="language-php">if ($response-&gt;clientError()) {
+    // 4xx error
+}</code></pre>
+<pre><code class="language-php">if ($response-&gt;serverError()) {
+    // 5xx error
+}</code></pre>
+<pre><code class="language-php">if ($response-&gt;failed()) {
+    // Transport error (DNS, connection, SSL, etc.)
+    $error = $response-&gt;error();
+}</code></pre>
+<h3>Parsing Response Data</h3>
+<pre><code class="language-php">$array = $response-&gt;json(); // Array (assumes JSON)
+$text = $response-&gt;body();  // Raw body
+$status = $response-&gt;status(); // HTTP status code</code></pre>
+<h3>Accessing Response Headers</h3>
+<pre><code class="language-php">// Get all headers
+$headers = $response-&gt;responseHeaders();
+
+// Get specific header (case-insensitive)
+$contentType = $response-&gt;responseHeader('Content-Type');
+$rateLimit = $response-&gt;responseHeader('X-RateLimit-Remaining');
+$server = $response-&gt;responseHeader('server');</code></pre>
+<p><strong>Common use cases:</strong></p>
+<pre><code class="language-php">// Check rate limiting
+if ($response-&gt;responseHeader('X-RateLimit-Remaining') &lt; 10) {
+    // Slow down requests
+}
+
+// Get pagination info
+$nextPage = $response-&gt;responseHeader('X-Next-Page');
+
+// Check cache headers
+$cacheControl = $response-&gt;responseHeader('Cache-Control');</code></pre>
+<hr />
+<h2>Downloading Files</h2>
+<pre><code class="language-php">$success = $http-&gt;download('https://example.com/image.jpg', '/tmp/image.jpg');
+
+if ($success) {
+    // File downloaded
+}</code></pre>
+<hr />
+<h2>Streaming Requests</h2>
+<p>The <code>stream()</code> method allows you to process HTTP responses in real-time as chunks arrive, rather than waiting for the entire response to be buffered. This is useful for:</p>
+<ul>
+<li><strong>Long-running AI completions</strong> (OpenAI, Anthropic, etc.)</li>
+<li><strong>Large file downloads</strong> with progress tracking</li>
+<li><strong>Server-Sent Events (SSE)</strong> endpoints</li>
+<li><strong>Real-time data feeds</strong></li>
+</ul>
+<h3>Basic Streaming</h3>
+<pre><code class="language-php">$http-&gt;stream('GET', 'https://api.example.com/stream', null, function($chunk) {
+    echo $chunk;
+    flush();
+});</code></pre>
+<h3>Streaming POST Request</h3>
+<pre><code class="language-php">$http-&gt;stream('POST', 'https://api.example.com/generate', [
+    'prompt' =&gt; 'Write a story',
+    'temperature' =&gt; 0.7
+], function($chunk) {
+    // Process each chunk as it arrives
+    file_put_contents('output.txt', $chunk, FILE_APPEND);
+});</code></pre>
+<h3>Streaming with Headers and Timeout</h3>
+<pre><code class="language-php">$http
+    -&gt;headers(['Authorization' =&gt; 'Bearer token123'])
+    -&gt;timeout(30)
+    -&gt;stream('GET', 'https://api.example.com/events', null, function($chunk) {
+        processChunk($chunk);
+    });</code></pre>
+<h3>Collecting Streamed Data</h3>
+<pre><code class="language-php">$chunks = [];
+$fullContent = '';
+
+$http-&gt;stream('GET', 'https://api.example.com/stream', null, function($chunk) use (&amp;$chunks, &amp;$fullContent) {
+    $chunks[] = $chunk;
+    $fullContent .= $chunk;
+});
+
+echo "Received " . count($chunks) . " chunks\n";
+echo "Total content: " . $fullContent;</code></pre>
+<h3>Streaming with Different HTTP Methods</h3>
+<pre><code class="language-php">// GET request
+$http-&gt;stream('GET', $url, null, $callback);
+
+// POST request
+$http-&gt;stream('POST', $url, ['key' =&gt; 'value'], $callback);
+
+// PUT request
+$http-&gt;stream('PUT', $url, ['data' =&gt; 'update'], $callback);
+
+// DELETE request
+$http-&gt;stream('DELETE', $url, null, $callback);</code></pre>
+<h3>Error Handling with Streaming</h3>
+<p>Streaming requests throw exceptions on HTTP errors (4xx, 5xx) or transport errors:</p>
+<pre><code class="language-php">try {
+    $http-&gt;stream('GET', 'https://api.example.com/stream', null, function($chunk) {
+        echo $chunk;
+    });
+} catch (\Exception $e) {
+    // Handle streaming error
+    echo "Streaming failed: " . $e-&gt;getMessage();
+}</code></pre>
+<h2>Error Handling Explained</h2>
+<ul>
+<li>
+<p><strong>Transport Errors:</strong></p>
+<ul>
+<li>Occur before an HTTP response is received (DNS failure, timeout, SSL error, etc.)</li>
+<li><code>$response-&gt;error()</code> returns the error message</li>
+<li><code>$response-&gt;status()</code> returns 0</li>
+<li><code>$response-&gt;failed()</code> returns true</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP Errors:</strong></p>
+<ul>
+<li>Server returns 4xx or 5xx status</li>
+<li><code>$response-&gt;status()</code> returns the HTTP code</li>
+<li><code>$response-&gt;failed()</code> returns true</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Example: Complete Request Flow</h2>
+<pre><code class="language-php">$http = new Http();
+
+$response = $http
+    -&gt;token('abc123')
+    -&gt;headers(['Accept' =&gt; 'application/json'])
+    -&gt;timeout(10)
+    -&gt;get('https://api.example.com/profile');
+
+if ($response-&gt;ok()) {
+    $profile = $response-&gt;json();
+
+    // Check response headers
+    $rateLimit = $response-&gt;responseHeader('X-RateLimit-Remaining');
+    $contentType = $response-&gt;responseHeader('Content-Type');
+} elseif ($response-&gt;failed()) {
+    // Handle error
+    $error = $response-&gt;error();
+}</code></pre>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Queue</title>
+      <meta name="description" content="Defer heavy tasks to background workers for improved application performance.">
+    <meta property="og:description" content="Defer heavy tasks to background workers for improved application performance.">
+    <meta property="og:title" content="Queue">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  class="active" aria-current="page" >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Lightpack Background Jobs: Complete Guide</h1>
+<p>Ideally, a time consuming job should be performed behind the scenes out of the main HTTP request context. For example, sending email to a user blocks the application until the processing finishes and this may provide a bad experience to your application users. </p>
+<p>What if you could perform time consuming tasks, such as sending emails, in the background without blocking the actual request? </p>
+<p><strong>Welcome to background job processing.</strong></p>
+<p>While there are highly capable solutions available like <strong>RabbitMQ</strong>, <strong>ZeroMQ</strong>, <strong>ActiveMQ</strong>, <strong>RocketMQ</strong>, and many others, <code>Lightpack</code> provides background jobs processing capabilities that is super easy to use and understand. </p>
+<p>Although <code>Lightpack</code> will solve background jobs processing needs for most of the applications, it never aims to be a <strong>full-fledged</strong> message queue broker like those mentioned above.</p>
+<blockquote>
+<p><strong>Lightpack Jobs</strong> provides robust, extensible, and developer-friendly background job processing for PHP apps. Supports MySQL/MariaDB, Redis, synchronous, and null engines out of the box.</p>
+</blockquote>
+<h2>Supported Engines</h2>
+<ul>
+<li><strong>database:</strong> MySQL/MariaDB-backed persistent queue</li>
+<li><strong>redis:</strong> High-performance, production-grade queue (sorted sets, atomic ops, delayed jobs)</li>
+<li><strong>sync:</strong> Executes jobs immediately (for synchronous execution)</li>
+<li><strong>null:</strong> Discards jobs (for tests/dev)</li>
+</ul>
+<p>You can switch the queue engine by altering <code>JOB_ENGINE</code> key in <strong>.env</strong> file.</p>
+<h2>Database Migration</h2>
+<p>If using the <strong>database</strong> engine, you need a <code>jobs</code> table. </p>
+<p>Create schema migration file:</p>
+<pre><code class="language-cli">php console create:migration --support=jobs</code></pre>
+<p>Run migration:</p>
+<pre><code class="language-cli">php console migrate:up</code></pre>
+<hr />
+<h2>Creating Jobs</h2>
+<p>Jobs are PHP classes extending <code>Lightpack\Jobs\Job</code> and implementing a <code>run()</code> method. </p>
+<p>To create a new job class, fire this command in your terminal from project root:</p>
+<pre><code class="language-terminal">php console create:job SendMail</code></pre>
+<p>This should have created a <code>SendMail.php</code> class file in <code>app/Jobs</code> folder. You can implement your job logic in the <code>run()</code> method.</p>
+<pre><code class="language-php">use Lightpack\Jobs\Job;
+
+class SendMail extends Job {
+    public function run() {
+        // Access payload data
+        $to = $this-&gt;payload['to'];
+        $message = $this-&gt;payload['message'];
+
+        // Your job logic - send email
+    }
+}</code></pre>
+<h2>Dispatching Jobs</h2>
+<p>Once you have implemented your job class, you can <strong>dispatch</strong> them by simply invoking its <code>dispatch()</code> method:</p>
+<pre><code class="language-php">(new SendMail)-&gt;dispatch();</code></pre>
+<p>You can optionally pass it an array as payload:</p>
+<pre><code class="language-php">$payload = [
+    'to' =&gt; 'bob@example.com',
+    'message' =&gt; 'Hello Bob'
+];
+
+(new SendMail)-&gt;dispatch($payload);</code></pre>
+<h2>Advanced Job Features</h2>
+<ul>
+<li><strong>Queue:</strong> Set <code>$queue</code> property (default: 'default')</li>
+<li><strong>Delay:</strong> Set <code>$delay</code> property (strtotime string, e.g. '+30 seconds')</li>
+<li><strong>Attempts:</strong> Set <code>$attempts</code> property (default: 1)</li>
+<li><strong>Retry After:</strong> Set <code>$retryAfter</code> property (strtotime string, e.g. '+1 minute')</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-php">class SendMail extends Job {
+    protected $queue = 'emails';
+    protected $delay = '+1 minute';
+    protected $attempts = 3;
+    protected $retryAfter = '+10 seconds';
+}</code></pre>
+<h3>Queue</h3>
+<p>You can specify a queue for a job by setting the <code>$queue</code> property:</p>
+<pre><code class="language-php">class SendMail
+{
+    protected $queue = 'emails';
+}</code></pre>
+<h3>Delay</h3>
+<p>You can delay job processing by a specified amount of time in two ways:</p>
+<p><strong>Option 1: Property-based (class-level default)</strong></p>
+<pre><code class="language-php">class SendMail extends Job
+{
+    protected $delay = '+30 seconds';
+}
+
+(new SendMail)-&gt;dispatch($payload); // Will be delayed by 30 seconds</code></pre>
+<p><strong>Option 2: Method-based (runtime, per-instance)</strong></p>
+<pre><code class="language-php">// Delay a specific job instance
+(new SendMail)-&gt;delay('+1 hour')-&gt;dispatch($payload);
+
+// Dynamic delays for batch processing
+for ($i = 0; $i &lt; 100; $i++) {
+    (new SendMail)
+        -&gt;delay('+' . ($i * 5) . ' seconds')
+        -&gt;dispatch($emails[$i]);
+}</code></pre>
+<p>The <code>delay()</code> method accepts any <code>strtotime()</code> compatible string (e.g., <code>'+30 seconds'</code>, <code>'+1 hour'</code>, <code>'+2 days'</code>).</p>
+<h3>Attempts</h3>
+<p>You can specify the number of attempts a job should be retried by setting the <code>$attempts</code> property:</p>
+<pre><code class="language-php">class SendMail
+{
+    protected $attempts = 3;
+}</code></pre>
+<h3>Retry After</h3>
+<p>You can specify the time after which a failed job should be retried by setting the <code>$retryAfter</code> property:</p>
+<pre><code class="language-php">class SendMail
+{
+    protected $retryAfter = '+1 minute';
+}</code></pre>
+<h2>Rate Limiting</h2>
+<p>Rate limiting controls how many jobs can execute within a time window. Use this when jobs arrive <strong>unpredictably</strong> and you need to respect external service limits.</p>
+<p>Lightpack supports rate limiting out of the box. Implement the <code>rateLimit()</code> method in your job class to enable rate limiting.</p>
+<blockquote>
+<p>Rate limiting depends on Lightpack's Cache system. You should configure your cache driver in <code>.env</code>. Learn more about cache drivers in the <a href="caching">Caching</a> section.</p>
+</blockquote>
+<h3>Setting Rate Limit</h3>
+<pre><code class="language-php">class SendEmailJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        // 10 emails per second
+        return ['limit' =&gt; 10, 'seconds' =&gt; 1];
+    }
+
+    public function run()
+    {
+        // Send email logic
+    }
+}</code></pre>
+<h3>Supported Time Units</h3>
+<p>For better readability, you can use multiple time units:</p>
+<pre><code class="language-php">// Seconds (for high-frequency operations)
+public function rateLimit(): ?array
+{
+    return ['limit' =&gt; 2, 'seconds' =&gt; 1]; // 2 per second
+}
+
+// Minutes (common for API calls)
+public function rateLimit(): ?array
+{
+    return ['limit' =&gt; 6, 'minutes' =&gt; 5]; // 6 login attempts per 5 minutes
+}
+
+// Hours (for moderate limits)
+public function rateLimit(): ?array
+{
+    return ['limit' =&gt; 100, 'hours' =&gt; 1]; // 100 API calls per hour
+}
+
+// Days (for daily quotas)
+public function rateLimit(): ?array
+{
+    return ['limit' =&gt; 1, 'days' =&gt; 1]; // 1 newsletter per day
+}</code></pre>
+<p><strong>Important:</strong> You must specify a time unit. Omitting it will throw an <code>InvalidArgumentException</code>.</p>
+<h3>Using Custom Key</h3>
+<p>Use custom keys to rate limit per user, tenant, or any other dimension:</p>
+<pre><code class="language-php">class SendPaymentReminderJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        $userId = $this-&gt;payload['user_id'];
+
+        return [
+            'limit' =&gt; 3,
+            'hours' =&gt; 1,
+            'key' =&gt; 'payment-reminder:user:' . $userId
+        ];
+    }
+
+    public function run()
+    {
+        // Send payment reminder to specific user
+    }
+}</code></pre>
+<p>This ensures each user can receive max 3 payment reminders per hour, independently.</p>
+<h3>Conditional Rate Limiting</h3>
+<p>Skip rate limiting based on conditions:</p>
+<pre><code class="language-php">class SendEmailJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        // No rate limit for admin users
+        if ($this-&gt;payload['is_admin'] ?? false) {
+            return null;
+        }
+
+        // otherwise limit to 10 attempts per minute
+        return ['limit' =&gt; 10, 'minutes' =&gt; 1];
+    }
+}</code></pre>
+<h3>Jitter: Preventing Thundering Herd</h3>
+<p>When multiple jobs are rate-limited simultaneously, they may all retry at the same time, causing a spike in queue processing. Lightpack automatically adds <strong>jitter</strong> (random delay variation) to prevent this "thundering herd" problem.</p>
+<p><strong>Default Behavior:</strong></p>
+<ul>
+<li>20% jitter is added automatically to all rate-limited job delays</li>
+<li>Example: 60-second window → jobs retry between 60-72 seconds</li>
+<li>Spreads retry load across time instead of all at once</li>
+</ul>
+<p><strong>How It Works:</strong></p>
+<pre><code class="language-php">class SendEmailJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        return ['limit' =&gt; 14, 'seconds' =&gt; 1];
+        // Jobs retry after 1.0-1.2 seconds (20% jitter)
+    }
+}</code></pre>
+<p><strong>Disabling Jitter:</strong></p>
+<pre><code class="language-php">public function rateLimit(): ?array
+{
+    return [
+        'limit' =&gt; 14,
+        'seconds' =&gt; 1,
+        'jitter' =&gt; 0, // No jitter - exact 1 second delay
+    ];
+}</code></pre>
+<p><strong>Custom Jitter:</strong></p>
+<pre><code class="language-php">public function rateLimit(): ?array
+{
+    return [
+        'limit' =&gt; 14,
+        'seconds' =&gt; 1,
+        'jitter' =&gt; 0.5, // 50% jitter - retry between 1.0-1.5 seconds
+    ];
+}</code></pre>
+<p><strong>When Jitter Helps:</strong></p>
+<ul>
+<li>✅ Multiple workers processing jobs</li>
+<li>✅ High-concurrency scenarios (many jobs rate-limited at once)</li>
+<li>✅ Prevents queue spikes</li>
+<li>✅ Smoother resource utilization</li>
+</ul>
+<p><strong>When to Disable Jitter:</strong></p>
+<ul>
+<li>❌ Single worker setups (no thundering herd possible)</li>
+<li>❌ Testing/debugging (need deterministic timing)</li>
+<li>❌ Time-sensitive jobs (need exact retry timing)</li>
+</ul>
+<h3>Additional Notes</h3>
+<p>It is important to understand few of the nuances of rate limiting. Below we document some detailed explanations to help you make informed decisions.</p>
+<h4>Rate Limiting and Attempts Counter</h4>
+<p>Rate-limited jobs DO increment the attempts counter. This is an important design decision:</p>
+<ul>
+<li><strong>Rate limiting</strong> = Waiting for API quota/slots → <strong>increments attempts</strong></li>
+<li><strong>Job failure</strong> = Exception thrown during execution → <strong>increments attempts</strong></li>
+</ul>
+<p><strong>Why both increment attempts:</strong></p>
+<ul>
+<li>Prevents infinite loops if jobs are perpetually rate-limited</li>
+<li>Natural protection against misconfigured rate limits</li>
+<li>Jobs eventually fail rather than cycling forever</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code class="language-php">class SendEmailJob extends Job
+{
+    protected $attempts = 10; // Set higher for rate-limited jobs
+
+    public function rateLimit(): ?array
+    {
+        return ['limit' =&gt; 2, 'seconds' =&gt; 1];
+    }
+
+    public function run()
+    {
+        // Send email
+    }
+}</code></pre>
+<p><strong>Scenario:</strong></p>
+<ul>
+<li>Dispatch 10 emails with <code>$attempts = 3</code></li>
+<li>Jobs 1-2 execute immediately (attempts: 0)</li>
+<li>Jobs 3-10 are rate-limited and released (attempts: 1)</li>
+<li>After 1 second, jobs 3-4 execute (attempts: 1)</li>
+<li>Jobs 5-10 rate-limited again (attempts: 2)</li>
+<li>After 1 second, jobs 5-6 execute (attempts: 2)</li>
+<li>Jobs 7-10 rate-limited again (attempts: 3)</li>
+<li><strong>Jobs 7-10 fail permanently</strong> (max attempts reached)</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Set higher <code>$attempts</code> for rate-limited jobs (e.g., 10-20 instead of 3)</li>
+<li>Monitor rate-limited jobs to tune limits appropriately</li>
+<li>Consider if rate limiting is the right solution for your use case</li>
+</ul>
+<h4>When to Use Rate Limiting vs Manual Delays</h4>
+<p>Rate limiting is not always the best solution. Below are some scenarios to help you decide when to use rate limiting and when to use manual delays.</p>
+<p><strong>Use Rate Limiting When:</strong></p>
+<ul>
+<li>✅ Jobs arrive <strong>unpredictably</strong> (user signups, webhook events, form submissions)</li>
+<li>✅ You <strong>don't control</strong> when jobs are dispatched</li>
+<li>✅ External API has <strong>strict limits</strong> you must respect</li>
+<li>✅ Need <strong>per-user or per-tenant</strong> throttling</li>
+</ul>
+<p><strong>Use Manual Delays (<code>delay()</code> method) When:</strong></p>
+<ul>
+<li>✅ You <strong>know the volume</strong> upfront (batch processing, cron jobs)</li>
+<li>✅ You <strong>control dispatch timing</strong> (scheduled tasks)</li>
+<li>✅ Want to <strong>spread load</strong> evenly over time</li>
+</ul>
+<p><strong>Example Decision:</strong></p>
+<pre><code class="language-php">// ❌ BAD: Batch processing 1000 emails with rate limiting
+for ($i = 0; $i &lt; 1000; $i++) {
+    (new SendEmailJob)-&gt;dispatch($emails[$i]);
+    // Rate limiting will cause many to fail after max attempts
+}
+
+// ✅ GOOD: Batch processing with manual delays
+for ($i = 0; $i &lt; 1000; $i++) {
+    (new SendEmailJob)
+        -&gt;delay('+' . ($i * 2) . ' seconds') // 2 seconds apart
+        -&gt;dispatch($emails[$i]);
+}
+
+// ✅ GOOD: User-triggered emails with rate limiting
+class SendVerificationEmailJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        return ['limit' =&gt; 100, 'minutes' =&gt; 1]; // API limit
+    }
+}
+// Users trigger this unpredictably - rate limiting handles it</code></pre>
+<h4>Batch Processing with Manual Delays</h4>
+<p>For batch processing where you know the volume upfront, use the <code>delay()</code> method instead of rate limiting:</p>
+<p><strong>Calculating Delays:</strong></p>
+<pre><code>If API allows X requests per Y seconds:
+Delay between jobs = Y / X seconds
+
+Examples:
+- 100 per minute → 60/100 = 0.6 seconds apart
+- 10 per second → 1/10 = 0.1 seconds apart
+- 1000 per hour → 3600/1000 = 3.6 seconds apart</code></pre>
+<p><strong>Implementation:</strong></p>
+<pre><code class="language-php">// Example: Email provider allows 100 emails per minute
+// Calculation: 60 seconds / 100 emails = 0.6 seconds per email
+
+$delayPerEmail = 60 / 100; // 0.6 seconds
+
+for ($i = 0; $i &lt; 1000; $i++) {
+    (new SendEmailJob)
+        -&gt;delay('+' . ($i * $delayPerEmail) . ' seconds')
+        -&gt;dispatch($emails[$i]);
+}
+
+// Job 0: dispatches immediately
+// Job 1: dispatches after 0.6 seconds
+// Job 2: dispatches after 1.2 seconds
+// Job 3: dispatches after 1.8 seconds
+// ... and so on</code></pre>
+<p><strong>Why This is Better for Batch Processing:</strong></p>
+<ul>
+<li>✅ No attempts counter wasted on rate limiting</li>
+<li>✅ Predictable execution timeline</li>
+<li>✅ Efficient - jobs execute exactly when scheduled</li>
+<li>✅ No risk of jobs failing due to rate limit cycles</li>
+</ul>
+<h4>Real-World Rate Limiting Examples</h4>
+<p><strong>Example 1: User Verification Emails (unpredictable, API-limited)</strong></p>
+<pre><code class="language-php">class SendVerificationEmailJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        // Email provider allows 100 emails per minute
+        return ['limit' =&gt; 100, 'minutes' =&gt; 1];
+    }
+
+    public function run()
+    {
+        // Users sign up unpredictably throughout the day
+        // Rate limiting ensures we never exceed API limits
+    }
+}</code></pre>
+<p><strong>Example 2: SMS OTP (user-triggered, cost control)</strong></p>
+<pre><code class="language-php">class SendOtpSmsJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        // SMS provider allows 10 per second
+        return ['limit' =&gt; 10, 'seconds' =&gt; 1];
+    }
+
+    public function run()
+    {
+        // Users request OTP codes unpredictably
+        // Rate limiting prevents exceeding SMS provider limits
+    }
+}</code></pre>
+<p><strong>Example 3: Webhook Delivery (event-driven, external service)</strong></p>
+<pre><code class="language-php">class DeliverWebhookJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        $webhookUrl = $this-&gt;payload['webhook_url'];
+
+        // Limit per webhook endpoint to avoid overwhelming recipient
+        return [
+            'limit' =&gt; 50,
+            'minutes' =&gt; 1,
+            'key' =&gt; 'webhook:' . md5($webhookUrl)
+        ];
+    }
+
+    public function run()
+    {
+        // Events trigger webhooks unpredictably
+        // Rate limiting protects recipient servers
+    }
+}</code></pre>
+<p><strong>Example 4: Third-Party API Calls (strict API limits)</strong></p>
+<pre><code class="language-php">class FetchDataFromApiJob extends Job
+{
+    public function rateLimit(): ?array
+    {
+        // External API allows 1000 requests per hour
+        return ['limit' =&gt; 1000, 'hours' =&gt; 1];
+    }
+
+    public function run()
+    {
+        // Various parts of app trigger API calls
+        // Rate limiting ensures we stay within quota
+    }
+}</code></pre>
+<h2>Processing Jobs</h2>
+<p>Once you have dispatched your job it's time to run them. Fire this command from the terminal in your project root:</p>
+<pre><code class="language-terminal">php console jobs:run</code></pre>
+<p>This will hang your terminal prompt and will wait for any jobs to process. If a job is processed successfully or failed, you should see a terminal message accordingly.</p>
+<h3>Worker Options</h3>
+<ul>
+<li><code>--sleep=N</code> (default 5): Seconds to sleep between polling</li>
+<li><code>--queue=emails,default</code>: Comma-separated queue names (note: singular)</li>
+<li><code>--cooldown=N</code> (default 0): Total runtime in seconds before worker stops (0 = unlimited)</li>
+</ul>
+<p><strong>Cooldown Explained:</strong>
+Cooldown is the <strong>total runtime</strong> (not idle time). After running for the specified seconds, the worker stops gracefully. This is useful for:</p>
+<ul>
+<li>Preventing memory leaks by restarting workers periodically</li>
+<li>Picking up new code after deployment (worker restarts with fresh code)</li>
+<li>Works with Supervisor's auto-restart feature</li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-cli"># Worker runs for 10 minutes of total runtime, then stops (Supervisor will restart it)
+php console jobs:run --sleep=2 --queue=emails,default --cooldown=600</code></pre>
+<h3>Signal Handling</h3>
+<p>The worker supports UNIX signals for graceful shutdown and reload.</p>
+<h2>Custom Hooks</h2>
+<p>To run custom logic after a job succeeds or fails (after all retries are exhausted), implement <code>onSuccess()</code> and/or <code>onFailure()</code> in your job class:</p>
+<pre><code class="language-php">class SendMail extends Job {
+    public function run() {
+        // ... job logic ...
+    }
+
+    public function onSuccess() {
+        // Called after successful processing
+    }
+
+    public function onFailure() {
+        // Called after all attempts fail
+    }
+}</code></pre>
+<p>The framework will call these methods automatically if they exist.</p>
+<h2>Handling Permanent Failures</h2>
+<p>When integrating with 3rd party APIs, you may encounter <strong>business logic failures</strong> that shouldn't be retried. For example, insufficient balance, invalid data, or resource not found. For these cases, use the <code>failPermanently()</code> method to fail the job immediately without consuming retry attempts.</p>
+<h3>Basic Usage</h3>
+<pre><code class="language-php">class SendSmsJob extends Job
+{
+    protected $attempts = 3;
+
+    public function run()
+    {
+        $response = $this-&gt;smsProvider-&gt;send(
+            $this-&gt;payload['phone'],
+            $this-&gt;payload['message']
+        );
+
+        // Permanent failure - don't retry
+        if ($response['status'] === 'insufficient_balance') {
+            $this-&gt;failPermanently('SMS Provider: Insufficient balance');
+        }
+
+        // Temporary failure - will retry up to max attempts
+        if ($response['status'] === 'network_timeout') {
+            throw new \RuntimeException('Network timeout, will retry');
+        }
+    }
+}</code></pre>
+<h3>When to Use Permanent Failures</h3>
+<p>Use <code>failPermanently()</code> for business logic failures where retrying won't help:</p>
+<ul>
+<li><strong>Invalid data:</strong> Phone number format is wrong, email address invalid</li>
+<li><strong>Insufficient credits:</strong> API balance too low, quota exceeded</li>
+<li><strong>Resource not found:</strong> User deleted, product removed</li>
+<li><strong>Permission denied:</strong> API key revoked, unauthorized access</li>
+<li><strong>Business rules:</strong> Order already processed, duplicate transaction</li>
+</ul>
+<h3>Permanent vs Temporary Failures</h3>
+<table>
+<thead>
+<tr>
+<th>Failure Type</th>
+<th>Method</th>
+<th>Behavior</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Permanent</strong></td>
+<td><code>$this-&gt;failPermanently()</code></td>
+<td>Fails immediately, no retries</td>
+<td>Invalid data, insufficient credits, permission denied</td>
+</tr>
+<tr>
+<td><strong>Temporary</strong></td>
+<td><code>throw new Exception()</code></td>
+<td>Retries up to <code>max attempts</code></td>
+<td>Network errors, timeouts, rate limits</td>
+</tr>
+</tbody>
+</table>
+<h3>Real-World Example</h3>
+<pre><code class="language-php">class ProcessPaymentJob extends Job
+{
+    protected $attempts = 3;
+    protected $retryAfter = '+30 seconds';
+
+    public function run()
+    {
+        $payment = $this-&gt;paymentGateway-&gt;charge($this-&gt;payload);
+
+        // Permanent failures - business logic issues
+        if ($payment['error'] === 'card_declined') {
+            $this-&gt;failPermanently('Payment declined: ' . $payment['message']);
+        }
+
+        if ($payment['error'] === 'invalid_card') {
+            $this-&gt;failPermanently('Invalid card number');
+        }
+
+        if ($payment['error'] === 'duplicate_transaction') {
+            $this-&gt;failPermanently('Transaction already processed');
+        }
+
+        // Temporary failures - infrastructure issues
+        if ($payment['error'] === 'gateway_timeout') {
+            throw new \RuntimeException('Gateway timeout, will retry');
+        }
+
+        if ($payment['error'] === 'rate_limited') {
+            throw new \RuntimeException('Rate limited, will retry');
+        }
+    }
+}</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>✅ Saves retry attempts for recoverable failures</li>
+<li>✅ Fails fast on permanent issues</li>
+<li>✅ Clear intent in code</li>
+<li>✅ Proper error tracking in failed jobs</li>
+</ul>
+<h2>Retrying Failed Jobs</h2>
+<p>When jobs fail after exhausting all retry attempts, they are marked as <strong>failed</strong> in the queue. You can retry these failed jobs using the <code>jobs:retry</code> command.</p>
+<h3>Retry All Failed Jobs</h3>
+<pre><code class="language-cli">php console jobs:retry</code></pre>
+<p>This will reset all failed jobs and queue them for processing again.</p>
+<h3>Retry a Specific Failed Job</h3>
+<pre><code class="language-cli">php console jobs:retry &lt;job_id&gt;</code></pre>
+<p>Example:</p>
+<pre><code class="language-cli"># For database engine (numeric IDs)
+php console jobs:retry 123
+
+# For Redis engine (string IDs)
+php console jobs:retry job_abc123xyz</code></pre>
+<h3>Retry Failed Jobs from a Specific Queue</h3>
+<pre><code class="language-cli">php console jobs:retry --queue=&lt;queue_name&gt;</code></pre>
+<p>Example:</p>
+<pre><code class="language-cli"># Retry all failed jobs from the 'emails' queue
+php console jobs:retry --queue=emails
+
+# Retry all failed jobs from the 'notifications' queue
+php console jobs:retry --queue=notifications</code></pre>
+<h2>Production</h2>
+<p>In <strong>production</strong> environment, you should run and monitor job processing by using a process monitoring solution like <strong>supervisor</strong>.</p>
+<p>First, you will have to install <code>supervisor</code>:</p>
+<pre><code class="language-terminal">sudo apt-get install supervisor</code></pre>
+<p>Let us assume that your project root path is <code>/var/www/lightpack-app</code>.</p>
+<p>Create a file named <code>lightpack-worker.conf</code> in <code>/etc/supervisor/conf.d</code> directory with following contents:</p>
+<pre><code class="language-text">[program:lightpack-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/lightpack-app/console jobs:run --cooldown=3600
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+user=www-data
+numprocs=4
+redirect_stderr=true
+stdout_logfile=/var/www/lightpack-app/worker.log
+stopwaitsecs=60</code></pre>
+<p><strong>Configuration Notes:</strong></p>
+<ul>
+<li><code>--cooldown=3600</code>: Workers stop after 1 hour of total runtime (not idle time), then Supervisor restarts them. This prevents memory leaks and picks up new code on restart.</li>
+<li><code>autorestart=true</code>: Supervisor automatically restarts workers after they stop</li>
+<li><code>stopwaitsecs=60</code>: Gives workers 60 seconds to finish current job before force-killing</li>
+<li><code>numprocs=4</code>: Runs 4 worker processes in parallel</li>
+</ul>
+<p>Finally, fire these commands to start supervisor:</p>
+<pre><code class="language-terminal">sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start lightpack-worker:*</code></pre>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

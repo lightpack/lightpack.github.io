@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Faker</title>
+      <meta name="description" content="Generate fake data for names, addresses, emails, and more in multiple locales.">
+    <meta property="og:description" content="Generate fake data for names, addresses, emails, and more in multiple locales.">
+    <meta property="og:title" content="Faker">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  class="active" aria-current="page" >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Faker System</h1>
+<p>Lightpack's <strong>Faker</strong> provides a lightweight fake data generator for tests, seeding, and development.</p>
+<hr />
+<h2>Getting Started</h2>
+<pre><code class="language-php">use Lightpack\Faker\Faker;
+
+$faker = new Faker(); // Uses the default 'en' locale</code></pre>
+<h3>Basic Usage</h3>
+<pre><code class="language-php">$name = $faker-&gt;name();         // 'John Smith'
+$email = $faker-&gt;email();       // 'johnsmith@example.com'
+$city = $faker-&gt;city();         // 'London'
+$sentence = $faker-&gt;sentence(); // 'People over you have are we you come up.'
+$uuid = $faker-&gt;uuid();         // 'e7b8...-...'</code></pre>
+<hr />
+<h2>Locale System</h2>
+<p>Faker supports locale-based data via simple PHP arrays. You can:</p>
+<ul>
+<li>Use built-in locales (e.g., <code>en</code>)</li>
+<li>Provide your own locale file</li>
+<li>Inject locale data as an array at runtime</li>
+</ul>
+<h3>Using a Custom Locale File</h3>
+<pre><code class="language-php">$faker = new Faker('custom', '/path/to/custom-locale.php');</code></pre>
+<p>A locale file returns an array of data lists:</p>
+<pre><code class="language-php">&lt;?php
+return [
+    'firstNames' =&gt; ['Jean'],
+    'lastNames' =&gt; ['Dupont'],
+    'domains' =&gt; ['monsite.fr'],
+    'cities' =&gt; ['Paris'],
+    'states' =&gt; ['Île-de-France'],
+    'countries' =&gt; ['France'],
+    'streets' =&gt; ['Rue de la Paix'],
+    'companies' =&gt; ['Acme Corp'],
+    'jobTitles' =&gt; ['Engineer'],
+    'productNames' =&gt; ['Widget'],
+    'phonePrefixes' =&gt; ['+33'],
+    'words' =&gt; ['the', 'be', 'to', 'of', 'and', ...], // Common English words
+    // ...
+];</code></pre>
+<blockquote>
+<p><strong>Note:</strong> If a locale key is missing, Faker automatically falls back to the English (<code>en</code>) locale data for that key.</p>
+</blockquote>
+<h3>Injecting Locale Data Directly</h3>
+<pre><code class="language-php">$faker = new Faker('custom');
+$faker-&gt;setLocaleData([
+    'firstNames' =&gt; ['Anna'],
+    'lastNames' =&gt; ['Smith'],
+    'domains' =&gt; ['example.test'],
+    // ...
+]);</code></pre>
+<hr />
+<h2>Faker API Methods</h2>
+<p>All methods are explicit, chainable, and deterministic (with seeding):</p>
+<h3>Identity &amp; Contact</h3>
+<ul>
+<li><code>firstName(): string</code> — First name only</li>
+<li><code>lastName(): string</code> — Last name only</li>
+<li><code>name(): string</code> — Full name (first + last)</li>
+<li><code>email(): string</code> — Email address (derived from name + domain)</li>
+<li><code>username(): string</code> — Username (format: <code>firstname.lastname##</code>)</li>
+<li><code>phone(): string</code> — Phone number (prefix + 8 digits)</li>
+<li><code>address(): string</code> — Full address (number, street, city, state, country)</li>
+<li><code>city(): string</code> — City name</li>
+<li><code>state(): string</code> — State name</li>
+<li><code>country(): string</code> — Country name</li>
+</ul>
+<h3>Business &amp; Commerce</h3>
+<ul>
+<li><code>company()</code> — Company name</li>
+<li><code>jobTitle()</code> — Job title</li>
+<li><code>productName()</code> — Product name</li>
+<li><code>price(float $min = 1, float $max = 9999, string $currency = '$'): string</code> — Formatted price string</li>
+</ul>
+<h3>Internet &amp; Tech</h3>
+<ul>
+<li><code>domainName(): string</code> — Domain name</li>
+<li><code>url(): string</code> — Random URL with domain</li>
+<li><code>userAgent(): string</code> — Browser user agent string (Chrome, Safari, Firefox, Edge)</li>
+<li><code>ipv4(): string</code> — Random IPv4 address</li>
+<li><code>ipv6(): string</code> — Random IPv6 address</li>
+<li><code>hexColor(): string</code> — Random hex color code (e.g., '#A3F2B1')</li>
+<li><code>uuid(): string</code> — RFC 4122 version 4 UUID</li>
+<li><code>slug(int $words = 3): string</code> — URL-friendly slug</li>
+</ul>
+<h3>Numbers &amp; Types</h3>
+<ul>
+<li><code>number(int $min = 0, int $max = PHP_INT_MAX): int</code> — Random integer</li>
+<li><code>float(float $min = 0, float $max = 1, int $decimals = 2): float</code> — Random float</li>
+<li><code>bool(): bool</code> — Random boolean</li>
+<li><code>enum(array $values)</code> — Random value from array</li>
+</ul>
+<h3>Text</h3>
+<ul>
+<li><code>sentence(int $words = 8): string</code> — Random sentence using common English words</li>
+<li><code>paragraph(int $sentences = 3): string</code> — Random paragraph (each sentence has 7-15 words)</li>
+</ul>
+<h3>Dates &amp; Time</h3>
+<ul>
+<li><code>date(string $format = 'Y-m-d'): string</code> — Random date (between 10 years ago and now)</li>
+<li><code>datetime(string $format = 'Y-m-d H:i:s'): string</code> — Random datetime with time (last 1 year)</li>
+<li><code>dob(int $minAge = 18, int $maxAge = 65): string</code> — Date of birth in 'Y-m-d' format</li>
+<li><code>age(int $min = 0, int $max = 100): int</code> — Random age</li>
+</ul>
+<h3>Security &amp; Finance</h3>
+<ul>
+<li><code>password(int $length = 12): string</code> — Random password with letters, numbers, and special characters</li>
+<li><code>creditCardNumber(): string</code> — Plausible card number (Visa/MasterCard/Amex format, <strong>not Luhn-valid</strong>)</li>
+<li><code>otp(int $digits = 6): string</code> — Numeric one-time password code</li>
+</ul>
+<h3>Geo</h3>
+<ul>
+<li><code>latitude(): float</code> — Random latitude (-90 to 90, 6 decimals)</li>
+<li><code>longitude(): float</code> — Random longitude (-180 to 180, 6 decimals)</li>
+<li><code>zipCode(): string</code> — Random zip/postal code (various formats)</li>
+</ul>
+<h3>Utilities</h3>
+<ul>
+<li><code>arrayOf(string $method, int $count, ...$args): array</code> — Generate array of fake values</li>
+<li><code>seed(int $seed): void</code> — Set deterministic seed (uses <code>mt_srand()</code>)</li>
+</ul>
+<hr />
+<h2>UniqueFaker: Generating Unique Values</h2>
+<p>For unique fake data (e.g., unique emails), use <code>unique()</code>:</p>
+<pre><code class="language-php">$uniqueFaker = $faker-&gt;unique();
+$email1 = $uniqueFaker-&gt;email();
+$email2 = $uniqueFaker-&gt;email(); // Always different from $email1</code></pre>
+<p><strong>Important Details:</strong></p>
+<ul>
+<li>Attempts up to <strong>100 times</strong> to generate a unique value</li>
+<li>Throws <code>RuntimeException</code> if unable to generate unique value after 100 attempts</li>
+<li>Tracks all generated values in memory to ensure uniqueness</li>
+<li>Supports all Faker methods via <code>__call()</code> magic method</li>
+</ul>
+<p><strong>Example of exhaustion:</strong></p>
+<pre><code class="language-php">$unique = $faker-&gt;unique();
+// This will eventually throw RuntimeException after 100 failed attempts
+for ($i = 0; $i &lt; 1000; $i++) {
+    $unique-&gt;enum(['A', 'B']); // Only 2 possible values
+}</code></pre>
+<hr />
+<h2>Deterministic Seeding</h2>
+<p>You can make all fake data deterministic for repeatable tests:</p>
+<pre><code class="language-php">$faker = new Faker();
+$faker-&gt;seed(1234);
+echo $faker-&gt;name(); // Always the same output for the same seed</code></pre>
+<hr />
+<h2>Practical Usage Examples</h2>
+<h3>Generate a Batch of Fake Users</h3>
+<pre><code class="language-php">$faker = new Faker();
+$users = $faker-&gt;arrayOf('name', 5);
+// [ 'John Smith', 'Priya Sharma', ... ]</code></pre>
+<h3>Unique Emails for Seeding</h3>
+<pre><code class="language-php">$unique = $faker-&gt;unique();
+$emails = [];
+for ($i = 0; $i &lt; 10; $i++) {
+    $emails[] = $unique-&gt;email();
+}
+// All emails are unique</code></pre>
+<h3>Generate User Profile</h3>
+<pre><code class="language-php">$user = [
+    'first_name' =&gt; $faker-&gt;firstName(),
+    'last_name' =&gt; $faker-&gt;lastName(),
+    'email' =&gt; $faker-&gt;email(),
+    'username' =&gt; $faker-&gt;username(),
+    'password' =&gt; $faker-&gt;password(16),
+    'phone' =&gt; $faker-&gt;phone(),
+    'address' =&gt; $faker-&gt;address(),
+    'registered_at' =&gt; $faker-&gt;datetime(),
+];</code></pre>
+<h3>Generate Blog Post</h3>
+<pre><code class="language-php">$post = [
+    'title' =&gt; ucwords($faker-&gt;sentence(6)),
+    'slug' =&gt; $faker-&gt;slug(5),
+    'content' =&gt; $faker-&gt;paragraph(5),
+    'author' =&gt; $faker-&gt;name(),
+    'published_at' =&gt; $faker-&gt;datetime('Y-m-d H:i:s'),
+];</code></pre>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

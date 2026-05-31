@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Schedule</title>
+      <meta name="description" content="Run recurring tasks, cron jobs, and scheduled commands with a fluent expression API.">
+    <meta property="og:description" content="Run recurring tasks, cron jobs, and scheduled commands with a fluent expression API.">
+    <meta property="og:title" content="Schedule">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  class="active" aria-current="page" >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Lightpack Scheduler</h1>
+<p>Lightpack provides support for scheduling jobs and commands in your applications. The scheduler lets you automate recurring tasks—like sending emails, cleaning up data, or running custom scripts—using familiar cron expressions, a fluent API, and full testability.</p>
+<p><strong>Scheduling is essential for:</strong></p>
+<ul>
+<li>Automated maintenance (cleanup, backups, pruning)</li>
+<li>Sending periodic notifications or emails</li>
+<li>Running reports or analytics</li>
+<li>Integrating with external services at intervals</li>
+<li>Any recurring or timed workflow</li>
+</ul>
+<p>At the heart of the scheduler is the <strong>cron expression</strong>—a 5-part string describing <em>when</em> a task should run:</p>
+<pre><code>* * * * *
+| | | | |
+| | | | +----- Day of week (0-6, Sunday=0)
+| | | +------- Month (1-12)
+| | +--------- Day of month (1-31)
+| +----------- Hour (0-23)
++------------- Minute (0-59)</code></pre>
+<ul>
+<li><code>* * * * *</code> = every minute</li>
+<li><code>0 * * * *</code> = every hour, at minute 0</li>
+<li><code>0 0 * * *</code> = every day at midnight</li>
+</ul>
+<p>You can use ranges (<code>1-5</code>), steps (<code>*/15</code>), lists (<code>1,15,30</code>), and wildcards (<code>*</code>).</p>
+<hr />
+<h2>Running the Scheduler</h2>
+<p>To actually execute your scheduled jobs and commands, you need to run the scheduler at regular intervals. Lightpack provides a built-in console command for this purpose:</p>
+<pre><code class="language-sh">php console schedule:events</code></pre>
+<p>This command is handled by the <code>ScheduleEvents</code> class and will execute all jobs and commands that are due at the current time.</p>
+<p><strong>Production Setup:</strong></p>
+<p>In the production environment, you should set up a system <strong>cron</strong> job to call this command every minute:</p>
+<pre><code class="language-cron">* * * * * cd /path/to/lightpack &amp;&amp; php console schedule:events &gt;&gt; /dev/null 2&gt;&amp;1</code></pre>
+<p>This ensures your scheduled events are checked and executed on time.</p>
+<hr />
+<h2>How It Works</h2>
+<p>The scheduler works in three steps:</p>
+<ol>
+<li><strong>Define schedules</strong> in <code>boot/schedules.php</code> - You register jobs and commands with their timing</li>
+<li><strong>Cron checks every minute</strong> - System cron runs <code>schedule:events</code> command every minute</li>
+<li><strong>Scheduler executes due events</strong> - Only events that are due at that moment are executed</li>
+</ol>
+<h3>Job vs Command</h3>
+<p><strong>Jobs</strong> are dispatched to your queue system (async):</p>
+<pre><code class="language-php">schedule()-&gt;job(SendEmailJob::class)-&gt;daily();
+// Dispatches to queue → processed by worker → non-blocking</code></pre>
+<p><strong>Commands</strong> run immediately (sync):</p>
+<pre><code class="language-php">schedule()-&gt;command(BackupCommand::class)-&gt;daily();
+// Executes directly → blocks until complete → returns output</code></pre>
+<p><strong>Use jobs for:</strong> Email sending, API calls, long-running tasks<br />
+<strong>Use commands for:</strong> Database cleanup, file operations, quick scripts</p>
+<hr />
+<h2>Registering Schedules</h2>
+<p>Create or edit <code>boot/schedules.php</code> in your project root:</p>
+<pre><code class="language-php">&lt;?php
+
+// boot/schedules.php
+
+// Schedule a job to run every day at midnight
+schedule()-&gt;job(SendDailyReport::class)-&gt;daily();
+
+// Schedule a command to run every hour
+schedule()-&gt;command(CleanupCommand::class)-&gt;hourly();
+
+// Schedule a command with arguments
+schedule()-&gt;command(BackupCommand::class, ['--force' =&gt; true])-&gt;daily()-&gt;at('02:00');
+
+// Schedule a job every 15 minutes
+schedule()-&gt;job(SyncDataJob::class)-&gt;everyMinutes(15);</code></pre>
+<p><strong>Complete Setup Example:</strong></p>
+<pre><code class="language-php">&lt;?php
+
+// boot/schedules.php
+
+use App\Jobs\SendDailyReport;
+use App\Jobs\CleanupTempFiles;
+use App\Jobs\SyncExternalData;
+use App\Console\Commands\BackupDatabase;
+use App\Console\Commands\GenerateReports;
+
+// Send daily report at 9 AM
+schedule()-&gt;job(SendDailyReport::class)
+    -&gt;daily()
+    -&gt;at('09:00');
+
+// Cleanup temp files every hour
+schedule()-&gt;job(CleanupTempFiles::class)
+    -&gt;hourly();
+
+// Sync data every 30 minutes
+schedule()-&gt;job(SyncExternalData::class)
+    -&gt;everyMinutes(30);
+
+// Backup database every day at 2 AM
+schedule()-&gt;command(BackupDatabase::class)
+    -&gt;daily()
+    -&gt;at('02:00');
+
+// Generate weekly reports on Mondays at 8 AM
+schedule()-&gt;command(GenerateReports::class, ['--type' =&gt; 'weekly'])
+    -&gt;mondays()
+    -&gt;at('08:00');</code></pre>
+<h2>Setting When Events Run</h2>
+<p><strong>Using Cron Expressions Directly</strong></p>
+<pre><code class="language-php">schedule()-&gt;job(BackupJob::class)-&gt;cron('0 3 * * *'); // Every day at 3:00 AM</code></pre>
+<p><strong>Using Fluent Helpers</strong></p>
+<ul>
+<li><code>daily()</code> — every day at midnight</li>
+<li><code>hourly()</code> — every hour at minute 0</li>
+<li><code>weekly()</code> — every Sunday at midnight</li>
+<li><code>monthly()</code> — first day of month at midnight</li>
+<li><code>everyMinutes(15)</code> — every 15 minutes</li>
+<li><code>mondays()</code>, <code>tuesdays()</code>, ..., <code>sundays()</code> — at midnight on that day</li>
+<li><code>at('17:30')</code> — run at a specific time (combine with day helpers)</li>
+</ul>
+<h2>Examples</h2>
+<p>Every Friday at 5:00 PM</p>
+<pre><code class="language-php">schedule()-&gt;job(SendNewsletter::class)-&gt;fridays()-&gt;at('17:00');</code></pre>
+<p>15th of each month at 9:00 AM</p>
+<pre><code class="language-php">schedule()-&gt;job(SendNewsletter::class)-&gt;monthlyOn(15, '09:00');</code></pre>
+<p>Run a Job Every 15 Minutes</p>
+<pre><code class="language-php">schedule()-&gt;job(SyncJob::class)-&gt;everyMinutes(15);</code></pre>
+<p>Run a Command Every Monday at 9:15 AM</p>
+<pre><code class="language-php">schedule()-&gt;command(WeeklySummary::class)-&gt;mondays()-&gt;at('9:15');</code></pre>
+<p>Run on the 1st and 15th of Each Month at 8:00 AM</p>
+<pre><code class="language-php">schedule()-&gt;job(BiMonthlyJob::class)-&gt;cron('0 8 1,15 * *');</code></pre>
+<hr />
+<h2>Important Notes</h2>
+<h3>Timezone</h3>
+<p>All scheduled times use your server's timezone. Make sure your server timezone is configured correctly:</p>
+<pre><code class="language-sh">date  # Check current server time</code></pre>
+<h3>Overlapping Jobs</h3>
+<p>If a job takes longer than its schedule interval, multiple instances will be dispatched. For example:</p>
+<pre><code class="language-php">schedule()-&gt;job(LongRunningJob::class)-&gt;everyMinutes(5);
+// If job takes 10 minutes, scheduler dispatches it again at 5 min mark
+// Result: 2+ instances running simultaneously</code></pre>
+<p><strong>To prevent overlaps, following are few guidelines:</strong></p>
+<ol>
+<li><strong>Make jobs faster</strong> - Break large jobs into smaller chunks</li>
+<li><strong>Increase interval</strong> - Schedule less frequently than job duration</li>
+<li><strong>Add job locking</strong> - Use Lightpack's built-in lock utility to prevent overlaps:</li>
+</ol>
+<pre><code class="language-php">public function run() {
+    // Try to acquire lock (expires after 600 seconds)
+    if (lock()-&gt;acquire('long-running-job', 600) === false) {
+        return; // Already running, skip this execution
+    }
+
+    try {
+        // Your job logic here
+    } finally {
+        lock()-&gt;release('long-running-job');
+    }
+}</code></pre>
+<p>See <a href="/docs/v0.x/mutex-lock">Mutex Lock documentation</a> for more details.</p>
+<h3>Testing Schedules</h3>
+<p>You can test if events are scheduled correctly:</p>
+<pre><code class="language-php">$event = schedule()-&gt;job(MyJob::class)-&gt;daily()-&gt;at('09:00');
+
+// Check if due at specific time
+$isDue = $event-&gt;isDueAt(new \DateTime('2024-01-15 09:00:00'));
+
+// Get next run time
+$nextRun = $event-&gt;nextDueAt();
+
+// Get previous run time
+$previousRun = $event-&gt;previousDueAt();</code></pre>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

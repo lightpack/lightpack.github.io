@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Cable</title>
+      <meta name="description" content="Real-time event broadcasting with channel subscriptions and event pushing.">
+    <meta property="og:description" content="Real-time event broadcasting with channel subscriptions and event pushing.">
+    <meta property="og:title" content="Cable">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  class="active" aria-current="page" >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Cable: Real-Time Communication for Lightpack</h1>
+<p><strong>Cable</strong> is Lightpack's elegant solution for real-time communication between your server and clients. With a Socket.io-like API familiarity and a focus on simplicity and efficiency, <strong>Cable</strong> provides powerful real-time features without external dependencies.</p>
+<p>You can build live dashboards, notifications, presence channels, chat messages and more with minimal friction. It uses an efficient <code>HTTP Polling</code> mechanism to provide real-time communication capabilities:</p>
+<ul>
+<li><strong>Socket.io-like API</strong>: Familiar, event-based programming model</li>
+<li><strong>Channel-based messaging</strong>: Target specific users or groups</li>
+<li><strong>Presence channels</strong>: Track which users are online</li>
+<li><strong>DOM updates</strong>: Directly update page elements</li>
+<li><strong>Driver architecture</strong>: Support for database and Redis backends</li>
+</ul>
+<blockquote>
+<p>Most app don't need sub-second updates and hence not worth the infrastructure complexity of Websocket implementation. Real-time doesn't always mean WebSockets!</p>
+</blockquote>
+<h2>Cable Event Flow (Lifecycle)</h2>
+<pre><code>→ PHP emits event 
+→ Driver stores event 
+→ Browser polls 
+→ New events delivered 
+→ JS handler runs</code></pre>
+<hr />
+<h2>Core Concepts</h2>
+<ul>
+<li><strong>Channel:</strong> A logical stream (e.g., <code>chat:42</code>, <code>dashboard</code>, <code>presence:room1</code>).</li>
+<li><strong>Event:</strong> A named action (e.g., <code>message:new</code>, <code>dom-update</code>, <code>presence:update</code>).</li>
+<li><strong>Payload:</strong> Arbitrary data sent with each event.</li>
+<li><strong>Driver:</strong> Backend for message storage/delivery (Database, Redis, custom).</li>
+<li><strong>Presence:</strong> Tracks online users in a channel.</li>
+<li><strong>Batching:</strong> Efficiently emits many events at once.</li>
+</ul>
+<hr />
+<h2>Quick Start</h2>
+<p>Lightpack already ships with few route definitions for making it easy to work with message polling or presence channels. You can look for <code>routes/cable.php</code> file for more details. Following sections gives you a quick overview to get started with realtime features.</p>
+<h3>1. Configure Cable</h3>
+<p>Please run following command to create <code>config/cable.php</code> configuration file.</p>
+<pre><code class="language-cli">php console create:config --support=cable</code></pre>
+<p><strong>Choose a driver:</strong></p>
+<ul>
+<li>Database (default, simple, persistent storage)</li>
+<li>Redis (high-performance, temporary storage)</li>
+</ul>
+<h3>2. Run Migration</h3>
+<p>If you use <strong>database</strong> as backend for <strong>cable</strong> features, you need to migrate schema.</p>
+<p>Create schema migration file:</p>
+<pre><code class="language-cli">php console create:migration --support=cable</code></pre>
+<p>Run migration:</p>
+<pre><code class="language-cli">php console migrate:up</code></pre>
+<h3>3. Define Route</h3>
+<pre><code class="language-php">route()-&gt;post('/realtime/send-message', RealtimeController::class, 'triggerMessage');</code></pre>
+<p>This route will forward the <code>POST /realtime/send-message</code> request to <strong>RealtimeController</strong>'s triggerMessage() method.</p>
+<h3>4. Emit Events</h3>
+<p>In your controller's method, emit an event <code>message:new</code> to the <code>notifications</code> channel with required payload:</p>
+<pre><code class="language-php">class RealtimeController
+{
+    public function triggerMessage(Cable $cable)
+    {
+        $cable-&gt;to('notifications')-&gt;emit('message:new', [
+            'text' =&gt; request()-&gt;input('message'),
+        ]);
+
+        return response()-&gt;json(['success' =&gt; true]);
+    }
+}</code></pre>
+<h3>5. Receive Events</h3>
+<p>In your frontend, include the <code>cable.js</code> script file:</p>
+<pre><code class="language-html">&lt;?= asset()-&gt;load('js/cable.js') ?&gt;</code></pre>
+<p>Initialize <code>cable</code> client and subscribe to <code>notifications</code> channel events:</p>
+<pre><code class="language-javascript">// Connect to Cable
+const socket = cable.connect();
+
+// Subscribe to `message:new` event on notifications channel 
+socket
+    .subscribe('notifications')
+    .on('message:new', function(data) {
+        console.log('New message:', data.text);
+    });</code></pre>
+<h2>Channel-Based Communication</h2>
+<p>Channels allow you to organize your real-time communication. Your application emits events on a channel, whereas your frontend client subscribes to events on a channel.</p>
+<h3>Emitting Events</h3>
+<pre><code class="language-php">// Send to a specific user
+$cable-&gt;to("user.{$userId}")-&gt;emit('private-message', [
+    'text' =&gt; 'This is a private message'
+]);</code></pre>
+<pre><code class="language-php">// Send to a group
+$cable-&gt;to('admin-notifications')-&gt;emit('system-alert', [
+    'level' =&gt; 'warning',
+    'message' =&gt; 'Disk space is low'
+]);</code></pre>
+<pre><code class="language-php">// Broadcast to everyone
+$cable-&gt;to('broadcasts.all')-&gt;emit('announcement', [
+    'message' =&gt; 'Site maintenance in 10 minutes'
+]);</code></pre>
+<h3>Subscribing to Events</h3>
+<p>Your frontend client can subscribe to emitted events without requiring to manually poll for new messages:</p>
+<pre><code class="language-javascript">const subscription = socket.subscribe('another-channel');
+
+subscription.on('event-one', function(data) {
+    console.log('Event one:', data);
+});
+
+subscription.on('event-two', function(data) {
+    console.log('Event two:', data);
+});</code></pre>
+<h3>Custom Configurations</h3>
+<p>You can customize following option when initializing a <strong>cable</strong> connection.</p>
+<pre><code class="language-javascript">const socket = cable.connect(
+    endpoint: '/cable/poll',
+    pollInterval: 3000,
+    reconnectInterval: 5000,
+    maxReconnectAttempts: 5
+)</code></pre>
+<h3>DOM Updates</h3>
+<p>Cable can directly update DOM elements without writing custom JavaScript:</p>
+<pre><code class="language-php">// Update a specific element by selector
+$cable-&gt;to('dashboard')-&gt;update(
+    '#user-count', 
+    "&lt;strong&gt;{$userCount}&lt;/strong&gt; users online"
+);</code></pre>
+<pre><code class="language-php">// Update multiple elements with the same selector
+$cable-&gt;to('dashboard')-&gt;update(
+    '.status-indicator', 
+    '&lt;span class="online"&gt;&lt;/span&gt;'
+);</code></pre>
+<blockquote>
+<p>On the client-side, this is handled automatically - no additional code needed!</p>
+</blockquote>
+<h3>Cable API Reference</h3>
+<p><code>to(string $channel): self</code></p>
+<p>Targets a specific channel for subsequent events.</p>
+<pre><code class="language-php">// Targeting a chat channel
+$chat = $cable-&gt;to('chat:42');</code></pre>
+<p><code>emit(string $event, array $payload = [])</code></p>
+<p>Sends an event (with payload) to the current channel.</p>
+<pre><code class="language-php">// Emitting a new chat message
+$cable-&gt;to('chat:42')-&gt;emit('message:new', [
+    'user' =&gt; 'alice',
+    'text' =&gt; 'Hello, world!'
+]);</code></pre>
+<p><code>update(string $selector, string $html)</code></p>
+<p>Emits a <code>dom-update</code> event, allowing you to update parts of the UI in real time.</p>
+<pre><code class="language-php">// Live update a status element on all dashboards
+$cable-&gt;to('dashboard')-&gt;update('#status', '&lt;span&gt;Online&lt;/span&gt;');</code></pre>
+<p><code>getMessages(?string $channel = null, ?int $lastId = null): array</code></p>
+<p>Retrieves new messages for a channel since a given message ID. Used by polling clients (normally not called directly).</p>
+<pre><code class="language-php">// Fetch new messages for chat:42 since message ID 100
+$messages = $cable-&gt;getMessages('chat:42', 100);
+foreach ($messages as $msg) {
+    echo $msg-&gt;event . ': ' . json_encode($msg-&gt;payload);
+}</code></pre>
+<p><code>cleanup(int $olderThanSeconds = 86400)</code></p>
+<p>Deletes old messages from the backend (maintenance/housekeeping).</p>
+<pre><code class="language-php">// Remove messages older than 1 hour
+$cable-&gt;cleanup(3600);</code></pre>
+<blockquote>
+<p>You can run a schedule to routinely cleanup old messages.</p>
+</blockquote>
+<h2>Presence Channels</h2>
+<p>Presence channels allow you to easily track which users are online in real-time.</p>
+<p><strong>Note</strong>: You must define the following meta tag inside <head> tag. This is automatically used by the <code>cable.js</code> to pass CSRF token in request header for presence endpoints.</p>
+<pre><code class="language-html">&lt;meta name="csrf-token" content="&lt;?= csrf_token() ?&gt;"&gt;</code></pre>
+<p><strong>Initialize the channel presence</strong></p>
+<pre><code class="language-javascript">// Define channel name
+const channel = 'presence-room';
+
+// Initialize Cable
+const socket = cable.connect();
+
+// Initialize presence channel
+const presence = socket.presence(channel, userId);</code></pre>
+<p>Now you can utilize the presence channel capabilities as documented below:</p>
+<h3>Join the presence channel</h3>
+<pre><code class="language-javascript">presence.join()
+    .then(() =&gt; {
+        console.log('Joined presence channel');
+
+        // Start heartbeat to maintain presence
+        presence.startHeartbeat();
+    });</code></pre>
+<h3>Leave presence channel</h3>
+<pre><code class="language-javascript">presence.stopHeartbeat();
+presence.leave()
+    .then(() =&gt; {
+        console.log('Left presence channel');
+    });</code></pre>
+<h3>Get all users in channel</h3>
+<pre><code class="language-javascript">presence.getUsers()
+    .then(data =&gt; {
+        console.log('Users in channel:', data.users);
+    });</code></pre>
+<h3>Subscribe to presence channel events</h3>
+<pre><code class="language-javascript">socket.subscribe(channel)
+
+    // Handle presence updates
+    .on('presence:update', function(data) {
+        console.log('Presence update:', data);
+        // updateOnlineUsers(data.users);
+    })
+
+    // Handle join events
+    .on('presence:join', function(data) {
+        console.log('Users joined:', data.users);
+        data.users.forEach(id =&gt; {
+            // addNotification(`User ${id} joined the chat`);
+        });
+    })
+
+    // Handle leave events
+    .on('presence:leave', function(data) {
+        console.log('Users left:', data.users);
+        data.users.forEach(id =&gt; {
+            // addNotification(`User ${id} left the chat`);
+        });
+    })
+
+    // Handle message events
+    .on('message', function(data) {
+        console.log('Received message event with data:', data);
+        // addMessage(data.userId, data.text);
+    });</code></pre>
+<h3>Presence Channel Configuration</h3>
+<pre><code class="language-javascript">// Join a presence channel with custom endpoint
+presence.join('/custom/join/endpoint');
+
+// Leave a presence channel with custom endpoint
+presence.leave('/custom/leave/endpoint);
+
+// Start heartbeat with custom interval and endpoint
+presence.startHeartbeat(30000, '/custom/heartbeat/endpoint');
+
+// Get users with custom endpoint
+presence.getUsers('/custom/users/endpoint');</code></pre>
+<h2>Message Batching</h2>
+<p>You can batch multiple messages together to promote better performance:</p>
+<ol>
+<li>Fewer database writes</li>
+<li>Better transaction handling</li>
+<li>Reduced server load</li>
+<li>More efficient client updates</li>
+</ol>
+<h3>Server-Side Batching</h3>
+<p><strong>Without Batching (BAD)</strong></p>
+<pre><code class="language-php">public function notifyUsers(Cable $cable)
+{
+    // Sending 100 notifications = 100 database writes
+    foreach($users as $user) {
+
+        $cable-&gt;to('notifications')-&gt;emit('message:new', [
+            'user' =&gt; $user-&gt;id,
+            'message' =&gt; 'Hello'
+        ]);
+
+    }
+}</code></pre>
+<p><strong>With Batching (GOOD)</strong></p>
+<pre><code class="language-php">public function notifyUsers(MessageBatcher $batcher)
+{
+    $batcher-&gt;channel('notifications')-&gt;batchSize(100);
+
+    // Sending 100 notifications = 1 database writes
+    foreach($users as $user) {
+
+        $batcher-&gt;add('message:new', [
+            'user' =&gt; $user-&gt;id,
+            'message' =&gt; 'Hello'
+        ]);
+
+    }
+}</code></pre>
+<blockquote>
+<p>The default batch size is 100 which you can override. You never need to manually flush the batch of messages. it is automatically done by the <strong>MessageBatcher</strong> instance.</p>
+</blockquote>
+<h3>Client-Side Batching</h3>
+<pre><code class="language-javascript">const socket = cable.connect();
+const channel = 'user-tracking';
+
+// Configure client-side batching
+socket.setBatchOptions({
+    batchSize: 5,           // Max events per batch
+    batchInterval: 2000,     // Flush interval in ms
+    batchEndpoint: '&lt;?= url()-&gt;route('api.batch-events') ?&gt;',
+    csrfToken: '&lt;?= csrfToken() ?&gt;',
+});
+
+// Track events (added to batch)
+socket.emitBatched(channel, 'event:button-clicked', { data: 'Subscribe Button' });
+socket.emitBatched(channel, 'event:mouse-moved', { data: 'FAQ Section' });
+socket.emitBatched(channel, 'event:button-hovered', { data: 'Buy Now Button' });
+...
+...
+...
+socket.emitBatched(channel, 'event:button-clicked', { data: 'Buy Now Button' });</code></pre>
+<blockquote>
+<p>Once the batch size exceeds or batch interval passes, the batch endpoint is automatically called with all the even data.</p>
+</blockquote>
+<p>If required, you can manually flush the batch of events:</p>
+<pre><code class="language-javascript">socket.flushOutgoingBatch();</code></pre>
+<h2>Notification Sounds</h2>
+<p>An interesting feature of Lightpack <code>cable.js</code> client is that it can play sounds for subcribed events:</p>
+<pre><code class="language-javascript">cable.playSound('/sounds/notify.mp3');</code></pre>
+<p><strong>For example:</strong></p>
+<ul>
+<li>You can put the <strong>notify.mp3</strong> file in <code>public/sounds</code> folder.</li>
+<li>Optionally, set the volume by passing a value between 0 to 1.</li>
+</ul>
+<pre><code class="language-javascript">socket
+    .subscribe('notifications')
+    .on('message', function(data) {
+        cable.playSound('/sounds/notify.mp3', 0.7);
+    });</code></pre>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

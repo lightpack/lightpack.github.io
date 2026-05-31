@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Transformers</title>
+      <meta name="description" content="Serialize model data for APIs with field selection, includes, and nested resource control.">
+    <meta property="og:description" content="Serialize model data for APIs with field selection, includes, and nested resource control.">
+    <meta property="og:title" content="Transformers">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  class="active" aria-current="page" >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Model Transformers in Lightpack ORM</h1>
+<p>Model transformers are a powerful feature in Lightpack ORM, designed to help you convert your models (and collections of models) into clean, structured arrays for API responses, view rendering, or any custom output. They empower you to:</p>
+<ul>
+<li>Select and filter fields dynamically</li>
+<li>Include and nest related models</li>
+<li>Transform collections and paginated data</li>
+<li>Support multiple output contexts (e.g., API, view)</li>
+<li>Keep presentation logic out of your models</li>
+</ul>
+<hr />
+<h2>What is a Transformer?</h2>
+<p>A transformer is a dedicated class that defines how a model (or collection of models) should be represented as an array. Transformers encapsulate field selection, relation inclusion, and output formatting logic.</p>
+<p><strong>Why use transformers?</strong></p>
+<ul>
+<li>Centralize and DRY up your serialization logic</li>
+<li>Enforce consistent API and view output</li>
+<li>Support dynamic field selection and relation includes</li>
+<li>Easily adapt output for different consumers (API, admin, etc.)</li>
+</ul>
+<hr />
+<h2>How Transformer Resolution Works</h2>
+<p>Transformers in Lightpack ORM are designed to make your API and view output flexible, maintainable, and secure. Understanding how the framework selects and applies transformers is key to leveraging their full power.</p>
+<h3>Resolution Process</h3>
+<p>When you call the <code>transform()</code> method on a model (or collection), Lightpack follows a clear, predictable process:</p>
+<ol>
+<li>
+<p><strong>Check the <code>$transformer</code> Property</strong></p>
+<ul>
+<li>This property tells Lightpack which transformer class to use.</li>
+<li>It can be:<ul>
+<li>A <strong>string</strong>: The class name of a single transformer (e.g., <code>UserTransformer::class</code>).</li>
+<li>An <strong>array</strong>: A map of context names (like <code>'api'</code>, <code>'view'</code>) to transformer classes.</li>
+<li><code>null</code>: No transformer defined—calling <code>transform()</code> will throw an error.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Context Support</strong></p>
+<ul>
+<li>If you want different outputs for different consumers (API, admin, etc.), use an array mapping contexts to transformer classes.</li>
+<li>At runtime, specify the context via the <code>context</code> option:<pre><code class="language-php">$product-&gt;transform(['context' =&gt; 'api']);
+$product-&gt;transform(['context' =&gt; 'view']);</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Fields and Includes</strong></p>
+<ul>
+<li>You can pass a <code>fields</code> array to include only specific fields for the main model or for related models.</li>
+<li>You can pass an <code>includes</code> array to include related data (including nested relations).</li>
+<li>These options are forwarded directly to the transformer instance before transformation.<pre><code class="language-php">$user-&gt;transform([
+  'fields' =&gt; ['self' =&gt; ['name', 'email']],
+  'includes' =&gt; ['profile', 'roles'],
+]);</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2>Defining a Transformer</h2>
+<hr />
+<p>The <code>transform()</code> method on any model is the canonical way to convert it to an array for API or view output. This method:</p>
+<ul>
+<li>Looks up the transformer class from the model’s <code>$transformer</code> property.</li>
+<li>If <code>$transformer</code> is a string, it instantiates that transformer.</li>
+<li>If <code>$transformer</code> is an array, it expects a <code>context</code> key in the options array (e.g., <code>'api'</code>, <code>'view'</code>) and selects the transformer for that context.</li>
+<li>If no transformer is defined, or the context is invalid, it throws a clear, descriptive exception.</li>
+</ul>
+<h3>Examples</h3>
+<pre><code class="language-php">// Single transformer
+class User extends Model {
+    protected $transformer = UserTransformer::class;
+}
+
+// Multiple contexts
+class Product extends Model {
+    protected $transformer = [
+        'api' =&gt; ProductApiTransformer::class,
+        'view' =&gt; ProductViewTransformer::class,
+    ];
+}
+
+// Usage
+$user = new User(1);
+$userArray = $user-&gt;transform(); // Uses UserTransformer
+
+$product = new Product(1);
+$productApi = $product-&gt;transform(['context' =&gt; 'api']);
+$productView = $product-&gt;transform(['context' =&gt; 'view']);</code></pre>
+<h4>Passing Fields and Includes</h4>
+<p>You can pass <code>fields</code> and <code>includes</code> options to control the output:</p>
+<pre><code class="language-php">$user-&gt;transform([
+    'fields' =&gt; ['self' =&gt; ['name', 'email']],
+    'includes' =&gt; ['profile', 'roles'],
+]);</code></pre>
+<p>These options are forwarded to the transformer instance and determine which fields and relations are included in the output.</p>
+<hr />
+<p>The transformer class extends <code>Lightpack\Database\Lucid\Transformer</code> and implements a <code>data()</code> method. This method returns an array representation of the model, controlling which fields are exposed and how relations are included.</p>
+<h3>Basic Transformer Example</h3>
+<pre><code class="language-php">use Lightpack\Database\Lucid\Transformer;
+
+class ProjectTransformer extends Transformer
+{
+    protected function data(Project $project): array
+    {
+        return [
+            'id' =&gt; $project-&gt;id,
+            'name' =&gt; $project-&gt;name,
+        ];
+    }
+}</code></pre>
+<h3>Using Fields and Includes in Transformers</h3>
+<p>You don't have to manually filter fields or include relations in your <code>data()</code> method—Lightpack handles this based on the <code>fields()</code> and <code>includes()</code> options passed at runtime. Your <code>data()</code> method should return the full set of possible fields for the model.</p>
+<h3>Contextual Transformers</h3>
+<p>You can define multiple transformers for the same model to support different output contexts (e.g., API, view, admin):</p>
+<pre><code class="language-php">class ProductApiTransformer extends Transformer
+{
+    protected function data(Product $product): array
+    {
+        return [
+            'name' =&gt; $product-&gt;name,
+            'price' =&gt; $product-&gt;price,
+        ];
+    }
+}
+
+class ProductViewTransformer extends Transformer
+{
+    protected function data(Product $product): array
+    {
+        return [
+            'id' =&gt; $product-&gt;id,
+            'name' =&gt; $product-&gt;name,
+            'price' =&gt; $product-&gt;price,
+            'color' =&gt; $product-&gt;color,
+        ];
+    }
+}</code></pre>
+<h3>Associating Transformers with Models</h3>
+<p>To use a default transformer, set the <code>$transformer</code> property on your model:</p>
+<pre><code class="language-php">class Project extends Model
+{
+    protected $table = 'projects';
+    protected $transformer = ProjectTransformer::class;
+}</code></pre>
+<p>To support multiple contexts, use an array mapping context names to transformer classes:</p>
+<pre><code class="language-php">class Product extends Model
+{
+    protected $transformer = [
+        'api' =&gt; ProductApiTransformer::class,
+        'view' =&gt; ProductViewTransformer::class,
+    ];
+}</code></pre>
+<p>When transforming, specify the context:</p>
+<pre><code class="language-php">$product-&gt;transform(['context' =&gt; 'api']); // Uses ProductApiTransformer
+$product-&gt;transform(['context' =&gt; 'view']); // Uses ProductViewTransformer</code></pre>
+<p>If an invalid context is provided, Lightpack will throw a descriptive exception listing available contexts.</p>
+<hr />
+<h2>Basic Usage</h2>
+<h3>Transforming a Single Model</h3>
+<pre><code class="language-php">$project = new Project(1);
+$transformer = new ProjectTransformer();
+
+$result = $transformer-&gt;transform($project);
+// [ 'id' =&gt; 1, 'name' =&gt; 'Project 1' ]</code></pre>
+<h3>Field Selection</h3>
+<p>Select only specific fields for the main model ("self") or for relations:</p>
+<pre><code class="language-php">$result = $transformer
+    -&gt;fields(['self' =&gt; ['name']])
+    -&gt;transform($project);
+// [ 'name' =&gt; 'Project 1' ]</code></pre>
+<h3>Including Relations</h3>
+<p>To include related models, you must first define transformers for those relations in your transformer's <code>transformerMap()</code> method:</p>
+<pre><code class="language-php">class ProjectTransformer extends Transformer
+{
+    protected function data(Project $project): array
+    {
+        return [
+            'id' =&gt; $project-&gt;id,
+            'name' =&gt; $project-&gt;name,
+        ];
+    }
+
+    protected function transformerMap(): array
+    {
+        return [
+            'tasks' =&gt; TaskTransformer::class,
+        ];
+    }
+}</code></pre>
+<p>Now you can include related models by name:</p>
+<pre><code class="language-php">$result = $transformer
+    -&gt;includes('tasks')
+    -&gt;fields([
+        'self' =&gt; ['name'],
+        'tasks' =&gt; ['id', 'name'],
+    ])
+    -&gt;transform($project);
+// [ 'name' =&gt; 'Project 1', 'tasks' =&gt; [ [ 'id' =&gt; 1, 'name' =&gt; 'Task 1' ] ] ]</code></pre>
+<p class="tip"><b>Important:</b> If you try to include a relation that is not defined in <code>transformerMap()</code>, a <code>RuntimeException</code> will be thrown with a clear message indicating which relation is missing.</p>
+<hr />
+<h2>Nested Relations &amp; Deep Includes</h2>
+<p>You can include nested relations using dot notation. Each level must have its transformer defined:</p>
+<pre><code class="language-php">class ProjectTransformer extends Transformer
+{
+    protected function data(Project $project): array
+    {
+        return ['id' =&gt; $project-&gt;id, 'name' =&gt; $project-&gt;name];
+    }
+
+    protected function transformerMap(): array
+    {
+        return [
+            'tasks' =&gt; TaskTransformer::class,
+        ];
+    }
+}
+
+class TaskTransformer extends Transformer
+{
+    protected function data(Task $task): array
+    {
+        return ['id' =&gt; $task-&gt;id, 'name' =&gt; $task-&gt;name];
+    }
+
+    protected function transformerMap(): array
+    {
+        return [
+            'comments' =&gt; CommentTransformer::class,
+        ];
+    }
+}</code></pre>
+<p>Now you can include nested relations:</p>
+<pre><code class="language-php">$result = $transformer
+    -&gt;includes('tasks.comments')
+    -&gt;fields([
+        'self' =&gt; ['name'],
+        'tasks' =&gt; ['name'],
+        'tasks.comments' =&gt; ['content']
+    ])
+    -&gt;transform($project);
+// [ 'name' =&gt; 'Project 1', 'tasks' =&gt; [ [ 'name' =&gt; 'Task 1', 'comments' =&gt; [ [ 'content' =&gt; 'Comment 1' ] ] ] ] ]</code></pre>
+<p>You can also include multiple paths at once:</p>
+<pre><code class="language-php">$result = $transformer
+    -&gt;includes(['tasks', 'tasks.comments'])
+    -&gt;fields([
+        'self' =&gt; ['id', 'name'],
+        'tasks' =&gt; ['name'],
+        'tasks.comments' =&gt; ['content']
+    ])
+    -&gt;transform($project);</code></pre>
+<hr />
+<h2>Handling Missing or Null Relations</h2>
+<ul>
+<li>If a relation is not included in the <code>includes()</code> call, it is omitted from the output.</li>
+<li>If a relation is included but the value is <code>null</code>, it returns an empty array <code>[]</code>.</li>
+<li>If a relation is included but the collection is empty, it returns an empty array <code>[]</code>.</li>
+<li>If a relation method doesn't exist on the model, it is silently skipped (not loaded).</li>
+<li>If a relation is already eager loaded, the transformer uses the cached result instead of lazy loading it again.</li>
+</ul>
+<hr />
+<h2>Transforming Collections</h2>
+<p>Transformers can handle collections of models seamlessly:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;all();
+$result = $transformer
+    -&gt;includes(['tasks'])
+    -&gt;fields([
+        'self' =&gt; ['name'],
+        'tasks' =&gt; ['name']
+    ])
+    -&gt;transform($projects);
+// [ [ 'name' =&gt; 'Project 1', 'tasks' =&gt; [ ... ] ], ... ]</code></pre>
+<hr />
+<h2>Model-integrated Transformation</h2>
+<p>You can call <code>transform()</code> directly on a model or collection, passing options:</p>
+<pre><code class="language-php">$result = $project-&gt;transform([
+    'includes' =&gt; ['tasks.comments'],
+    'fields' =&gt; [
+        'self' =&gt; ['name'],
+        'tasks' =&gt; ['name'],
+        'tasks.comments' =&gt; ['content'],
+    ],
+]);</code></pre>
+<hr />
+<h2>Pagination Support</h2>
+<p>If you have a paginated collection, you can transform it for API output:</p>
+<pre><code class="language-php">$pagination = new Pagination($projects, $total, $perPage, $currentPage);
+$result = $pagination-&gt;transform([
+    'includes' =&gt; ['tasks'],
+    'fields' =&gt; [
+        'self' =&gt; ['name'],
+        'tasks' =&gt; ['name'],
+    ],
+]);</code></pre>
+<p><strong>Output Structure:</strong></p>
+<pre><code class="language-php">[
+    'data' =&gt; [ /* transformed items */ ],
+    'meta' =&gt; [
+        'current_page' =&gt; 1,
+        'per_page' =&gt; 10,
+        'total' =&gt; 100,
+        'total_pages' =&gt; 10
+    ],
+    'links' =&gt; [
+        'first' =&gt; '/projects?page=1',
+        'last' =&gt; '/projects?page=10',
+        'prev' =&gt; null,
+        'next' =&gt; '/projects?page=2'
+    ]
+]</code></pre>
+<hr />
+<h2>Dynamic Includes: Comma and Dot Notation</h2>
+<ul>
+<li><strong>Comma notation</strong>: Direct relations (<code>includes(['tasks', 'comments'])</code>)—relations are included at the top level.</li>
+<li><strong>Dot notation</strong>: Nested relations (<code>includes('tasks.comments')</code>)—relations are nested under their parent.</li>
+</ul>
+<p>You can mix and match as needed.</p>
+<hr />
+<h2>Contextual Transformers</h2>
+<p>Transformers can support multiple output contexts (e.g., API, view) for the same model:</p>
+<pre><code class="language-php">$product = new Product(1);
+
+// API context
+$result = $product-&gt;transform(['context' =&gt; 'api']);
+// Uses ProductApiTransformer
+
+// View context
+$result = $product-&gt;transform(['context' =&gt; 'view']);
+// Uses ProductViewTransformer</code></pre>
+<p>If an invalid context is provided, a clear exception is thrown listing available contexts.</p>
+<hr />
+<h2>Defining Relation Transformers</h2>
+<p>The <code>transformerMap()</code> method is essential for including relations in your transformed output. It maps relation names to their transformer classes:</p>
+<pre><code class="language-php">class UserTransformer extends Transformer
+{
+    protected function data(User $user): array
+    {
+        return [
+            'id' =&gt; $user-&gt;id,
+            'name' =&gt; $user-&gt;name,
+            'email' =&gt; $user-&gt;email,
+        ];
+    }
+
+    protected function transformerMap(): array
+    {
+        return [
+            'profile' =&gt; ProfileTransformer::class,
+            'roles' =&gt; RoleTransformer::class,
+            'posts' =&gt; PostTransformer::class,
+        ];
+    }
+}</code></pre>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Each relation you want to include must be defined in <code>transformerMap()</code></li>
+<li>You can pass either a transformer class name (string) or an instance</li>
+<li>If you try to include a relation not in the map, a <code>RuntimeException</code> is thrown</li>
+<li>The exception message clearly indicates which relation is missing and which transformer needs updating</li>
+</ul>
+<hr />
+<h2>Error Handling &amp; Robustness</h2>
+<ul>
+<li><strong>Missing transformer definition</strong>: If you call <code>transform()</code> on a model without a <code>$transformer</code> property, you get: <code>No transformer defined for model: ModelClass</code>.</li>
+<li><strong>Invalid context</strong>: If you specify an invalid context, you get: <code>Invalid transformer context 'admin' for ModelClass. Available contexts: api, view</code>.</li>
+<li><strong>Missing relation transformer</strong>: If you include a relation not defined in <code>transformerMap()</code>, you get: <code>No transformer defined for relation 'tasks'. Define it in ProjectTransformer::transformerMap()</code>.</li>
+<li><strong>Non-existent relation method</strong>: If a relation method doesn't exist on the model, it is silently skipped.</li>
+<li><strong>Null relations</strong>: Always return empty arrays <code>[]</code>, never causing errors.</li>
+<li><strong>Already loaded relations</strong>: If a relation is already eager loaded, the transformer uses the cached result.</li>
+</ul>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>
