@@ -25,7 +25,7 @@ jobs:
       - name: Checkout lightpack/docs into .build/content
         uses: actions/checkout@v4
         with:
-          repository: lightpack/docs
+          repository: lightpack/docs-md
           path: .build/content
       
       - name: Setup PHP
@@ -47,5 +47,5 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add docs/ .nojekyll
-          git diff --staged --quiet || git commit -m "🤖 Auto-build docs from lightpack/docs"
+          git diff --staged --quiet || git commit -m "🤖 Auto-build docs from lightpack/docs-md"
           git push
