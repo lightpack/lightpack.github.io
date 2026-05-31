@@ -591,7 +591,7 @@ for ($i = 0; $i &lt; 100; $i++) {
 <p>Rate limiting controls how many jobs can execute within a time window. Use this when jobs arrive <strong>unpredictably</strong> and you need to respect external service limits.</p>
 <p>Lightpack supports rate limiting out of the box. Implement the <code>rateLimit()</code> method in your job class to enable rate limiting.</p>
 <blockquote>
-<p>Rate limiting depends on Lightpack's Cache system. You should configure your cache driver in <code>.env</code>. Learn more about cache drivers in the <a href="caching.md">Caching</a> section.</p>
+<p>Rate limiting depends on Lightpack's Cache system. You should configure your cache driver in <code>.env</code>. Learn more about cache drivers in the <a href="caching">Caching</a> section.</p>
 </blockquote>
 <h3>Setting Rate Limit</h3>
 <pre><code class="language-php">class SendEmailJob extends Job

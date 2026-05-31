@@ -1021,7 +1021,7 @@ $users = User::query()
     -&gt;withCount('roles')
     -&gt;orderBy('roles_count', 'desc')
     -&gt;all();</code></pre>
-<p>For a complete reference on <code>withCount()</code>, <code>withSum()</code>, and all other aggregate facilities including defaults, callbacks, and deferred loading, see the <a href="eager-loading.md">Eager Loading documentation</a>.</p>
+<p>For a complete reference on <code>withCount()</code>, <code>withSum()</code>, and all other aggregate facilities including defaults, callbacks, and deferred loading, see the <a href="eager-loading">Eager Loading documentation</a>.</p>
 <hr />
 <h2>Querying Relationships</h2>
 <p>Understanding how to access and work with relationships is fundamental to getting the most out of your ORM. Lightpack ORM makes it intuitive to fetch related data, whether you want a single associated record or a whole collection of related models. This section will guide you through the mechanics, best practices, and the semantics of querying relationships. So let's reconsider the relation where an  <strong>organization</strong> has many <strong>departments</strong>.</p>
@@ -1128,7 +1128,7 @@ $active = $departments-&gt;filter(function($dept) {
 <li><strong>Be intention-revealing:</strong> Name your relationship methods for clarity and business meaning.</li>
 </ul>
 <hr />
-<p>By understanding the difference between property and method access, and how collections work, you’ll write more expressive, efficient, and maintainable code with Lightpack ORM. For a deep dive into collections and their powerful capabilities, see the <a href="collections.md">Collections documentation</a>.</p>
+<p>By understanding the difference between property and method access, and how collections work, you’ll write more expressive, efficient, and maintainable code with Lightpack ORM. For a deep dive into collections and their powerful capabilities, see the <a href="collections">Collections documentation</a>.</p>
 <hr />
 <h2>Semantic Relationship Methods</h2>
 <p>Semantic relationship methods empower you to define model relationships that are not only technically correct, but also meaningful and intention-revealing. Instead of limiting your models to generic accessors like <code>departments()</code>, you can define expressive methods such as <code>activeDepartments()</code>, <code>hrDepartments()</code>, or <code>recentlyCreatedDepartments()</code>. This approach makes your codebase more readable, maintainable, and aligned with real business logic.</p>
