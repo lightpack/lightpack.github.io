@@ -145,5 +145,10 @@ if (is_dir(__DIR__ . '/assets')) {
     copyDirectory(__DIR__ . '/assets', DIST_DIR . '/assets');
 }
 
+$contentMediaDir = CONTENT_DIR . '/_media';
+if (is_dir($contentMediaDir)) {
+    copyDirectory($contentMediaDir, DIST_DIR . '/assets/_media');
+}
+
 echo "✅ Build complete! Generated docs/ folder with friendly URLs.\n";
 echo "   Navigation structure defined in navigation.json\n";
