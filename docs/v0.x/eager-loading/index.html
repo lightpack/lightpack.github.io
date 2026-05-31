@@ -728,7 +728,7 @@ foreach($hotels as $hotel) {
 </blockquote>
 <blockquote>
 <p><strong>Standalone vs. Relation Aggregates</strong></p>
-<p>The methods above (<code>withCount</code>, <code>withSum</code>, etc.) compute aggregates <strong>on related models</strong> and attach them to each parent. If you need grouped aggregates <strong>on the model's own columns</strong> (e.g., <code>SUM(price) GROUP BY category</code> on the <code>products</code> table itself), use the query builder's <code>aggregate()</code> method instead. See <a href="./db-query-builder#multiple-grouped-aggregates">Multiple Grouped Aggregates</a> in the Query Builder documentation.</p>
+<p>The methods above (<code>withCount</code>, <code>withSum</code>, etc.) compute aggregates <strong>on related models</strong> and attach them to each parent. If you need grouped aggregates <strong>on the model's own columns</strong> (e.g., <code>SUM(price) GROUP BY category</code> on the <code>products</code> table itself), use the query builder's <code>aggregate()</code> method instead. See <a href="/docs/v0.x/db-query-builder#multiple-grouped-aggregates">Multiple Grouped Aggregates</a> in the Query Builder documentation.</p>
 </blockquote>
 <hr />
 <h3>Quick Reference: Eager Loading Methods</h3>
