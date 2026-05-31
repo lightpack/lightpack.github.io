@@ -3,6 +3,13 @@
 
 <head>
   <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
