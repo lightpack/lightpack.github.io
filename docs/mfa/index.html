@@ -561,7 +561,8 @@ class User extends Model {
 <li>
 <p><strong>SMS/Email:</strong>  </p>
 <ul>
-<li>Ensure user’s phone/email is set.</li>
+<li>Ensure user's phone/email is set.</li>
+<li>SMS requires the <code>$user-&gt;phone</code> field.</li>
 <li>Set <code>$user-&gt;mfa_method = 'sms'</code> or <code>'email'</code>, <code>$user-&gt;save();</code></li>
 </ul>
 </li>
@@ -669,18 +670,19 @@ class PushDriver implements MfaInterface {
         return 'push';
     }
 }</code></pre>
-<p>Register in config:</p>
-<pre><code class="language-php">'factors' =&gt; [
-    'push' =&gt; App\Mfa\Drivers\PushDriver::class,
-    // ...other factors
-]</code></pre>
+<p>Register at runtime (e.g., in a service provider):</p>
+<pre><code class="language-php">$manager = app('mfa.manager');
+$manager-&gt;register('push', function ($container) {
+    return new \App\Mfa\Drivers\PushDriver;
+});</code></pre>
+<p>You can also override a built-in driver by registering the same name.</p>
 <hr />
 <h2>Error Handling &amp; Security</h2>
 <ul>
 <li><strong>All secrets/codes are hashed or encrypted.</strong></li>
 <li><strong>Backup codes are one-time use.</strong></li>
 <li><strong>TOTP uses secure, random secrets.</strong></li>
-<li><strong>SMS/email codes are time-limited (implement expiry in your app logic).</strong></li>
+<li><strong>SMS/email codes are time-limited via cache TTL (configured in <code>config/mfa.php</code>).</strong></li>
 <li><strong>Always check return value of <code>validateMfa()</code>.</strong></li>
 <li><strong>Never log or expose secrets/codes.</strong></li>
 </ul>
@@ -698,7 +700,7 @@ class PushDriver implements MfaInterface {
 <p><strong>Q: How do I reset a user's MFA?</strong><br />
 A: Clear all MFA fields on the user model.</p>
 <p><strong>Q: Can I require MFA for only some users?</strong><br />
-A: Use the <code>mfa_enabled</code> boolean field.</p>
+A: Only users with a set <code>mfa_method</code> will be challenged. Leave it empty/null for users without MFA.</p>
 <p><strong>Q: How do I support multiple factors per user?</strong><br />
 A: Extend your user model and UI view to allow selection/switching.</p>
 <p><strong>Q: How do I test MFA?</strong><br />

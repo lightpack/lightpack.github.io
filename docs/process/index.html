@@ -485,229 +485,233 @@
         </div>
             </div>
 </aside>  <main>
-    <h1>Process Documentation</h1>
-<p>Lightpack's Process component provides a clean interface for executing and managing system processes. It offers features like process execution, output streaming, timeout management, and error handling.</p>
-<h2>Basic Usage</h2>
-<h3>Simple Command Execution</h3>
+    <h1>Process</h1>
+<p>Lightpack's <code>Process</code> utility provides two distinct modes for running system processes.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Method</th>
+<th>I/O</th>
+<th>Use when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Captured</strong></td>
+<td><code>execute()</code></td>
+<td>Buffered into strings</td>
+<td>Scripts, build tools, any command whose output you need to read</td>
+</tr>
+<tr>
+<td><strong>Inherited</strong></td>
+<td><code>spawn()</code></td>
+<td>Streams to the terminal directly</td>
+<td>Dev servers, workers, any process that must display live output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>execute() — Captured I/O</h2>
+<p>Use <code>execute()</code> when you need to read stdout/stderr after the process finishes.</p>
+<h3>Simple command</h3>
 <pre><code class="language-php">use Lightpack\Utils\Process;
 
-$process = new Process();
-
-// Execute a simple command
+$process = new Process;
 $process-&gt;execute('ls -la');
 
-// Get command output
-echo $process-&gt;getOutput();
-
-// Check for errors
-if ($process-&gt;failed()) {
-    echo $process-&gt;getError();
-    echo 'Exit code: ' . $process-&gt;getExitCode();
-}</code></pre>
-<h3>Array Command Syntax</h3>
-<pre><code class="language-php">$process = new Process();
-
-// Execute command with array arguments (safer)
+echo $process-&gt;getOutput();   // stdout
+echo $process-&gt;getError();    // stderr
+echo $process-&gt;getExitCode(); // integer exit code</code></pre>
+<h3>Array syntax (recommended)</h3>
+<p>Always prefer the array form for commands with arguments — it bypasses the shell and avoids injection risks.</p>
+<pre><code class="language-php">$process = new Process;
 $process-&gt;execute(['git', 'clone', 'https://github.com/user/repo.git']);
 
-// Check execution status
 if ($process-&gt;failed()) {
-    throw new RuntimeException('Git clone failed: ' . $process-&gt;getError());
+    throw new RuntimeException('Clone failed: ' . $process-&gt;getError());
 }</code></pre>
-<h2>Process Configuration</h2>
-<h3>Working Directory</h3>
-<pre><code class="language-php">$process = new Process();
+<h3>Working directory</h3>
+<pre><code class="language-php">$process = new Process;
 
-// Set working directory
-$process-&gt;setDirectory('/path/to/directory')
-    -&gt;execute('git status');
+$process-&gt;setDirectory('/path/to/project')
+    -&gt;execute(['git', 'status']);
 
-// Get current working directory
-$workDir = $process-&gt;getDirectory();</code></pre>
-<h3>Timeout Configuration</h3>
-<pre><code class="language-php">$process = new Process();
+echo $process-&gt;getDirectory(); // returns the directory that was set</code></pre>
+<h3>Timeout</h3>
+<p>The default timeout is 60 seconds. A <code>RuntimeException</code> is thrown if the process exceeds it.</p>
+<pre><code class="language-php">$process = new Process;
 
-// Set timeout in seconds (default: 60)
-$process-&gt;setTimeout(120)
-    -&gt;execute('long-running-command');
-
-// Handle timeout exception
 try {
-    $process-&gt;setTimeout(5)
-        -&gt;execute('sleep 10');
+    $process-&gt;setTimeout(10)-&gt;execute('slow-command');
 } catch (RuntimeException $e) {
-    echo 'Process timed out';
+    echo 'Timed out: ' . $e-&gt;getMessage();
 }</code></pre>
-<h2>Output Handling</h2>
-<h3>Basic Output Retrieval</h3>
-<pre><code class="language-php">$process = new Process();
-$process-&gt;execute('echo "Hello World"');
+<h3>Streaming output line by line</h3>
+<p>When you pass a callback, each line is delivered as it arrives instead of being buffered. This is memory-efficient for commands that produce large or continuous output.</p>
+<pre><code class="language-php">$process = new Process;
 
-// Get command output
-$output = $process-&gt;getOutput();  // stdout
-$error = $process-&gt;getError();    // stderr
-$code = $process-&gt;getExitCode();  // exit code</code></pre>
-<h3>Streaming Output</h3>
-<pre><code class="language-php">$process = new Process();
-
-// Process output line by line
-$process-&gt;execute('long-running-command', function(string $line, string $type) {
+$process-&gt;execute('tail -f /var/log/app.log', function(string $line, string $type) {
     if ($type === 'stdout') {
-        echo "Output: $line";
+        echo $line;
     } else {
-        echo "Error: $line";
+        error_log('[stderr] ' . $line);
     }
 });</code></pre>
-<h3>Progress Monitoring</h3>
-<pre><code class="language-php">$process = new Process();
+<p>The callback receives two arguments:</p>
+<ul>
+<li><code>$line</code> — the raw output line (including the trailing newline)</li>
+<li><code>$type</code> — <code>'stdout'</code> or <code>'stderr'</code></li>
+</ul>
+<hr />
+<h2>spawn() — Inherited I/O</h2>
+<p>Use <code>spawn()</code> for processes that must stream output directly to the terminal. The child process <strong>inherits</strong> the parent's STDIN, STDOUT, and STDERR — output is never buffered.</p>
+<p><code>spawn()</code> returns a <code>ChildProcess</code> handle immediately, without waiting for the process to finish. You manage the lifecycle through that handle.</p>
+<pre><code class="language-php">use Lightpack\Utils\Process;
 
-// Monitor command progress
-$process-&gt;execute('tar -czf archive.tar.gz directory/', function($line, $type) {
-    if ($type === 'stdout') {
-        // Update progress bar or log
-    }
-});</code></pre>
-<h2>Error Handling</h2>
-<h3>Basic Error Handling</h3>
-<pre><code class="language-php">$process = new Process();
+$process = new Process;
+$child = $process-&gt;spawn([PHP_BINARY, '-S', '127.0.0.1:8000', '-t', 'public']);
 
-try {
-    $process-&gt;execute('invalid-command');
-} catch (RuntimeException $e) {
-    echo 'Process failed: ' . $e-&gt;getMessage();
-    echo 'Error output: ' . $process-&gt;getError();
-    echo 'Exit code: ' . $process-&gt;getExitCode();
+// The server is now running. Block here until it exits.
+$exitCode = $child-&gt;wait();</code></pre>
+<h3>Passing environment variables</h3>
+<p>Pass <code>null</code> (the default) to inherit the current environment. Pass an explicit array to override or extend it.</p>
+<pre><code class="language-php">$env = array_merge(getenv(), ['APP_ENV' =&gt; 'production']);
+
+$child = $process-&gt;spawn(['php', 'artisan', 'serve'], $env);
+$child-&gt;wait();</code></pre>
+<h3>Working directory</h3>
+<p><code>setDirectory()</code> applies to both <code>execute()</code> and <code>spawn()</code>.</p>
+<pre><code class="language-php">$child = (new Process)
+    -&gt;setDirectory('/var/www/myapp')
+    -&gt;spawn(['composer', 'install']);
+
+$child-&gt;wait();</code></pre>
+<hr />
+<h2>ChildProcess — lifecycle API</h2>
+<p>Every <code>spawn()</code> call returns a <code>ChildProcess</code> instance. It is the only object you need to monitor and control the spawned process.</p>
+<h3>isRunning()</h3>
+<p>Returns <code>true</code> while the process is alive.</p>
+<pre><code class="language-php">$child = $process-&gt;spawn(['sleep', '10']);
+
+if ($child-&gt;isRunning()) {
+    echo 'Still going...';
 }</code></pre>
-<h3>Status Checking</h3>
-<pre><code class="language-php">$process = new Process();
-$process-&gt;execute('command');
+<h3>pid()</h3>
+<p>Returns the OS-level process ID as an integer.</p>
+<pre><code class="language-php">$child = $process-&gt;spawn(['sleep', '10']);
+echo $child-&gt;pid(); // e.g. 12345</code></pre>
+<h3>wait()</h3>
+<p>Blocks until the process exits and returns the integer exit code. Always call <code>wait()</code> when you want to be sure the process has finished and the exit code is captured.</p>
+<pre><code class="language-php">$child = $process-&gt;spawn(['/bin/sh', '-c', 'exit 42']);
+$code = $child-&gt;wait(); // 42</code></pre>
+<h3>exitCode()</h3>
+<p>Returns the captured exit code, or <code>null</code> if the process is still running. The value is only reliable after <code>wait()</code> (or after <code>terminate()</code>/<code>kill()</code> followed by <code>wait()</code>).</p>
+<pre><code class="language-php">$child = $process-&gt;spawn(['true']);
+$child-&gt;wait();
 
-// Check process status
-if ($process-&gt;isRunning()) {
-    echo 'Process is still running';
-}
-
-if ($process-&gt;failed()) {
-    echo 'Process failed with exit code: ' . $process-&gt;getExitCode();
-    echo 'Error output: ' . $process-&gt;getError();
-}</code></pre>
-<h2>Practical Examples</h2>
-<p>These examples provide more insights into using process utility along with best practices. You should read them to gain a better understanding of practical use case scenarios of process utility.</p>
+echo $child-&gt;exitCode(); // 0</code></pre>
+<h3>terminate()</h3>
+<p>Sends SIGTERM (15) by default — asks the process to shut down gracefully. You can pass a different signal number if needed.</p>
+<pre><code class="language-php">$child = $process-&gt;spawn(['sleep', '30']);
+$child-&gt;terminate();    // SIGTERM
+$child-&gt;wait();</code></pre>
+<h3>kill()</h3>
+<p>Sends SIGKILL (9) — forcible, unblockable termination.</p>
+<pre><code class="language-php">$child = $process-&gt;spawn(['sleep', '30']);
+$child-&gt;kill();
+$child-&gt;wait();</code></pre>
+<hr />
+<h2>Automatic cleanup</h2>
+<p><code>ChildProcess</code> registers cleanup at three levels so the child is never left as an orphan:</p>
 <ol>
-<li>
-<p><strong>Command Safety</strong></p>
-<pre><code class="language-php">class CommandExecutor
-{
-    public function runCommand(array $command): string
-    {
-        $process = new Process();
+<li><strong><code>pcntl_signal</code> (SIGINT / SIGTERM)</strong> — handles Ctrl+C and kill signals gracefully on Unix/macOS.</li>
+<li><strong><code>register_shutdown_function</code></strong> — universal fallback that fires when PHP exits for any reason, including crashes and fatal errors.</li>
+<li><strong><code>__destruct</code></strong> — safety net when the <code>ChildProcess</code> object is garbage-collected without an explicit <code>wait()</code>.</li>
+</ol>
+<p>You do not need to register anything manually — it is handled inside <code>spawn()</code>.</p>
+<hr />
+<h2>Practical examples</h2>
+<h3>Watch loop — restart on file change</h3>
+<p>This is the pattern used by Lightpack's <code>app:serve</code> and <code>jobs:run</code> commands. The process is re-spawned every time a watched file changes.</p>
+<pre><code class="language-php">$process = new Process;
+$envFile = '/path/to/.env';
+$lastMtime = filemtime($envFile);
 
-        // Always use array syntax for command arguments
+while (true) {
+    $child = $process-&gt;spawn($command, $this-&gt;buildEnv($envFile));
+    $restarting = false;
+
+    while ($child-&gt;isRunning()) {
+        clearstatcache(true, $envFile);
+
+        if (filemtime($envFile) !== $lastMtime) {
+            $lastMtime = filemtime($envFile);
+            $restarting = true;
+            $child-&gt;terminate();
+            $child-&gt;wait();
+            echo '.env changed — restarting...' . PHP_EOL;
+            sleep(1);
+            break;
+        }
+
+        usleep(500000);
+    }
+
+    if (! $restarting) {
+        break; // process exited naturally
+    }
+}</code></pre>
+<h3>Running multiple independent processes</h3>
+<p>Each <code>spawn()</code> returns its own <code>ChildProcess</code>. They are completely independent — different PIDs, independent lifecycles.</p>
+<pre><code class="language-php">$process = new Process;
+
+$worker1 = $process-&gt;spawn(['php', 'console', 'jobs:run', '--queue=email']);
+$worker2 = $process-&gt;spawn(['php', 'console', 'jobs:run', '--queue=sms']);
+
+// Stop one without affecting the other
+$worker1-&gt;terminate();
+$worker1-&gt;wait();
+
+// worker2 is still running
+echo $worker2-&gt;isRunning() ? 'worker2 running' : 'worker2 stopped';
+
+$worker2-&gt;terminate();
+$worker2-&gt;wait();</code></pre>
+<h3>Retry with exponential backoff</h3>
+<pre><code class="language-php">function runWithRetry(array $command, int $maxAttempts = 3): int
+{
+    $process = new Process;
+
+    for ($attempt = 1; $attempt &lt;= $maxAttempts; $attempt++) {
         $process-&gt;execute($command);
 
-        if ($process-&gt;failed()) {
-            throw new RuntimeException(
-                "Command failed: " . $process-&gt;getError()
-            );
+        if (! $process-&gt;failed()) {
+            return $process-&gt;getExitCode();
         }
 
-        return $process-&gt;getOutput();
-    }
-}</code></pre>
-</li>
-<li>
-<p><strong>Resource Management</strong></p>
-<pre><code class="language-php">class LongRunningTask
-{
-    public function execute()
-    {
-        $process = new Process();
-
-        // Set appropriate timeout
-        $process-&gt;setTimeout(3600);  // 1 hour
-
-        // Use callback for memory efficiency
-        $process-&gt;execute('large-data-processor', function($line, $type) {
-            if ($type === 'stdout') {
-                $this-&gt;processLine($line);
-            } else {
-                logger()-&gt;error($line);
-            }
-        });
-    }
-}</code></pre>
-</li>
-<li>
-<p><strong>Environment Setup</strong></p>
-<pre><code class="language-php">class DeploymentProcess
-{
-    public function deploy()
-    {
-        $process = new Process();
-
-        // Set working directory
-        $process-&gt;setDirectory('/path/to/project')
-            -&gt;execute(['git', 'pull', 'origin', 'main']);
-
-        if ($process-&gt;failed()) {
-            $this-&gt;handleDeploymentFailure($process-&gt;getError());
-            return;
-        }
-
-        $this-&gt;runPostDeployTasks();
-    }
-}</code></pre>
-</li>
-<li>
-<p><strong>Output Processing</strong></p>
-<pre><code class="language-php">class LogProcessor
-{
-    public function processLogs(string $logFile)
-    {
-        $process = new Process();
-
-        // Process large log files efficiently
-        $process-&gt;execute(['tail', '-f', $logFile], function($line, $type) {
-            if ($type === 'stdout') {
-                $this-&gt;parseLine($line);
-            }
-        });
-    }
-
-    private function parseLine(string $line)
-    {
-        // Process each line
-    }
-}</code></pre>
-</li>
-<li>
-<p><strong>Error Recovery</strong></p>
-<pre><code class="language-php">class ResilientProcess
-{
-    public function executeWithRetry(array $command, int $maxAttempts = 3)
-    {
-        $process = new Process();
-        $attempts = 0;
-
-        while ($attempts &lt; $maxAttempts) {
-            try {
-                $process-&gt;execute($command);
-
-                if (!$process-&gt;failed()) {
-                    return $process-&gt;getOutput();
-                }
-            } catch (RuntimeException $e) {
-                $attempts++;
-                if ($attempts === $maxAttempts) {
-                    throw $e;
-                }
-                sleep(pow(2, $attempts));  // Exponential backoff
-            }
+        if ($attempt &lt; $maxAttempts) {
+            sleep(2 ** $attempt);
         }
     }
+
+    throw new RuntimeException('Command failed after ' . $maxAttempts . ' attempts: ' . $process-&gt;getError());
 }</code></pre>
-</li>
-</ol>  </main>
+<h3>Deployment pipeline</h3>
+<pre><code class="language-php">$process = new Process;
+$process-&gt;setDirectory('/var/www/myapp');
+
+$process-&gt;execute(['git', 'pull', 'origin', 'main']);
+
+if ($process-&gt;failed()) {
+    throw new RuntimeException('Pull failed: ' . $process-&gt;getError());
+}
+
+$process-&gt;execute(['composer', 'install', '--no-dev', '--optimize-autoloader']);
+
+if ($process-&gt;failed()) {
+    throw new RuntimeException('Composer failed: ' . $process-&gt;getError());
+}</code></pre>  </main>
   <nav class="toc"></nav>
       </div>
     <script src="/docs/assets/toc.js"></script>

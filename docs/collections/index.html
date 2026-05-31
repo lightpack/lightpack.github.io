@@ -514,9 +514,15 @@ $user = $users-&gt;find(99, new User()); // Returns default if not found</code><
 <p>Get the first model in the collection, or the first that matches conditions.</p>
 <pre><code class="language-php">$firstUser = $users-&gt;first();
 $admin = $users-&gt;first(['role' =&gt; 'admin']);</code></pre>
+<h3>last()</h3>
+<p>Get the last model in the collection. Returns <code>null</code> if the collection is empty.</p>
+<pre><code class="language-php">$latestUser = $users-&gt;last();</code></pre>
 <h3>column()</h3>
-<p>Get an array of values for a given column from all models.</p>
-<pre><code class="language-php">$emails = $users-&gt;column('email');</code></pre>
+<p>Get an array of values for a given column from all models. Falsy values (<code>null</code>, <code>''</code>, <code>false</code>, <code>0</code>) are skipped.</p>
+<pre><code class="language-php">$emails = $users-&gt;column('email');
+
+// Only non-empty status values are returned
+$statuses = $users-&gt;column('status'); // ['active', 'inactive']</code></pre>
 <h3>filter()</h3>
 <p>Return a new <code>Collection</code> with only items matching the callback.</p>
 <pre><code class="language-php">$activeUsers = $users-&gt;filter(fn($u) =&gt; $u-&gt;active);
@@ -561,6 +567,31 @@ $users-&gt;each(fn($u) =&gt; $u-&gt;activate())
 foreach ($users as $user) {
     echo $user-&gt;posts_count;
 }</code></pre>
+<h3>loadSum() / loadAvg() / loadMin() / loadMax()</h3>
+<p>Eager load aggregate values from a related model's column. The attribute is attached using the convention <code>{relation}_{function}_{column}</code>.</p>
+<pre><code class="language-php">$users-&gt;loadSum('orders', 'amount');
+$users-&gt;loadAvg('orders', 'amount');
+$users-&gt;loadMin('orders', 'amount');
+$users-&gt;loadMax('orders', 'amount');
+
+foreach ($users as $user) {
+    echo $user-&gt;orders_sum_amount;
+    echo $user-&gt;orders_avg_amount;
+}</code></pre>
+<h3>sort()</h3>
+<p>Return a new <code>Collection</code> sorted by a column. Direction defaults to <code>'asc'</code>. Does not mutate the original collection.</p>
+<p>This is particularly useful when you need to sort by an attribute that was attached via eager loading (e.g. <code>withCount</code>, <code>withSum</code>).</p>
+<pre><code class="language-php">// alphabetical sort
+$teams = Team::query()
+    -&gt;withCount('deals')
+    -&gt;all()
+    -&gt;sort('name');
+
+// ranked by deals count
+$teams = Team::query()
+    -&gt;withCount('deals')
+    -&gt;all()
+    -&gt;sort('deals_count', 'desc');</code></pre>
 <h3>loadMorphs()</h3>
 <p>Efficiently eager load polymorphic parents for a collection of models with a <code>morphTo</code> relation. Optionally specify the attribute name for the parent (default: <code>'parent'</code>).</p>
 <pre><code class="language-php">$comments-&gt;loadMorphs([
@@ -612,15 +643,18 @@ echo $comment-&gt;commentable-&gt;title;</code></pre>
 <h2>Example: Putting It All Together</h2>
 <pre><code class="language-php">$users = User::query()-&gt;with('profile')-&gt;all();
 
-// Eager load posts and count of comments for each user
-$users-&gt;load('posts')-&gt;loadCount('comments');
+// Eager load relations and aggregates
+$users-&gt;load('posts')-&gt;loadCount('posts');
 
-// Get all user emails who have posted in the last week
-$recent = $users-&gt;filter(fn($u) =&gt; $u-&gt;posts-&gt;first()?-&gt;created_at &gt; now()-&gt;subWeek());
-$emails = $recent-&gt;column('email');
+// Filter to users who have at least one post
+$active = $users-&gt;filter(fn($u) =&gt; $u-&gt;posts-&gt;isNotEmpty());
+$emails = $active-&gt;column('email');
+
+// Sort by post count (SQL ordering not possible on eager-loaded counts)
+$ranked = $users-&gt;sort('posts_count', 'desc');
 
 // Transform for API
-return $users-&gt;transform([
+return $ranked-&gt;transform([
     'fields' =&gt; ['id', 'name', 'email'],
     'includes' =&gt; ['profile', 'posts'],
 ]);</code></pre>

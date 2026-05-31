@@ -497,6 +497,7 @@ auth()-&gt;isGuest();     // Returns true if user is not logged in
 // Get authenticated user
 auth()-&gt;id();          // Returns logged in user ID
 auth()-&gt;user();        // Returns logged in user object
+user();                // Returns logged in user object (typed helper)
 
 // Authenticate users
 auth()-&gt;attempt();     // Verify credentials and persist session
@@ -702,6 +703,10 @@ auth()-&gt;loginAs($user);</code></pre>
 <pre><code class="language-php">auth()-&gt;id();</code></pre>
 <p>To access currently authenticated <strong>user</strong>, call <code>user()</code> method.</p>
 <pre><code class="language-php">auth()-&gt;user();</code></pre>
+<p>You can also use the typed <code>user()</code> helper:</p>
+<pre><code class="language-php">// Return App\Models\User instance
+user();</code></pre>
+<p>This helper function is defined in <code>app/helpers.php</code> and returns your app's <code>User</code> model with full type support.</p>
 <blockquote>
 <p><strong>Note:</strong> The <code>user()</code> method works for both session-based and token-based authentication.</p>
 </blockquote>

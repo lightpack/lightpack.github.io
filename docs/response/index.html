@@ -812,14 +812,17 @@ eventSource.addEventListener('error', (e) =&gt; {
 <ul>
 <li>Sets status code 302 and <code>Location: /dashboard</code> header.</li>
 <li>Works with both absolute and relative URLs.</li>
+<li>Also accepts path segments and query params:</li>
 </ul>
+<pre><code class="language-php">return redirect()-&gt;to('users', ['sort' =&gt; 'asc', 'status' =&gt; 'active']);
+// Redirects to: /users?sort=asc&amp;status=active</code></pre>
 <h4><strong>redirect()-&gt;route($name, ...$params)</strong></h4>
 <p>Redirect to a named route, passing route parameters as needed.</p>
 <p><strong>Example: After profile update, redirect to profile page</strong></p>
 <pre><code class="language-php">public function update($userId)
 {
     // ... update logic ...
-    return redirect()-&gt;route('profile', $userId);
+    return redirect()-&gt;route('profile', ['id' =&gt; $userId]);
 }</code></pre>
 <ul>
 <li>Resolves the route name and parameters to a URL.</li>

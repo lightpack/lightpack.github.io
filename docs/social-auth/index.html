@@ -496,9 +496,28 @@
 <li>GitHub</li>
 <li>LinkedIn</li>
 </ul>
-<blockquote>
-<p>In order to use the Google social auth feature, install the Google API Client package <code>composer require google/apiclient</code></p>
-</blockquote>
+<h2>Environment Variables</h2>
+<p>Add the following variables to your <code>.env</code> file based on the providers you use:</p>
+<pre><code class="language-env">APP_URL=https://your-app.com
+
+# Google
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+# GitHub
+GITHUB_CLIENT_ID=your-github-client-id
+GITHUB_CLIENT_SECRET=your-github-client-secret
+
+# LinkedIn
+LINKEDIN_CLIENT_ID=your-linkedin-client-id
+LINKEDIN_CLIENT_SECRET=your-linkedin-client-secret</code></pre>
+<p>The <code>redirect_uri</code> for each provider is auto-generated from <code>APP_URL</code>:</p>
+<ul>
+<li><code>https://your-app.com/auth/google/callback</code></li>
+<li><code>https://your-app.com/auth/github/callback</code></li>
+<li><code>https://your-app.com/auth/linkedin/callback</code></li>
+</ul>
+<p>Make sure to register these exact redirect URIs in your OAuth app settings.</p>
 <h2>Configuration</h2>
 <p>Please run following command to create <code>config/social.php</code> configuration file.</p>
 <pre><code class="language-cli">php console create:config --support=social</code></pre>
@@ -510,13 +529,15 @@
 <h2>Usage Patterns</h2>
 <h3>1. Routes</h3>
 <p>Define routes in your <code>routes/web.php</code> or <code>routes/api.php</code>:</p>
-<pre><code class="language-php">// Web
-$route-&gt;get('/auth/{provider}/redirect', SocialAuthController::class, 'redirect');
-$route-&gt;get('/auth/{provider}/callback', SocialAuthController::class, 'callback');
+<pre><code class="language-php">use Lightpack\SocialAuth\Controllers\SocialAuthController;
+
+// Web
+route()-&gt;get('/auth/{provider}/redirect', [SocialAuthController::class, 'redirect']);
+route()-&gt;get('/auth/{provider}/callback', [SocialAuthController::class, 'callback']);
 
 // API (stateless)
-$route-&gt;get('/api/auth/{provider}/redirect', [SocialAuthController::class, 'redirect']);
-$route-&gt;get('/api/auth/{provider}/callback', [SocialAuthController::class, 'callback']);</code></pre>
+route()-&gt;get('/api/auth/{provider}/redirect', [SocialAuthController::class, 'redirect']);
+route()-&gt;get('/api/auth/{provider}/callback', [SocialAuthController::class, 'callback']);</code></pre>
 <h3>2. Controller Usage</h3>
 <p>The <code>SocialAuthController</code> is already shipped with this feature. It handles both web and API flows with these two supported methods:</p>
 <ul>
@@ -551,8 +572,23 @@ $route-&gt;get('/api/auth/{provider}/callback', [SocialAuthController::class, 'c
 
 use Lightpack\SocialAuth\SocialAuthInterface;
 
-class MyProvider implements SocialAuthInterface {
-    // Implement the interface methods
+class MyProvider implements SocialAuthInterface
+{
+    public function getAuthUrl(array $params = []): string
+    {
+        // Build and return the OAuth authorization URL
+    }
+
+    public function getUser(string $code): array
+    {
+        // Exchange code for access token, fetch user profile
+        // Return: ['id' =&gt; ..., 'name' =&gt; ..., 'email' =&gt; ..., 'avatar' =&gt; ...]
+    }
+
+    public function stateless(): self
+    {
+        // Set stateless flag for API flows, return $this
+    }
 }</code></pre>
 <p>Add config:</p>
 <pre><code class="language-php">'providers' =&gt; [

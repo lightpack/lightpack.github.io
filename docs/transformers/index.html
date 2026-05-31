@@ -582,17 +582,17 @@ $productView = $product-&gt;transform(['context' =&gt; 'view']);</code></pre>
 ]);</code></pre>
 <p>These options are forwarded to the transformer instance and determine which fields and relations are included in the output.</p>
 <hr />
-<p>A transformer is a PHP class that extends <code>Lightpack\Database\Lucid\Transformer</code> and implements a <code>data($model)</code> method. This method returns an array representation of the model, controlling which fields are exposed and how relations are included.</p>
+<p>The transformer class extends <code>Lightpack\Database\Lucid\Transformer</code> and implements a <code>data()</code> method. This method returns an array representation of the model, controlling which fields are exposed and how relations are included.</p>
 <h3>Basic Transformer Example</h3>
 <pre><code class="language-php">use Lightpack\Database\Lucid\Transformer;
 
 class ProjectTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(Project $project): array
     {
         return [
-            'id' =&gt; $model-&gt;id,
-            'name' =&gt; $model-&gt;name,
+            'id' =&gt; $project-&gt;id,
+            'name' =&gt; $project-&gt;name,
         ];
     }
 }</code></pre>
@@ -602,24 +602,24 @@ class ProjectTransformer extends Transformer
 <p>You can define multiple transformers for the same model to support different output contexts (e.g., API, view, admin):</p>
 <pre><code class="language-php">class ProductApiTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(Product $product): array
     {
         return [
-            'name' =&gt; $model-&gt;name,
-            'price' =&gt; $model-&gt;price,
+            'name' =&gt; $product-&gt;name,
+            'price' =&gt; $product-&gt;price,
         ];
     }
 }
 
 class ProductViewTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(Product $product): array
     {
         return [
-            'id' =&gt; $model-&gt;id,
-            'name' =&gt; $model-&gt;name,
-            'price' =&gt; $model-&gt;price,
-            'color' =&gt; $model-&gt;color,
+            'id' =&gt; $product-&gt;id,
+            'name' =&gt; $product-&gt;name,
+            'price' =&gt; $product-&gt;price,
+            'color' =&gt; $product-&gt;color,
         ];
     }
 }</code></pre>
@@ -660,11 +660,11 @@ $result = $transformer-&gt;transform($project);
 <p>To include related models, you must first define transformers for those relations in your transformer's <code>transformerMap()</code> method:</p>
 <pre><code class="language-php">class ProjectTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(Project $project): array
     {
         return [
-            'id' =&gt; $model-&gt;id,
-            'name' =&gt; $model-&gt;name,
+            'id' =&gt; $project-&gt;id,
+            'name' =&gt; $project-&gt;name,
         ];
     }
 
@@ -690,9 +690,9 @@ $result = $transformer-&gt;transform($project);
 <p>You can include nested relations using dot notation. Each level must have its transformer defined:</p>
 <pre><code class="language-php">class ProjectTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(Project $project): array
     {
-        return ['id' =&gt; $model-&gt;id, 'name' =&gt; $model-&gt;name];
+        return ['id' =&gt; $project-&gt;id, 'name' =&gt; $project-&gt;name];
     }
 
     protected function transformerMap(): array
@@ -705,9 +705,9 @@ $result = $transformer-&gt;transform($project);
 
 class TaskTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(Task $task): array
     {
-        return ['id' =&gt; $model-&gt;id, 'name' =&gt; $model-&gt;name];
+        return ['id' =&gt; $task-&gt;id, 'name' =&gt; $task-&gt;name];
     }
 
     protected function transformerMap(): array
@@ -789,10 +789,10 @@ $result = $pagination-&gt;transform([
         'total_pages' =&gt; 10
     ],
     'links' =&gt; [
-        'first' =&gt; '?page=1',
-        'last' =&gt; '?page=10',
+        'first' =&gt; '/projects?page=1',
+        'last' =&gt; '/projects?page=10',
         'prev' =&gt; null,
-        'next' =&gt; '?page=2'
+        'next' =&gt; '/projects?page=2'
     ]
 ]</code></pre>
 <hr />
@@ -820,12 +820,12 @@ $result = $product-&gt;transform(['context' =&gt; 'view']);
 <p>The <code>transformerMap()</code> method is essential for including relations in your transformed output. It maps relation names to their transformer classes:</p>
 <pre><code class="language-php">class UserTransformer extends Transformer
 {
-    protected function data($model): array
+    protected function data(User $user): array
     {
         return [
-            'id' =&gt; $model-&gt;id,
-            'name' =&gt; $model-&gt;name,
-            'email' =&gt; $model-&gt;email,
+            'id' =&gt; $user-&gt;id,
+            'name' =&gt; $user-&gt;name,
+            'email' =&gt; $user-&gt;email,
         ];
     }
 

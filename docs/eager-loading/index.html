@@ -487,9 +487,31 @@
 </aside>  <main>
     <h1>Eager Loading</h1>
 <p>Once again let us consider these three tables:</p>
-<pre><code class="language-table">1. products (id, title)
-2. options (id, product_id, name, color)
-3. seo (id, product_id, meta_title, meta_description)</code></pre>
+<table>
+    <tr>
+        <td class="token title important">products</td>
+        <td>id</td>
+        <td>title</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td class="token title important">options</td>
+        <td>id</td>
+        <td>product_id</td>
+        <td>name</td>
+        <td>color</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td class="token title important">seo</td>
+        <td>id</td>
+        <td>product_id</td>
+        <td>meta_title</td>
+        <td>meta_description</td>
+    </tr>
+</table>
 <p>The association between these entities is:</p>
 <ul>
 <li>A <strong>product</strong> has many <strong>options</strong>.</li>
@@ -548,6 +570,28 @@ select * from seo where product_id in (1,2,3,4,5,...,N)</code></pre>
 <h3>Loading multiple associations</h3>
 <p>To eager load multiple associations, pass associated method names in the <code>with</code> method:</p>
 <pre><code class="language-php">$products = Product::query()-&gt;with('seo', 'options')-&gt;all();</code></pre>
+<h3>Limited eager loading</h3>
+<p>When eager loading <code>1:N</code> associations, you may only need a subset of related records per parent—for example, the 5 latest comments on each post. You can apply <code>limit()</code> and <code>orderBy()</code> constraints directly on the relation:</p>
+<pre><code class="language-php">// Latest 3 comments per post
+$posts = Post::query()
+    -&gt;with(['comments' =&gt; function ($q) {
+        $q-&gt;orderBy('created_at', 'desc')-&gt;limit(3);
+    }])
+    -&gt;all();
+
+foreach ($posts as $post) {
+    echo $post-&gt;comments-&gt;count(); // Max 3 per post
+}</code></pre>
+<p>This works for both <code>hasMany</code> and <code>hasManyThrough</code> relations. Lightpack uses a <code>ROW_NUMBER()</code> window function to enforce per-parent limits in a single query.</p>
+<p>You can also combine <code>limit()</code> with additional <code>where</code> constraints:</p>
+<pre><code class="language-php">// 2 highest-rated reviews per product
+$products = Product::query()
+    -&gt;with(['reviews' =&gt; function ($q) {
+        $q-&gt;where('status', 'approved')
+          -&gt;orderBy('rating', 'desc')
+          -&gt;limit(2);
+    }])
+    -&gt;all();</code></pre>
 <h3>Counting associations</h3>
 <p>To count the associated relations, use <code>withCount()</code> method:</p>
 <pre><code class="language-php">$categories = Category::query()-&gt;withCount('products')-&gt;all();</code></pre>
@@ -561,6 +605,124 @@ select * from seo where product_id in (1,2,3,4,5,...,N)</code></pre>
 foreach($categories as $category) {
     echo $category-&gt;products_count;
 }</code></pre>
+<h3>Ordering by relation count or aggregate</h3>
+<p>You can combine <code>withCount()</code> with <code>orderBy()</code> to sort results by the number of related records:</p>
+<pre><code class="language-php">// Top 10 most booked hotels
+$hotels = Hotel::query()
+    -&gt;withCount('bookings')
+    -&gt;orderBy('bookings_count', 'desc')
+    -&gt;limit(10)
+    -&gt;all();</code></pre>
+<p>This works for constrained counts too:</p>
+<pre><code class="language-php">// Projects sorted by number of open tasks
+$projects = Project::query()
+    -&gt;withCount(['tasks' =&gt; fn($q) =&gt; $q-&gt;where('status', 'open')])
+    -&gt;orderBy('tasks_count', 'desc')
+    -&gt;all();</code></pre>
+<p>The same pattern works for all aggregate methods. For example, sorting by a sum:</p>
+<pre><code class="language-php">// Projects ordered by total task cost, highest first
+$projects = Project::query()
+    -&gt;withSum('tasks', 'cost')
+    -&gt;orderBy('tasks_sum_cost', 'desc')
+    -&gt;all();</code></pre>
+<p>When <code>orderBy()</code> targets an aggregate column, Lightpack automatically switches from a <code>GROUP BY</code> query to an injected <strong>correlated subquery</strong> in the <code>SELECT</code> clause. This ensures correct ordering without requiring a separate pass over the data.</p>
+<blockquote>
+<p><strong>Note:</strong> <code>loadCount()</code> and <code>loadSum()</code> (and other <code>load*()</code> variants) cannot be combined with <code>orderBy()</code>. Since these methods run after the collection is already fetched, there is no query left to sort. Use <code>withCount()-&gt;orderBy()</code> or <code>withSum()-&gt;orderBy()</code> etc. if sorting is required.</p>
+</blockquote>
+<h3>Aggregating associations</h3>
+<p>Beyond counting, you can also eager load <strong>sum</strong>, <strong>average</strong>, <strong>minimum</strong>, and <strong>maximum</strong> values from related records. These work similarly to <code>withCount()</code> but target a specific numeric column on the relation.</p>
+<pre><code class="language-php">// Sum of hours for all project tasks
+$projects = Project::query()-&gt;withSum('tasks', 'hours')-&gt;all();
+
+// Average rating for all hotel reviews
+$hotels = Hotel::query()-&gt;withAvg('reviews', 'rating')-&gt;all();
+
+// Minimum and maximum order amounts per customer
+$customers = Customer::query()
+    -&gt;withMin('orders', 'amount')
+    -&gt;withMax('orders', 'amount')
+    -&gt;all();</code></pre>
+<blockquote>
+<p><strong>How do you access the aggregate?</strong></p>
+<p>The ORM constructs the attribute name by joining the relation name, the aggregate type, and the column name: <code>{relation}_{type}_{column}</code>. For example, <code>withSum('tasks', 'hours')</code> produces <code>$project-&gt;tasks_sum_hours</code>.</p>
+</blockquote>
+<p>For example:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;withSum('tasks', 'hours')-&gt;all();
+
+foreach($projects as $project) {
+    echo $project-&gt;tasks_sum_hours; // e.g. 42
+}</code></pre>
+<p>You can load multiple aggregates on the same relation simultaneously:</p>
+<pre><code class="language-php">$hotels = Hotel::query()
+    -&gt;withAvg('reviews', 'rating')
+    -&gt;withAvg('reviews', 'reviewer_age')
+    -&gt;all();
+
+foreach($hotels as $hotel) {
+    echo $hotel-&gt;reviews_avg_rating;      // 4.2
+    echo $hotel-&gt;reviews_avg_reviewer_age; // 34.5
+}</code></pre>
+<blockquote>
+<p><strong>What if the relation has no records?</strong></p>
+<p>When a parent model has no related records, the aggregate attribute is set to a sensible default that matches SQL semantics:</p>
+<table>
+<thead>
+<tr>
+<th>Aggregate</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>withCount()</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>withSum()</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>withAvg()</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>withMin()</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>withMax()</code></td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<p>For example, if a project has no tasks, <code>$project-&gt;tasks_count</code> will be <code>0</code>, while <code>$project-&gt;tasks_sum_hours</code> and <code>$project-&gt;tasks_avg_hours</code> will be <code>null</code>. Use <code>?? 0</code> in views when you need a numeric fallback for sum/avg/min/max.</p>
+</blockquote>
+<blockquote>
+<p><strong>Which relation types support aggregates?</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Supported relations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>withCount()</code></td>
+<td><code>hasMany</code>, <code>hasManyThrough</code>, <code>morphMany</code>, <code>pivot</code>, <code>morphToMany</code>, <code>morphedByMany</code></td>
+</tr>
+<tr>
+<td><code>withSum()</code> / <code>withAvg()</code> / <code>withMin()</code> / <code>withMax()</code></td>
+<td><code>hasMany</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>withCount()</code> works across all collection-style relations including polymorphic many-to-many. Numeric aggregates (<code>withSum</code> etc.) currently apply to <code>hasMany</code> relations only.</p>
+</blockquote>
+<blockquote>
+<p><strong>Standalone vs. Relation Aggregates</strong></p>
+<p>The methods above (<code>withCount</code>, <code>withSum</code>, etc.) compute aggregates <strong>on related models</strong> and attach them to each parent. If you need grouped aggregates <strong>on the model's own columns</strong> (e.g., <code>SUM(price) GROUP BY category</code> on the <code>products</code> table itself), use the query builder's <code>aggregate()</code> method instead. See <a href="./db-query-builder.md#multiple-grouped-aggregates">Multiple Grouped Aggregates</a> in the Query Builder documentation.</p>
+</blockquote>
 <hr />
 <h3>Quick Reference: Eager Loading Methods</h3>
 <table>
@@ -583,6 +745,26 @@ foreach($categories as $category) {
 <td><code>withCount('products')</code></td>
 </tr>
 <tr>
+<td><code>withSum()</code></td>
+<td>Sum of relation</td>
+<td><code>withSum('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>withAvg()</code></td>
+<td>Average of relation</td>
+<td><code>withAvg('reviews', 'rating')</code></td>
+</tr>
+<tr>
+<td><code>withMin()</code></td>
+<td>Minimum of relation</td>
+<td><code>withMin('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>withMax()</code></td>
+<td>Maximum of relation</td>
+<td><code>withMax('orders', 'amount')</code></td>
+</tr>
+<tr>
 <td><code>load()</code> (on collection)</td>
 <td>Related models</td>
 <td><code>$products-&gt;load('seo')</code></td>
@@ -592,15 +774,35 @@ foreach($categories as $category) {
 <td>Count of relations</td>
 <td><code>$products-&gt;loadCount('options')</code></td>
 </tr>
+<tr>
+<td><code>loadSum()</code> (on collection)</td>
+<td>Sum of relation</td>
+<td><code>$products-&gt;loadSum('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>loadAvg()</code> (on collection)</td>
+<td>Average of relation</td>
+<td><code>$products-&gt;loadAvg('reviews', 'rating')</code></td>
+</tr>
+<tr>
+<td><code>loadMin()</code> (on collection)</td>
+<td>Minimum of relation</td>
+<td><code>$products-&gt;loadMin('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>loadMax()</code> (on collection)</td>
+<td>Maximum of relation</td>
+<td><code>$products-&gt;loadMax('orders', 'amount')</code></td>
+</tr>
 </tbody>
 </table>
 <ul>
-<li>Use <code>with()</code> and <code>withCount()</code> when building your initial query.</li>
-<li>Use <code>load()</code> and <code>loadCount()</code> to eager load associations on an <strong>existing collection</strong>.</li>
+<li>Use <code>with*()</code> methods when building your initial query.</li>
+<li>Use <code>load*()</code> methods to eager load associations on an <strong>existing collection</strong>.</li>
 </ul>
 <hr />
 <h3>Eager Loading Callbacks: Filtering Related Data</h3>
-<p>You can pass a callback to <code>with()</code>, <code>withCount()</code>, <code>load()</code>, or <code>loadCount()</code> to apply conditions to the eager loaded relationship. The callback receives the query builder for the related model, letting you add any filters you need.</p>
+<p>You can pass a callback to <code>with()</code>, <code>withCount()</code>, <code>withSum()</code>, <code>withAvg()</code>, <code>withMin()</code>, <code>withMax()</code>, <code>load()</code>, <code>loadCount()</code>, <code>loadSum()</code>, <code>loadAvg()</code>, <code>loadMin()</code>, or <code>loadMax()</code> to apply conditions to the eager loaded relationship. The callback receives the query builder for the related model, letting you add any filters you need.</p>
 <pre><code class="language-php">$projects = Project::query()-&gt;with(['tasks' =&gt; function($q) {
     $q-&gt;where('status', '=', 'pending');
 }])-&gt;all();</code></pre>
@@ -644,26 +846,35 @@ foreach($categories as $category) {
         $q-&gt;where('status', '=', 'approved');
     }]);
 })-&gt;all();</code></pre>
-<p><strong>Note:</strong> You can apply the same constraints on <code>withCount()</code> method too:</p>
+<p><strong>Note:</strong> You can apply the same constraints on <code>withCount()</code> and aggregate methods too:</p>
 <pre><code class="language-php">$projects = Project::query()-&gt;withCount(['tasks' =&gt; function($q) {
     $q-&gt;where('status', '=', 'pending');
-})-&gt;all();</code></pre>
+}])-&gt;all();
+
+$projects = Project::query()-&gt;withSum(['tasks' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'completed');
+}], 'hours')-&gt;all();</code></pre>
 <h3>Deferred eager loading</h3>
 <p>Suppose that we have <code>100</code> records in products table. Eager loading <code>seo</code> and <code>options</code> for <code>100</code> products will be a huge performance miss.</p>
 <p>In such cases, you might be interested in <strong>paginating</strong> <code>products</code> and then eager load associated relations.</p>
 <pre><code class="language-php">$products = Product::query()-&gt;paginate(10);</code></pre>
-<p>Once you have got the <strong>products</strong>, you can eager load its <strong>associated</strong> relations by calling <code>load()</code> and <code>loadCount()</code> methods on <strong>products</strong>.</p>
+<p>Once you have got the <strong>products</strong>, you can eager load its <strong>associated</strong> relations by calling <code>load()</code>, <code>loadCount()</code>, <code>loadSum()</code>, <code>loadAvg()</code>, <code>loadMin()</code>, or <code>loadMax()</code> methods on <strong>products</strong>.</p>
 <pre><code class="language-php">$products-&gt;load('seo');
-$products-&gt;loadCount('options');</code></pre>
-<p>This will automatically populate <code>seo</code> data along with <code>options</code> count for each product in <code>$products</code> collection.</p>
+$products-&gt;loadCount('options');
+$products-&gt;loadSum('orders', 'amount');</code></pre>
+<p>This will automatically populate <code>seo</code> data along with <code>options</code> count and <code>orders</code> sum for each product in <code>$products</code> collection.</p>
 <pre><code class="language-php">foreach($products as $product) {
-    $product-&gt;seo; 
+    $product-&gt;seo;
     $product-&gt;options_count;
+    $product-&gt;orders_sum_amount;
 }</code></pre>
-<p><strong>Note:</strong> You can also chain <code>load()</code> and <code>loadCount()</code> methods together. For example:</p>
+<p><strong>Note:</strong> You can also chain these methods together. For example:</p>
 <pre><code class="language-php">$products = Product::query()-&gt;paginate(10);
-$products-&gt;load('seo')-&gt;loadCount('options');</code></pre>
-<p><strong>Note:</strong> All the capabilities that <code>with()</code> and <code>withCount()</code> methods have also applies to <code>load()</code> and <code>loadCount()</code> methods.</p>
+$products-&gt;load('seo')
+    -&gt;loadCount('options')
+    -&gt;loadSum('orders', 'amount')
+    -&gt;loadAvg('reviews', 'rating');</code></pre>
+<p><strong>Note:</strong> All the capabilities that <code>with*()</code> methods have also applies to <code>load*()</code> methods.</p>
 <p>For example, you can pass <strong>callbacks</strong> to restrict eager loading:</p>
 <pre><code class="language-php">$products-&gt;load(['reviews' =&gt; function($q) {
     $q-&gt;where('status', '=', 'approved');
@@ -671,6 +882,9 @@ $products-&gt;load('seo')-&gt;loadCount('options');</code></pre>
 <pre><code class="language-php">$products-&gt;loadCount(['reviews' =&gt; function($q) {
     $q-&gt;where('status', '=', 'approved');
 }]);</code></pre>
+<pre><code class="language-php">$products-&gt;loadSum(['orders' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'completed');
+}], 'amount');</code></pre>
 <hr />
 <h4>Eager Loading Polymorphic Parents with <code>loadMorphs</code></h4>
 <p>When working with a collection of polymorphic models (e.g., a list of comments where each comment could belong to a different parent type), eager loading the parent models efficiently can be challenging. Lightpack ORM provides the <code>loadMorphs()</code> method to solve this elegantly.</p>

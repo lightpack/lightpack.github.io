@@ -486,7 +486,7 @@
             </div>
 </aside>  <main>
     <h1>Moment Utility</h1>
-<p>Lightpack’s <code>Moment</code> is a simple, expressive, and timezone-aware date/time utility for PHP. It is designed for clarity, practical use, and covers the most common date/time operations with a clean, chainable API.</p>
+<p>Lightpack's <code>Moment</code> is a simple, expressive, and timezone-aware date/time utility for PHP. It handles datetime operations with proper timezone support and covers the most common date/time operations with a clean, chainable API.</p>
 <hr />
 <h2>Key Features</h2>
 <ul>
@@ -495,6 +495,7 @@
 <li><strong>Chainable configuration:</strong> All config methods return <code>$this</code> for fluent API.</li>
 <li><strong>Safe error handling:</strong> Throws <code>InvalidArgumentException</code> for invalid timezones or date strings.</li>
 <li><strong>Comprehensive:</strong> Covers today, tomorrow, yesterday, next/last weekday, month ends, travel, diff, human-friendly differences, and more.</li>
+<li><strong>DateTime support:</strong> All methods accept <code>DateTime</code> objects or strings.</li>
 </ul>
 <hr />
 <h2>Instantiation &amp; Timezone</h2>
@@ -571,35 +572,75 @@ $moment-&gt;travel('last day of this month', 'd-M, Y');</code></pre>
 <p>Returns a <code>DateInterval</code> object for the absolute difference between two datetimes.</p>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>datetime1</code> (string)</li>
-<li><code>datetime2</code> (string)</li>
+<li><code>datetime1</code> (<code>DateTime|string</code>)</li>
+<li><code>datetime2</code> (<code>DateTime|string</code>)</li>
 </ul>
 <p><strong>Examples:</strong></p>
 <pre><code class="language-php">$diff = $moment-&gt;diff('2021-07-23 14:25:45', '2019-03-14 08:23:12');
+$diff = $moment-&gt;diff(new DateTime('2021-07-23'), new DateTime('2019-03-14'));
 $diff-&gt;y; // years
 $diff-&gt;m; // months
-$diff-&gt;d; // days
-$diff-&gt;h; // hours
-$diff-&gt;i; // minutes
-$diff-&gt;s; // seconds</code></pre>
+$diff-&gt;d; // days</code></pre>
 <h3>daysBetween</h3>
 <p>Returns the number of days between two dates (absolute).</p>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>datetime1</code> (string)</li>
-<li><code>datetime2</code> (string)</li>
+<li><code>datetime1</code> (<code>DateTime|string</code>)</li>
+<li><code>datetime2</code> (<code>DateTime|string</code>)</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<pre><code class="language-php">$days = $moment-&gt;daysBetween('2021-07-23', '2021-05-18');</code></pre>
+<pre><code class="language-php">$days = $moment-&gt;daysBetween('2021-07-23', '2021-05-18');
+$days = $moment-&gt;daysBetween(new DateTime('2021-07-23'), new DateTime('2021-05-18'));</code></pre>
 <h3>fromNow</h3>
 <p>Returns a human-friendly difference string (e.g., 'just now', '5 minutes ago', '2 weeks ago').</p>
 <p><strong>Parameters:</strong></p>
 <ul>
-<li><code>datetime</code> (string, optional): Date/time string to compare to now. Defaults to <code>'now'</code>.</li>
+<li><code>datetime</code> (<code>DateTime|string</code>, optional): Date/time to compare to now. Defaults to <code>'now'</code>.</li>
 </ul>
 <p><strong>Examples:</strong></p>
 <pre><code class="language-php">$moment-&gt;fromNow('2021-07-20 11:30:45');
-// Output: 'x days ago', etc.</code></pre>
+$moment-&gt;fromNow(new DateTime('-2 hours'));
+// Output: '2 hours ago', etc.</code></pre>
+<h3>humanDiff</h3>
+<p>Returns a human-friendly difference string between two datetimes. Supports both past and future.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>from</code> (<code>DateTime|string</code>): Starting datetime.</li>
+<li><code>to</code> (<code>DateTime|string</code>, optional): Ending datetime. Defaults to <code>'now'</code>.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-php">$moment-&gt;humanDiff('-2 hours');           // '2 hours ago'
+$moment-&gt;humanDiff('+1 day');             // 'tomorrow'
+$moment-&gt;humanDiff('2020-01-01', '2023-01-01'); // '3 years ago'</code></pre>
+<h3>isToday, isPast, isFuture</h3>
+<p>Boolean checks for date position.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>datetime</code> (<code>DateTime|string</code>, optional): Defaults to <code>'now'</code>.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-php">$moment-&gt;isToday();              // true
+$moment-&gt;isToday('yesterday');   // false
+$moment-&gt;isPast('2020-01-01');   // true
+$moment-&gt;isFuture('2030-01-01'); // true</code></pre>
+<h3>startOfDay, endOfDay</h3>
+<p>Returns the start or end of the day for a given datetime.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>datetime</code> (<code>DateTime|string</code>, optional): Defaults to <code>'now'</code>.</li>
+<li><code>?format</code> (string, optional): Output format.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-php">$moment-&gt;startOfDay('2021-07-23 14:30:00'); // '2021-07-23 00:00:00'
+$moment-&gt;endOfDay('2021-07-23 14:30:00');   // '2021-07-23 23:59:59'</code></pre>
+<h3>age</h3>
+<p>Calculates age in years from a birthdate to now.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>birthdate</code> (<code>DateTime|string</code>)</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-php">$moment-&gt;age('1999-05-22'); // e.g. 25</code></pre>
 <h3>create</h3>
 <p>Returns a <code>DateTime</code> object in the current timezone. Throws on invalid input.</p>
 <p><strong>Parameters:</strong></p>
@@ -609,7 +650,6 @@ $diff-&gt;s; // seconds</code></pre>
 <p><strong>Examples:</strong></p>
 <pre><code class="language-php">$dt = $moment-&gt;create();
 $dt = $moment-&gt;create('2021-07-23');
-$dt = $moment-&gt;create('2021-07-23 10:00:00');
 
 // Use all native DateTime methods:
 $moment-&gt;create()-&gt;modify('+2 hours')-&gt;format('Y-m-d H:i:s');</code></pre>
@@ -620,7 +660,8 @@ $moment-&gt;create()-&gt;modify('+2 hours')-&gt;format('Y-m-d H:i:s');</code></p
 <h3>Get the next Friday in custom format</h3>
 <pre><code class="language-php">$moment-&gt;next('friday', 'd/m/Y');</code></pre>
 <h3>Get human-friendly difference</h3>
-<pre><code class="language-php">$moment-&gt;fromNow('2023-06-15 10:00:00'); // e.g. 'a year ago'</code></pre>
+<pre><code class="language-php">$moment-&gt;fromNow('2023-06-15 10:00:00'); // e.g. 'a year ago'
+$moment-&gt;humanDiff('+3 days');           // 'in 3 days'</code></pre>
 <h3>Calculate days between two dates</h3>
 <pre><code class="language-php">$days = $moment-&gt;daysBetween('2024-01-01', '2024-01-31'); // 30</code></pre>
 <h3>Error Handling</h3>

@@ -526,7 +526,7 @@ config('redis.port'); // 6666</code></pre>
 <h2>Setting configuration</h2>
 <p>You can dynamically add new configuration values at runtime by calling the <code>set()</code> method:</p>
 <pre><code class="language-php">config()-&gt;set('cache.driver', 'redis');</code></pre>
-<p class="tip">The <code>set()</code> method only sets the value if the key doesn't already exist. This prevents accidental overwrites.</p>
+<p class="tip">The <code>set()</code> method overwrites existing keys. Use <code>has()</code> first if you need to check before overwriting.</p>
 <h2>Checking configuration</h2>
 <p>To check if a configuration key exists, you can use the <code>has()</code> method:</p>
 <pre><code class="language-php">if (config()-&gt;has('redis.host')) {

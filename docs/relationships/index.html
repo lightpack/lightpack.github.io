@@ -988,6 +988,41 @@ $post-&gt;tags()-&gt;sync([1, 3, 4]);</code></pre>
 $posts = $tag-&gt;posts;   // All posts with this tag
 $videos = $tag-&gt;videos; // All videos with this tag</code></pre>
 <hr />
+<h2>Counting Relations</h2>
+<p><code>withCount()</code> works across all collection-style relationships—not just <code>hasMany</code>. This includes many-to-many (<code>pivot</code>), polymorphic many-to-many (<code>morphToMany</code>, <code>morphedByMany</code>), and through relationships.</p>
+<p><strong>Many-to-many (<code>pivot</code>):</strong></p>
+<pre><code class="language-php">// How many roles does each user have?
+$users = User::query()-&gt;withCount('roles')-&gt;all();
+
+foreach ($users as $user) {
+    echo $user-&gt;roles_count;
+}</code></pre>
+<p><strong>Polymorphic many-to-many (<code>morphToMany</code>):</strong></p>
+<pre><code class="language-php">// How many tags does each post have?
+$posts = Post::query()-&gt;withCount('tags')-&gt;all();
+
+foreach ($posts as $post) {
+    echo $post-&gt;tags_count;
+}</code></pre>
+<p><strong>Inverse polymorphic many-to-many (<code>morphedByMany</code>):</strong></p>
+<pre><code class="language-php">// How many posts and videos does each tag have?
+$tags = Tag::query()
+    -&gt;withCount('posts')
+    -&gt;withCount('videos')
+    -&gt;all();
+
+foreach ($tags as $tag) {
+    echo $tag-&gt;posts_count;
+    echo $tag-&gt;videos_count;
+}</code></pre>
+<p>You can also combine <code>withCount()</code> with <code>orderBy()</code> on these relations:</p>
+<pre><code class="language-php">// Users ordered by number of roles
+$users = User::query()
+    -&gt;withCount('roles')
+    -&gt;orderBy('roles_count', 'desc')
+    -&gt;all();</code></pre>
+<p>For a complete reference on <code>withCount()</code>, <code>withSum()</code>, and all other aggregate facilities including defaults, callbacks, and deferred loading, see the <a href="eager-loading.md">Eager Loading documentation</a>.</p>
+<hr />
 <h2>Querying Relationships</h2>
 <p>Understanding how to access and work with relationships is fundamental to getting the most out of your ORM. Lightpack ORM makes it intuitive to fetch related data, whether you want a single associated record or a whole collection of related models. This section will guide you through the mechanics, best practices, and the semantics of querying relationships. So let's reconsider the relation where an  <strong>organization</strong> has many <strong>departments</strong>.</p>
 <pre><code class="language-php">class Organization extends Model

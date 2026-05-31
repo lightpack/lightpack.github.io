@@ -500,7 +500,6 @@ session()-&gt;flash()
 session()-&gt;regenerate()
 session()-&gt;destroy()
 session()-&gt;token()
-session()-&gt;hasInvalidToken()
 session()-&gt;hasInvalidAgent()
 session()-&gt;verifyAgent()
 session()-&gt;setUserAgent()</code></pre>
@@ -546,10 +545,15 @@ $notice = session()-&gt;flash('notice'); // Get and remove flash data</code></pr
 <h3>CSRF Token</h3>
 <p>Generate or retrieve a CSRF token:</p>
 <pre><code class="language-php">$token = session()-&gt;token();</code></pre>
-<p>Check if the CSRF token is invalid (e.g., after form submission):</p>
-<pre><code class="language-php">if(session()-&gt;hasInvalidToken()) {
-    // Block the request!
+<p>Inject the CSRF token in your form using the helper:</p>
+<pre><code class="language-php">echo csrf_input(); // &lt;input type="hidden" name="_token" value="..."&gt;</code></pre>
+<p>Or in a filter or controller, validate the submitted token:</p>
+<pre><code class="language-php">$token = request()-&gt;input('_token');
+
+if (! $token || $token !== session()-&gt;token()) {
+    // Block the request - invalid CSRF token!
 }</code></pre>
+<p class="tip">Lightpack provides a built-in <code>csrf</code> filter that automatically validates CSRF tokens on POST, PUT, PATCH, and DELETE requests. Just attach <code>->filter('csrf')</code> to your routes instead of writing manual checks. Refer to the <a href="#/filters">filters documentation</a> for more details.</p>
 <h3>User Agent Validation</h3>
 <p>Store and verify the user agent string to help prevent session hijacking:</p>
 <pre><code class="language-php">// Manually set agent

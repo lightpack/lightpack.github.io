@@ -574,13 +574,13 @@ route()-&gt;any('/ping', HealthController::class);</code></pre>
 </blockquote>
 <p>Route with optional parameters</p>
 <pre><code class="language-php">// Returns: /blog/tech/php-tips
-url()-&gt;route('blog.post', [
+route()-&gt;url('blog.post', [
     'category' =&gt; 'tech',
     'slug' =&gt; 'php-tips'
 ]); </code></pre>
 <p>Route with query parameters:</p>
 <pre><code class="language-php">// Returns: /search?q=php&amp;page=1
-url()-&gt;route('search', [
+route()-&gt;url('search', [
     'q' =&gt; 'php',
     'page' =&gt; 1
 ]); </code></pre>
@@ -684,6 +684,84 @@ public function dashboard($subdomain)
     // $subdomain is automatically injected
 }</code></pre>
 <hr />
+<h2>Route Model Binding</h2>
+<p>Automatically resolve route parameters into model instances before they reach your controller. Lightpack supports both <strong>explicit</strong> binding (by ID) and <strong>custom</strong> binding (via callback).</p>
+<p>In this example, the <code>:note</code> parameter in the route will be automatically resolved to a <code>Note</code> model instance:</p>
+<pre><code class="language-php">route()-&gt;get('/notes/:note', NoteController::class, 'show')
+    -&gt;bind('note', Note::class);</code></pre>
+<pre><code class="language-php">class NoteController
+{
+    public function show(Note $note)
+    {
+        return $note-&gt;title;
+    }
+}</code></pre>
+<p>The Note model will be automatically instantiated with the ID from the route parameter. Behind the scenes, Lightpack calls <code>new Note($note)</code> where <code>$note</code> is the ID of the note record.</p>
+<p>SO this is identical to <code>new Note(5)</code> when the URL is <code>/notes/5</code>. If no record is found, the model throws a <code>RecordNotFoundException</code> (404).</p>
+<blockquote>
+<p><strong>Use semantic names</strong> (<code>:note</code>, <code>:comment</code>, <code>:post</code>) instead of generic names (<code>:id</code>, <code>:slug</code>). It makes controller signatures natural and readable.</p>
+</blockquote>
+<h3>Custom Binding (Callback Resolution)</h3>
+<p>The default resolution mechanism is to instantiate the model with the route parameter value as record ID. But you can also provide a custom callback for more control.</p>
+<p>Provide a callback for non-ID lookups or ownership checks:</p>
+<pre><code class="language-php">route()-&gt;get('/notes/:slug', NoteController::class, 'show')
+    -&gt;bind('note', Note::class, fn($slug) =&gt; Note::query()-&gt;where('slug', $slug)-&gt;one());</code></pre>
+<p>The callback receives the raw route parameter value and must return the resolved model instance. If the callback returns <code>null</code> the route will result in a 404.</p>
+<h3>Multiple Bindings</h3>
+<p>Chain <code>bind()</code> calls for routes with multiple parameters:</p>
+<pre><code class="language-php">route()-&gt;get('/posts/:post/comments/:comment', CommentController::class, 'show')
+    -&gt;bind('post', Post::class)
+    -&gt;bind('comment', Comment::class);</code></pre>
+<p>Each parameter is resolved independently. It doesn't check if the comment belongs to the post, for example.</p>
+<h3>Group-Level Bindings</h3>
+<p>Apply bindings to all routes in a group — no repetition. Use the short form (just the class name) for ID-based resolution, or the full array form for custom resolvers:</p>
+<pre><code class="language-php">// Short form (recommended for ID resolution)
+route()-&gt;group([
+    'bind' =&gt; [
+        'note' =&gt; Note::class
+    ]
+], function () {
+    route()-&gt;get('/notes/:note', NoteController::class, 'show');
+    route()-&gt;get('/notes/:note/edit', NoteController::class, 'edit');
+    route()-&gt;delete('/notes/:note', NoteController::class, 'destroy');
+});
+
+// Full form (for custom resolvers)
+route()-&gt;group([
+    'bind' =&gt; [
+        'slug' =&gt; [
+            'model' =&gt; Note::class,
+            'resolver' =&gt; fn($slug) =&gt; Note::query()-&gt;where('slug', $slug)-&gt;one()
+        ]
+    ]
+], function () {
+    route()-&gt;get('/notes/:slug', NoteController::class, 'show');
+});</code></pre>
+<p>// Multiple bindings in a group</p>
+<pre><code>route()-&gt;group([
+    'bind' =&gt; [
+        'note' =&gt; Note::class,
+        'comment' =&gt; Comment::class
+    ]
+], function () {
+    route()-&gt;get('/notes/:note/comments/:comment', CommentController::class, 'show');
+    route()-&gt;put('/notes/:note/comments/:comment', CommentController::class, 'update');
+    route()-&gt;delete('/notes/:note/comments/:comment', CommentController::class, 'destroy');
+});</code></pre>
+<p><strong>Group-level behavior:</strong></p>
+<ul>
+<li>All child routes inherit group bindings automatically.</li>
+<li>Nested groups merge bindings (child bindings override parent for same param).</li>
+<li>Route-level <code>-&gt;bind()</code> always wins over group-level binding.</li>
+</ul>
+<p><strong>Nested groups with merge + override:</strong></p>
+<p>You can nest groups and the bindings will merge:</p>
+<pre><code class="language-php">route()-&gt;group(['bind' =&gt; ['note' =&gt; Note::class]], function () {
+    route()-&gt;group(['bind' =&gt; ['comment' =&gt; Comment::class]], function () {
+        // Both 'note' and 'comment' bindings are active here
+        route()-&gt;get('/notes/:note/comments/:comment', CommentController::class, 'show');
+    });
+});</code></pre>
 <h2>Best Practices &amp; Gotchas</h2>
 <ul>
 <li><strong>Order matters:</strong> Register more specific routes before generic ones.</li>
@@ -694,6 +772,7 @@ public function dashboard($subdomain)
 <li><strong>Group nesting:</strong> Prefixes concatenate, filters merge, host is inherited.</li>
 <li><strong>Optional params:</strong> Only the <strong>last</strong> parameter can be optional using <code>:param?</code>; missing params are <code>null</code>.</li>
 <li><strong>Default pattern:</strong> Parameters without explicit patterns default to <code>:seg</code> (matches <code>[^/]+</code>).</li>
+<li><strong>Model binding param names:</strong> The controller parameter name must exactly match the route parameter name for the container to inject the resolved model.</li>
 <li><strong>Host matching:</strong> When a route has a host, matching checks <code>request()-&gt;host() . '/' . path</code>. Routes with hosts will NOT match if the request comes from a different host.</li>
 <li><strong>Wildcard subdomains:</strong> The pattern <code>:subdomain.example.com</code> only matches hosts ending with <code>.example.com</code>. Other domains are rejected.</li>
 <li><strong>404s:</strong> If no route matches, Lightpack throws a <code>RouteNotFoundException</code>.</li>

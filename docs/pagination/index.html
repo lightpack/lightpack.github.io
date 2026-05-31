@@ -6,8 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
-  <title>Array</title>
-    <meta property="og:title" content="Array">
+  <title>Pagination</title>
+    <meta property="og:title" content="Pagination">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/docs/assets/styles.css">
   <link rel="stylesheet" href="/docs/assets/prism.min.css">
@@ -292,7 +292,7 @@
               </li>
                           <li>
                 <a href="/docs/array-utils"
-                  class="active" aria-current="page" >
+                  >
                   Array                </a>
               </li>
                           <li>
@@ -485,222 +485,158 @@
         </div>
             </div>
 </aside>  <main>
-    <h1>Array Utility Documentation</h1>
-<p>Lightpack's Array utility provides a powerful set of methods for working with arrays, featuring dot notation access, wildcard matching, array transformations, hierarchical tree building, data grouping and sorting.</p>
-<h2>Basic Usage</h2>
-<pre><code class="language-php">use Lightpack\Utils\Arr;
+    <h1>Pagination in Lightpack</h1>
+<p>Lightpack provides a simple and consistent pagination system that works with both the raw query builder and the Lucid ORM. The base <code>Pagination</code> class handles the core logic, while <code>Lucid\Pagination</code> extends it with ORM-specific features.</p>
+<h2>Creating Paginated Results</h2>
+<h3>Query Builder</h3>
+<pre><code class="language-php">$products = db()-&gt;table('products')-&gt;paginate(10);</code></pre>
+<p>By default, the current page is read from the <code>page</code> query parameter. You can override it:</p>
+<pre><code class="language-php">$products = db()-&gt;table('products')-&gt;paginate(10, 3); // force page 3</code></pre>
+<h3>Lucid ORM</h3>
+<pre><code class="language-php">$products = Product::query()-&gt;paginate(10);</code></pre>
+<h2>Iterating Results</h2>
+<p>Both pagination classes implement <code>IteratorAggregate</code>, so you can loop over them directly:</p>
+<pre><code class="language-php">foreach ($products as $product) {
+    echo $product-&gt;name;
+}</code></pre>
+<p>Or access items by index:</p>
+<pre><code class="language-php">$first = $products[0];</code></pre>
+<p>Or get the underlying items explicitly:</p>
+<pre><code class="language-php">$items = $products-&gt;items(); // array or Collection</code></pre>
+<h2>Pagination Metadata</h2>
+<h3>total()</h3>
+<p>Returns the total number of records across all pages.</p>
+<pre><code class="language-php">$products-&gt;total(); // 100</code></pre>
+<h3>count()</h3>
+<p>Returns the number of items on the current page.</p>
+<pre><code class="language-php">$products-&gt;count(); // 10</code></pre>
+<h3>currentPage()</h3>
+<p>Returns the current page number.</p>
+<pre><code class="language-php">$products-&gt;currentPage(); // 3</code></pre>
+<h3>lastPage()</h3>
+<p>Returns the total number of pages.</p>
+<pre><code class="language-php">$products-&gt;lastPage(); // 10</code></pre>
+<h3>limit()</h3>
+<p>Returns the number of items per page.</p>
+<pre><code class="language-php">$products-&gt;limit(); // 10</code></pre>
+<h3>offset()</h3>
+<p>Returns the SQL offset for the current page.</p>
+<pre><code class="language-php">$products-&gt;offset(); // 20 (for page 3 with limit 10)</code></pre>
+<h2>Checking Page State</h2>
+<h3>isEmpty()</h3>
+<p>Returns <code>true</code> if there are no items on the current page.</p>
+<pre><code class="language-php">if ($products-&gt;isEmpty()) {
+    echo 'No products found.';
+}</code></pre>
+<h3>isNotEmpty()</h3>
+<p>Returns <code>true</code> if there is at least one item on the current page.</p>
+<pre><code class="language-php">if ($products-&gt;isNotEmpty()) {
+    foreach ($products as $product) {
+        echo $product-&gt;name;
+    }
+}</code></pre>
+<h3>hasNextPage()</h3>
+<pre><code class="language-php">if ($products-&gt;hasNextPage()) {
+    // ...
+}</code></pre>
+<h3>hasPreviousPage()</h3>
+<pre><code class="language-php">if ($products-&gt;hasPreviousPage()) {
+    // ...
+}</code></pre>
+<h3>hasLinks()</h3>
+<p>Returns <code>true</code> if there is more than one page in total.</p>
+<pre><code class="language-php">if ($products-&gt;hasLinks()) {
+    echo $products-&gt;links();
+}</code></pre>
+<h2>Links &amp; URLs</h2>
+<h3>links()</h3>
+<p>Returns a basic HTML string with prev/next links and page info.</p>
+<pre><code class="language-php">echo $products-&gt;links();
+// Page 3 of 10 &lt;a href="/products?page=2"&gt;Prev&lt;/a&gt;  &lt;a href="/products?page=4"&gt;Next&lt;/a&gt;</code></pre>
+<h3>nextPageUrl()</h3>
+<p>Returns the URL for the next page, or <code>null</code> if on the last page.</p>
+<pre><code class="language-php">$products-&gt;nextPageUrl(); // /products?page=4</code></pre>
+<h3>prevPageUrl()</h3>
+<p>Returns the URL for the previous page, or <code>null</code> if on the first page.</p>
+<pre><code class="language-php">$products-&gt;prevPageUrl(); // /products?page=2</code></pre>
+<h3>url($page)</h3>
+<p>Returns the URL for a specific page number.</p>
+<pre><code class="language-php">$products-&gt;url(5); // /products?page=5</code></pre>
+<h3>withPath($path)</h3>
+<p>Override the base URL path used in generated links.</p>
+<pre><code class="language-php">$products-&gt;withPath('/api/products');
+$products-&gt;url(2); // /api/products?page=2</code></pre>
+<h3>only($params)</h3>
+<p>Preserve only specific query parameters when building pagination URLs.</p>
+<pre><code class="language-php">// URL: /products?category=electronics&amp;sort=price&amp;page=2
+$products-&gt;only(['category']);
+$products-&gt;url(3); // /products?category=electronics&amp;page=3</code></pre>
+<h3>getPages()</h3>
+<p>Returns an array of page numbers to display in a pagination bar (useful for building custom link templates).</p>
+<pre><code class="language-php">$products-&gt;getPages(); // [1, 2, 3, 4, 5] (when on page 3 with 10 total pages)</code></pre>
+<h2>Lucid ORM Specific Features</h2>
+<p>When using the Lucid ORM, the returned <code>Pagination</code> instance includes additional ORM-specific methods.</p>
+<h3>load(...$relations)</h3>
+<p>Lazy-load relationships for the current page's models.</p>
+<pre><code class="language-php">$products = Product::query()-&gt;paginate(10);
+$products-&gt;load('category', 'tags');</code></pre>
+<h3>loadCount(...$relations)</h3>
+<p>Lazy-load relationship counts for the current page's models.</p>
+<pre><code class="language-php">$products-&gt;loadCount('reviews');</code></pre>
+<h3>toArray()</h3>
+<p>Convert the paginated result to an array. Model collections are automatically converted.</p>
+<pre><code class="language-php">$array = $products-&gt;toArray();</code></pre>
+<h3>toJson()</h3>
+<p>Convert the paginated result to JSON.</p>
+<pre><code class="language-php">$json = $products-&gt;toJson();</code></pre>
+<h3>transform($options)</h3>
+<p>Transform the paginated collection for API output using model transformers.</p>
+<pre><code class="language-php">$result = $products-&gt;transform([
+    'includes' =&gt; ['category', 'tags'],
+    'fields' =&gt; [
+        'self' =&gt; ['name', 'price'],
+        'category' =&gt; ['name'],
+    ],
+]);</code></pre>
+<p>Returns:</p>
+<pre><code class="language-php">[
+    'data' =&gt; [ /* transformed items */ ],
+    'meta' =&gt; [
+        'current_page' =&gt; 1,
+        'per_page' =&gt; 10,
+        'total' =&gt; 100,
+        'total_pages' =&gt; 10,
+    ],
+    'links' =&gt; [
+        'first' =&gt; '/products?page=1',
+        'last' =&gt; '/products?page=10',
+        'prev' =&gt; null,
+        'next' =&gt; '/products?page=2',
+    ],
+]</code></pre>
+<h2>Rendering in Views</h2>
+<p>For simple cases, use the built-in <code>links()</code> method:</p>
+<pre><code class="language-php">&lt;?= $products-&gt;links() ?&gt;</code></pre>
+<p>For custom HTML, build your own using the available methods:</p>
+<pre><code class="language-php">&lt;?php if ($products-&gt;hasLinks()): ?&gt;
+&lt;nav&gt;
+    &lt;?php if ($products-&gt;hasPreviousPage()): ?&gt;
+        &lt;a href="&lt;?= $products-&gt;prevPageUrl() ?&gt;"&gt;Previous&lt;/a&gt;
+    &lt;?php endif; ?&gt;
 
-$arr = new Arr();</code></pre>
-<p>Or simply call <code>arr()</code> utility function.</p>
-<p>It exposes following methods to efficiently work with arrays:</p>
-<ul>
-<li><code>get()</code> — read a value using dot notation (supports wildcards)</li>
-<li><code>set()</code> — write a value using dot notation</li>
-<li><code>has()</code> — check if a dot-notation key exists</li>
-<li><code>delete()</code> — remove a key using dot notation</li>
-<li><code>flatten()</code> — convert a nested array to a flat dot-notation array</li>
-<li><code>tree()</code> — build a hierarchical tree from a flat parent-child array</li>
-<li><code>transpose()</code> — convert column-based arrays to row-based arrays</li>
-<li><code>groupBy()</code> — group an array of items by a key (supports dot notation)</li>
-<li><code>sort()</code> — sort an array of items by a key (supports dot notation)</li>
-</ul>
-<h3>Basic Operations</h3>
-<pre><code class="language-php">$data = [
-    'user' =&gt; [
-        'profile' =&gt; [
-            'name' =&gt; 'John Doe',
-            'email' =&gt; 'john@example.com'
-        ]
-    ]
-];
+    &lt;?php foreach ($products-&gt;getPages() as $page): ?&gt;
+        &lt;?php if ($page == $products-&gt;currentPage()): ?&gt;
+            &lt;strong&gt;&lt;?= $page ?&gt;&lt;/strong&gt;
+        &lt;?php else: ?&gt;
+            &lt;a href="&lt;?= $products-&gt;url($page) ?&gt;"&gt;&lt;?= $page ?&gt;&lt;/a&gt;
+        &lt;?php endif; ?&gt;
+    &lt;?php endforeach; ?&gt;
 
-// Check if key exists
-$exists = arr()-&gt;has('user.profile.name', $data);  // true
-
-// Get value
-$name = arr()-&gt;get('user.profile.name', $data);    // 'John Doe'
-$age = arr()-&gt;get('user.age', $data, 25);          // 25 (default value)
-
-// Set value
-arr()-&gt;set('user.profile.age', 30, $data);
-
-// Delete value
-arr()-&gt;delete('user.profile.email', $data);</code></pre>
-<h2>Dot Notation</h2>
-<h3>Basic Dot Notation</h3>
-<pre><code class="language-php">$data = [
-    'users' =&gt; [
-        'active' =&gt; [
-            'john' =&gt; ['age' =&gt; 25],
-            'jane' =&gt; ['age' =&gt; 30]
-        ]
-    ]
-];
-
-// Access nested data
-$johnsAge = arr()-&gt;get('users.active.john.age', $data);    // 25
-
-// Set nested data
-arr()-&gt;set('users.active.bob.age', 35, $data);
-
-// Check nested path
-if (arr()-&gt;has('users.active.jane', $data)) {
-    // Path exists
-}
-
-// Delete nested data
-arr()-&gt;delete('users.active.john', $data);</code></pre>
-<h3>Wildcard Matching</h3>
-<pre><code class="language-php">$data = [
-    'users' =&gt; [
-        'active' =&gt; [
-            'john' =&gt; ['age' =&gt; 25],
-            'jane' =&gt; ['age' =&gt; 30]
-        ],
-        'inactive' =&gt; [
-            'bob' =&gt; ['age' =&gt; 35]
-        ]
-    ]
-];
-
-// Get all ages using wildcard
-$ages = arr()-&gt;get('users.*.*.age', $data);
-// [25, 30, 35]
-
-// Get all active user ages
-$activeAges = arr()-&gt;get('users.active.*.age', $data);
-// [25, 30]</code></pre>
-<h2>Array Transformations</h2>
-<h3>Building Hierarchical Trees</h3>
-<pre><code class="language-php">// Flat array of categories
-$categories = [
-    ['id' =&gt; 1, 'parent_id' =&gt; 0, 'name' =&gt; 'Electronics'],
-    ['id' =&gt; 2, 'parent_id' =&gt; 1, 'name' =&gt; 'Phones'],
-    ['id' =&gt; 3, 'parent_id' =&gt; 1, 'name' =&gt; 'Laptops'],
-    ['id' =&gt; 4, 'parent_id' =&gt; 2, 'name' =&gt; 'iPhone'],
-    ['id' =&gt; 5, 'parent_id' =&gt; 2, 'name' =&gt; 'Android'],
-];
-
-// Convert to hierarchical tree
-$tree = arr()-&gt;tree($categories);
-
-/* Result:
-[
-    [
-        'id' =&gt; 1,
-        'parent_id' =&gt; 0,
-        'name' =&gt; 'Electronics',
-        'children' =&gt; [
-            [
-                'id' =&gt; 2,
-                'parent_id' =&gt; 1,
-                'name' =&gt; 'Phones',
-                'children' =&gt; [
-                    ['id' =&gt; 4, 'parent_id' =&gt; 2, 'name' =&gt; 'iPhone'],
-                    ['id' =&gt; 5, 'parent_id' =&gt; 2, 'name' =&gt; 'Android']
-                ]
-            ],
-            ['id' =&gt; 3, 'parent_id' =&gt; 1, 'name' =&gt; 'Laptops']
-        ]
-    ]
-]
-*/</code></pre>
-<pre><code class="language-php">// Custom key names
-$tree = arr()-&gt;tree($items, 0, 'category_id', 'parent_category_id');</code></pre>
-<h3>Flattening Nested Arrays</h3>
-<p>Converts a nested array into a flat associative array using dot-notation keys. This is the complement to <code>get()</code> / <code>set()</code> — every key in the flattened result can be read back using <code>get()</code>.</p>
-<pre><code class="language-php">$config = [
-    'db'   =&gt; ['host' =&gt; 'localhost', 'port' =&gt; 3306],
-    'mail' =&gt; ['host' =&gt; 'smtp.example.com', 'port' =&gt; 587],
-];
-
-$flat = arr()-&gt;flatten($config);
-// [
-//     'db.host'   =&gt; 'localhost',
-//     'db.port'   =&gt; 3306,
-//     'mail.host' =&gt; 'smtp.example.com',
-//     'mail.port' =&gt; 587,
-// ]</code></pre>
-<p>Numeric-indexed arrays are flattened using their index as the key segment:</p>
-<pre><code class="language-php">$data = ['tags' =&gt; ['php', 'mysql', 'redis']];
-
-arr()-&gt;flatten($data);
-// ['tags.0' =&gt; 'php', 'tags.1' =&gt; 'mysql', 'tags.2' =&gt; 'redis']</code></pre>
-<p>Falsy scalar values (<code>null</code>, <code>false</code>, <code>0</code>, <code>''</code>) are preserved as leaf values. Empty arrays are also treated as leaf values and not recursed into.</p>
-<h3>Array Transposition</h3>
-<pre><code class="language-php">// Column-based data
-$data = [
-    'name' =&gt; ['John', 'Jane', 'Bob'],
-    'age' =&gt; [25, 30, 35],
-    'city' =&gt; ['New York', 'London', 'Paris']
-];
-
-// Convert to row-based data
-$rows = arr()-&gt;transpose($data);
-
-/* Result:
-[
-    ['name' =&gt; 'John', 'age' =&gt; 25, 'city' =&gt; 'New York'],
-    ['name' =&gt; 'Jane', 'age' =&gt; 30, 'city' =&gt; 'London'],
-    ['name' =&gt; 'Bob', 'age' =&gt; 35, 'city' =&gt; 'Paris']
-]
-*/
-
-// Transpose specific keys only
-$rows = arr()-&gt;transpose($data, ['name', 'age']);</code></pre>
-<h3>Grouping Arrays</h3>
-<p>Groups an array of associative arrays (or objects) by the value of a given key. Supports dot notation for grouping by nested keys.</p>
-<pre><code class="language-php">$orders = [
-    ['id' =&gt; 1, 'status' =&gt; 'pending',  'amount' =&gt; 100],
-    ['id' =&gt; 2, 'status' =&gt; 'shipped',  'amount' =&gt; 200],
-    ['id' =&gt; 3, 'status' =&gt; 'pending',  'amount' =&gt; 150],
-    ['id' =&gt; 4, 'status' =&gt; 'shipped',  'amount' =&gt; 80],
-];
-
-$grouped = arr()-&gt;groupBy('status', $orders);
-// [
-//     'pending' =&gt; [['id' =&gt; 1, ...], ['id' =&gt; 3, ...]],
-//     'shipped' =&gt; [['id' =&gt; 2, ...], ['id' =&gt; 4, ...]],
-// ]</code></pre>
-<p>Group by a nested key using dot notation:</p>
-<pre><code class="language-php">$users = [
-    ['name' =&gt; 'Alice', 'address' =&gt; ['country' =&gt; 'UK']],
-    ['name' =&gt; 'Bob',   'address' =&gt; ['country' =&gt; 'US']],
-    ['name' =&gt; 'Carol', 'address' =&gt; ['country' =&gt; 'UK']],
-];
-
-$grouped = arr()-&gt;groupBy('address.country', $users);
-// ['UK' =&gt; [...], 'US' =&gt; [...]]</code></pre>
-<p>Items whose key is missing or <code>null</code> are grouped under <code>null</code>.</p>
-<h3>Sorting Arrays</h3>
-<p>Sorts an array of associative arrays (or objects) by a key. Supports dot notation for sorting by nested keys. Returns a new array without mutating the original.</p>
-<pre><code class="language-php">$products = [
-    ['name' =&gt; 'Monitor', 'price' =&gt; 300],
-    ['name' =&gt; 'Keyboard', 'price' =&gt; 80],
-    ['name' =&gt; 'Mouse',   'price' =&gt; 40],
-];
-
-// Ascending (default)
-$sorted = arr()-&gt;sort('price', $products);
-// Mouse (40), Keyboard (80), Monitor (300)
-
-// Descending
-$sorted = arr()-&gt;sort('price', $products, 'desc');
-// Monitor (300), Keyboard (80), Mouse (40)</code></pre>
-<p>Sort by a nested key using dot notation:</p>
-<pre><code class="language-php">$users = [
-    ['name' =&gt; 'Charlie', 'address' =&gt; ['city' =&gt; 'Paris']],
-    ['name' =&gt; 'Alice',   'address' =&gt; ['city' =&gt; 'London']],
-    ['name' =&gt; 'Bob',     'address' =&gt; ['city' =&gt; 'Berlin']],
-];
-
-$sorted = arr()-&gt;sort('address.city', $users);
-// Bob (Berlin), Alice (London), Charlie (Paris)
-
-$sorted = arr()-&gt;sort('address.city', $users, 'desc');
-// Charlie (Paris), Alice (London), Bob (Berlin)</code></pre>
-<p>Items where the sort key is missing are sorted to the front (treated as <code>null</code>).</p>
-<hr />  </main>
+    &lt;?php if ($products-&gt;hasNextPage()): ?&gt;
+        &lt;a href="&lt;?= $products-&gt;nextPageUrl() ?&gt;"&gt;Next&lt;/a&gt;
+    &lt;?php endif; ?&gt;
+&lt;/nav&gt;
+&lt;?php endif; ?&gt;</code></pre>  </main>
   <nav class="toc"></nav>
       </div>
     <script src="/docs/assets/toc.js"></script>

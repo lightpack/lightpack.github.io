@@ -861,7 +861,10 @@ if($user-&gt;email_verified_at == null) {
 // or
 $products = Product::query()-&gt;has('orders', '&gt;=', 1)-&gt;all();</code></pre>
 <p><strong>Fetch products with no orders</strong></p>
-<pre><code class="language-php">$products = Product::query()-&gt;has('orders', '=', 0)-&gt;all();</code></pre>
+<pre><code class="language-php">$products = Product::query()-&gt;doesntHave('orders')-&gt;all();</code></pre>
+<blockquote>
+<p>You can also write <code>has('orders', '=', 0)</code> but <code>doesntHave()</code> is more readable.</p>
+</blockquote>
 <p><strong>Fetch products with at least 2 orders</strong></p>
 <pre><code class="language-php">$products = Product::query()-&gt;has('orders', '&gt;', 1)-&gt;all();
 // or
@@ -874,7 +877,27 @@ $products = Product::query()-&gt;has('orders', '&lt;=', 2)-&gt;all();</code></pr
 <p>You can even pass a callback as <strong>4th</strong> parameter to <code>has()</code> method to add more constraints on relationship. For example, suppose you want to fetch <strong>products</strong> with atleast <strong>2 paid orders</strong>.</p>
 <pre><code class="language-php">$products = Product::query()-&gt;has('orders', '&gt;=', 2, function($q) {
     $q-&gt;where('paid', '=', true);
-});</code></pre>
+})-&gt;all();</code></pre>
+<p><strong><code>whereHas()</code> — constrained existence check</strong></p>
+<p><code>whereHas()</code> is a convenience wrapper around <code>has()</code> for the common case where you want to check for existence with a condition but don't need an operator/count threshold. It reads more naturally when a callback is the primary focus:</p>
+<pre><code class="language-php">// Products that have at least one approved review
+$products = Product::query()-&gt;whereHas('reviews', function ($q) {
+    $q-&gt;where('status', '=', 'approved');
+})-&gt;all();</code></pre>
+<p>Use <code>whereHas()</code> when a constraint callback is your only concern. Use <code>has()</code> when you also need an operator and count threshold.</p>
+<p><strong><code>doesntHave()</code> — inverse existence check</strong></p>
+<p>Use <code>doesntHave()</code> to fetch parent models that have no related records at all:</p>
+<pre><code class="language-php">// Products with no orders
+$products = Product::query()-&gt;doesntHave('orders')-&gt;all();</code></pre>
+<p><strong><code>whereDoesntHave()</code> — inverse constrained existence check</strong></p>
+<p>Use <code>whereDoesntHave()</code> to fetch parent models that have no related records matching a condition:</p>
+<pre><code class="language-php">// Projects with no overdue tasks
+$projects = Project::query()-&gt;whereDoesntHave('tasks', function ($q) {
+    $q-&gt;where('due_date', '&lt;', date('Y-m-d'));
+})-&gt;all();</code></pre>
+<blockquote>
+<p><code>doesntHave()</code> and <code>whereDoesntHave()</code> are the negative counterparts of <code>has()</code> and <code>whereHas()</code>.</p>
+</blockquote>
 <h2>Query Filters</h2>
 <p>Query filters provide a clean way to filter database records using model scopes. They allow you to encapsulate common query constraints and apply them dynamically.</p>
 <h3>Defining Filter Scopes</h3>
@@ -1032,6 +1055,24 @@ User::query()-&gt;update(['active' =&gt; 0]);</code></pre>
 </ul>
 <hr />
 <h3>Practical Examples for Each Hook</h3>
+<h3>beforeSave()</h3>
+<p>Called before <code>save()</code>, regardless of whether it inserts or updates:</p>
+<pre><code class="language-php">protected function beforeSave()
+{
+    // Example: Normalize data before any persistence
+    $this-&gt;email = strtolower(trim($this-&gt;email));
+    // Example: Set a computed field
+    $this-&gt;slug = str_slug($this-&gt;name);
+}</code></pre>
+<h3>afterSave()</h3>
+<p>Called after <code>save()</code>, regardless of whether it inserted or updated:</p>
+<pre><code class="language-php">protected function afterSave()
+{
+    // Example: Invalidate cache after any change
+    Cache::forget('user_' . $this-&gt;id);
+    // Example: Sync to external service
+    SearchIndex::upsert('users', $this-&gt;id, $this-&gt;toArray());
+}</code></pre>
 <h3>beforeInsert()</h3>
 <p>Called before inserting a new record:</p>
 <pre><code class="language-php">protected function beforeInsert()

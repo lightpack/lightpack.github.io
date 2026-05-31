@@ -496,7 +496,7 @@ $validator
     -&gt;field('email')-&gt;required()-&gt;email()
     -&gt;field('age')-&gt;int()-&gt;between(18, 100);
 
-$validator-&gt;validate($_POST);
+$validator-&gt;setInput($_POST)-&gt;validate();
 
 if ($validator-&gt;fails()) {
     $errors = $validator-&gt;getErrors();
@@ -505,7 +505,7 @@ if ($validator-&gt;fails()) {
 <h2>How Validation Works</h2>
 <ol>
 <li><strong>Define fields and rules</strong> using the fluent API.</li>
-<li><strong>Call <code>validate($input)</code></strong> to run validation.</li>
+<li><strong>Call <code>setInput($input)</code> then <code>validate()</code></strong> to run validation.</li>
 <li><strong>Check results</strong> with <code>passes()</code>, <code>fails()</code>, <code>getErrors()</code>, or <code>getError('field')</code>.</li>
 </ol>
 <hr />
@@ -522,7 +522,7 @@ if ($validator-&gt;fails()) {
 <li><code>error('field')</code> — Returns the validation error message for a field</li>
 </ul>
 <h3>old()</h3>
-<p><code>old(string $key, $default = '', bool $escape = true)</code></p>
+<p><code>old(string $key, string|array|null $default = '', bool $escape = true): string|array</code></p>
 <p><strong>What it does:</strong>
 Returns the previously submitted value for a form field, or a default if not present.</p>
 <p><strong>When to use:</strong></p>
@@ -601,7 +601,7 @@ Returns the validation error message for a specific field, if any.</p>
 <h3>How It Works</h3>
 <ol>
 <li><strong>Extend FormRequest:</strong> Create your own request classes by extending <code>Lightpack\Http\FormRequest</code>.</li>
-<li><strong>Define Rules:</strong> Implement the <code>rules()</code> method to return your validation rules.<ul>
+<li><strong>Define Rules:</strong> Implement the abstract <code>rules()</code> method to configure your validation rules.<ul>
 <li><strong>Rule Resolution:</strong> Your <code>rules()</code> method is called via the container.</li>
 <li>You can typehint dependencies you would like to get injected by the framework.</li>
 </ul>
@@ -701,7 +701,7 @@ protected function beforeRedirect()
 <ul>
 <li><code>numeric()</code> — Any number</li>
 <li><code>int()</code> / <code>float()</code> — Integer or float</li>
-<li><code>between($min, $max)</code> — Value range</li>
+<li><code>between($min, $max)</code> — Value range (also works for string length)</li>
 <li><code>min($n)</code> / <code>max($n)</code> — Value constraints</li>
 </ul>
 <h3>Date/Time Rules</h3>
@@ -742,8 +742,8 @@ protected function beforeRedirect()
 <li><code>fileSize($size)</code> — Max file size (e.g. '2M', '500K')</li>
 <li><code>fileType($types)</code> — Allowed MIME types</li>
 <li><code>fileExtension($exts)</code> — Allowed extensions</li>
-<li><code>files($min = null, $max = null)</code> — Multiple files</li>
-<li><code>image($options)</code> — Image validation (width, height, ratio)</li>
+<li><code>multipleFiles($min = null, $max = null)</code> — Multiple files</li>
+<li><code>image($options)</code> — Image validation (width, height)</li>
 </ul>
 <h3>Password Strength Rules</h3>
 <ul>
@@ -755,8 +755,6 @@ protected function beforeRedirect()
 <h3>Custom &amp; Advanced Rules</h3>
 <ul>
 <li><code>custom($fn, $message)</code> — Custom closure for validation</li>
-<li><code>transform($fn)</code> — Preprocess value before validation</li>
-<li><code>nullable()</code> — Field can be null or empty</li>
 </ul>
 <hr />
 <h2>Wildcards &amp; Nested Validation</h2>
@@ -772,7 +770,7 @@ $input = [
     ]
 ];
 
-$validator-&gt;validate($input);</code></pre>
+$validator-&gt;setInput($input)-&gt;validate();</code></pre>
 <p><strong>Wildcard Behavior:</strong></p>
 <ul>
 <li>Wildcards validate each item in an array</li>
@@ -869,12 +867,11 @@ You can customize messages for wildcard fields just like regular fields:</p>
         'min_width' =&gt; 100,
         'max_width' =&gt; 1000,
         'min_height' =&gt; 100,
-        'max_height' =&gt; 1000,
-        'ratio' =&gt; '1:1'
+        'max_height' =&gt; 1000
     ]);</code></pre>
 <p>Multiple files:</p>
 <pre><code class="language-php">$validator-&gt;field('photos')
-    -&gt;files(1, 5)
+    -&gt;multipleFiles(1, 5)
     -&gt;fileSize('2M')
     -&gt;fileType(['image/jpeg', 'image/png']);</code></pre>
 <hr />
@@ -882,7 +879,6 @@ You can customize messages for wildcard fields just like regular fields:</p>
 <ul>
 <li><code>getErrors()</code> — All errors as <code>[field =&gt; message]</code></li>
 <li><code>getError('field')</code> — First error for a field</li>
-<li><code>getFieldErrors('field')</code> — All errors for a field</li>
 </ul>
 <h3>Custom error messages</h3>
 <pre><code class="language-php">$validator-&gt;field('age')
@@ -905,10 +901,9 @@ You can customize messages for wildcard fields just like regular fields:</p>
     -&gt;field('username')-&gt;required()-&gt;string()-&gt;min(3)-&gt;max(50)-&gt;alphaNum()
     -&gt;field('email')-&gt;required()-&gt;email()
     -&gt;field('password')-&gt;required()-&gt;between(8, 32)-&gt;hasUppercase()-&gt;hasLowercase()-&gt;hasNumber()-&gt;hasSymbol()
-    -&gt;field('avatar')-&gt;nullable()-&gt;image([
+    -&gt;field('avatar')-&gt;image([
         'max_width' =&gt; 1000,
-        'max_height' =&gt; 1000,
-        'max_size' =&gt; '1M'
+        'max_height' =&gt; 1000
     ]);</code></pre>
 <hr />
 <h2>Nested &amp; Conditional Validation</h2>

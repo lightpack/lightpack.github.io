@@ -490,7 +490,7 @@
 <h2>How Filters Work</h2>
 <ul>
 <li><strong>Before filters</strong> can halt the request and return a response before the controller action runs.</li>
-<li><strong>After filters</strong> can modify the response after the controller action runs.</li>
+<li><strong>After filters</strong> can modify the response after the controller action runs. Modify the passed <code>$response</code> and return it.</li>
 <li>Filters can be attached to individual routes or route groups.</li>
 </ul>
 <h2>Usage</h2>
@@ -507,7 +507,7 @@ route()-&gt;post('/posts', PostController::class)-&gt;filter(['csrf', 'auth']);<
 <h3>Halting or Modifying Requests</h3>
 <ul>
 <li>To halt a request early (e.g., unauthorized), return a <code>Response</code> from the filter’s <code>before()</code> method.</li>
-<li>To modify the response, return a new <code>Response</code> from the filter’s <code>after()</code> method.</li>
+<li>To modify the response, update the passed <code>$response</code> and return it from the filter’s <code>after()</code> method.</li>
 </ul>
 <hr />
 <h2>Defining Custom Filters</h2>
@@ -536,20 +536,21 @@ route()-&gt;post('/posts', PostController::class)-&gt;filter(['csrf', 'auth']);<
 <h3>1. <code>auth</code></h3>
 <p><strong>Purpose:</strong> Restricts access to authenticated users (web or API).</p>
 <ul>
-<li><strong>Web:</strong> Redirects guests to login; stores intended URL for redirect after login.</li>
+<li><strong>Web:</strong> First attempts silent login via remember-me cookie (<code>auth()-&gt;recall()</code>). If that fails, redirects to login and stores the intended URL for redirect after login.</li>
 <li><strong>API:</strong> Returns 401 JSON if token is missing or invalid.</li>
 <li><strong>Params:</strong> <code>['web']</code> (default) or <code>['api']</code>.</li>
 </ul>
 <h3>2. <code>guest</code></h3>
 <p><strong>Purpose:</strong> Restricts access to guests only.</p>
 <ul>
-<li>Redirects logged-in users to a default location (usually dashboard).</li>
+<li>Redirects logged-in users to <code>config('auth.routes.authenticated', 'dashboard')</code>.</li>
 </ul>
 <h3>3. <code>csrf</code></h3>
 <p><strong>Purpose:</strong> Protects against CSRF attacks.</p>
 <ul>
 <li>Checks for a valid CSRF token on POST, PUT, PATCH, DELETE.</li>
-<li>Throws exceptions for missing or invalid tokens.</li>
+<li>Throws <code>SessionExpiredException</code> if the session token is missing.</li>
+<li>Throws <code>InvalidCsrfTokenException</code> if the submitted token does not match.</li>
 <li><strong>Bypasses</strong> in <code>APP_ENV=testing</code>.</li>
 </ul>
 <h3>4. <code>cors</code></h3>
@@ -563,6 +564,7 @@ route()-&gt;post('/posts', PostController::class)-&gt;filter(['csrf', 'auth']);<
 <p><strong>Purpose:</strong> API rate limiting.</p>
 <ul>
 <li>Limits requests per user or IP to a configurable max per time window.</li>
+<li>Keys are resolved as <code>user:{id}:{path}</code> for authenticated users, or <code>ip:{ip}:{path}</code> for guests.</li>
 <li>Throws 429 with rate limit headers if exceeded.</li>
 <li><strong>Params:</strong> <code>[maxRequests, minutes]</code>. Defaults from <code>config('limit.default')</code>.</li>
 </ul>
@@ -574,13 +576,13 @@ route()-&gt;post('/posts', PostController::class)-&gt;filter(['csrf', 'auth']);<
 <h3>7. <code>verifyemail</code></h3>
 <p><strong>Purpose:</strong> Restricts access to users with verified email addresses.</p>
 <ul>
-<li>Redirects or returns 403 JSON if user’s email is not verified.</li>
+<li>Redirects to the <code>verify.email</code> route (web) or returns 403 JSON (API) if the user’s email is not verified.</li>
 </ul>
 <h3>8. <code>mfa</code></h3>
 <p><strong>Purpose:</strong> Enforces Multi-Factor Authentication.</p>
 <ul>
-<li>If MFA is enforced or user has enabled MFA, triggers MFA flow and redirects to verification screen.</li>
-<li>Skips if already passed in session.</li>
+<li>If MFA is enforced or the user has enabled MFA, triggers the MFA flow and redirects to the <code>mfa.verify.show</code> route.</li>
+<li>Skips if already verified in the current session (<code>session()-&gt;get('mfa_passed')</code>).</li>
 </ul>
 <hr />
 <h2>Filter Parameters</h2>

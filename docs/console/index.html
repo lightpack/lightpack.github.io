@@ -633,25 +633,41 @@ php console jobs:retry --queue=emails</code></pre>
 <h2>Interactive Prompts &amp; Output</h2>
 <p>The Lightpack console CLI provides a rich set of APIs for interactive command-line UX:</p>
 <h3>Output Formatting</h3>
-<p>Use the <code>Lightpack\Console\Output</code> class for styled output:</p>
-<pre><code class="language-php">$output = new Output();
+<p>When extending <code>Command</code>, the <code>Output</code> utility is available via <code>$this-&gt;output</code>:</p>
+<pre><code class="language-php">$this-&gt;output-&gt;info('Information');
+$this-&gt;output-&gt;success('Success!');
+$this-&gt;output-&gt;error('An error occurred');
+$this-&gt;output-&gt;warning('This is a warning');
+$this-&gt;output-&gt;line('Plain text');
+$this-&gt;output-&gt;pad('Left', 'Right', 30, '.'); // Left................. Right
+$this-&gt;output-&gt;infoLabel('INFO'); // Blue background label
+$this-&gt;output-&gt;successLabel('OK'); // Green background label
+$this-&gt;output-&gt;errorLabel('FAIL'); // Red background label
+$this-&gt;output-&gt;warningLabel('WARN'); // Yellow background label
+$this-&gt;output-&gt;newline(2); // Print 2 blank lines</code></pre>
+<p>You can also instantiate <code>Output</code> directly when needed outside a command:</p>
+<pre><code class="language-php">use Lightpack\Console\Output;
 
-$output-&gt;info('Information');
-$output-&gt;success('Success!');
-$output-&gt;error('An error occurred');
-$output-&gt;warning('This is a warning');
-$output-&gt;line('Plain text');
-$output-&gt;pad('Left', 'Right', 30, '.'); // Left................. Right
-$output-&gt;infoLabel('INFO'); // Colored label</code></pre>
+$output = new Output();
+$output-&gt;success('Done!');</code></pre>
 <h3>Interactive Prompts</h3>
-<p>Use the <code>Lightpack\Console\Prompt</code> class for user input:</p>
-<pre><code class="language-php">$prompt = new Prompt();
+<p>When extending <code>Command</code>, the <code>Prompt</code> utility is available via <code>$this-&gt;prompt</code>:</p>
+<pre><code class="language-php">$name = $this-&gt;prompt-&gt;ask('What is your name?');
+$password = $this-&gt;prompt-&gt;secret('Enter password:');
+$agree = $this-&gt;prompt-&gt;confirm('Do you agree?', true); // [Y/n]
+$email = $this-&gt;prompt-&gt;askWithValidation('Email:', fn($v) =&gt; filter_var($v, FILTER_VALIDATE_EMAIL));
+$choices = $this-&gt;prompt-&gt;choice('Pick one:', ['a' =&gt; 'Apple', 'b' =&gt; 'Banana']);
+$choice = $choices[0]; // 'a'
 
-$name = $prompt-&gt;ask('What is your name?');
-$password = $prompt-&gt;secret('Enter password:');
-$agree = $prompt-&gt;confirm('Do you agree?', true); // [Y/n]
-$email = $prompt-&gt;askWithValidation('Email:', fn($v) =&gt; filter_var($v, FILTER_VALIDATE_EMAIL));
-$choice = $prompt-&gt;choice('Pick one:', ['a' =&gt; 'Apple', 'b' =&gt; 'Banana']);</code></pre>
+// Allow multiple selections
+$choices = $this-&gt;prompt-&gt;choice('Pick fruits:', ['a' =&gt; 'Apple', 'b' =&gt; 'Banana'], true);
+// User enters: a, b
+// Returns: ['a', 'b']</code></pre>
+<p>You can also instantiate <code>Prompt</code> directly when needed outside a command:</p>
+<pre><code class="language-php">use Lightpack\Console\Prompt;
+
+$prompt = new Prompt();
+$name = $prompt-&gt;ask('What is your name?');</code></pre>
 <hr />
 <h2>Custom Commands &amp; Registration</h2>
 <h3>Creating a Command</h3>
@@ -661,7 +677,7 @@ $choice = $prompt-&gt;choice('Pick one:', ['a' =&gt; 'Apple', 'b' =&gt; 'Banana'
 <pre><code class="language-cli">php console create:command MyCommand</code></pre>
 </li>
 <li>
-<p>Implement the <code>run(array $arguments = [])</code> method in your class.</p>
+<p>Implement the <code>run()</code> method in your class.</p>
 </li>
 <li>
 <p>Register your command in <code>boot/commands.php</code>:</p>
@@ -677,34 +693,32 @@ $choice = $prompt-&gt;choice('Pick one:', ['a' =&gt; 'Apple', 'b' =&gt; 'Banana'
 <hr />
 <h3>Parsing Command Arguments</h3>
 <p>Lightpack provides the <code>Args</code> helper class for clean argument parsing:</p>
-<pre><code class="language-php">use Lightpack\Console\Args;
-use Lightpack\Console\CommandInterface;
-use Lightpack\Console\Output;
+<pre><code class="language-php">use Lightpack\Console\Command;
 
-class MyCommand implements CommandInterface
+class MyCommand extends Command
 {
-    public function run(array $arguments = [])
+    public function run()
     {
-        $args = new Args($arguments);
-        $output = new Output();
-
         // Get positional arguments
-        $name = $args-&gt;first();              // First positional arg
-        $second = $args-&gt;argument(0);        // First positional arg (0-indexed)
-        $second = $args-&gt;argument(1);        // Second positional arg (0-indexed)
-        $all = $args-&gt;positional();          // All positional args
+        $name = $this-&gt;args-&gt;first();              // First positional arg
+        $first = $this-&gt;args-&gt;argument(0);         // First positional arg (0-indexed)
+        $second = $this-&gt;args-&gt;argument(1);        // Second positional arg (0-indexed)
+        $all = $this-&gt;args-&gt;positional();          // All positional args
 
         // Get options with values
-        $table = $args-&gt;get('table');        // --table=users
-        $key = $args-&gt;get('key', 'id');      // --key=id (with default)
+        $table = $this-&gt;args-&gt;get('table');        // --table=users
+        $key = $this-&gt;args-&gt;get('key', 'id');      // --key=id (with default)
 
         // Check for flags
-        if ($args-&gt;has('force')) {           // --force
-            $output-&gt;warning('Force mode enabled');
+        if ($this-&gt;args-&gt;has('force')) {           // --force
+            $this-&gt;output-&gt;warning('Force mode enabled');
         }
 
+        // Access all parsed options
+        $opts = $this-&gt;args-&gt;options();            // ['table' =&gt; 'users', 'key' =&gt; 'id']
+
         // Access raw arguments
-        $raw = $args-&gt;all();                 // Original array
+        $raw = $this-&gt;args-&gt;all();                 // Original array
     }
 }</code></pre>
 <h4>Argument Syntax</h4>
