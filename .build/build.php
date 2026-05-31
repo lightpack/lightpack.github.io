@@ -150,5 +150,8 @@ if (is_dir($contentMediaDir)) {
     copyDirectory($contentMediaDir, DIST_DIR . '/assets/_media');
 }
 
+// Prevent GitHub Pages from running Jekyll on the generated docs
+file_put_contents(DIST_DIR . '/.nojekyll', '');
+
 echo "✅ Build complete! Generated docs/ folder with friendly URLs.\n";
 echo "   Navigation structure defined in navigation.json\n";
