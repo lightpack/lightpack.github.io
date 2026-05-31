@@ -10,6 +10,7 @@ on:
     paths:
       - '.build/**'
       - '.github/workflows/build-docs.yml'
+      - '.gitignore'
 
 permissions:
   contents: write
@@ -46,6 +47,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add docs/ .nojekyll
+          git add -f docs/ .nojekyll
           git diff --staged --quiet || git commit -m "🤖 Auto-build docs from lightpack/docs-md"
           git push
