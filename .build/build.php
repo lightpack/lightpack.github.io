@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
-const CONTENT_DIR = __DIR__ . '/content';
+const CONTENT_DIR = __DIR__ . '/content/v0.x';
 const DIST_DIR = __DIR__ . '/../docs/v0.x';
 const NAV_FILE = __DIR__ . '/navigation.json';
 

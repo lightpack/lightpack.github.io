@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - '.build/**'
+      - '.github/workflows/build-docs.yml'
 
 permissions:
   contents: write
@@ -20,8 +21,6 @@ jobs:
     steps:
       - name: Checkout lightpack.github.io
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Checkout lightpack/docs into .build/content
         uses: actions/checkout@v4
