@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>MFA</title>
+      <meta name="description" content="Enable multi-factor authentication with TOTP and SMS-based verification codes.">
+    <meta property="og:description" content="Enable multi-factor authentication with TOTP and SMS-based verification codes.">
+    <meta property="og:title" content="MFA">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  class="active" aria-current="page" >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Lightpack MFA: Complete Developer Guide</h1>
+<blockquote>
+<p><strong>Lightpack MFA</strong> enables robust, flexible, and secure multi-factor authentication for modern PHP applications. It supports TOTP (authenticator app), SMS, Email, and backup codes out of the box, and is designed for extensibility, security, and ease of use.</p>
+</blockquote>
+<h2>Supported Factors</h2>
+<ul>
+<li><strong>TOTP (Authenticator App):</strong>  <ul>
+<li>Time-based one-time passwords (Google Authenticator, Authy, etc.)</li>
+</ul>
+</li>
+<li><strong>SMS:</strong>  <ul>
+<li>One-time code sent to user’s phone (uses Lightpack SMS subsystem)</li>
+</ul>
+</li>
+<li><strong>Email:</strong>  <ul>
+<li>One-time code sent to user’s email</li>
+</ul>
+</li>
+<li><strong>Backup Codes:</strong>  <ul>
+<li>Single-use codes for account recovery</li>
+</ul>
+</li>
+<li><strong>Null:</strong>  <ul>
+<li>No MFA (for testing or fallback)</li>
+</ul>
+</li>
+</ul>
+<h2>Installation</h2>
+<h3>1. Migration</h3>
+<p>Your <strong>users</strong> table already contains required fields to support <strong>MFA</strong> features. You do not need a seperate migration to be generated and run.</p>
+<h3>2. Install Dependencies</h3>
+<ul>
+<li>For TOTP (required):<br />
+<code>composer require robthree/twofactorauth</code></li>
+<li>For TOTP QR Codes (optional):<br />
+<code>composer require bacon/bacon-qr-code</code><br />
+<strong>Only needed if generating QR codes server-side (PDFs, emails, reports)</strong><br />
+<strong>Not needed for web pages</strong> - use client-side JavaScript QR generation instead</li>
+<li>For SMS:<br />
+See <a href="sms">Lightpack SMS</a> documentation (Twilio, etc.)</li>
+</ul>
+<hr />
+<h3>3. Configure MFA</h3>
+<p>Please run following command to create <code>config/mfa.php</code> configuration file.</p>
+<pre><code class="language-cli">php console create:config --support=mfa</code></pre>
+<h2>User Model Integration</h2>
+<p>Add the trait to your User model:</p>
+<pre><code class="language-php">use Lightpack\Mfa\MfaTrait;
+
+class User extends Model {
+    use MfaTrait;
+    // ...
+}</code></pre>
+<p>This extends your User model capabilities with methods:</p>
+<ul>
+<li><code>getMfaFactor()</code></li>
+<li><code>sendMfa()</code></li>
+<li><code>validateMfa($input)</code></li>
+</ul>
+<hr />
+<h2>Usage Patterns</h2>
+<h3>Enrollment</h3>
+<ol>
+<li>
+<p><strong>TOTP:</strong>  </p>
+<ul>
+<li>Generate secret: <code>TotpSetupHelper::generateSecret()</code></li>
+<li>Get URI: <code>TotpSetupHelper::getOtpAuthUri($secret, $user-&gt;email)</code></li>
+<li>Save secret to user: <code>$user-&gt;mfa_totp_secret = $secret; $user-&gt;save();</code></li>
+<li>Show QR code to user (client-side or server-side)</li>
+<li>User scans QR with authenticator app.</li>
+</ul>
+</li>
+<li>
+<p><strong>SMS/Email:</strong>  </p>
+<ul>
+<li>Ensure user's phone/email is set.</li>
+<li>SMS requires the <code>$user-&gt;phone</code> field.</li>
+<li>Set <code>$user-&gt;mfa_method = 'sms'</code> or <code>'email'</code>, <code>$user-&gt;save();</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Backup Codes:</strong>  </p>
+</li>
+</ol>
+<p>Generate and show codes to user (store only hashes!)</p>
+<pre><code class="language-php">$codes = BackupCodeHelper::generateCodes(); // array of codes
+$hashes = BackupCodeHelper::hashCodes($codes);
+$user-&gt;mfa_backup_codes = $hashes;
+$user-&gt;save();</code></pre>
+<h3>Verification</h3>
+<ul>
+<li>To send challenge:<br />
+<code>$user-&gt;sendMfa(); // sends code via chosen factor</code></li>
+<li>To validate:<br />
+<code>$user-&gt;validateMfa($input); // returns true/false</code></li>
+</ul>
+<h3>Backup Codes</h3>
+<ul>
+<li>On form input, use:  </li>
+</ul>
+<pre><code class="language-php">$hashes = $user-&gt;mfa_backup_codes;
+
+[$ok, $remaining] = BackupCodeHelper::verifyAndRemoveCode($hashes, $input);
+
+if ($ok) {
+    $user-&gt;mfa_backup_codes = $remaining;
+    $user-&gt;save();
+}</code></pre>
+<h3>TOTP (Authenticator App)</h3>
+<ul>
+<li>Use <code>TotpSetupHelper</code> for QR code and secret generation.</li>
+<li>Validation is handled by TOTP factor automatically.</li>
+</ul>
+<h3>SMS &amp; Email</h3>
+<ul>
+<li>SMS uses the configured SMS provider (see Lightpack SMS docs).</li>
+<li>Email uses the built-in mail system.</li>
+</ul>
+<hr />
+<h2>Example using TOTP</h2>
+<h3>1. Enrolling TOTP (Client-Side QR)</h3>
+<pre><code class="language-php">$secret = TotpSetupHelper::generateSecret();
+$user-&gt;mfa_totp_secret = $secret;
+$user-&gt;mfa_method = 'totp';
+$user-&gt;save();
+
+$otpAuthUri = TotpSetupHelper::getOtpAuthUri($secret, $user-&gt;email);
+// Pass $otpAuthUri to view for client-side QR generation</code></pre>
+<p><strong>View (HTML + JavaScript):</strong></p>
+<pre><code class="language-html">&lt;div id="qrcode"&gt;&lt;/div&gt;
+&lt;p&gt;Secret: &lt;code&gt;&lt;?= $secret ?&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src="/js/qrcode.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    new QRCode(document.getElementById("qrcode"), {
+        text: "&lt;?= $otpAuthUri ?&gt;",
+        width: 256,
+        height: 256
+    });
+&lt;/script&gt;</code></pre>
+<h3>2. Enrolling TOTP (Server-Side QR for PDFs/Emails)</h3>
+<p>This is useful for generating QR codes for PDFs, emails, reports, etc on server side.</p>
+<pre><code class="language-php">$secret = TotpSetupHelper::generateSecret();
+$user-&gt;mfa_totp_secret = $secret;
+$user-&gt;mfa_method = 'totp';
+$user-&gt;save();
+
+// For PDFs (SVG)
+$qrSvg = TotpSetupHelper::getQrCodeSvg($secret, $user-&gt;email, 256);
+
+// For Emails (Data URI)
+$qrDataUri = TotpSetupHelper::getQrCodeDataUri($secret, $user-&gt;email, 256);</code></pre>
+<h3>3. Sending and Validating MFA</h3>
+<pre><code class="language-php">$user-&gt;sendMfa(); // Sends challenge via chosen factor
+
+if ($user-&gt;validateMfa($inputCode)) {
+    // MFA successful
+} else {
+    // MFA failed
+}</code></pre>
+<h3>4. Generating and Using Backup Codes</h3>
+<pre><code class="language-php">$codes = BackupCodeHelper::generateCodes();
+$hashes = BackupCodeHelper::hashCodes($codes);
+$user-&gt;mfa_backup_codes = $hashes;
+$user-&gt;save();
+// Show $codes to user (never show hashes)</code></pre>
+<h2>Extending with Custom Factors</h2>
+<p>Create a new factor:</p>
+<pre><code class="language-php">namespace App\Mfa\Drivers;
+use Lightpack\Mfa\MfaInterface;
+use Lightpack\Auth\Models\AuthUser;
+
+class PushDriver implements MfaInterface {
+    public function send(AuthUser $user): void {
+        // Send push notification
+    }
+    public function validate(AuthUser $user, ?string $input): bool {
+        // Validate push approval
+        return true;
+    }
+    public function getName(): string {
+        return 'push';
+    }
+}</code></pre>
+<p>Register at runtime (e.g., in a service provider):</p>
+<pre><code class="language-php">$manager = app('mfa.manager');
+$manager-&gt;register('push', function ($container) {
+    return new \App\Mfa\Drivers\PushDriver;
+});</code></pre>
+<p>You can also override a built-in driver by registering the same name.</p>
+<hr />
+<h2>Error Handling &amp; Security</h2>
+<ul>
+<li><strong>All secrets/codes are hashed or encrypted.</strong></li>
+<li><strong>Backup codes are one-time use.</strong></li>
+<li><strong>TOTP uses secure, random secrets.</strong></li>
+<li><strong>SMS/email codes are time-limited via cache TTL (configured in <code>config/mfa.php</code>).</strong></li>
+<li><strong>Always check return value of <code>validateMfa()</code>.</strong></li>
+<li><strong>Never log or expose secrets/codes.</strong></li>
+</ul>
+<hr />
+<h2>Best Practices &amp; Tips</h2>
+<ul>
+<li>Always offer backup codes for account recovery.</li>
+<li>Encourage TOTP as the most secure default.</li>
+<li>Use SMS/email as fallback, not primary, if possible.</li>
+<li>Rotate secrets/codes after use or on user request.</li>
+<li>Log failed attempts for monitoring.</li>
+</ul>
+<hr />
+<h2>FAQ &amp; Troubleshooting</h2>
+<p><strong>Q: How do I reset a user's MFA?</strong><br />
+A: Clear all MFA fields on the user model.</p>
+<p><strong>Q: Can I require MFA for only some users?</strong><br />
+A: Only users with a set <code>mfa_method</code> will be challenged. Leave it empty/null for users without MFA.</p>
+<p><strong>Q: How do I support multiple factors per user?</strong><br />
+A: Extend your user model and UI view to allow selection/switching.</p>
+<p><strong>Q: How do I test MFA?</strong><br />
+A: Use the 'null' factor or set predictable secrets/codes in dev.</p>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

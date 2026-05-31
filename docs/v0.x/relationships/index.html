@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Relationships</title>
+      <meta name="description" content="Map one-to-one, one-to-many, and many-to-many relationships with eager loading support.">
+    <meta property="og:description" content="Map one-to-one, one-to-many, and many-to-many relationships with eager loading support.">
+    <meta property="og:title" content="Relationships">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  class="active" aria-current="page" >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>ORM Relationships</h1>
+<h2>Introduction</h2>
+<p><img src="/docs/v0.x/assets/_media/orm/orm-order-items-ui-prototype.svg" alt="Order UI and Entity Diagram" /></p>
+<p>ORMs turn the abstract relationships of your database into natural, intuitive code. By mapping database associations to model methods, you unlock the full power of relational data—without the pain of raw SQL joins.</p>
+<p>To set the context let's understand the diagram above. It shows a simplified version of an <strong>order</strong> screen on the left and associated table <strong>entities</strong> on the right. The <strong>order</strong> UI shows information about the associated <code>order</code>, <code>customer</code>, <code>order items</code>, and <code>payment</code> details.</p>
+<h3>Data Modelling</h3>
+<p>Although the <strong>order</strong> UI shows all the information together on the screen, when modelling the database schema, you would consider normalized forms with:</p>
+<ul>
+<li>tables named <code>order</code>, <code>customer</code>, <code>product</code>, <code>order_item</code>, and <code>payment</code>. </li>
+<li>a foreign key column <code>customer_id</code> in the <code>order</code> table.</li>
+<li>a foreign key column <code>order_id</code> in the <code>payment</code> table.</li>
+<li>two foreign key columns <code>order_id</code> and <code>product_id</code> in the <code>order_item</code> table.</li>
+</ul>
+<blockquote>
+<p>Note: to uniquely identify the order and its related items, we need a table named <code>order_item</code> which stores references to the <code>order_id</code> and <code>product_id</code>. Such a table is often called a <strong>pivot</strong> or <strong>junction</strong> or <strong>bridge</strong> table.</p>
+</blockquote>
+<h3>Entity Associations</h3>
+<p>When relating data models (<strong>entities</strong>) together, we may think in terms of <strong>associations</strong> or <strong>relationships</strong>. For example:</p>
+<ul>
+<li>A <code>customer</code> has many <code>order</code>.</li>
+<li>An <code>order</code> belongs to one <code>customer</code>.</li>
+<li>An <code>order</code> has one <code>payment</code>.</li>
+<li>A <code>payment</code> belongs to one <code>order</code>.</li>
+<li>A <code>product</code> has many <code>order</code>.</li>
+<li>An <code>order</code> has many <code>product</code>. </li>
+</ul>
+<p>In <strong>Relation Databases</strong>, we introduce 4 main types of associations:</p>
+<ul>
+<li>One to One</li>
+<li>One to Many</li>
+<li>Many to One</li>
+<li>Many to Many</li>
+</ul>
+<p><img src="/docs/v0.x/assets/_media/orm/rdbms-association-types.svg" alt="Association Types between Entities" /></p>
+<h3>Association Types</h3>
+<h4>One to One (1:1)</h4>
+<p>A <strong>One to One</strong> relationship means that each record in <strong>Table A</strong> is linked to one and only one record in <strong>Table B</strong>, and vice versa. </p>
+<p>Think of it as a <strong>passport</strong> and a <strong>person</strong>: each person has one unique passport, and each passport belongs to one person.</p>
+<p><strong>Order Example:</strong></p>
+<ul>
+<li>Each <code>order</code> has one <code>payment</code> record.</li>
+<li>Each <code>payment</code> belongs to one <code>order</code>.</li>
+</ul>
+<p><strong>In Schema:</strong></p>
+<ul>
+<li><code>payment</code> table has a unique <code>order_id</code> column (foreign key).</li>
+</ul>
+<h4>One to Many (1:N)</h4>
+<p>A <strong>One to Many</strong> relationship means that a single record in <strong>Table A</strong> can be related to many records in <strong>Table B</strong>, but each record in <strong>Table B</strong> relates back to only one record in <strong>Table A</strong>. </p>
+<p>Imagine a customer placing multiple orders: one customer, many orders.</p>
+<p><strong>Order Example:</strong></p>
+<ul>
+<li>A <code>customer</code> can have many <code>orders</code>.</li>
+<li>Each <code>order</code> belongs to one <code>customer</code>.</li>
+</ul>
+<p><strong>Schema:</strong></p>
+<ul>
+<li><code>order</code> table has a <code>customer_id</code> column (foreign key).</li>
+</ul>
+<h4>Many to One (N:1)</h4>
+<p>A <strong>Many to One</strong> relationship is simply the inverse of <strong>One to Many</strong>. Many records in <strong>Table A</strong> relate to a single record in <strong>Table B</strong>. </p>
+<p>Think of students and schools: Many students can attend the same school, but each student is enrolled in only one school.</p>
+<p><strong>Order Example:</strong></p>
+<ul>
+<li>Many <code>order_item</code> rows belong to one <code>order</code>.</li>
+</ul>
+<p><strong>Schema:</strong></p>
+<ul>
+<li><code>order_item</code> table has an <code>order_id</code> column (foreign key).</li>
+</ul>
+<h4>Many to Many (N:M)</h4>
+<p>A <strong>Many to Many</strong> relationship means that multiple records in <strong>Table A</strong> can relate to multiple records in <strong>Table B</strong>. This is typically implemented using a <strong>junction</strong> (<strong>pivot</strong>) table. </p>
+<p>Think of products and orders: an order can have many products, and a product can appear in many orders.</p>
+<p><strong>Order Example:</strong></p>
+<ul>
+<li>An <code>order</code> can have many <code>products</code> (through <code>order_item</code>).</li>
+<li>A <code>product</code> can belong to many <code>orders</code> (through <code>order_item</code>).</li>
+</ul>
+<p><strong>Schema:</strong></p>
+<ul>
+<li><code>order_item</code> table has both <code>order_id</code> and <code>product_id</code> columns (foreign keys).</li>
+</ul>
+<blockquote>
+<p><strong>Summary:</strong></p>
+<ul>
+<li><strong>One to One:</strong> Each order has one payment.</li>
+<li><strong>One to Many:</strong> One customer, many orders.</li>
+<li><strong>Many to One:</strong> Many order items, one order.</li>
+<li><strong>Many to Many:</strong> Many products in many orders, connected by order items.</li>
+</ul>
+</blockquote>
+<h2>Relationship Methods</h2>
+<p>Now that you’ve seen how relationships are structured at the database level, let’s translate these concepts into the world of ORMs. While the database focuses on tables, foreign keys, and junction tables, an ORM lets you work with your data as rich, interconnected objects—making your code more expressive, maintainable, and closer to how you think about your domain.</p>
+<p>In an ORM, each type of database relationship is represented by a specific method or association on your model classes. Instead of writing SQL joins, you define these relationships once, and then access related data as if you were simply navigating object properties.</p>
+<h3>Has One</h3>
+<p><img src="/docs/v0.x/assets/_media/orm/orm-one-to-one-association.svg" alt="ORM One to One Association" /></p>
+<p>Use the relationship method <code>hasOne()</code> to define <strong>one to one</strong> relationhsip between <strong>order</strong> and <strong>payment</strong> entity.</p>
+<pre><code class="language-php">class Order extends Model
+{
+    public function payment()
+    {
+        return $this-&gt;hasOne(Payment::class, 'order_id');
+    }
+}</code></pre>
+<p>Now to get the associated payment for an order, simply use the name of the <strong>payment()</strong> method on <strong>Order</strong> instance.</p>
+<pre><code class="language-php">/**
+ * Find order with id: 23
+ */
+$order = new Order(23);
+
+/**
+ * Get the associated payment
+ */
+$order-&gt;payment;</code></pre>
+<p>Behind the scenes, the ORM intercepts the call to <code>$order-&gt;payment</code> and resolves the associated <strong>Payment</strong> instance.</p>
+<h3>Belongs To</h3>
+<p>Use the relationship method <strong>belongsTo()</strong> to define the inverse of the <strong>hasOne()</strong> relationship.</p>
+<pre><code class="language-php">class Payment extends Model
+{
+    public function order()
+    {
+        return $this-&gt;belongsTo(Order::class, 'order_id');
+    }
+}</code></pre>
+<p>Now this makes it possible to fetch the <code>Order</code> instance that the <code>Payment</code> belongs to.</p>
+<pre><code class="language-php">/**
+ * Find the payment with id: 101
+ */
+$payment = new Payment(101);
+
+/**
+* Get the associated order
+*/
+$payment-&gt;order;</code></pre>
+<h3>Has Many</h3>
+<p><img src="/docs/v0.x/assets/_media/orm/orm-one-to-many-association.svg" alt="ORM One to Many Association" /></p>
+<p>Use the relationship method <code>hasMany()</code> to define a <strong>one to many</strong> relationship between the <strong>customer</strong> and <strong>order</strong> entities.</p>
+<pre><code class="language-php">class Customer extends Model
+{
+    public function orders()
+    {
+        return $this-&gt;hasMany(Order::class, 'customer_id');
+    }
+}</code></pre>
+<p>Now, to get all orders placed by a customer, simply use the name of the <strong>orders()</strong> method on a <strong>Customer</strong> instance.</p>
+<pre><code class="language-php">/**
+ * Find the customer with id: 7
+ */
+$customer = new Customer(7);
+
+/**
+ * Get all orders for this customer
+ */
+$orders = $customer-&gt;orders;</code></pre>
+<p>Behind the scenes, the ORM intercepts the call to <code>$customer-&gt;orders</code> and returns a collection of <strong>Order</strong> instances related to that customer.</p>
+<p><strong>Inverse of Has Many</strong></p>
+<p>You should not be surprised to know that <code>belongsTo()</code> also represents the inverse of <code>hasMany()</code>.</p>
+<pre><code class="language-php">class Order extends Model
+{
+    public function customer()
+    {
+        return $this-&gt;belongsTo(Customer::class, 'customer_id');
+    }
+}</code></pre>
+<p>Now, you can fetch the <code>Customer</code> instance for a given <code>Order</code>:</p>
+<pre><code class="language-php">/**
+ * Find the order with id: 42
+ */
+$order = new Order(42);
+
+/**
+ * Get the customer who placed this order
+ */
+$customer = $order-&gt;customer;</code></pre>
+<h3>Many to Many</h3>
+<p><img src="/docs/v0.x/assets/_media/orm/orm-many-to-many-association.svg" alt="ORM Many to Many Association" /></p>
+<p>Use the relationship method <code>pivot()</code> to define a <strong>many to many</strong> relationship between the <strong>order</strong> and <strong>product</strong> entities, using a pivot table (like <code>order_item</code>).</p>
+<pre><code class="language-php">class Order extends Model
+{
+    public function products()
+    {
+        return $this-&gt;pivot(Product::class, 'order_item', 'order_id', 'product_id');
+    }
+}</code></pre>
+<p>Now, to get all products in a given order, simply use the name of the <strong>products()</strong> method on an <strong>Order</strong> instance.</p>
+<pre><code class="language-php">/**
+ * Find the order with id: 12
+ */
+$order = new Order(12);
+
+/**
+ * Get all products in this order
+ */
+$products = $order-&gt;products;</code></pre>
+<p>Behind the scenes, the ORM joins the <code>orders</code>, <code>order_item</code>, and <code>products</code> tables to return all related <strong>Product</strong> instances for the order.</p>
+<p><strong>Inverse of Many to Many</strong></p>
+<p>Essentailly <strong>many to many</strong> relationship works both ways, so use the same relationship method on the <strong>Product</strong> model to access all orders that include a given product. </p>
+<pre><code class="language-php">class Product extends Model
+{
+    public function orders()
+    {
+        return $this-&gt;pivot(Order::class, 'order_item', 'product_id', 'order_id');
+    }
+}</code></pre>
+<p>Now, you can fetch all orders that include a specific product:</p>
+<pre><code class="language-php">/**
+ * Find the product with id: 99
+ */
+$product = new Product(99);
+
+/**
+ * Get all orders that include this product
+ */
+$orders = $product-&gt;orders;</code></pre>
+<hr />
+<h4>Attach Pivot Records</h4>
+<p>To insert a pivot record, use <code>attach()</code> method. </p>
+<ul>
+<li>It creates new records to the pivot table,</li>
+<li>ignores duplicates,</li>
+<li>also supports inserting data for extra columns.</li>
+</ul>
+<p>Let's take <strong>User</strong> and <strong>Role</strong> models for example.</p>
+<pre><code class="language-php">class User extends Model
+{
+    /**
+     * A user has many roles assigned.
+     */ 
+    public function roles()
+    {
+        return $this-&gt;pivot(Role::class, 'user_role', 'user_id', 'role_id');
+    }
+}</code></pre>
+<p>Now to assign new roles to the user:</p>
+<pre><code class="language-php">$user = new User(23);
+
+// Attach a role to the user
+$user-&gt;roles()-&gt;attach(1);
+
+// Attach multiple roles together
+$user-&gt;roles()-&gt;attach([1, 2]);
+
+// Pass additional attributes in pivot table
+$user-&gt;roles()-&gt;attach([1, 2], [
+    'assigned_by' =&gt; $adminId,
+    'assigned_at' =&gt; now(),
+]);</code></pre>
+<h4>Detach Pivot Records</h4>
+<p>To delete a pivot record, use <code>detach()</code> method. It removes records in the pivot table, supporting extra columns as additional where filters.</p>
+<pre><code class="language-php">$user = new User(23);
+
+// Remove role 1 for the user
+$user-&gt;roles()-&gt;detach(1);
+
+// Remove multiple roles together
+$user-&gt;roles()-&gt;detach([1, 2]);
+
+// Remove roles 2 and 3 only if assigned_by matches
+$user-&gt;roles()-&gt;detach([2, 3], ['assigned_by' =&gt; $adminId]);</code></pre>
+<h4>Sync Pivot Records</h4>
+<p>To update pivot records, use <code>sync()</code> method. What is syncing pivot records?</p>
+<ul>
+<li>When you <strong>attach</strong> a new role to a user, it creates a new pivot record in the <code>user_role</code> table. It ignores passed duplicate IDs</li>
+<li>When you <strong>detach</strong> a role from a user, it deletes the pivot record from the <code>user_role</code> table.</li>
+<li>But when you <strong>sync</strong> roles to a user, it will ensure that the user will have only the roles that are passed to the <code>sync()</code> method.</li>
+<li>It also supports passing extra columns.</li>
+</ul>
+<pre><code class="language-php">$user = new User(23);
+
+// Assign roles 1, 2, 3 to user, removing any others
+$user-&gt;roles()-&gt;sync([1, 2, 3]);
+
+// Sync with extra data (e.g., assigned_at timestamp)
+$user-&gt;roles()-&gt;sync([1, 2], ['assigned_at' =&gt; now()]);</code></pre>
+<p>Note that all <code>sync</code> operations are wrapped in a transaction:</p>
+<ul>
+<li>If any part fails, the whole operation is rolled back.</li>
+<li>Prevents partial updates and race conditions.</li>
+</ul>
+<h3>Through Relationships</h3>
+<h4>Has One</h4>
+<p>The <code>hasOneThrough()</code> relationship method lets you access a single, distant related record through an intermediate model. This is ideal for cases where you want to “reach through” one model to get a single related record from another.</p>
+<p>Consider this example:</p>
+<ul>
+<li>A <strong>patient</strong> has one <strong>appointment</strong></li>
+<li>Each <strong>appointment</strong> has one <strong>doctor</strong></li>
+<li>A <strong>patient</strong> has one <strong>doctor</strong> <em>through</em> their <strong>appointment</strong></li>
+<li><strong>patient</strong> → <strong>appointment</strong> → <strong>doctor</strong></li>
+</ul>
+<p>This pattern allows you to fetch the doctor for a patient, even though the doctor is not directly linked to the patient, but is associated through the patient’s appointment.</p>
+<p><strong>Example: Patient, Appointment, Doctor</strong></p>
+<pre><code class="language-php">class Patient extends Model
+{
+    // Each patient has one doctor through their appointment
+    public function doctor()
+    {
+        return $this-&gt;hasOneThrough(
+            Doctor::class,      // Final model
+            Appointment::class, // Through model
+            'patient_id',       // Foreign key on through table
+            'doctor_id'         // Foreign key on final table
+        );
+    }
+}</code></pre>
+<p>Now you can easily fetch the doctor for a patient:</p>
+<pre><code class="language-php">$patient = new Patient(1);
+$doctor = $patient-&gt;doctor;</code></pre>
+<p>Behind the scenes, Lightpack ORM joins the <code>patients</code>, <code>appointments</code>, and <code>doctors</code> tables to fetch the doctor for the patient’s appointment—no manual SQL or nested queries required.</p>
+<hr />
+<h4>Has Many</h4>
+<p>The <code>hasManyThrough()</code> relationship method lets you access related records that are connected by an intermediate model. This is perfect for scenarios where you want to “reach through” one model to get to another.</p>
+<p>Consider this example:</p>
+<ul>
+<li>An <strong>author</strong> <em>has many</em> <strong>books</strong></li>
+<li>Each <strong>book</strong> <em>has many</em> <strong>reviews</strong></li>
+<li>An <strong>author</strong> <em>has many</em> <strong>reviews</strong> <em>through</em> their <strong>books</strong></li>
+<li><strong>author</strong> → <strong>books</strong> → <strong>reviews</strong></li>
+</ul>
+<p>This means you can fetch all reviews for an author, even though reviews are not directly linked to the author, but come through the author’s books.</p>
+<pre><code class="language-php">class Author extends Model
+{
+    // One author has many reviews through books
+    public function reviews()
+    {
+        return $this-&gt;hasManyThrough(
+            Review::class, // Final model
+            Book::class,   // Through model
+            'author_id',   // Foreign key on through table
+            'book_id'      // Foreign key on final table
+        );
+    }
+}</code></pre>
+<p>Now you can easily fetch associated <strong>reviews</strong>, </p>
+<pre><code class="language-php">$author = new Author(1);
+$reviews = $author-&gt;reviews;</code></pre>
+<p>Behind the scenes, Lightpack ORM joins the <code>authors</code>, <code>books</code>, and <code>reviews</code> tables to fetch all reviews for books written by that author—no manual SQL or nested loops required.</p>
+<hr />
+<h3>Polymorphic Relationships</h3>
+<h4>Introduction</h4>
+<p>Polymorphic relationships are a powerful feature that let a single model relate to more than one type of parent model—using a unified, elegant approach. In Lightpack ORM, this is implemented with confidence and clarity, so you can tackle real-world use cases like comments, media attachments, or user avatars without convoluted table structures.</p>
+<p><img src="/docs/v0.x/assets/_media/orm/orm-polymorphic-relationships.svg" alt="Polymorphic Relationship Diagram" /></p>
+<p><strong>Polymorphic Table Schema Example</strong></p>
+<p>Your polymorphic child table (e.g., <code>comments</code>) <strong>must</strong> have columns named exactly <code>morph_id</code> and <code>morph_type</code>:</p>
+<pre><code class="language-sql">CREATE TABLE comments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    morph_id INT NOT NULL,
+    morph_type VARCHAR(64) NOT NULL,
+    body TEXT,
+    created_at DATETIME,
+    updated_at DATETIME
+);</code></pre>
+<p>This enforced naming approach makes your migrations and queries consistent, readable, and future-proof.</p>
+<blockquote>
+<p><strong>Column Naming Convention:</strong>
+Lightpack requires you to name your polymorphic columns as <code>morph_id</code> and <code>morph_type</code>—no exceptions. This is a deliberate design choice. To avoid awkward column names like <code>commentable_id</code>, <code>articleable_id</code>, or <code>imageable_id</code>, Lightpack keeps it simple and predictable. Your schema is always easy to interpret, and your code stays clean.</p>
+</blockquote>
+<hr />
+<p><strong>When (Not) to Use Polymorphic Relations</strong></p>
+<p>Polymorphic relations are a pragmatic solution for flexible data models, but they come with tradeoffs:</p>
+<ul>
+<li><strong>No DB-enforced FKs:</strong> Integrity is enforced in application code only.</li>
+<li><strong>Migration complexity:</strong> Changing parent types later requires careful data handling.</li>
+<li><strong>Query performance:</strong> Can be less efficient than standard FKs for some workloads.</li>
+</ul>
+<p><strong>Bottom line:</strong> If you require absolute referential integrity, avoid polymorphic relations—split your tables or redesign your schema. But if you need flexibility and can enforce integrity at the application level, Lightpack’s polymorphic support is robust, expressive, and easy to use.</p>
+<blockquote>
+<p><strong>Referential Integrity Warning:</strong>
+Polymorphic relationships are not enforced by database-level foreign keys. The integrity is maintained by your application and ORM alone. If you need strict referential integrity, <strong>avoid polymorphic patterns</strong>—split your tables or redesign your schema. Use polymorphic relations only when flexibility outweighs the need for DB-enforced constraints.</p>
+</blockquote>
+<hr />
+<p>Polymorphic relationships in Lightpack are designed to make your codebase more maintainable, not more confusing. Use them wisely, and you’ll unlock elegant solutions to complex data modeling challenges. Lets explore the polymorphic relationship methods available:</p>
+<pre><code class="language-php">morphOne()
+morphMany()
+morphTo()</code></pre>
+<hr />
+<h4>Morph One</h4>
+<p>For a one-to-one polymorphic relationship, such as a <strong>User</strong> having a single <strong>Avatar</strong>, use the <code>morphOne()</code> method to fetch related avatar model:</p>
+<pre><code class="language-php">class User extends Model
+{
+    public function avatar()
+    {
+        return $this-&gt;morphOne(Avatar::class);
+    }
+}</code></pre>
+<p>Usage:</p>
+<pre><code class="language-php">$user = new User(42);
+$avatar = $user-&gt;avatar;</code></pre>
+<hr />
+<h4>Morph Many</h4>
+<p>For a polymorphic one-to-many relationship, such as each <strong>Post</strong>, <strong>Photo</strong>, or <strong>Video</strong> having many <strong>Comments</strong>, use the <code>morphMany()</code> method to fetch related comments model collection.</p>
+<pre><code class="language-php">class Post extends Model
+{
+    public function comments()
+    {
+        return $this-&gt;morphMany(Comment::class);
+    }
+}
+
+class Photo extends Model
+{
+    public function comments()
+    {
+        return $this-&gt;morphMany(Comment::class);
+    }
+}
+
+class Video extends Model
+{
+    public function comments()
+    {
+        return $this-&gt;morphMany(Comment::class);
+    }
+}</code></pre>
+<p>Usage:</p>
+<pre><code class="language-php">$video = new Video(7);
+$comments = $video-&gt;comments; // All comments for this video</code></pre>
+<hr />
+<h4>Morph Inverse</h4>
+<p>Use the method <code>morphTo()</code> to define the polymorphic inverse relation to fetch related parent model. </p>
+<p>Suppose you want to fetch parent <strong>Post</strong>, <strong>Photo</strong>, or <strong>Video</strong> model for the <strong>Comment</strong> model:</p>
+<pre><code class="language-php">class Comment extends Model
+{
+    public function parent()
+    {
+        return $this-&gt;morphTo([
+            Post::class,
+            Photo::class,
+            Video::class,
+        ]);
+    }
+}</code></pre>
+<p>Now, given a comment, you can access its parent—no matter the type:</p>
+<pre><code class="language-php">$comment = new Comment(101);
+$parent = $comment-&gt;parent; // Could be a Post, Photo, or Video instance</code></pre>
+<hr />
+<h4>Morph To Many</h4>
+<p><img src="/docs/v0.x/assets/_media/orm/orm-polymorphic-many-to-many.svg" alt="Polymorphic Many-to-Many Relationship" /></p>
+<p>A polymorphic many-to-many relationship lets you share a single pivot table across multiple parent models. For example, both <strong>Posts</strong> and <strong>Videos</strong> can have <strong>Tags</strong>, but instead of creating separate <code>post_tag</code> and <code>video_tag</code> tables, you use one <code>tag_morphs</code> table that works for both.</p>
+<p><strong>Why use this?</strong></p>
+<p>When multiple models need the same many-to-many relationship (like tagging, categorization, or permissions), a polymorphic pivot table keeps your schema clean and your code DRY.</p>
+<p><strong>Schema Requirements:</strong></p>
+<p>The pivot table must have three columns:</p>
+<ul>
+<li><code>morph_id</code> - stores the parent model's ID (post ID or video ID)</li>
+<li><code>morph_type</code> - stores the parent model's table name (<code>'posts'</code> or <code>'videos'</code>)</li>
+<li>Related model's foreign key (e.g., <code>tag_id</code>)</li>
+</ul>
+<p>Example <code>tag_morphs</code> table:</p>
+<pre><code class="language-sql">CREATE TABLE tag_morphs (
+    tag_id BIGINT UNSIGNED,
+    morph_id BIGINT UNSIGNED,
+    morph_type VARCHAR(255),
+    PRIMARY KEY (tag_id, morph_id, morph_type)
+);</code></pre>
+<p><strong>Usage:</strong></p>
+<p>Use <code>morphToMany()</code> to define the relationship from the parent models (Post, Video) to the related model (Tag).</p>
+<pre><code class="language-php">class Post extends Model
+{
+    public function tags()
+    {
+        return $this-&gt;morphToMany(Tag::class, 'tag_morphs', 'tag_id');
+    }
+}
+
+class Video extends Model
+{
+    public function tags()
+    {
+        return $this-&gt;morphToMany(Tag::class, 'tag_morphs', 'tag_id');
+    }
+}</code></pre>
+<p>Usage:</p>
+<pre><code class="language-php">$post = new Post(12);
+$tags = $post-&gt;tags; // All tags for this post</code></pre>
+<p><strong>Pivot Operations:</strong></p>
+<pre><code class="language-php">// Attach tags
+$post-&gt;tags()-&gt;attach([1, 2, 3]);
+
+// Detach tags
+$post-&gt;tags()-&gt;detach([2]);
+
+// Sync tags (removes old, adds new)
+$post-&gt;tags()-&gt;sync([1, 3, 4]);</code></pre>
+<hr />
+<h4>Morphed By Many</h4>
+<p>Use <code>morphedByMany()</code> to define the inverse polymorphic many-to-many relationship. For example, a <strong>Tag</strong> can belong to many <strong>Posts</strong> and many <strong>Videos</strong>.</p>
+<pre><code class="language-php">class Tag extends Model
+{
+    public function posts()
+    {
+        return $this-&gt;morphedByMany(Post::class, 'tag_morphs', 'tag_id');
+    }
+
+    public function videos()
+    {
+        return $this-&gt;morphedByMany(Video::class, 'tag_morphs', 'tag_id');
+    }
+}</code></pre>
+<p>Usage:</p>
+<pre><code class="language-php">$tag = new Tag(5);
+$posts = $tag-&gt;posts;   // All posts with this tag
+$videos = $tag-&gt;videos; // All videos with this tag</code></pre>
+<hr />
+<h2>Counting Relations</h2>
+<p><code>withCount()</code> works across all collection-style relationships—not just <code>hasMany</code>. This includes many-to-many (<code>pivot</code>), polymorphic many-to-many (<code>morphToMany</code>, <code>morphedByMany</code>), and through relationships.</p>
+<p><strong>Many-to-many (<code>pivot</code>):</strong></p>
+<pre><code class="language-php">// How many roles does each user have?
+$users = User::query()-&gt;withCount('roles')-&gt;all();
+
+foreach ($users as $user) {
+    echo $user-&gt;roles_count;
+}</code></pre>
+<p><strong>Polymorphic many-to-many (<code>morphToMany</code>):</strong></p>
+<pre><code class="language-php">// How many tags does each post have?
+$posts = Post::query()-&gt;withCount('tags')-&gt;all();
+
+foreach ($posts as $post) {
+    echo $post-&gt;tags_count;
+}</code></pre>
+<p><strong>Inverse polymorphic many-to-many (<code>morphedByMany</code>):</strong></p>
+<pre><code class="language-php">// How many posts and videos does each tag have?
+$tags = Tag::query()
+    -&gt;withCount('posts')
+    -&gt;withCount('videos')
+    -&gt;all();
+
+foreach ($tags as $tag) {
+    echo $tag-&gt;posts_count;
+    echo $tag-&gt;videos_count;
+}</code></pre>
+<p>You can also combine <code>withCount()</code> with <code>orderBy()</code> on these relations:</p>
+<pre><code class="language-php">// Users ordered by number of roles
+$users = User::query()
+    -&gt;withCount('roles')
+    -&gt;orderBy('roles_count', 'desc')
+    -&gt;all();</code></pre>
+<p>For a complete reference on <code>withCount()</code>, <code>withSum()</code>, and all other aggregate facilities including defaults, callbacks, and deferred loading, see the <a href="eager-loading">Eager Loading documentation</a>.</p>
+<hr />
+<h2>Querying Relationships</h2>
+<p>Understanding how to access and work with relationships is fundamental to getting the most out of your ORM. Lightpack ORM makes it intuitive to fetch related data, whether you want a single associated record or a whole collection of related models. This section will guide you through the mechanics, best practices, and the semantics of querying relationships. So let's reconsider the relation where an  <strong>organization</strong> has many <strong>departments</strong>.</p>
+<pre><code class="language-php">class Organization extends Model
+{
+    public function departments()
+    {
+        return $this-&gt;hasMany(Department::class, 'organization_id');
+    }
+}</code></pre>
+<h3>Accessing Relationships: Property vs. Method</h3>
+<p>You can access a relationship in two ways:</p>
+<ol>
+<li>
+<p><strong>As a dynamic property:</strong></p>
+<pre><code class="language-php"> $org = new Organization(1);
+ $departments = $org-&gt;departments; // Property access</code></pre>
+<p>When you access a relationship as a property, the ORM automatically runs the underlying query and returns the related data. This is the most common and convenient way to fetch associated models.</p>
+</li>
+<li>
+<p><strong>As a method call:</strong></p>
+<pre><code class="language-php"> $query = $org-&gt;departments(); // Method access</code></pre>
+<p>When you call the relationship as a method, you get the underlying query builder. This allows you to further customize the query before executing it:</p>
+<pre><code class="language-php"> // Get all active departments
+ $activeDepartments = $org-&gt;departments()-&gt;where('status', 'active')-&gt;all();
+
+ // Get the first department
+ $firstDept = $org-&gt;departments()-&gt;one();
+
+ // Find a specific department by ID
+ $dept = $org-&gt;departments()-&gt;find(5);</code></pre>
+</li>
+</ol>
+<h4>What Happens Behind the Scenes?</h4>
+<ul>
+<li>
+<p><strong>Property Access:</strong></p>
+<ul>
+<li>The first time you access a relationship as a property (e.g., <code>$org-&gt;departments</code>), the ORM calls your relationship method, executes the query, and caches the result on the model instance. Subsequent accesses return the cached result.</li>
+<li>If the relationship returns multiple models (like <code>hasMany</code>), you receive a <strong>Collection</strong> of models. </li>
+<li>If the relationship returns a single model (like <code>hasOne</code> or <code>belongsTo</code>), you get a single model instance or <code>null</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Method Access:</strong></p>
+<ul>
+<li>Calling the relationship as a method (e.g., <code>$org-&gt;departments()</code>) returns the query builder object. You can chain additional constraints, then call query methods like <code>all()</code>, <code>one()</code>, <code>find()</code>, <code>count()</code>, etc., to execute the query and fetch results.</li>
+<li>This is ideal when you want to apply dynamic scopes or advanced queries on the relationship.</li>
+</ul>
+</li>
+</ul>
+<h3>Finding Specific Related Records</h3>
+<p>When you need to find a specific related record by its primary key, use the <code>find()</code> method on the relationship. This ensures that the record not only exists but also belongs to the parent model.</p>
+<pre><code class="language-php">$org = new Organization(1);
+
+// Find department with ID 5 that belongs to this organization
+$dept = $org-&gt;departments()-&gt;find(5);</code></pre>
+<p><strong>Exception Handling:</strong></p>
+<p>By default, <code>find()</code> throws a <code>RecordNotFoundException</code> if the record is not found. This is consistent with the behavior of <code>Model::find()</code>.</p>
+<pre><code class="language-php">try {
+    $dept = $org-&gt;departments()-&gt;find(999);
+} catch (RecordNotFoundException $e) {
+    // Handle not found
+}</code></pre>
+<p><strong>Returning Null Instead:</strong></p>
+<p>If you prefer to receive <code>null</code> instead of an exception when a record is not found, pass <code>false</code> as the second parameter:</p>
+<pre><code class="language-php">$dept = $org-&gt;departments()-&gt;find(5, false);
+
+if (!$dept) {
+    // Department not found or doesn't belong to this organization
+}</code></pre>
+<p><strong>Security Benefit:</strong></p>
+<p>Using <code>find()</code> on relationships ensures that the record belongs to the parent model. For example:</p>
+<pre><code class="language-php">// This will only find department 5 if it belongs to organization 1
+$dept = $org-&gt;departments()-&gt;find(5);
+
+// If department 5 belongs to a different organization, it returns null (or throws exception)</code></pre>
+<p>This prevents unauthorized access to records that don't belong to the parent model, making your application more secure.</p>
+<p><strong>Chaining with Other Constraints:</strong></p>
+<p>You can combine <code>find()</code> with other query constraints:</p>
+<pre><code class="language-php">// Find an active department with ID 5
+$dept = $org-&gt;departments()
+    -&gt;where('status', 'active')
+    -&gt;find(5);</code></pre>
+<h3>Collections: Working with Multiple Related Models</h3>
+<p>When a relationship returns multiple models (such as with <code>hasMany</code>, <code>belongsToMany</code>, or <code>morphMany</code>), the result is a <strong>Collection</strong> object. This collection behaves much like an array, but is enhanced with a rich set of methods for filtering, mapping, reducing, and more. For example:</p>
+<pre><code class="language-php">$departments = $org-&gt;departments; // Collection of Department models
+
+// Get the names of all departments
+$names = $departments-&gt;column('name');
+
+// Filter only active departments
+$active = $departments-&gt;filter(function($dept) {
+    return $dept-&gt;status === 'active';
+});</code></pre>
+<p>Collections make it easy to work with groups of related models in a fluent, expressive way. You’ll find a full guide to collections in a dedicated section of this documentation.</p>
+<h3>Best Practices and Semantics</h3>
+<ul>
+<li><strong>Use property access</strong> for simple, direct retrieval of related data.</li>
+<li><strong>Use method access</strong> when you need to customize the query.</li>
+<li><strong>Use <code>find()</code> on relationships</strong> when you need to ensure a record belongs to the parent model.</li>
+<li><strong>Remember caching:</strong> Property access caches the result for the current model instance.</li>
+<li><strong>Understand return types:</strong> Relationships that return many models give you a <strong>Collection</strong>; those that return one give you a model instance or <code>null</code>.</li>
+<li><strong>Be intention-revealing:</strong> Name your relationship methods for clarity and business meaning.</li>
+</ul>
+<hr />
+<p>By understanding the difference between property and method access, and how collections work, you’ll write more expressive, efficient, and maintainable code with Lightpack ORM. For a deep dive into collections and their powerful capabilities, see the <a href="collections">Collections documentation</a>.</p>
+<hr />
+<h2>Semantic Relationship Methods</h2>
+<p>Semantic relationship methods empower you to define model relationships that are not only technically correct, but also meaningful and intention-revealing. Instead of limiting your models to generic accessors like <code>departments()</code>, you can define expressive methods such as <code>activeDepartments()</code>, <code>hrDepartments()</code>, or <code>recentlyCreatedDepartments()</code>. This approach makes your codebase more readable, maintainable, and aligned with real business logic.</p>
+<h3>Why Semantic Methods?</h3>
+<ul>
+<li><strong>Clarity:</strong> Your model methods communicate <em>why</em> you’re fetching certain related data, not just <em>how</em>.</li>
+<li><strong>Maintainability:</strong> Changes to business logic (e.g., what counts as “active”) are isolated to a single place.</li>
+<li><strong>Expressiveness:</strong> Your code reads like natural language, making it easier for new developers to understand intent.</li>
+</ul>
+<h3>Example: Organization and Departments</h3>
+<p>Suppose you have an <code>Organization</code> model and a related <code>Department</code> model. Each organization can have many departments, but you want to easily fetch only the active ones, or only those in the HR domain.</p>
+<h4>Standard Relationship</h4>
+<pre><code class="language-php">class Organization extends Model
+{
+    // All departments for this organization
+    public function departments()
+    {
+        return $this-&gt;hasMany(Department::class, 'organization_id');
+    }
+}</code></pre>
+<h4>Semantic (Filtered) Relationships</h4>
+<pre><code class="language-php">class Organization extends Model
+{
+    // Only active departments
+    public function activeDepartments()
+    {
+        return $this-&gt;hasMany(Department::class, 'organization_id')-&gt;where('status', 'active');
+    }
+
+    // Only HR departments
+    public function hrDepartments()
+    {
+        return $this-&gt;hasMany(Department::class, 'organization_id')-&gt;where('type', 'hr');
+    }
+
+    // Departments created in the last 30 days
+    public function recentlyCreatedDepartments()
+    {
+        return $this-&gt;hasMany(Department::class, 'organization_id')
+                    -&gt;where('created_at', '&gt;=', now()-&gt;subDays(30));
+    }
+}</code></pre>
+<h3>Usage</h3>
+<pre><code class="language-php">$org = new Organization(1);
+
+// Get all departments
+$departments = $org-&gt;departments;
+
+// Get only active departments
+$active = $org-&gt;activeDepartments;
+
+// Get only HR departments
+$hr = $org-&gt;hrDepartments;
+
+// Get recently created departments
+$recent = $org-&gt;recentlyCreatedDepartments;</code></pre>
+<h3>Best Practices</h3>
+<ul>
+<li><strong>Name methods for intent:</strong> Use clear, business-driven names like <code>activeDepartments()</code> or <code>financeDepartments()</code>.</li>
+<li><strong>Centralize logic:</strong> Place filtering logic in the relationship method, not scattered throughout your codebase.</li>
+<li><strong>Document your methods:</strong> Briefly describe what each semantic relationship returns.</li>
+</ul>
+<h3>When to Use Semantic Relationships</h3>
+<ul>
+<li>When you have common queries that filter or scope related data.</li>
+<li>When business logic or access rules change over time.</li>
+<li>When you want your code to be self-documenting and intention-revealing.</li>
+</ul>
+<hr />
+<p>Semantic relationship methods are a powerful way to make your models expressive, maintainable, and aligned with your domain. By naming relationships for what they <em>mean</em>, not just what they <em>are</em>, you create a codebase that’s easier to read, reason about, and extend.</p>
+<p><strong>How does this work behind the scenes?</strong></p>
+<p>Each relationship method returns a query builder. This means you can chain and apply any filtering, sorting, or limiting logic directly within your relationship method. When you access a property like <code>$organization-&gt;activeDepartments</code>, the ORM executes the query as defined in your method—including all your custom conditions—and returns the result. This is why you can define as many semantic, filtered relationships as your application needs.</p>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Eager Loading</title>
+      <meta name="description" content="Solve the N+1 query problem by preloading related model data efficiently.">
+    <meta property="og:description" content="Solve the N+1 query problem by preloading related model data efficiently.">
+    <meta property="og:title" content="Eager Loading">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  class="active" aria-current="page" >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Eager Loading</h1>
+<p>Once again let us consider these three tables:</p>
+<table>
+    <tr>
+        <td class="token title important">products</td>
+        <td>id</td>
+        <td>title</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td class="token title important">options</td>
+        <td>id</td>
+        <td>product_id</td>
+        <td>name</td>
+        <td>color</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td class="token title important">seo</td>
+        <td>id</td>
+        <td>product_id</td>
+        <td>meta_title</td>
+        <td>meta_description</td>
+    </tr>
+</table>
+<p>The association between these entities is:</p>
+<ul>
+<li>A <strong>product</strong> has many <strong>options</strong>.</li>
+<li>A <strong>product</strong> has one <strong>seo</strong> details.</li>
+</ul>
+<pre><code class="language-php">class Product extends Model
+{
+    public function options()
+    {
+        return $this-&gt;hasMany(Option::class, 'product_id');
+    }
+
+    public function seo()
+    {
+        return $this-&gt;hasOne(Seo::class, 'product_id');
+    }
+}</code></pre>
+<p>Now suppose we have <strong>20</strong> <strong>products</strong> and correspondingly <strong>20 seo</strong> records. To fetch <code>products</code> along with their <code>seo</code> details, you can simply loop each product:</p>
+<pre><code class="language-php">$products = Product::query()-&gt;all();
+
+foreach($products as $product) {
+    echo $product-&gt;seo-&gt;meta_title;
+}</code></pre>
+<p>The problem with above approach is that it will fire one query for fetching all <code>products</code>
+and <strong>20</strong> extra queries per product to fetch <code>seo</code> data. This will result in a total of <code>21 queries</code> which can be expensive.</p>
+<p>In raw SQL terms, following queries will be executed</p>
+<pre><code class="language-sql">-- 1 query to fetch all products
+SELECT * FROM products;
+
+-- 20 queries (one per product) to fetch seo details
+SELECT * FROM seo WHERE product_id = 1;
+SELECT * FROM seo WHERE product_id = 2;
+SELECT * FROM seo WHERE product_id = 3;
+-- ...and so on, up to product_id = 20
+SELECT * FROM seo WHERE product_id = 20;</code></pre>
+<blockquote>
+<p><strong>This is known as the classic <code>N+1</code> queries problem</strong>. </p>
+</blockquote>
+<p>For every <strong>product</strong>, the ORM issues an additional query to fetch its related <strong>SEO</strong> record—quickly adding up to many unnecessary database calls and poor performance.</p>
+<p><strong>Eager loading</strong> is a technique designed to solve this problem. Instead of fetching related data one record at a time, eager loading retrieves all the necessary related records in as few queries as possible—usually just one extra query, no matter how many products you have. This dramatically reduces database load and speeds up your application, especially when displaying lists of records with their associations.</p>
+<p>In Lightpack ORM, eager loading is simple and explicit, empowering you to write efficient, high-performance code with minimal effort.</p>
+<h3>Single-ended Associations</h3>
+<p>To eager load <strong>single-ended</strong> associations aka <code>1:1</code> mapping, use <code>with()</code> method:</p>
+<pre><code class="language-php">$products = Product::query()-&gt;with('seo')-&gt;all();</code></pre>
+<p>This will fetch all products and corresponding seo records with just two queries:</p>
+<pre><code class="language-sql">select * from products;
+
+select * from seo where product_id in (1,2,3,4,5,...,N)</code></pre>
+<p>So you can loop each product and access its seo data:</p>
+<pre><code class="language-php">foreach($products as $product) {
+    echo $product-&gt;seo-&gt;meta_title;
+}</code></pre>
+<h3>One-to-many Associations</h3>
+<p>To eager load <code>1:N</code> associations, use the same <code>with</code> method passing it the associated method name as string:</p>
+<pre><code class="language-php">$products = Product::query()-&gt;with('options')-&gt;all();</code></pre>
+<h3>Loading multiple associations</h3>
+<p>To eager load multiple associations, pass associated method names in the <code>with</code> method:</p>
+<pre><code class="language-php">$products = Product::query()-&gt;with('seo', 'options')-&gt;all();</code></pre>
+<h3>Limited eager loading</h3>
+<p>When eager loading <code>1:N</code> associations, you may only need a subset of related records per parent—for example, the 5 latest comments on each post. You can apply <code>limit()</code> and <code>orderBy()</code> constraints directly on the relation:</p>
+<pre><code class="language-php">// Latest 3 comments per post
+$posts = Post::query()
+    -&gt;with(['comments' =&gt; function ($q) {
+        $q-&gt;orderBy('created_at', 'desc')-&gt;limit(3);
+    }])
+    -&gt;all();
+
+foreach ($posts as $post) {
+    echo $post-&gt;comments-&gt;count(); // Max 3 per post
+}</code></pre>
+<p>This works for both <code>hasMany</code> and <code>hasManyThrough</code> relations. Lightpack uses a <code>ROW_NUMBER()</code> window function to enforce per-parent limits in a single query.</p>
+<p>You can also combine <code>limit()</code> with additional <code>where</code> constraints:</p>
+<pre><code class="language-php">// 2 highest-rated reviews per product
+$products = Product::query()
+    -&gt;with(['reviews' =&gt; function ($q) {
+        $q-&gt;where('status', 'approved')
+          -&gt;orderBy('rating', 'desc')
+          -&gt;limit(2);
+    }])
+    -&gt;all();</code></pre>
+<h3>Counting associations</h3>
+<p>To count the associated relations, use <code>withCount()</code> method:</p>
+<pre><code class="language-php">$categories = Category::query()-&gt;withCount('products')-&gt;all();</code></pre>
+<blockquote>
+<p><strong>How do you access the count?</strong></p>
+<p>When you use <code>withCount()</code> or <code>loadCount()</code> in Lightpack, the ORM automatically adds a <code>_count</code> suffix to the relation property. For example, after calling <code>withCount('comments')</code>, you can access the count using <code>$post-&gt;comments_count</code>. This naming convention keeps your model properties clear and intention-revealing.</p>
+</blockquote>
+<p>For example:</p>
+<pre><code class="language-php">$categories = Category::query()-&gt;withCount('products')-&gt;all();
+
+foreach($categories as $category) {
+    echo $category-&gt;products_count;
+}</code></pre>
+<h3>Ordering by relation count or aggregate</h3>
+<p>You can combine <code>withCount()</code> with <code>orderBy()</code> to sort results by the number of related records:</p>
+<pre><code class="language-php">// Top 10 most booked hotels
+$hotels = Hotel::query()
+    -&gt;withCount('bookings')
+    -&gt;orderBy('bookings_count', 'desc')
+    -&gt;limit(10)
+    -&gt;all();</code></pre>
+<p>This works for constrained counts too:</p>
+<pre><code class="language-php">// Projects sorted by number of open tasks
+$projects = Project::query()
+    -&gt;withCount(['tasks' =&gt; fn($q) =&gt; $q-&gt;where('status', 'open')])
+    -&gt;orderBy('tasks_count', 'desc')
+    -&gt;all();</code></pre>
+<p>The same pattern works for all aggregate methods. For example, sorting by a sum:</p>
+<pre><code class="language-php">// Projects ordered by total task cost, highest first
+$projects = Project::query()
+    -&gt;withSum('tasks', 'cost')
+    -&gt;orderBy('tasks_sum_cost', 'desc')
+    -&gt;all();</code></pre>
+<p>When <code>orderBy()</code> targets an aggregate column, Lightpack automatically switches from a <code>GROUP BY</code> query to an injected <strong>correlated subquery</strong> in the <code>SELECT</code> clause. This ensures correct ordering without requiring a separate pass over the data.</p>
+<blockquote>
+<p><strong>Note:</strong> <code>loadCount()</code> and <code>loadSum()</code> (and other <code>load*()</code> variants) cannot be combined with <code>orderBy()</code>. Since these methods run after the collection is already fetched, there is no query left to sort. Use <code>withCount()-&gt;orderBy()</code> or <code>withSum()-&gt;orderBy()</code> etc. if sorting is required.</p>
+</blockquote>
+<h3>Aggregating associations</h3>
+<p>Beyond counting, you can also eager load <strong>sum</strong>, <strong>average</strong>, <strong>minimum</strong>, and <strong>maximum</strong> values from related records. These work similarly to <code>withCount()</code> but target a specific numeric column on the relation.</p>
+<pre><code class="language-php">// Sum of hours for all project tasks
+$projects = Project::query()-&gt;withSum('tasks', 'hours')-&gt;all();
+
+// Average rating for all hotel reviews
+$hotels = Hotel::query()-&gt;withAvg('reviews', 'rating')-&gt;all();
+
+// Minimum and maximum order amounts per customer
+$customers = Customer::query()
+    -&gt;withMin('orders', 'amount')
+    -&gt;withMax('orders', 'amount')
+    -&gt;all();</code></pre>
+<blockquote>
+<p><strong>How do you access the aggregate?</strong></p>
+<p>The ORM constructs the attribute name by joining the relation name, the aggregate type, and the column name: <code>{relation}_{type}_{column}</code>. For example, <code>withSum('tasks', 'hours')</code> produces <code>$project-&gt;tasks_sum_hours</code>.</p>
+</blockquote>
+<p>For example:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;withSum('tasks', 'hours')-&gt;all();
+
+foreach($projects as $project) {
+    echo $project-&gt;tasks_sum_hours; // e.g. 42
+}</code></pre>
+<p>You can load multiple aggregates on the same relation simultaneously:</p>
+<pre><code class="language-php">$hotels = Hotel::query()
+    -&gt;withAvg('reviews', 'rating')
+    -&gt;withAvg('reviews', 'reviewer_age')
+    -&gt;all();
+
+foreach($hotels as $hotel) {
+    echo $hotel-&gt;reviews_avg_rating;      // 4.2
+    echo $hotel-&gt;reviews_avg_reviewer_age; // 34.5
+}</code></pre>
+<blockquote>
+<p><strong>What if the relation has no records?</strong></p>
+<p>When a parent model has no related records, the aggregate attribute is set to a sensible default that matches SQL semantics:</p>
+<table>
+<thead>
+<tr>
+<th>Aggregate</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>withCount()</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>withSum()</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>withAvg()</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>withMin()</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>withMax()</code></td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<p>For example, if a project has no tasks, <code>$project-&gt;tasks_count</code> will be <code>0</code>, while <code>$project-&gt;tasks_sum_hours</code> and <code>$project-&gt;tasks_avg_hours</code> will be <code>null</code>. Use <code>?? 0</code> in views when you need a numeric fallback for sum/avg/min/max.</p>
+</blockquote>
+<blockquote>
+<p><strong>Which relation types support aggregates?</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Supported relations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>withCount()</code></td>
+<td><code>hasMany</code>, <code>hasManyThrough</code>, <code>morphMany</code>, <code>pivot</code>, <code>morphToMany</code>, <code>morphedByMany</code></td>
+</tr>
+<tr>
+<td><code>withSum()</code> / <code>withAvg()</code> / <code>withMin()</code> / <code>withMax()</code></td>
+<td><code>hasMany</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>withCount()</code> works across all collection-style relations including polymorphic many-to-many. Numeric aggregates (<code>withSum</code> etc.) currently apply to <code>hasMany</code> relations only.</p>
+</blockquote>
+<blockquote>
+<p><strong>Standalone vs. Relation Aggregates</strong></p>
+<p>The methods above (<code>withCount</code>, <code>withSum</code>, etc.) compute aggregates <strong>on related models</strong> and attach them to each parent. If you need grouped aggregates <strong>on the model's own columns</strong> (e.g., <code>SUM(price) GROUP BY category</code> on the <code>products</code> table itself), use the query builder's <code>aggregate()</code> method instead. See <a href="./db-query-builder#multiple-grouped-aggregates">Multiple Grouped Aggregates</a> in the Query Builder documentation.</p>
+</blockquote>
+<hr />
+<h3>Quick Reference: Eager Loading Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Use When...</th>
+<th>For fetching...</th>
+<th>Example Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>with()</code></td>
+<td>Related models</td>
+<td><code>with('seo')</code>, <code>with('options')</code></td>
+</tr>
+<tr>
+<td><code>withCount()</code></td>
+<td>Count of relations</td>
+<td><code>withCount('products')</code></td>
+</tr>
+<tr>
+<td><code>withSum()</code></td>
+<td>Sum of relation</td>
+<td><code>withSum('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>withAvg()</code></td>
+<td>Average of relation</td>
+<td><code>withAvg('reviews', 'rating')</code></td>
+</tr>
+<tr>
+<td><code>withMin()</code></td>
+<td>Minimum of relation</td>
+<td><code>withMin('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>withMax()</code></td>
+<td>Maximum of relation</td>
+<td><code>withMax('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>load()</code> (on collection)</td>
+<td>Related models</td>
+<td><code>$products-&gt;load('seo')</code></td>
+</tr>
+<tr>
+<td><code>loadCount()</code> (on collection)</td>
+<td>Count of relations</td>
+<td><code>$products-&gt;loadCount('options')</code></td>
+</tr>
+<tr>
+<td><code>loadSum()</code> (on collection)</td>
+<td>Sum of relation</td>
+<td><code>$products-&gt;loadSum('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>loadAvg()</code> (on collection)</td>
+<td>Average of relation</td>
+<td><code>$products-&gt;loadAvg('reviews', 'rating')</code></td>
+</tr>
+<tr>
+<td><code>loadMin()</code> (on collection)</td>
+<td>Minimum of relation</td>
+<td><code>$products-&gt;loadMin('orders', 'amount')</code></td>
+</tr>
+<tr>
+<td><code>loadMax()</code> (on collection)</td>
+<td>Maximum of relation</td>
+<td><code>$products-&gt;loadMax('orders', 'amount')</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Use <code>with*()</code> methods when building your initial query.</li>
+<li>Use <code>load*()</code> methods to eager load associations on an <strong>existing collection</strong>.</li>
+</ul>
+<hr />
+<h3>Eager Loading Callbacks: Filtering Related Data</h3>
+<p>You can pass a callback to <code>with()</code>, <code>withCount()</code>, <code>withSum()</code>, <code>withAvg()</code>, <code>withMin()</code>, <code>withMax()</code>, <code>load()</code>, <code>loadCount()</code>, <code>loadSum()</code>, <code>loadAvg()</code>, <code>loadMin()</code>, or <code>loadMax()</code> to apply conditions to the eager loaded relationship. The callback receives the query builder for the related model, letting you add any filters you need.</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;with(['tasks' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'pending');
+}])-&gt;all();</code></pre>
+<p>Here, only tasks with status <code>pending</code> are eager loaded for each project.</p>
+<p>You can also nest callbacks for deeper relations:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;with([
+    'tasks' =&gt; function($q) {
+        $q-&gt;where('status', '=', 'pending');
+        $q-&gt;with(['comments' =&gt; function($q) {
+            $q-&gt;where('status', '=', 'approved');
+        }]);
+    }
+])-&gt;all();</code></pre>
+<hr />
+<h3>Chaining and Composing Eager Loading Methods</h3>
+<p>Lightpack ORM allows you to fluently chain eager loading methods with other query builder methods for expressive, composable queries. For example:</p>
+<pre><code class="language-php">$projects = Project::query()
+    -&gt;with('manager')
+    -&gt;withCount('tasks')
+    -&gt;where('status', '=', 'active')
+    -&gt;orderBy('created_at', 'desc')
+    -&gt;all();</code></pre>
+<p>This query fetches all active projects, eager loads the manager, counts the tasks, orders by creation date, and returns the results—all in a single, readable chain.</p>
+<hr />
+<h3>Nested Eager Loading</h3>
+<p>Suppose we have table <code>projects</code> with many <code>tasks</code> and each task can have many <code>comments</code>. We can <strong>eager load</strong> <code>projects</code> with their <code>tasks</code> and <code>comments</code> together:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;with('tasks.comments')-&gt;all();</code></pre>
+<p>Note that such convinience can become a performance issue if there are too many <code>comments</code> for <code>tasks</code> for a given project.</p>
+<h3>Conditional Eager Loading</h3>
+<p>You can restrict <strong>eager loading</strong> relations via <code>callback</code> functions. For example, to eager load all pending <code>tasks</code> for <code>projects</code>:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;with(['tasks' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'pending');
+})-&gt;all();</code></pre>
+<p>You can also restrict <strong>nested</strong> eager loading. For example. to eager load <code>projects</code> with <strong>pending</strong> <code>tasks</code> and <strong>approved</strong> <code>comments</code>:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;with(['tasks' =&gt; function($q) {
+    // Load tasks with pending status
+    $q-&gt;where('status', '=', 'pending');
+
+    // Load comments with approved status
+    $q-&gt;with(['comments' =&gt; function($q) {
+        $q-&gt;where('status', '=', 'approved');
+    }]);
+})-&gt;all();</code></pre>
+<p><strong>Note:</strong> You can apply the same constraints on <code>withCount()</code> and aggregate methods too:</p>
+<pre><code class="language-php">$projects = Project::query()-&gt;withCount(['tasks' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'pending');
+}])-&gt;all();
+
+$projects = Project::query()-&gt;withSum(['tasks' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'completed');
+}], 'hours')-&gt;all();</code></pre>
+<h3>Deferred eager loading</h3>
+<p>Suppose that we have <code>100</code> records in products table. Eager loading <code>seo</code> and <code>options</code> for <code>100</code> products will be a huge performance miss.</p>
+<p>In such cases, you might be interested in <strong>paginating</strong> <code>products</code> and then eager load associated relations.</p>
+<pre><code class="language-php">$products = Product::query()-&gt;paginate(10);</code></pre>
+<p>Once you have got the <strong>products</strong>, you can eager load its <strong>associated</strong> relations by calling <code>load()</code>, <code>loadCount()</code>, <code>loadSum()</code>, <code>loadAvg()</code>, <code>loadMin()</code>, or <code>loadMax()</code> methods on <strong>products</strong>.</p>
+<pre><code class="language-php">$products-&gt;load('seo');
+$products-&gt;loadCount('options');
+$products-&gt;loadSum('orders', 'amount');</code></pre>
+<p>This will automatically populate <code>seo</code> data along with <code>options</code> count and <code>orders</code> sum for each product in <code>$products</code> collection.</p>
+<pre><code class="language-php">foreach($products as $product) {
+    $product-&gt;seo;
+    $product-&gt;options_count;
+    $product-&gt;orders_sum_amount;
+}</code></pre>
+<p><strong>Note:</strong> You can also chain these methods together. For example:</p>
+<pre><code class="language-php">$products = Product::query()-&gt;paginate(10);
+$products-&gt;load('seo')
+    -&gt;loadCount('options')
+    -&gt;loadSum('orders', 'amount')
+    -&gt;loadAvg('reviews', 'rating');</code></pre>
+<p><strong>Note:</strong> All the capabilities that <code>with*()</code> methods have also applies to <code>load*()</code> methods.</p>
+<p>For example, you can pass <strong>callbacks</strong> to restrict eager loading:</p>
+<pre><code class="language-php">$products-&gt;load(['reviews' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'approved');
+}]);</code></pre>
+<pre><code class="language-php">$products-&gt;loadCount(['reviews' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'approved');
+}]);</code></pre>
+<pre><code class="language-php">$products-&gt;loadSum(['orders' =&gt; function($q) {
+    $q-&gt;where('status', '=', 'completed');
+}], 'amount');</code></pre>
+<hr />
+<h4>Eager Loading Polymorphic Parents with <code>loadMorphs</code></h4>
+<p>When working with a collection of polymorphic models (e.g., a list of comments where each comment could belong to a different parent type), eager loading the parent models efficiently can be challenging. Lightpack ORM provides the <code>loadMorphs()</code> method to solve this elegantly.</p>
+<h5>Why use <code>loadMorphs()</code>?</h5>
+<p>If you have a collection of comments, each referencing a different parent type (Post, Video, etc.), calling <code>$comments-&gt;load('parent')</code> is not sufficient, because the ORM needs to know all possible parent types to perform efficient eager loading. <code>loadMorphs()</code> lets you specify the possible types so Lightpack can fetch all parents in as few queries as possible.</p>
+<h5>Example Usage</h5>
+<p>Suppose you fetch a set of comments:</p>
+<pre><code class="language-php">$comments = Comment::query()-&gt;where('user_id', '=', 42)-&gt;all();</code></pre>
+<p>You can eager load their parents like this:</p>
+<pre><code class="language-php">$comments-&gt;loadMorphs([
+    Post::class,
+    Video::class,
+    Photo::class,
+]);</code></pre>
+<p>Now, for each comment, <code>$comment-&gt;parent</code> will be the appropriate parent model instance, and all parents will have been loaded efficiently—no N+1 problem!</p>
+<h5>Best Practices &amp; Notes</h5>
+<ul>
+<li>Always specify all possible parent types for the morph relation.</li>
+<li>Use <code>loadMorphs</code> after fetching the collection (not on the query builder).</li>
+<li>This method is especially useful for API responses or UI screens showing polymorphic lists with their parents.</li>
+<li>If you omit a possible type, parents of that type will not be eager loaded and may trigger lazy loading (and N+1 queries) if accessed.</li>
+</ul>
+<hr />
+<h2>Lazy Loading</h2>
+<p>If you access a relation property that hasn't been loaded yet, Lightpack ORM will transparently execute a new query to fetch it. This aspect is know as <strong>lazy loading</strong> relationships.</p>
+<pre><code class="language-php">$user = new User(1); // No relations loaded
+$posts = $user-&gt;posts; // Triggers a query to fetch posts for this user</code></pre>
+<ul>
+<li>The first time you access <code>$user-&gt;posts</code>, Lightpack issues a query and caches the result on the model instance.</li>
+<li>Subsequent accesses to <code>$user-&gt;posts</code> use the cached data—no additional queries are made.</li>
+</ul>
+<h3>Tradeoffs and Risks</h3>
+<ul>
+<li>
+<p><strong>N+1 Query Problem:</strong> If you loop over a collection and access a relation on each item, you can easily trigger many queries:</p>
+<pre><code class="language-php">$users = User::query()-&gt;all();
+
+foreach ($users as $user) {
+      $user-&gt;profile; // Triggers 1 profile query per user
+}</code></pre>
+<p>This leads to poor performance and unpredictable database load.</p>
+</li>
+<li>
+<p><strong>Performance Unpredictability:</strong> Lazy loading can make it hard to know how many queries your code will run, especially as your data grows.</p>
+</li>
+<li>
+<p><strong>Best Practice:</strong> Always prefer eager loading (<code>with()</code>, <code>load()</code>) for predictable, efficient queries. Use lazy loading only if you are certain the relation will be accessed infrequently or in non-performance-critical code (e.g., admin dashboards, prototypes).</p>
+</li>
+</ul>
+<h3>When is Lazy Loading Acceptable?</h3>
+<ul>
+<li>For small datasets, prototyping, or admin tools where performance is not critical.</li>
+<li>When you explicitly whitelist certain relations using <code>allowedLazyRelations</code> in strict mode.</li>
+</ul>
+<hr />
+<h2>Strict Mode &amp; Lazy Loading</h2>
+<p>Preventing <strong><code>N+1</code></strong> query issues and ensuring predictable performance is a core principle in Lightpack ORM. While eager loading is the primary tool for fetching related data efficiently, Lightpack also offers <strong>strict mode</strong> for even greater safety and explicitness.</p>
+<blockquote>
+<p><strong>Tip:</strong> For maximum safety against N+1 issues, enable strict mode on your models. See the section below for details.</p>
+</blockquote>
+<h3>What is Strict Mode?</h3>
+<p>Strict mode prevents accidental lazy loading of relations. In strict mode, if you try to access a relation that was not eager loaded (via <code>with</code>, <code>load</code>, etc.), Lightpack will throw an exception—unless that relation is explicitly whitelisted. This is crucial for API performance, large-scale applications, and when you want to guarantee predictable queries.</p>
+<h3>How to Enable Strict Mode</h3>
+<p>Enable strict mode by setting the following property on your model:</p>
+<pre><code class="language-php">protected $strictMode = true;</code></pre>
+<p>Optionally, you can allow specific relations to be lazy loaded by whitelisting them:</p>
+<pre><code class="language-php">protected $allowedLazyRelations = ['profile', 'roles'];</code></pre>
+<h3>How It Works</h3>
+<ul>
+<li>Accessing a relation that was not eager loaded or whitelisted throws an exception.</li>
+<li>Only eager loaded relations or whitelisted <code>allowedLazyRelations</code> can be accessed without error.</li>
+<li>This ensures all relation access is explicit and safe for large-scale or API use.</li>
+</ul>
+<h3>Example: Strict Mode in Action</h3>
+<pre><code class="language-php">class User extends Model
+{
+    protected $strictMode = true;
+    protected $allowedLazyRelations = ['profile'];
+}
+
+// Eager loading
+$user = User::query()-&gt;with('roles')-&gt;one(); // OK
+$user-&gt;roles; // OK
+
+// Not eager loaded and not whitelisted
+$user = new User($id); // No eager load
+
+// Throws exception
+$user-&gt;roles;
+
+// Whitelisted lazy relation
+$user-&gt;profile; // OK</code></pre>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

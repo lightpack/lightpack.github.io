@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>String</title>
+      <meta name="description" content="Transform, truncate, slugify, randomize, and match strings with fluent helpers.">
+    <meta property="og:description" content="Transform, truncate, slugify, randomize, and match strings with fluent helpers.">
+    <meta property="og:title" content="String">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  class="active" aria-current="page" >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>String Utilities</h1>
+<p>Lightpack’s <code>Str</code> utility class offers a comprehensive set of methods for string manipulation, formatting, validation, and generation. It is designed to cover common and advanced string operations with a clear, expressive API and robust error handling.</p>
+<hr />
+<h2>Inflection &amp; Naming</h2>
+<ul>
+<li><strong>singularize() / pluralize()</strong>: Convert between singular and plural forms.<pre><code class="language-php">$str-&gt;singularize('quizzes'); // quiz
+$str-&gt;pluralize('quiz');      // quizzes</code></pre>
+</li>
+<li><strong>pluralizeIf()</strong>: Pluralizes only if a number &gt; 1.<pre><code class="language-php">$str-&gt;pluralizeIf(2, 'role'); // roles</code></pre>
+</li>
+<li><strong>camelize() / variable()</strong>: Convert to PascalCase or camelCase.<pre><code class="language-php">$str-&gt;camelize('my_class');   // MyClass
+$str-&gt;variable('MyClass');    // myClass</code></pre>
+</li>
+<li><strong>underscore() / dasherize()</strong>: snake_case or kebab-case.<pre><code class="language-php">$str-&gt;underscore('MyClass');  // my_class
+$str-&gt;dasherize('MyClass');   // my-class</code></pre>
+</li>
+<li><strong>humanize() / headline()</strong>: Human-readable or title-cased.<pre><code class="language-php">$str-&gt;humanize('lazy_brown_fox'); // Lazy brown fox
+$str-&gt;headline('lazyBrownFox');   // Lazy Brown Fox</code></pre>
+</li>
+<li><strong>tableize() / classify() / foreignKey() / ordinalize()</strong>: Naming for DB tables, classes, keys, ordinals.<pre><code class="language-php">$str-&gt;tableize('UserGroup');   // user_groups
+$str-&gt;classify('user_groups'); // UserGroup
+$str-&gt;foreignKey('User');      // user_id
+$str-&gt;ordinalize(21);          // 21st</code></pre>
+</li>
+</ul>
+<hr />
+<h2>Slugs &amp; URL Helpers</h2>
+<ul>
+<li><strong>slug()</strong>: URL-friendly slugs from any string (UTF-8 safe, customizable separator).<pre><code class="language-php">$str-&gt;slug('Über grünen!'); // uber-grunen
+$str-&gt;slug('Hello World', '_'); // hello_world</code></pre>
+</li>
+<li><strong>slugify()</strong>: (Deprecated) Use <code>slug()</code> instead.</li>
+</ul>
+<hr />
+<h2>String Checks</h2>
+<ul>
+<li><strong>startsWith() / endsWith() / contains()</strong>: Substring checks.<pre><code class="language-php">$str-&gt;startsWith('admin/products', 'admin'); // true
+$str-&gt;endsWith('file.txt', '.txt');          // true
+$str-&gt;contains('hello world', 'world');      // true</code></pre>
+</li>
+</ul>
+<hr />
+<h2>Random, Masking, and Truncation</h2>
+<ul>
+<li><strong>random()</strong>: Cryptographically secure random hex string.<pre><code class="language-php">$str-&gt;random(16); // e.g. '9f2d4b1a...'</code></pre>
+</li>
+<li><strong>mask()</strong>: Obfuscate part of a string (e.g., credit cards).<pre><code class="language-php">$str-&gt;mask('KEYSECRET', '*', 3); // 'KEY***'</code></pre>
+</li>
+<li><strong>truncate() / limit() / excerpt()</strong>: Truncate by length, words, or create readable excerpts.<pre><code class="language-php">$str-&gt;truncate('Hello World', 5); // Hello...
+$str-&gt;limit('one two three four', 2); // one two...
+$str-&gt;excerpt('This is a very long text', 10); // This is a...</code></pre>
+</li>
+</ul>
+<hr />
+<h2>Padding &amp; Casing</h2>
+<ul>
+<li><strong>pad()</strong>: Pad string to a given length (left, right, both).</li>
+<li><strong>title() / upper() / lower()</strong>: Title, upper, or lower case (UTF-8 safe).<pre><code class="language-php">$str-&gt;title('über grünen'); // Über Grünen
+$str-&gt;upper('hello');       // HELLO
+$str-&gt;lower('HELLO');       // hello</code></pre>
+</li>
+</ul>
+<hr />
+<h2>HTML &amp; Content Helpers</h2>
+<ul>
+<li><strong>escape()</strong>: HTML-escape a string.<pre><code class="language-php">$str-&gt;escape('&lt;h1&gt;Hello&lt;/h1&gt;'); // &amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;</code></pre>
+</li>
+<li><strong>strip()</strong>: Remove all HTML tags (including script/style content).<pre><code class="language-php">$str-&gt;strip('&lt;p&gt;Hello&lt;/p&gt;'); // Hello</code></pre>
+</li>
+</ul>
+<hr />
+<h2>Validation Helpers</h2>
+<ul>
+<li><strong>isEmail() / isUrl() / isIp() / isHex() / isUuid() / isDomain() / isBase64() / isMimeType() / isPath() / isJson()</strong><pre><code class="language-php">$str-&gt;isEmail('test@example.com'); // true
+$str-&gt;isHex('#ff0033');            // true
+$str-&gt;isJson('{"a":1}');         // true</code></pre>
+</li>
+</ul>
+<hr />
+<h2>File &amp; Path Helpers</h2>
+<ul>
+<li><strong>filename() / stem() / ext() / dir()</strong>: Extract file name, stem, extension, or directory.<pre><code class="language-php">$str-&gt;filename('/path/to/file.txt'); // file.txt
+$str-&gt;stem('/path/to/file.txt');     // file
+$str-&gt;ext('/path/to/file.txt');      // txt
+$str-&gt;dir('/path/to/file.txt');      // /path/to</code></pre>
+</li>
+</ul>
+<hr />
+<h2>Character Filters</h2>
+<ul>
+<li><strong>alphanumeric() / alpha() / number()</strong>: Keep only specific character types.<pre><code class="language-php">$str-&gt;alphanumeric('Hello, World! 123'); // HelloWorld123
+$str-&gt;alpha('Hello123');                 // Hello
+$str-&gt;number('Price: $123.45');          // 12345</code></pre>
+</li>
+<li><strong>collapse()</strong>: Replace multiple whitespace with a single space.<pre><code class="language-php">$str-&gt;collapse('Hello   World'); // Hello World</code></pre>
+</li>
+<li><strong>initials()</strong>: Generate initials from a name.<pre><code class="language-php">$str-&gt;initials('John Doe'); // JD</code></pre>
+</li>
+</ul>
+<hr />
+<h2>One-Time Password (OTP)</h2>
+<ul>
+<li><strong>otp()</strong>: Generate a numeric OTP of specified length (default: 6).<pre><code class="language-php">$str-&gt;otp();    // e.g. '123456'
+$str-&gt;otp(8);   // e.g. '12345678'</code></pre>
+<ul>
+<li>Throws <code>InvalidArgumentException</code> if length &lt; 1.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>For more complex OTP generation, Lightpack provides a robust OTP utility
+<a href="/docs/v0.x/otp-utils">OTP Utility</a></p>
+</blockquote>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>

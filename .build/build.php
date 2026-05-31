@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/vendor/autoload.php';
 
 const CONTENT_DIR = __DIR__ . '/content';
-const DIST_DIR = __DIR__ . '/../docs';
+const DIST_DIR = __DIR__ . '/../docs/v0.x';
 const NAV_FILE = __DIR__ . '/navigation.json';
 
 function getPageMetadata(array $sidebar, string $filename): array
@@ -97,8 +97,8 @@ if (file_exists($readmePath)) {
         'content' => $parsedown->text($readmeContent),
         'currentPage' => '',
         'sidebar' => $sidebar,
-        'assetPath' => '/docs/assets',
-        'navPrefix' => '/docs/'
+        'assetPath' => '/docs/v0.x/assets',
+        'navPrefix' => '/docs/v0.x'
     ]);
     include __DIR__ . '/layouts/default.php';
     file_put_contents(DIST_DIR . '/index.html', ob_get_clean());
@@ -134,8 +134,8 @@ foreach (glob(CONTENT_DIR . '/*.md') as $mdFile) {
         'content' => $parsedown->text($mdContent),
         'currentPage' => $basename,
         'sidebar' => $sidebar,
-        'assetPath' => '/docs/assets',
-        'navPrefix' => '/docs/'
+        'assetPath' => '/docs/v0.x/assets',
+        'navPrefix' => '/docs/v0.x/'
     ]);
     include $layoutFile;
     file_put_contents("$pageDir/index.html", ob_get_clean());
