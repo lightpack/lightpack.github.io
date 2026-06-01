@@ -607,7 +607,7 @@ route()-&gt;post('/users', UserController::class)-&gt;filter(['auth', 'csrf']);<
 <ul>
 <li>Filters can be strings or arrays.</li>
 <li>Filters execute in the order they are defined.</li>
-<li>See <a href="filters">filters docs</a> for details on creating and using filters.</li>
+<li>See <a href="/docs/v0.x/filters">filters docs</a> for details on creating and using filters.</li>
 </ul>
 <hr />
 <h2>Route Groups</h2>
@@ -662,9 +662,9 @@ $signedUrl = route()-&gt;sign('download.file', ['id' =&gt; 123], 7200); // 2 hou
 }</code></pre>
 <p>Verify with ignored parameters:</p>
 <pre><code class="language-php">url()-&gt;verify($signedUrl, ['utm_source', 'utm_medium']);</code></pre>
-<p>Read more about <code>url()</code> utility helper <a href="url">here</a>.</p>
+<p>Read more about <code>url()</code> utility helper <a href="/docs/v0.x/url">here</a>.</p>
 <blockquote>
-<p><strong>Note:</strong> To easily verify current request URL, see <a href="request?id=url-signature-validation">Request</a> docs.</p>
+<p><strong>Note:</strong> To easily verify current request URL, see <a href="/docs/v0.x/request?id=url-signature-validation">Request</a> docs.</p>
 </blockquote>
 <hr />
 <h2>Subdomain / Host-Based Routing</h2>

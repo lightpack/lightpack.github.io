@@ -531,7 +531,7 @@
 <li>Finding users by remember token</li>
 <li>Updating login timestamps</li>
 </ul>
-<p>Lightpack ships with <code>EmailPasswordIdentifier</code> which authenticates users via email and password. You can <a href="custom-auth">implement your own custom identifier</a> for different authentication methods (username/password, phone/OTP, etc.).</p>
+<p>Lightpack ships with <code>EmailPasswordIdentifier</code> which authenticates users via email and password. You can <a href="/docs/v0.x/custom-auth">implement your own custom identifier</a> for different authentication methods (username/password, phone/OTP, etc.).</p>
 <pre><code class="language-php">'identifier' =&gt; Lightpack\Auth\Identifiers\EmailPasswordIdentifier::class,</code></pre>
 <h3>remember_duration</h3>
 <p>Sets the duration (in minutes) for how long the remember-me cookie remains valid. Default is <strong>30 days</strong> (<code>60 * 24 * 30</code>).</p>
