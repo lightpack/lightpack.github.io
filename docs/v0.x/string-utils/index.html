@@ -504,105 +504,105 @@
 <hr />
 <h2>Inflection &amp; Naming</h2>
 <ul>
-<li><strong>singularize() / pluralize()</strong>: Convert between singular and plural forms.<pre><code class="language-php">$str-&gt;singularize('quizzes'); // quiz
-$str-&gt;pluralize('quiz');      // quizzes</code></pre>
+<li><strong>singularize() / pluralize()</strong>: Convert between singular and plural forms.<pre><code class="language-php">str()-&gt;singularize('quizzes'); // quiz
+str()-&gt;pluralize('quiz');      // quizzes</code></pre>
 </li>
-<li><strong>pluralizeIf()</strong>: Pluralizes only if a number &gt; 1.<pre><code class="language-php">$str-&gt;pluralizeIf(2, 'role'); // roles</code></pre>
+<li><strong>pluralizeIf()</strong>: Pluralizes only if a number &gt; 1.<pre><code class="language-php">str()-&gt;pluralizeIf(2, 'role'); // roles</code></pre>
 </li>
-<li><strong>camelize() / variable()</strong>: Convert to PascalCase or camelCase.<pre><code class="language-php">$str-&gt;camelize('my_class');   // MyClass
-$str-&gt;variable('MyClass');    // myClass</code></pre>
+<li><strong>camelize() / variable()</strong>: Convert to PascalCase or camelCase.<pre><code class="language-php">str()-&gt;camelize('my_class');   // MyClass
+str()-&gt;variable('MyClass');    // myClass</code></pre>
 </li>
-<li><strong>underscore() / dasherize()</strong>: snake_case or kebab-case.<pre><code class="language-php">$str-&gt;underscore('MyClass');  // my_class
-$str-&gt;dasherize('MyClass');   // my-class</code></pre>
+<li><strong>underscore() / dasherize()</strong>: snake_case or kebab-case.<pre><code class="language-php">str()-&gt;underscore('MyClass');  // my_class
+str()-&gt;dasherize('MyClass');   // my-class</code></pre>
 </li>
-<li><strong>humanize() / headline()</strong>: Human-readable or title-cased.<pre><code class="language-php">$str-&gt;humanize('lazy_brown_fox'); // Lazy brown fox
-$str-&gt;headline('lazyBrownFox');   // Lazy Brown Fox</code></pre>
+<li><strong>humanize() / headline()</strong>: Human-readable or title-cased.<pre><code class="language-php">str()-&gt;humanize('lazy_brown_fox'); // Lazy brown fox
+str()-&gt;headline('lazyBrownFox');   // Lazy Brown Fox</code></pre>
 </li>
-<li><strong>tableize() / classify() / foreignKey() / ordinalize()</strong>: Naming for DB tables, classes, keys, ordinals.<pre><code class="language-php">$str-&gt;tableize('UserGroup');   // user_groups
-$str-&gt;classify('user_groups'); // UserGroup
-$str-&gt;foreignKey('User');      // user_id
-$str-&gt;ordinalize(21);          // 21st</code></pre>
+<li><strong>tableize() / classify() / foreignKey() / ordinalize()</strong>: Naming for DB tables, classes, keys, ordinals.<pre><code class="language-php">str()-&gt;tableize('UserGroup');   // user_groups
+str()-&gt;classify('user_groups'); // UserGroup
+str()-&gt;foreignKey('User');      // user_id
+str()-&gt;ordinalize(21);          // 21st</code></pre>
 </li>
 </ul>
 <hr />
 <h2>Slugs &amp; URL Helpers</h2>
 <ul>
-<li><strong>slug()</strong>: URL-friendly slugs from any string (UTF-8 safe, customizable separator).<pre><code class="language-php">$str-&gt;slug('Über grünen!'); // uber-grunen
-$str-&gt;slug('Hello World', '_'); // hello_world</code></pre>
+<li><strong>slug()</strong>: URL-friendly slugs from any string (UTF-8 safe, customizable separator).<pre><code class="language-php">str()-&gt;slug('Über grünen!'); // uber-grunen
+str()-&gt;slug('Hello World', '_'); // hello_world</code></pre>
 </li>
 <li><strong>slugify()</strong>: (Deprecated) Use <code>slug()</code> instead.</li>
 </ul>
 <hr />
 <h2>String Checks</h2>
 <ul>
-<li><strong>startsWith() / endsWith() / contains()</strong>: Substring checks.<pre><code class="language-php">$str-&gt;startsWith('admin/products', 'admin'); // true
-$str-&gt;endsWith('file.txt', '.txt');          // true
-$str-&gt;contains('hello world', 'world');      // true</code></pre>
+<li><strong>startsWith() / endsWith() / contains()</strong>: Substring checks.<pre><code class="language-php">str()-&gt;startsWith('admin/products', 'admin'); // true
+str()-&gt;endsWith('file.txt', '.txt');          // true
+str()-&gt;contains('hello world', 'world');      // true</code></pre>
 </li>
 </ul>
 <hr />
 <h2>Random, Masking, and Truncation</h2>
 <ul>
-<li><strong>random()</strong>: Cryptographically secure random hex string.<pre><code class="language-php">$str-&gt;random(16); // e.g. '9f2d4b1a...'</code></pre>
+<li><strong>random()</strong>: Cryptographically secure random hex string.<pre><code class="language-php">str()-&gt;random(16); // e.g. '9f2d4b1a...'</code></pre>
 </li>
-<li><strong>mask()</strong>: Obfuscate part of a string (e.g., credit cards).<pre><code class="language-php">$str-&gt;mask('KEYSECRET', '*', 3); // 'KEY***'</code></pre>
+<li><strong>mask()</strong>: Obfuscate part of a string (e.g., credit cards).<pre><code class="language-php">str()-&gt;mask('KEYSECRET', '*', 3); // 'KEY***'</code></pre>
 </li>
-<li><strong>truncate() / limit() / excerpt()</strong>: Truncate by length, words, or create readable excerpts.<pre><code class="language-php">$str-&gt;truncate('Hello World', 5); // Hello...
-$str-&gt;limit('one two three four', 2); // one two...
-$str-&gt;excerpt('This is a very long text', 10); // This is a...</code></pre>
+<li><strong>truncate() / limit() / excerpt()</strong>: Truncate by length, words, or create readable excerpts.<pre><code class="language-php">str()-&gt;truncate('Hello World', 5); // Hello...
+str()-&gt;limit('one two three four', 2); // one two...
+str()-&gt;excerpt('This is a very long text', 10); // This is a...</code></pre>
 </li>
 </ul>
 <hr />
 <h2>Padding &amp; Casing</h2>
 <ul>
 <li><strong>pad()</strong>: Pad string to a given length (left, right, both).</li>
-<li><strong>title() / upper() / lower()</strong>: Title, upper, or lower case (UTF-8 safe).<pre><code class="language-php">$str-&gt;title('über grünen'); // Über Grünen
-$str-&gt;upper('hello');       // HELLO
-$str-&gt;lower('HELLO');       // hello</code></pre>
+<li><strong>title() / upper() / lower()</strong>: Title, upper, or lower case (UTF-8 safe).<pre><code class="language-php">str()-&gt;title('über grünen'); // Über Grünen
+str()-&gt;upper('hello');       // HELLO
+str()-&gt;lower('HELLO');       // hello</code></pre>
 </li>
 </ul>
 <hr />
 <h2>HTML &amp; Content Helpers</h2>
 <ul>
-<li><strong>escape()</strong>: HTML-escape a string.<pre><code class="language-php">$str-&gt;escape('&lt;h1&gt;Hello&lt;/h1&gt;'); // &amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;</code></pre>
+<li><strong>escape()</strong>: HTML-escape a string.<pre><code class="language-php">str()-&gt;escape('&lt;h1&gt;Hello&lt;/h1&gt;'); // &amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;</code></pre>
 </li>
-<li><strong>strip()</strong>: Remove all HTML tags (including script/style content).<pre><code class="language-php">$str-&gt;strip('&lt;p&gt;Hello&lt;/p&gt;'); // Hello</code></pre>
+<li><strong>strip()</strong>: Remove all HTML tags (including script/style content).<pre><code class="language-php">str()-&gt;strip('&lt;p&gt;Hello&lt;/p&gt;'); // Hello</code></pre>
 </li>
 </ul>
 <hr />
 <h2>Validation Helpers</h2>
 <ul>
-<li><strong>isEmail() / isUrl() / isIp() / isHex() / isUuid() / isDomain() / isBase64() / isMimeType() / isPath() / isJson()</strong><pre><code class="language-php">$str-&gt;isEmail('test@example.com'); // true
-$str-&gt;isHex('#ff0033');            // true
-$str-&gt;isJson('{"a":1}');         // true</code></pre>
+<li><strong>isEmail() / isUrl() / isIp() / isHex() / isUuid() / isDomain() / isBase64() / isMimeType() / isPath() / isJson()</strong><pre><code class="language-php">str()-&gt;isEmail('test@example.com'); // true
+str()-&gt;isHex('#ff0033');            // true
+str()-&gt;isJson('{"a":1}');         // true</code></pre>
 </li>
 </ul>
 <hr />
 <h2>File &amp; Path Helpers</h2>
 <ul>
-<li><strong>filename() / stem() / ext() / dir()</strong>: Extract file name, stem, extension, or directory.<pre><code class="language-php">$str-&gt;filename('/path/to/file.txt'); // file.txt
-$str-&gt;stem('/path/to/file.txt');     // file
-$str-&gt;ext('/path/to/file.txt');      // txt
-$str-&gt;dir('/path/to/file.txt');      // /path/to</code></pre>
+<li><strong>filename() / stem() / ext() / dir()</strong>: Extract file name, stem, extension, or directory.<pre><code class="language-php">str()-&gt;filename('/path/to/file.txt'); // file.txt
+str()-&gt;stem('/path/to/file.txt');     // file
+str()-&gt;ext('/path/to/file.txt');      // txt
+str()-&gt;dir('/path/to/file.txt');      // /path/to</code></pre>
 </li>
 </ul>
 <hr />
 <h2>Character Filters</h2>
 <ul>
-<li><strong>alphanumeric() / alpha() / number()</strong>: Keep only specific character types.<pre><code class="language-php">$str-&gt;alphanumeric('Hello, World! 123'); // HelloWorld123
-$str-&gt;alpha('Hello123');                 // Hello
-$str-&gt;number('Price: $123.45');          // 12345</code></pre>
+<li><strong>alphanumeric() / alpha() / number()</strong>: Keep only specific character types.<pre><code class="language-php">str()-&gt;alphanumeric('Hello, World! 123'); // HelloWorld123
+str()-&gt;alpha('Hello123');                 // Hello
+str()-&gt;number('Price: $123.45');          // 12345</code></pre>
 </li>
-<li><strong>collapse()</strong>: Replace multiple whitespace with a single space.<pre><code class="language-php">$str-&gt;collapse('Hello   World'); // Hello World</code></pre>
+<li><strong>collapse()</strong>: Replace multiple whitespace with a single space.<pre><code class="language-php">str()-&gt;collapse('Hello   World'); // Hello World</code></pre>
 </li>
-<li><strong>initials()</strong>: Generate initials from a name.<pre><code class="language-php">$str-&gt;initials('John Doe'); // JD</code></pre>
+<li><strong>initials()</strong>: Generate initials from a name.<pre><code class="language-php">str()-&gt;initials('John Doe'); // JD</code></pre>
 </li>
 </ul>
 <hr />
 <h2>One-Time Password (OTP)</h2>
 <ul>
-<li><strong>otp()</strong>: Generate a numeric OTP of specified length (default: 6).<pre><code class="language-php">$str-&gt;otp();    // e.g. '123456'
-$str-&gt;otp(8);   // e.g. '12345678'</code></pre>
+<li><strong>otp()</strong>: Generate a numeric OTP of specified length (default: 6).<pre><code class="language-php">str()-&gt;otp();    // e.g. '123456'
+str()-&gt;otp(8);   // e.g. '12345678'</code></pre>
 <ul>
 <li>Throws <code>InvalidArgumentException</code> if length &lt; 1.</li>
 </ul>
