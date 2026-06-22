@@ -110,6 +110,12 @@
         { "title": "Storage", "file": "storage", "description": "Abstract local and cloud file storage with unified disk-based APIs." },
         { "title": "Pipeline", "file": "pipeline-pattern", "description": "Chain operations through a sequential pipeline pattern for data transformation." }
       ]
+    },
+    {
+      "section": "Deployment",
+      "pages": [
+        { "title": "Deploy", "file": "deployment", "description": "Provision servers, deploy code, manage SSL, queues, and scheduled tasks from your CLI." }
+      ]
     }
   ]
 }
