@@ -308,4 +308,8 @@
     <loc>https://lightpackphp.com/docs/v0.x/pipeline-pattern/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://lightpackphp.com/docs/v0.x/deployment/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
