@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(){var t=localStorage.getItem('lp-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7X4FXHWZMR');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
+  <title>Deployment</title>
+    <meta property="og:title" content="Deployment">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
+  <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/docs/v0.x/assets/fonts/Montserrat-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* swup animate */
+    html.is-changing .transition-fade {
+      transition: opacity 0.25s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background: #eee;
+    }
+  </style>
+</head>
+
+<body>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" title="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button><div class="container" id="swup">
+  <aside class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-logo">
+      <img src="/docs/v0.x/assets/logo.svg" alt="Lightpack PHP MVC Web Framework" />
+    </div>
+                  <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Getting Started          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/install"
+                  >
+                  Quick Install                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Basics          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/routing"
+                  >
+                  Routing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/controllers"
+                  >
+                  Controllers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/views"
+                  >
+                  Views                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/request"
+                  >
+                  Request                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/response"
+                  >
+                  Response                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sessions"
+                  >
+                  Sessions                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cookies"
+                  >
+                  Cookies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/validation"
+                  >
+                  Validation                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filesystem"
+                  >
+                  Filesystem                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/environments"
+                  >
+                  Environments                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/moment"
+                  >
+                  Date &amp; Time                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/utility-functions"
+                  >
+                  Utility Functions                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Databases          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/db-connection"
+                  >
+                  Connection                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/db-query-builder"
+                  >
+                  Query Builder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/migrations"
+                  >
+                  Migrations                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/seeder"
+                  >
+                  Seeder                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/factory"
+                  >
+                  Factory                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pagination"
+                  >
+                  Pagination                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Lucid ORM          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/orm-introduction"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/models"
+                  >
+                  Models                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/relationships"
+                  >
+                  Relationships                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/eager-loading"
+                  >
+                  Eager Loading                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/collections"
+                  >
+                  Collections                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/transformers"
+                  >
+                  Transformers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/multi-tenancy"
+                  >
+                  Multi-Tenancy                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Authentication          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/authentication"
+                  >
+                  Introduction                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/api-access-tokens"
+                  >
+                  API Access Tokens                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-configuration"
+                  >
+                  Configuration                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/custom-auth"
+                  >
+                  Extending Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/auth-filters"
+                  >
+                  Route Filters                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Utilities          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/password"
+                  >
+                  Password                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/encryption-decryption-utils"
+                  >
+                  Crypto                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/url"
+                  >
+                  URL                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/image-utils"
+                  >
+                  Image                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rate-limiter"
+                  >
+                  Rate Limit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mutex-lock"
+                  >
+                  Mutex Lock                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/process"
+                  >
+                  Process                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/array-utils"
+                  >
+                  Array                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/string-utils"
+                  >
+                  String                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/otp-utils"
+                  >
+                  OTP                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/asset-loading-utils"
+                  >
+                  Assets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/csv-utils"
+                  >
+                  CSV                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/js-utils"
+                  >
+                  PHP to JS                </a>
+              </li>
+                      </ul>
+        </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Advanced          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/mails"
+                  >
+                  Mails                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/queue"
+                  >
+                  Queue                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/schedule"
+                  >
+                  Schedule                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/filters"
+                  >
+                  Filters                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/events"
+                  >
+                  Events                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/caching"
+                  >
+                  Caching                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/logging"
+                  >
+                  Logging                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/providers"
+                  >
+                  Providers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/containers"
+                  >
+                  Containers                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cors"
+                  >
+                  CORS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/http-client"
+                  >
+                  HTTP Client                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/console"
+                  >
+                  Console                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/testing"
+                  >
+                  Testing                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/secrets"
+                  >
+                  Secrets                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/settings"
+                  >
+                  Settings                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/tags"
+                  >
+                  Tags                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/taxonomies"
+                  >
+                  Taxonomies                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/faker"
+                  >
+                  Faker                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/audit"
+                  >
+                  Audit                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/rbac"
+                  >
+                  RBAC                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/captcha"
+                  >
+                  Captcha                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/webhook"
+                  >
+                  Webhook                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/ai-service"
+                  >
+                  AI                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/cable"
+                  >
+                  Cable                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/uploads"
+                  >
+                  Uploads                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/social-auth"
+                  >
+                  Social Auth                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pdf"
+                  >
+                  PDF                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/sms"
+                  >
+                  SMS                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/mfa"
+                  >
+                  MFA                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/storage"
+                  >
+                  Storage                </a>
+              </li>
+                          <li>
+                <a href="/docs/v0.x/pipeline-pattern"
+                  >
+                  Pipeline                </a>
+              </li>
+                      </ul>
+        </div>
+            </div>
+</aside>  <main>
+    <h1>Lightpack Deploy</h1>
+<blockquote>
+<p><em>From your local dev-machine to production in minutes, not hours.</em></p>
+</blockquote>
+<p>Deploy and manage Lightpack applications on a remote Ubuntu server. Provision once, deploy daily.</p>
+<hr />
+<h2>What You Need</h2>
+<ul>
+<li>A fresh Ubuntu 22.04 or 24.04 server (any VPS provider)</li>
+<li>Root or sudo SSH access for the initial provision</li>
+<li>An SSH key pair on your local machine (<code>~/.ssh/id_rsa</code> or <code>~/.ssh/id_ed25519</code>)</li>
+<li>Your Lightpack application code in a Git repository (optional — the server can use an existing clone)</li>
+</ul>
+<blockquote>
+<p>These tools require a Unix-like environment (macOS, Linux, or WSL2/VM/Docker on Windows).</p>
+</blockquote>
+<hr />
+<h2>Quick Start</h2>
+<h3>1. Create Deploy Configuration</h3>
+<pre><code class="language-bash">php console create:config --support=deploy</code></pre>
+<p>This creates <code>config/deploy.php</code> with a sample <strong>production</strong> environment.</p>
+<p>Each environment supports these options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>host</code></td>
+<td>Server IP</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>Local SSH private key path</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>App deployment path on the server</td>
+</tr>
+<tr>
+<td><code>repo</code></td>
+<td>Git repository URL</td>
+</tr>
+<tr>
+<td><code>branch</code></td>
+<td>Git branch to deploy</td>
+</tr>
+</tbody>
+</table>
+<p>The key name — <code>production</code> in this example — is what you pass to every deploy command as the <code>&lt;env&gt;</code> argument. You can define multiple environments (e.g., <code>staging</code>, <code>production</code>) in the same file.</p>
+<p><strong>Omitting <code>&lt;env&gt;</code>:</strong> Every command that takes an environment defaults to <code>production</code> if you leave it out.</p>
+<h3>2. Prepare Environment File</h3>
+<p>Create <code>.env.&lt;env&gt;</code> in your project root (e.g. <code>.env.production</code> for the <code>production</code> environment):</p>
+<pre><code class="language-bash">APP_ENV=production
+APP_URL=https://yourdomain.com
+DB_HOST=127.0.0.1
+DB_NAME=lightpack
+DB_USER=lightpack
+DB_PSWD=your-db-password</code></pre>
+<h3>3. Provision the Server</h3>
+<pre><code class="language-bash">php console server:provision production</code></pre>
+<p>Type <code>yes</code> to confirm. When done, root SSH is disabled. Only the <code>deploy</code> user can access the server.</p>
+<h3>4. Add Deploy Key to GitHub</h3>
+<p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your GitHub repo: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
+<h3>5. Deploy</h3>
+<pre><code class="language-bash">php console app:deploy production</code></pre>
+<p>Copies your <code>.env.production</code> to the server, pulls code, installs dependencies, symlinks storage, runs migrations, and reloads PHP-FPM.</p>
+<h3>6. Add Domain</h3>
+<p>Point your DNS A record to the server IP, then:</p>
+<pre><code class="language-bash">php console server:site:add production</code></pre>
+<h3>7. Enable HTTPS</h3>
+<pre><code class="language-bash">php console server:site:ssl production</code></pre>
+<hr />
+<h2>Rolling Back</h2>
+<pre><code class="language-bash">php console app:rollback production</code></pre>
+<p>Go back further with <code>--steps=3</code>.</p>
+<p><strong>Important:</strong> Rollback reverts code only. It does not revert database migrations.</p>
+<hr />
+<h2>Queue Workers</h2>
+<h3>Setup (Once)</h3>
+<pre><code class="language-bash">php console server:queue:setup production</code></pre>
+<p>This creates a supervised worker group. By default it is named after the environment (<code>production</code>). You can give it a custom name:</p>
+<pre><code class="language-bash">php console server:queue:setup production --name=emails --queue=emails --workers=2</code></pre>
+<p><strong>What <code>--name</code> means:</strong> It is the label for the worker group in Supervisor, not a queue name. Each <code>--name</code> creates a separate group of processes. The <code>--queue</code> flag tells those processes which job queues to process.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name</code></td>
+<td>Supervisor group label (default: environment name)</td>
+</tr>
+<tr>
+<td><code>--queue</code></td>
+<td>Comma-separated job queue names to process (default: <code>default</code>)</td>
+</tr>
+<tr>
+<td><code>--workers</code></td>
+<td>Number of parallel processes (default: <code>1</code>)</td>
+</tr>
+<tr>
+<td><code>--cooldown</code></td>
+<td>Seconds before voluntary restart to prevent memory leaks (default: <code>3600</code>)</td>
+</tr>
+<tr>
+<td><code>--stop-wait</code></td>
+<td>Seconds to wait before force-kill on shutdown (default: <code>60</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3>Multiple Worker Groups</h3>
+<p>You can run multiple worker groups on the same server, each processing different queues:</p>
+<pre><code class="language-bash">php console server:queue:setup production --name=default --queue=default  --workers=4
+php console server:queue:setup production --name=emails --queue=emails   --workers=2</code></pre>
+<p>Each group is independent. <code>default</code> runs 4 workers processing the <code>default</code> queue. <code>emails</code> runs 2 workers processing the <code>emails</code> queue.</p>
+<h3>Managing Workers</h3>
+<pre><code class="language-bash">php console server:queue:start   production          # start default group
+php console server:queue:stop    production          # stop default group
+php console server:queue:restart production          # restart default group
+php console server:queue:status  production          # check default group</code></pre>
+<p>For a named group:</p>
+<pre><code class="language-bash">php console server:queue:restart production --name=emails</code></pre>
+<h3>Viewing Worker Logs</h3>
+<pre><code class="language-bash">php console server:queue:logs:view production          # last 50 lines
+php console server:queue:logs:view production --lines=200
+php console server:queue:logs:tail production         # live stream (Ctrl+C to stop)</code></pre>
+<h3>Restart Workers After Deploy</h3>
+<p>Queue workers are <strong>not</strong> restarted automatically. After each deploy, run:</p>
+<pre><code class="language-bash">php console server:queue:restart production</code></pre>
+<p>For named worker groups:</p>
+<pre><code class="language-bash">php console server:queue:restart production --name=emails</code></pre>
+<h3>Local Development</h3>
+<pre><code class="language-bash">php console jobs:run</code></pre>
+<p>Press <code>Ctrl+C</code> to stop.</p>
+<hr />
+<h2>Scheduled Tasks</h2>
+<pre><code class="language-bash">php console server:schedule:setup production   # install cron job
+php console server:schedule:status production    # check if installed
+php console server:schedule:remove production    # remove cron job</code></pre>
+<p>On the server, <code>php console schedule:events</code> runs every minute to execute due tasks.</p>
+<hr />
+<h2>Remote .env Files</h2>
+<p>When you deploy, your local <code>.env.production</code> is automatically copied to the server as <code>.env</code>.</p>
+<p>To inspect the remote <code>.env</code> without overwriting your local copy:</p>
+<pre><code class="language-bash">php console server:env:pull production</code></pre>
+<p>Saved to <code>storage/env/production.env</code>.</p>
+<hr />
+<h2>Database</h2>
+<pre><code class="language-bash">php console db:backup production     # download timestamped dump
+php console db:restore production    # upload and restore
+php console db:create production     # new DB + user</code></pre>
+<p>Use <code>db:create</code> when deploying a second application to the same server.</p>
+<hr />
+<h2>Logs</h2>
+<pre><code class="language-bash">php console server:logs:view production   # last N lines
+php console server:logs:tail production     # live stream</code></pre>
+<hr />
+<h2>Security Checklist</h2>
+<p>After provisioning:</p>
+<ul>
+<li>[ ] Root SSH login is disabled</li>
+<li>[ ] Password authentication is disabled</li>
+<li>[ ] Firewall is active (only 22, 80, 443 open)</li>
+<li>[ ] Fail2Ban is running</li>
+<li>[ ] Automatic security updates are enabled</li>
+<li>[ ] <code>.env</code> is not in Git</li>
+<li>[ ] <code>.env.*</code> files are in <code>.gitignore</code></li>
+<li>[ ] GitHub deploy key does not have write access</li>
+</ul>
+<hr />
+<h2>Troubleshooting</h2>
+<h3>"Permission denied (publickey)"</h3>
+<p>Your SSH key is not on the server. Ensure you can log in:</p>
+<pre><code class="language-bash">ssh root@your-server-ip</code></pre>
+<p>If not, copy your key first:</p>
+<pre><code class="language-bash">ssh-copy-id root@YOUR_SERVER_IP</code></pre>
+<h3>"sudo: a password is required"</h3>
+<p>The deploy user is intentionally restricted. For system-level changes, log in as a user with full sudo access.</p>
+<h3>OPcache not refreshing</h3>
+<pre><code class="language-bash">ssh deploy@your-server-ip "sudo systemctl reload php8.3-fpm"</code></pre>
+<p>Replace <code>8.3</code> with your PHP version.</p>
+<hr />
+<h2>Multiple Apps on One Server</h2>
+<p>Provision once, then add separate environments in <code>config/deploy.php</code>:</p>
+<pre><code class="language-php">'deploy' =&gt; [
+    'blog' =&gt; [
+        'host' =&gt; '1.2.3.4',
+        'path' =&gt; '/var/www/blog',
+        'repo' =&gt; 'git@github.com:you/blog.git',
+        'branch' =&gt; 'main',
+    ],
+    'shop' =&gt; [
+        'host' =&gt; '1.2.3.4',
+        'path' =&gt; '/var/www/shop',
+        'repo' =&gt; 'git@github.com:you/shop.git',
+        'branch' =&gt; 'main',
+    ],
+],</code></pre>
+<pre><code class="language-bash">php console app:deploy blog
+php console app:deploy shop
+php console server:site:add blog --domain=blog.example.com
+php console server:site:add shop --domain=shop.example.com</code></pre>
+<p>Queue workers must use unique <code>--name</code> values:</p>
+<pre><code class="language-bash">php console server:queue:setup blog --name=blog-worker
+php console server:queue:setup shop --name=shop-worker</code></pre>
+<hr />
+<h2>Command Reference</h2>
+<h3>Core</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console server:provision &lt;env&gt;</code></td>
+<td>Provision a fresh server</td>
+</tr>
+<tr>
+<td><code>php console app:deploy &lt;env&gt;</code></td>
+<td>Deploy code</td>
+</tr>
+<tr>
+<td><code>php console app:rollback &lt;env&gt;</code></td>
+<td>Roll back to previous commit</td>
+</tr>
+</tbody>
+</table>
+<h3>Schedule</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console server:schedule:setup &lt;env&gt;</code></td>
+<td>Install cron job</td>
+</tr>
+<tr>
+<td><code>php console server:schedule:remove &lt;env&gt;</code></td>
+<td>Remove cron job</td>
+</tr>
+<tr>
+<td><code>php console server:schedule:status &lt;env&gt;</code></td>
+<td>Check cron status</td>
+</tr>
+<tr>
+<td><code>php console schedule:events</code></td>
+<td>Run due scheduled events (on server)</td>
+</tr>
+</tbody>
+</table>
+<h3>Queue</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console jobs:run</code></td>
+<td>Run worker locally</td>
+</tr>
+<tr>
+<td><code>php console jobs:retry</code></td>
+<td>Retry failed jobs</td>
+</tr>
+<tr>
+<td><code>php console server:queue:setup &lt;env&gt; [options]</code></td>
+<td>Install worker (once)</td>
+</tr>
+<tr>
+<td><code>php console server:queue:start &lt;env&gt; [--name]</code></td>
+<td>Start worker</td>
+</tr>
+<tr>
+<td><code>php console server:queue:stop &lt;env&gt; [--name]</code></td>
+<td>Stop worker</td>
+</tr>
+<tr>
+<td><code>php console server:queue:restart &lt;env&gt; [--name]</code></td>
+<td>Restart worker</td>
+</tr>
+<tr>
+<td><code>php console server:queue:status &lt;env&gt; [--name]</code></td>
+<td>Worker status</td>
+</tr>
+<tr>
+<td><code>php console server:queue:list &lt;env&gt;</code></td>
+<td>List all worker groups</td>
+</tr>
+<tr>
+<td><code>php console server:queue:logs:view &lt;env&gt; [--name] [--lines=50]</code></td>
+<td>View worker logs</td>
+</tr>
+<tr>
+<td><code>php console server:queue:logs:tail &lt;env&gt; [--name]</code></td>
+<td>Stream worker logs</td>
+</tr>
+</tbody>
+</table>
+<h3>Database</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console db:backup &lt;env&gt;</code></td>
+<td>Backup database</td>
+</tr>
+<tr>
+<td><code>php console db:restore &lt;env&gt;</code></td>
+<td>Restore from backup</td>
+</tr>
+<tr>
+<td><code>php console db:create &lt;env&gt; [--db=] [--user=]</code></td>
+<td>Create new database + user</td>
+</tr>
+</tbody>
+</table>
+<h3>Logs</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console server:logs:view &lt;env&gt; [--lines=50] [--file]</code></td>
+<td>View recent logs</td>
+</tr>
+<tr>
+<td><code>php console server:logs:tail &lt;env&gt;</code></td>
+<td>Stream logs live</td>
+</tr>
+</tbody>
+</table>
+<h3>Sites</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console server:site:add &lt;env&gt; [--domain=]</code></td>
+<td>Add Nginx virtual host</td>
+</tr>
+<tr>
+<td><code>php console server:site:remove &lt;env&gt; --domain=</code></td>
+<td>Remove Nginx virtual host</td>
+</tr>
+<tr>
+<td><code>php console server:site:ssl &lt;env&gt; [--domain=] [--email=]</code></td>
+<td>Install SSL certificate</td>
+</tr>
+</tbody>
+</table>
+<h3>.env Files</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console server:env:pull &lt;env&gt;</code></td>
+<td>Download remote .env</td>
+</tr>
+</tbody>
+</table>
+<h3>Server</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>php console server:run &lt;env&gt; --cmd="..."</code></td>
+<td>Run any command on the server</td>
+</tr>
+</tbody>
+</table>
+<hr />  </main>
+  <nav class="toc"></nav>
+      </div>
+    <script src="/docs/v0.x/assets/toc.js"></script>
+    <script>
+      window.Prism = window.Prism || {};
+      Prism.manual = true;
+    </script>
+    <script src="/docs/v0.x/assets/prism.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-markup-templating.min.js"></script>
+    <script src="/docs/v0.x/assets/prism-php.min.js"></script>
+    <script src="/docs/v0.x/assets/swup.min.js"></script>
+    <script>
+      function init() {
+        // Collapsible sidebar sections
+        document.querySelectorAll('.sidebar-section-title').forEach(title => {
+          title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+            const icon = title.querySelector('.collapse-icon');
+            const isOpen = content.style.display !== 'none';
+            content.style.display = isOpen ? 'none' : 'block';
+            icon.textContent = isOpen ? '▶' : '▼';
+          });
+
+          // Auto-expand section with active page
+          const content = title.nextElementSibling;
+          if (content.querySelector('.active, [aria-current="page"]')) {
+            content.style.display = 'block';
+            title.querySelector('.collapse-icon').textContent = '▼';
+          }
+        });
+
+        // Add copy icon to code blocks
+        document.querySelectorAll('pre').forEach(pre => {
+          const btn = document.createElement('button');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+          btn.style.cssText = 'position:absolute;top:8px;right:8px;padding:6px;background:rgba(255,255,255,0.1);border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;display:flex;align-items:center;justify-content:center;color:rgb(255,255,255);opacity:0';
+          btn.onclick = () => {
+            navigator.clipboard.writeText(pre.textContent);
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            setTimeout(() => btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>', 2000);
+          };
+          pre.style.position = 'relative';
+          pre.onmouseenter = () => btn.style.opacity = '1';
+          pre.onmouseleave = () => btn.style.opacity = '0';
+          pre.appendChild(btn);
+        });
+
+        Prism.highlightAll();
+
+        renderTableOfContents();
+
+        // Close sidebar on nav link click (mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+          link.addEventListener('click', () => {
+            if (typeof window.closeSidebar === 'function') window.closeSidebar();
+          });
+        });
+      }
+    </script>
+
+    <script>
+      const swup = new Swup();
+
+      // Run once when page loads
+      if (document.readyState === 'complete') {
+        init();
+      } else {
+        document.addEventListener('DOMContentLoaded', () => init());
+      }
+
+      swup.hooks.on('page:view', () => {
+        init();
+        if (typeof window.closeSidebar === 'function') window.closeSidebar();
+      });
+    </script>
+
+    <script>
+      (function() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('sidebar-overlay');
+        if (!hamburger || !overlay) return;
+
+        function getSidebar() { return document.querySelector('.sidebar'); }
+
+        window.closeSidebar = function() {
+          var s = getSidebar();
+          if (s) s.classList.remove('open');
+          overlay.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('title', 'Open navigation');
+        };
+
+        hamburger.addEventListener('click', function() {
+          var s = getSidebar();
+          if (s && s.classList.contains('open')) {
+            window.closeSidebar();
+          } else {
+            if (s) s.classList.add('open');
+            overlay.classList.add('open');
+            hamburger.classList.add('open');
+            hamburger.setAttribute('title', 'Close navigation');
+          }
+        });
+
+        overlay.addEventListener('click', window.closeSidebar);
+      })();
+    </script>
+
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('lp-theme', next);
+        });
+      })();
+    </script>
+
+    </body>
+
+    </html>
