@@ -588,11 +588,11 @@
 <h3>7. Enable HTTPS</h3>
 <p>After adding the domain, enable a secure HTTPS connection using Let's Encrypt certificate:</p>
 <pre><code class="language-bash">php console server:site:ssl</code></pre>
-<p><strong>Congratulations! Your application is now live with HTTPS.</strong></p>
+<p><strong>⭐️ Congratulations! Your application is now live with HTTPS ⭐️</strong></p>
 <p>If everything goes well, you should be able to access your application at the domain you added. Usually DNS propagation takes a few minutes. So if your browser doesn't load the domain immediately, try refreshing the page after a few minutes.</p>
 <hr />
 <h2>Rolling Back</h2>
-<pre><code class="language-bash">php console app:rollback production</code></pre>
+<pre><code class="language-bash">php console app:rollback</code></pre>
 <p>Go back further with <code>--steps=3</code>.</p>
 <p><strong>Important:</strong> Rollback reverts code only. It does not revert database migrations.</p>
 <hr />
