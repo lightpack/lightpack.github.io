@@ -647,15 +647,10 @@ php console server:queue:status  production          # check default group</code
 <h3>Viewing Worker Logs</h3>
 <pre><code class="language-bash">php console server:queue:logs:view production          # last 50 lines
 php console server:queue:logs:view production --lines=200
-php console server:queue:logs:tail production         # live stream (Ctrl+C to stop)</code></pre>
+php console server:queue:logs:tail production         # live stream</code></pre>
 <h3>Restart Workers After Deploy</h3>
 <p>Queue workers are <strong>not</strong> restarted automatically. After each deploy, run:</p>
 <pre><code class="language-bash">php console server:queue:restart production</code></pre>
-<p>For named worker groups:</p>
-<pre><code class="language-bash">php console server:queue:restart production --name=emails</code></pre>
-<h3>Local Development</h3>
-<pre><code class="language-bash">php console jobs:run</code></pre>
-<p>Press <code>Ctrl+C</code> to stop.</p>
 <hr />
 <h2>Scheduled Tasks</h2>
 <pre><code class="language-bash">php console server:schedule:setup production   # install cron job
@@ -697,12 +692,14 @@ php console server:logs:tail production     # live stream</code></pre>
 <pre><code class="language-php">'deploy' =&gt; [
     'blog' =&gt; [
         'host' =&gt; '1.2.3.4',
+        'key'    =&gt; '~/.ssh/id_rsa',
         'path' =&gt; '/var/www/blog',
         'repo' =&gt; 'git@github.com:you/blog.git',
         'branch' =&gt; 'main',
     ],
     'shop' =&gt; [
         'host' =&gt; '1.2.3.4',
+        'key'    =&gt; '~/.ssh/id_rsa',
         'path' =&gt; '/var/www/shop',
         'repo' =&gt; 'git@github.com:you/shop.git',
         'branch' =&gt; 'main',
