@@ -582,15 +582,13 @@
 <p>To deploy your application to the default <code>production</code> server, run:</p>
 <pre><code class="language-bash">php console app:deploy</code></pre>
 <p>Copies your <code>.env.production</code> to the server, pulls code, installs dependencies, symlinks storage, runs migrations, and reloads PHP-FPM.</p>
-<p>To deploy to a different environment, specify it as an argument:</p>
-<pre><code class="language-bash">php console app:deploy staging</code></pre>
 <h3>6. Add Domain</h3>
 <p>Point your DNS A record to the server IP, then:</p>
-<pre><code class="language-bash">php console server:site:add production</code></pre>
+<pre><code class="language-bash">php console server:site:add</code></pre>
 <h3>7. Enable HTTPS</h3>
 <p>After adding the domain, enable a secure HTTPS connection using Let's Encrypt certificate:</p>
 <pre><code class="language-bash">php console server:site:ssl</code></pre>
-<p><strong>That's it! Your application is now live with HTTPS.</strong></p>
+<p><strong>Congratulations! Your application is now live with HTTPS.</strong></p>
 <p>If everything goes well, you should be able to access your application at the domain you added. Usually DNS propagation takes a few minutes. So if your browser doesn't load the domain immediately, try refreshing the page after a few minutes.</p>
 <hr />
 <h2>Rolling Back</h2>
