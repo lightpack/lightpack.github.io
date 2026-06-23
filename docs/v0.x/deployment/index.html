@@ -683,18 +683,6 @@ php console server:logs:tail production     # live stream</code></pre>
 <li>[ ] GitHub deploy key does not have write access</li>
 </ul>
 <hr />
-<h2>Troubleshooting</h2>
-<h3>"Permission denied (publickey)"</h3>
-<p>Your SSH key is not on the server. Ensure you can log in:</p>
-<pre><code class="language-bash">ssh root@your-server-ip</code></pre>
-<p>If not, copy your key first:</p>
-<pre><code class="language-bash">ssh-copy-id root@YOUR_SERVER_IP</code></pre>
-<h3>"sudo: a password is required"</h3>
-<p>The deploy user is intentionally restricted. For system-level changes, log in as a user with full sudo access.</p>
-<h3>OPcache not refreshing</h3>
-<pre><code class="language-bash">ssh deploy@your-server-ip "sudo systemctl reload php8.3-fpm"</code></pre>
-<p>Replace <code>8.3</code> with your PHP version.</p>
-<hr />
 <h2>Multiple Apps on One Server</h2>
 <p>Provision once, then add separate environments in <code>config/deploy.php</code>:</p>
 <pre><code class="language-php">'deploy' =&gt; [
