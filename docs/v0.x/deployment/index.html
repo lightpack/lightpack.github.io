@@ -533,7 +533,7 @@
 <p>So go ahead and provision a new Ubuntu machine and make sure you have SSH access to it with root user privileges. You can use any VPS provider including AWS, DigitalOcean, Linode, Vultr, Google Cloud, Azure, etc.</p>
 <hr />
 <h2>Quick Start</h2>
-<h3>1. Create Deploy Configuration</h3>
+<h3>1. Create Deploy Config</h3>
 <p>Run this command to publish the deploy configuration file:</p>
 <pre><code class="language-bash">php console create:config --support=deploy</code></pre>
 <p>This creates <code>config/deploy.php</code> with a sample <strong>production</strong> environment.</p>
@@ -575,23 +575,23 @@
 <p>This will prompt you with required default information like root username, PHP version, database, timezone, etc which you can accept or modify as per your setup. Once you confirm, it will start provisioning the server which usually takes a few minutes. When done, root SSH is disabled and a new <code>deploy</code> user is created to access the server.</p>
 <p>It will also print the security credentials like the deploy user's password, SSH public key, created database username and password, etc. which you should save securely.</p>
 <h3>3. Prepare Environment File</h3>
-<p>Create <code>.env.&lt;env&gt;</code> in your project root (e.g. <code>.env.production</code> for the <code>production</code> environment):</p>
-<pre><code class="language-bash">APP_ENV=production
-APP_URL=https://yourdomain.com
-DB_HOST=127.0.0.1
-DB_NAME=lightpack
-DB_USER=lightpack
-DB_PSWD=your-db-password</code></pre>
-<h3>4. Add Deploy Key to GitHub</h3>
-<p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your GitHub repo: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
-<h3>5. Deploy</h3>
-<pre><code class="language-bash">php console app:deploy production</code></pre>
+<p>Create <code>.env.&lt;env&gt;</code> in your project root (e.g. <code>.env.production</code> for the <code>production</code> environment). You can simply copy your existing <code>.env</code> file and rename it to <code>.env.production</code> and update the values as per your setup.</p>
+<h3>4. SSH Deploy Key</h3>
+<p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your Git repository's deploy keys settings. For GitHub, go to: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
+<h3>5. Deploy Application</h3>
+<p>To deploy your application to the default <code>production</code> server, run:</p>
+<pre><code class="language-bash">php console app:deploy</code></pre>
 <p>Copies your <code>.env.production</code> to the server, pulls code, installs dependencies, symlinks storage, runs migrations, and reloads PHP-FPM.</p>
+<p>To deploy to a different environment, specify it as an argument:</p>
+<pre><code class="language-bash">php console app:deploy staging</code></pre>
 <h3>6. Add Domain</h3>
 <p>Point your DNS A record to the server IP, then:</p>
 <pre><code class="language-bash">php console server:site:add production</code></pre>
 <h3>7. Enable HTTPS</h3>
-<pre><code class="language-bash">php console server:site:ssl production</code></pre>
+<p>After adding the domain, enable a secure HTTPS connection using Let's Encrypt certificate:</p>
+<pre><code class="language-bash">php console server:site:ssl</code></pre>
+<p><strong>That's it! Your application is now live with HTTPS.</strong></p>
+<p>If everything goes well, you should be able to access your application at the domain you added. Usually DNS propagation takes a few minutes. So if your browser doesn't load the domain immediately, try refreshing the page after a few minutes.</p>
 <hr />
 <h2>Rolling Back</h2>
 <pre><code class="language-bash">php console app:rollback production</code></pre>
