@@ -522,7 +522,7 @@
 <li>Manage database backups and restores</li>
 <li>Manage scheduled cron jobs and commands</li>
 <li>Manage backround queue processes and workers</li>
-<li>View and stream processes/applications logs</li>
+<li>View and stream processes and applications logs</li>
 <li>Run arbitrary commands on the server</li>
 </ul>
 <p>These tools require a Unix-like environment because they use SSH and other Unix commands. If you are on <code>macOS/Linux</code>, you are already set up. If you are on <code>Windows</code>, you can use <em>WSL2</em>, or a VM to run these commands. Before getting started, you'll need:</p>
@@ -534,9 +534,10 @@
 <hr />
 <h2>Quick Start</h2>
 <h3>1. Create Deploy Configuration</h3>
+<p>Run this command to publish the deploy configuration file:</p>
 <pre><code class="language-bash">php console create:config --support=deploy</code></pre>
 <p>This creates <code>config/deploy.php</code> with a sample <strong>production</strong> environment.</p>
-<p>Each environment supports these options:</p>
+<p>Each environment supports these options which you need to configure as per your setup:</p>
 <table>
 <thead>
 <tr>
@@ -547,7 +548,7 @@
 <tbody>
 <tr>
 <td><code>host</code></td>
-<td>Server IP</td>
+<td>Ubuntu server IP</td>
 </tr>
 <tr>
 <td><code>key</code></td>
@@ -567,9 +568,13 @@
 </tr>
 </tbody>
 </table>
-<p>The key name — <code>production</code> in this example — is what you pass to every deploy command as the <code>&lt;env&gt;</code> argument. You can define multiple environments (e.g., <code>staging</code>, <code>production</code>) in the same file.</p>
-<p><strong>Omitting <code>&lt;env&gt;</code>:</strong> Every command that takes an environment defaults to <code>production</code> if you leave it out.</p>
-<h3>2. Prepare Environment File</h3>
+<p>You can define multiple environments (e.g., <code>staging</code>, <code>production</code>) in the same file. Every command documented below takes an environment as an argument, and defaults to <code>production</code> if you leave it out.</p>
+<h3>2. Provision the Server</h3>
+<p>Provisioning is a one-time setup that configures the server with all necessary dependencies and configurations like Nginx, PHP, MySQL, etc. To provision the <code>production</code> server, run:</p>
+<pre><code class="language-bash">php console server:provision production</code></pre>
+<p>This will prompt you with required default information like root username, PHP version, database, timezone, etc which you can accept or modify as per your setup. Once you confirm, it will start provisioning the server which usually takes a few minutes. When done, root SSH is disabled and a new <code>deploy</code> user is created to access the server.</p>
+<p>It will also print the security credentials like the deploy user's password, SSH public key, created database username and password, etc. which you should save securely.</p>
+<h3>3. Prepare Environment File</h3>
 <p>Create <code>.env.&lt;env&gt;</code> in your project root (e.g. <code>.env.production</code> for the <code>production</code> environment):</p>
 <pre><code class="language-bash">APP_ENV=production
 APP_URL=https://yourdomain.com
@@ -577,9 +582,6 @@ DB_HOST=127.0.0.1
 DB_NAME=lightpack
 DB_USER=lightpack
 DB_PSWD=your-db-password</code></pre>
-<h3>3. Provision the Server</h3>
-<pre><code class="language-bash">php console server:provision production</code></pre>
-<p>Type <code>yes</code> to confirm. When done, root SSH is disabled. Only the <code>deploy</code> user can access the server.</p>
 <h3>4. Add Deploy Key to GitHub</h3>
 <p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your GitHub repo: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
 <h3>5. Deploy</h3>
