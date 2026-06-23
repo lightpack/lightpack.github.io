@@ -571,11 +571,11 @@
 <p>You can define multiple environments (e.g., <code>staging</code>, <code>production</code>) in the same file. Every command documented below takes an environment as an argument, and defaults to <code>production</code> if you leave it out.</p>
 <h3>2. Provision the Server</h3>
 <p>Provisioning is a one-time setup that configures the server with all necessary dependencies and configurations like Nginx, PHP, MySQL, etc. To provision the <code>production</code> server, run:</p>
-<pre><code class="language-bash">php console server:provision production</code></pre>
+<pre><code class="language-bash">php console server:provision</code></pre>
 <p>This will prompt you with required default information like root username, PHP version, database, timezone, etc which you can accept or modify as per your setup. Once you confirm, it will start provisioning the server which usually takes a few minutes. When done, root SSH is disabled and a new <code>deploy</code> user is created to access the server.</p>
 <p>It will also print the security credentials like the deploy user's password, SSH public key, created database username and password, etc. which you should save securely.</p>
 <h3>3. Prepare Environment File</h3>
-<p>Create <code>.env.&lt;env&gt;</code> in your project root (e.g. <code>.env.production</code> for the <code>production</code> environment). You can simply copy your existing <code>.env</code> file and rename it to <code>.env.production</code> and update the values as per your setup.</p>
+<p>Create <code>.env.production</code> for the <code>production</code> environment. You can simply copy your existing <code>.env</code> file and rename it to <code>.env.production</code> and update the values as per your setup.</p>
 <h3>4. SSH Deploy Key</h3>
 <p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your Git repository's deploy keys settings. For GitHub, go to: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
 <h3>5. Deploy Application</h3>
