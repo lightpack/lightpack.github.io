@@ -665,10 +665,23 @@ php console server:schedule:remove production    # remove cron job</code></pre>
 <p>Saved to <code>storage/env/production.env</code>.</p>
 <hr />
 <h2>Database</h2>
-<pre><code class="language-bash">php console db:backup production     # download timestamped dump
-php console db:restore production    # upload and restore
-php console db:create production     # new DB + user</code></pre>
-<p>Use <code>db:create</code> when deploying a second application to the same server.</p>
+<p>All database operations are performed remotely — you never need MySQL credentials on your local machine.</p>
+<pre><code class="language-bash">php console db:backup production
+php console db:backup production --file=pre-deploy.sql
+php console db:restore production --file=backup.sql
+
+php console db:drop production --db=shopdb
+php console db:create production --db=shopdb --user=shopuser</code></pre>
+<ul>
+<li><code>db:backup</code> uses <code>mysqldump</code> and saves to <code>storage/backups/</code> locally.</li>
+<li><code>db:restore</code> uploads an SQL file and imports it.</li>
+<li><code>db:create</code> generates a secure password automatically. Save the credentials shown — they are printed once.</li>
+<li><code>db:drop</code> removes the database and/or user. You must type <code>yes</code> to confirm.</li>
+</ul>
+<h3>Direct MySQL Access</h3>
+<p>If you need to run SQL queries with full privileges, SSH into the server and connect as root:</p>
+<pre><code class="language-bash">ssh deploy@your-server
+sudo mysql -u root</code></pre>
 <hr />
 <h2>Logs</h2>
 <pre><code class="language-bash">php console server:logs:view production   # last N lines
@@ -825,19 +838,24 @@ php console server:queue:setup shop --name=shop-worker</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><code>php console db:backup &lt;env&gt;</code></td>
-<td>Backup database</td>
+<td><code>php console db:backup &lt;env&gt; [--file=]</code></td>
+<td>Backup database (saved to <code>storage/backups/</code>)</td>
 </tr>
 <tr>
-<td><code>php console db:restore &lt;env&gt;</code></td>
+<td><code>php console db:restore &lt;env&gt; --file=</code></td>
 <td>Restore from backup</td>
 </tr>
 <tr>
 <td><code>php console db:create &lt;env&gt; [--db=] [--user=]</code></td>
 <td>Create new database + user</td>
 </tr>
+<tr>
+<td><code>php console db:drop &lt;env&gt; [--db=] [--user=]</code></td>
+<td>Drop database and/or user</td>
+</tr>
 </tbody>
 </table>
+<p><strong>Note:</strong> For direct SQL access, SSH into the server and run <code>sudo mysql -u root</code>. See the <strong>Database</strong> section above for full details.</p>
 <h3>Logs</h3>
 <table>
 <thead>
