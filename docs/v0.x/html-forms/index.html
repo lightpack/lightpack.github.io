@@ -516,7 +516,16 @@
             </div>
 </aside>  <main>
     <h1>HTML Forms</h1>
-<p class="tip">Lightpack provides a <code>Form</code> class for generating HTML form elements programmatically. Every method returns a raw HTML string — no wrappers, no divs, no extra markup — giving you complete control over layout and styling.</p>
+<p class="tip">Lightpack provides a <code>Form</code> class for generating HTML form elements programmatically. Every method returns a raw HTML string — no wrappers, no divs, no extra markup — giving you complete control over layout and styling. It facilitates creating:</p>
+<ul>
+<li>Sticky forms based on previous request input.</li>
+<li>CSRF token field automatically included.</li>
+<li>Pre-rendered error messages for validation.</li>
+<li>Type-specific inputs (email, password, number, etc.).</li>
+<li>Custom attributes for any input type.</li>
+<li>Handling multiple radio buttons and checkboxes.</li>
+<li>Flexible form structure for custom layouts.</li>
+</ul>
 <hr />
 <h2>Quick Start</h2>
 <pre><code class="language-php">$form = new \Lightpack\Html\Form;</code></pre>
