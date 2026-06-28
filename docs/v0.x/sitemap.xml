@@ -41,6 +41,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lightpackphp.com/docs/v0.x/html-forms/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lightpackphp.com/docs/v0.x/filesystem/</loc>
     <priority>0.8</priority>
   </url>
