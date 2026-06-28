@@ -13,8 +13,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
-  <title>Deployment</title>
-    <meta property="og:title" content="Deployment">
+  <title>Deploy</title>
+      <meta name="description" content="Provision servers, deploy code, manage SSL, queues, and scheduled tasks from your CLI.">
+    <meta property="og:description" content="Provision servers, deploy code, manage SSL, queues, and scheduled tasks from your CLI.">
+    <meta property="og:title" content="Deploy">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
   <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
@@ -495,30 +497,47 @@
               </li>
                       </ul>
         </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Deployment          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/deployment"
+                  class="active" aria-current="page" >
+                  Deploy                </a>
+              </li>
+                      </ul>
+        </div>
             </div>
 </aside>  <main>
-    <h1>Lightpack Deploy</h1>
+    <h1>Lightpack Deployment Suite</h1>
 <blockquote>
 <p><em>From your local dev-machine to production in minutes, not hours.</em></p>
 </blockquote>
-<p>Deploy and manage Lightpack applications on a remote Ubuntu server. Provision once, deploy daily.</p>
-<hr />
-<h2>What You Need</h2>
+<p><strong>Lightpack PHP</strong> ships with a complete deployment suite that makes it painless to provision fresh Ubuntu servers and deploy your applications right from your local machine. This makes deploying and maintaining your applications a breeze. The deployment suite includes commands to:</p>
 <ul>
-<li>A fresh Ubuntu 22.04 or 24.04 server (any VPS provider)</li>
-<li>Root or sudo SSH access for the initial provision</li>
-<li>An SSH key pair on your local machine (<code>~/.ssh/id_rsa</code> or <code>~/.ssh/id_ed25519</code>)</li>
-<li>Your Lightpack application code in a Git repository (optional — the server can use an existing clone)</li>
+<li>Provision custom Ubuntu VPS</li>
+<li>Deploy applications per environment</li>
+<li>Manage domains and SSL certificates</li>
+<li>Manage database backups and restores</li>
+<li>Manage scheduled cron jobs and commands</li>
+<li>Manage backround queue processes and workers</li>
+<li>View and stream processes and applications logs</li>
+<li>Run arbitrary commands on the server</li>
 </ul>
-<blockquote>
-<p>These tools require a Unix-like environment (macOS, Linux, or WSL2/VM/Docker on Windows).</p>
-</blockquote>
+<p>These tools require a Unix-like environment because they use SSH and other Unix commands. If you are on <code>macOS/Linux</code>, you are already set up. If you are on <code>Windows</code>, you can use <em>WSL2</em>, or a VM to run these commands. Before getting started, you'll need:</p>
+<ul>
+<li>A fresh Ubuntu 22.04 or 24.04 LTS server</li>
+<li>and SSH access to the server with root user privileges</li>
+</ul>
+<p>So go ahead and provision a new Ubuntu machine and make sure you have SSH access to it with root user privileges. You can use any VPS provider including AWS, DigitalOcean, Linode, Vultr, Google Cloud, Azure, etc.</p>
 <hr />
 <h2>Quick Start</h2>
-<h3>1. Create Deploy Configuration</h3>
+<h3>1. Create Deploy Config</h3>
+<p>Run this command to publish the deploy configuration file:</p>
 <pre><code class="language-bash">php console create:config --support=deploy</code></pre>
 <p>This creates <code>config/deploy.php</code> with a sample <strong>production</strong> environment.</p>
-<p>Each environment supports these options:</p>
+<p>Each environment supports these options which you need to configure as per your setup:</p>
 <table>
 <thead>
 <tr>
@@ -529,7 +548,7 @@
 <tbody>
 <tr>
 <td><code>host</code></td>
-<td>Server IP</td>
+<td>Ubuntu server IP</td>
 </tr>
 <tr>
 <td><code>key</code></td>
@@ -549,32 +568,31 @@
 </tr>
 </tbody>
 </table>
-<p>The key name — <code>production</code> in this example — is what you pass to every deploy command as the <code>&lt;env&gt;</code> argument. You can define multiple environments (e.g., <code>staging</code>, <code>production</code>) in the same file.</p>
-<p><strong>Omitting <code>&lt;env&gt;</code>:</strong> Every command that takes an environment defaults to <code>production</code> if you leave it out.</p>
-<h3>2. Prepare Environment File</h3>
-<p>Create <code>.env.&lt;env&gt;</code> in your project root (e.g. <code>.env.production</code> for the <code>production</code> environment):</p>
-<pre><code class="language-bash">APP_ENV=production
-APP_URL=https://yourdomain.com
-DB_HOST=127.0.0.1
-DB_NAME=lightpack
-DB_USER=lightpack
-DB_PSWD=your-db-password</code></pre>
-<h3>3. Provision the Server</h3>
-<pre><code class="language-bash">php console server:provision production</code></pre>
-<p>Type <code>yes</code> to confirm. When done, root SSH is disabled. Only the <code>deploy</code> user can access the server.</p>
-<h3>4. Add Deploy Key to GitHub</h3>
-<p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your GitHub repo: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
-<h3>5. Deploy</h3>
-<pre><code class="language-bash">php console app:deploy production</code></pre>
+<p>You can define multiple environments (e.g., <code>staging</code>, <code>production</code>) in the same file. Every command documented below takes an environment as an argument, and defaults to <code>production</code> if you leave it out.</p>
+<h3>2. Provision the Server</h3>
+<p>Provisioning is a one-time setup that configures the server with all necessary dependencies and configurations like Nginx, PHP, MySQL, etc. To provision the <code>production</code> server, run:</p>
+<pre><code class="language-bash">php console server:provision</code></pre>
+<p>This will prompt you with required default information like root username, PHP version, database, timezone, etc which you can accept or modify as per your setup. Once you confirm, it will start provisioning the server which usually takes a few minutes. When done, root SSH is disabled and a new <code>deploy</code> user is created to access the server.</p>
+<p>It will also print the security credentials like the deploy user's password, SSH public key, created database username and password, etc. which you should save securely.</p>
+<h3>3. Prepare Environment File</h3>
+<p>Create <code>.env.production</code> for the <code>production</code> environment. You can simply copy your existing <code>.env</code> file and rename it to <code>.env.production</code> and update the values as per your setup.</p>
+<h3>4. SSH Deploy Key</h3>
+<p>After provisioning, the deploy user's SSH public key is printed in the terminal. Copy it in your Git repository's deploy keys settings. For GitHub, go to: <strong>Settings &gt; Deploy keys &gt; Add deploy key</strong>. Do <strong>not</strong> allow write access.</p>
+<h3>5. Deploy Application</h3>
+<p>To deploy your application to the default <code>production</code> server, run:</p>
+<pre><code class="language-bash">php console app:deploy</code></pre>
 <p>Copies your <code>.env.production</code> to the server, pulls code, installs dependencies, symlinks storage, runs migrations, and reloads PHP-FPM.</p>
 <h3>6. Add Domain</h3>
 <p>Point your DNS A record to the server IP, then:</p>
-<pre><code class="language-bash">php console server:site:add production</code></pre>
+<pre><code class="language-bash">php console server:site:add</code></pre>
 <h3>7. Enable HTTPS</h3>
-<pre><code class="language-bash">php console server:site:ssl production</code></pre>
+<p>After adding the domain, enable a secure HTTPS connection using Let's Encrypt certificate:</p>
+<pre><code class="language-bash">php console server:site:ssl</code></pre>
+<p><strong>⭐️ Congratulations! Your application is now live with HTTPS ⭐️</strong></p>
+<p>If everything goes well, you should be able to access your application at the domain you added. Usually DNS propagation takes a few minutes. So if your browser doesn't load the domain immediately, try refreshing the page after a few minutes.</p>
 <hr />
 <h2>Rolling Back</h2>
-<pre><code class="language-bash">php console app:rollback production</code></pre>
+<pre><code class="language-bash">php console app:rollback</code></pre>
 <p>Go back further with <code>--steps=3</code>.</p>
 <p><strong>Important:</strong> Rollback reverts code only. It does not revert database migrations.</p>
 <hr />
@@ -629,15 +647,10 @@ php console server:queue:status  production          # check default group</code
 <h3>Viewing Worker Logs</h3>
 <pre><code class="language-bash">php console server:queue:logs:view production          # last 50 lines
 php console server:queue:logs:view production --lines=200
-php console server:queue:logs:tail production         # live stream (Ctrl+C to stop)</code></pre>
+php console server:queue:logs:tail production         # live stream</code></pre>
 <h3>Restart Workers After Deploy</h3>
 <p>Queue workers are <strong>not</strong> restarted automatically. After each deploy, run:</p>
 <pre><code class="language-bash">php console server:queue:restart production</code></pre>
-<p>For named worker groups:</p>
-<pre><code class="language-bash">php console server:queue:restart production --name=emails</code></pre>
-<h3>Local Development</h3>
-<pre><code class="language-bash">php console jobs:run</code></pre>
-<p>Press <code>Ctrl+C</code> to stop.</p>
 <hr />
 <h2>Scheduled Tasks</h2>
 <pre><code class="language-bash">php console server:schedule:setup production   # install cron job
@@ -652,10 +665,23 @@ php console server:schedule:remove production    # remove cron job</code></pre>
 <p>Saved to <code>storage/env/production.env</code>.</p>
 <hr />
 <h2>Database</h2>
-<pre><code class="language-bash">php console db:backup production     # download timestamped dump
-php console db:restore production    # upload and restore
-php console db:create production     # new DB + user</code></pre>
-<p>Use <code>db:create</code> when deploying a second application to the same server.</p>
+<p>All database operations are performed remotely — you never need MySQL credentials on your local machine.</p>
+<pre><code class="language-bash">php console db:backup production
+php console db:backup production --file=pre-deploy.sql
+php console db:restore production --file=backup.sql
+
+php console db:drop production --db=shopdb
+php console db:create production --db=shopdb --user=shopuser</code></pre>
+<ul>
+<li><code>db:backup</code> uses <code>mysqldump</code> and saves to <code>storage/backups/</code> locally.</li>
+<li><code>db:restore</code> uploads an SQL file and imports it.</li>
+<li><code>db:create</code> generates a secure password automatically. Save the credentials shown — they are printed once.</li>
+<li><code>db:drop</code> removes the database and/or user. You must type <code>yes</code> to confirm.</li>
+</ul>
+<h3>Direct MySQL Access</h3>
+<p>If you need to run SQL queries with full privileges, SSH into the server and connect as root:</p>
+<pre><code class="language-bash">ssh deploy@your-server
+sudo mysql -u root</code></pre>
 <hr />
 <h2>Logs</h2>
 <pre><code class="language-bash">php console server:logs:view production   # last N lines
@@ -674,29 +700,19 @@ php console server:logs:tail production     # live stream</code></pre>
 <li>[ ] GitHub deploy key does not have write access</li>
 </ul>
 <hr />
-<h2>Troubleshooting</h2>
-<h3>"Permission denied (publickey)"</h3>
-<p>Your SSH key is not on the server. Ensure you can log in:</p>
-<pre><code class="language-bash">ssh root@your-server-ip</code></pre>
-<p>If not, copy your key first:</p>
-<pre><code class="language-bash">ssh-copy-id root@YOUR_SERVER_IP</code></pre>
-<h3>"sudo: a password is required"</h3>
-<p>The deploy user is intentionally restricted. For system-level changes, log in as a user with full sudo access.</p>
-<h3>OPcache not refreshing</h3>
-<pre><code class="language-bash">ssh deploy@your-server-ip "sudo systemctl reload php8.3-fpm"</code></pre>
-<p>Replace <code>8.3</code> with your PHP version.</p>
-<hr />
 <h2>Multiple Apps on One Server</h2>
 <p>Provision once, then add separate environments in <code>config/deploy.php</code>:</p>
 <pre><code class="language-php">'deploy' =&gt; [
     'blog' =&gt; [
         'host' =&gt; '1.2.3.4',
+        'key'    =&gt; '~/.ssh/id_rsa',
         'path' =&gt; '/var/www/blog',
         'repo' =&gt; 'git@github.com:you/blog.git',
         'branch' =&gt; 'main',
     ],
     'shop' =&gt; [
         'host' =&gt; '1.2.3.4',
+        'key'    =&gt; '~/.ssh/id_rsa',
         'path' =&gt; '/var/www/shop',
         'repo' =&gt; 'git@github.com:you/shop.git',
         'branch' =&gt; 'main',
@@ -822,19 +838,24 @@ php console server:queue:setup shop --name=shop-worker</code></pre>
 </thead>
 <tbody>
 <tr>
-<td><code>php console db:backup &lt;env&gt;</code></td>
-<td>Backup database</td>
+<td><code>php console db:backup &lt;env&gt; [--file=]</code></td>
+<td>Backup database (saved to <code>storage/backups/</code>)</td>
 </tr>
 <tr>
-<td><code>php console db:restore &lt;env&gt;</code></td>
+<td><code>php console db:restore &lt;env&gt; --file=</code></td>
 <td>Restore from backup</td>
 </tr>
 <tr>
 <td><code>php console db:create &lt;env&gt; [--db=] [--user=]</code></td>
 <td>Create new database + user</td>
 </tr>
+<tr>
+<td><code>php console db:drop &lt;env&gt; [--db=] [--user=]</code></td>
+<td>Drop database and/or user</td>
+</tr>
 </tbody>
 </table>
+<p><strong>Note:</strong> For direct SQL access, SSH into the server and run <code>sudo mysql -u root</code>. See the <strong>Database</strong> section above for full details.</p>
 <h3>Logs</h3>
 <table>
 <thead>

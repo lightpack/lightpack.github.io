@@ -497,6 +497,17 @@
               </li>
                       </ul>
         </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Deployment          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/deployment"
+                  >
+                  Deploy                </a>
+              </li>
+                      </ul>
+        </div>
             </div>
 </aside>  <main>
     <h1>Console: Lightpack CLI Assistant</h1>
@@ -527,6 +538,13 @@
 <li><code>--table=products</code> : Set the table name.</li>
 <li><code>--key=product_id</code> : Set the primary key name.</li>
 <li><code>--tenant</code> : Generate a tenant-aware model extending <code>TenantModel</code>.</li>
+</ul>
+<h4>create:factory</h4>
+<p>Generate a new factory class in <code>database/factories</code>.</p>
+<pre><code class="language-cli">php console create:factory UserFactory</code></pre>
+<ul>
+<li><code>--model=User</code> : Generate a model factory that extends <code>ModelFactory</code> for the given model.</li>
+<li><code>--force</code> : Overwrite an existing factory file.</li>
 </ul>
 <h4>create:filter</h4>
 <p>Generate a new filter class in <code>app/Filters</code>.</p>

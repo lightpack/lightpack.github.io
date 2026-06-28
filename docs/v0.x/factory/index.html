@@ -497,6 +497,17 @@
               </li>
                       </ul>
         </div>
+              <div class="sidebar-section">
+          <div class="sidebar-section-title" style="cursor: pointer; user-select: none;">
+            <span class="collapse-icon">▶</span> Deployment          </div>
+          <ul class="sidebar-section-content" style="display: none;">
+                          <li>
+                <a href="/docs/v0.x/deployment"
+                  >
+                  Deploy                </a>
+              </li>
+                      </ul>
+        </div>
             </div>
 </aside>  <main>
     <h1>Factory</h1>
@@ -513,6 +524,13 @@
 <li><strong>Override Only What Matters:</strong> Want to test an edge case? Override just one field—no need to duplicate the entire data definition.</li>
 <li><strong>Readable, Intentional Tests:</strong> Your tests and seeders become clear and expressive, showing intent (“create a user with email X”) instead of low-level details.</li>
 </ul>
+<hr />
+<h2>Creating Factories</h2>
+<p>Use the console command to quickly scaffold a new factory.</p>
+<pre><code class="language-cli">php console create:factory UserFactory</code></pre>
+<p>Generate a <code>ModelFactory</code> for a specific model using the <code>--model</code> flag:</p>
+<pre><code class="language-cli">php console create:factory UserFactory --model=User</code></pre>
+<p>This creates the factory class in <code>database/factories/</code> with the correct base class and namespace already wired in.</p>
 <hr />
 <h2>Factory Base Class</h2>
 <p>You define a new factory class by extending <code>Factory</code> and implementing the <code>template()</code> method:</p>
