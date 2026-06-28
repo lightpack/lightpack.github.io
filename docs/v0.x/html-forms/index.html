@@ -13,10 +13,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
-  <title>SMS</title>
-      <meta name="description" content="Send text messages via Twilio and other SMS gateway providers.">
-    <meta property="og:description" content="Send text messages via Twilio and other SMS gateway providers.">
-    <meta property="og:title" content="SMS">
+  <title>Forms</title>
+      <meta name="description" content="Build HTML forms with sticky inputs, CSRF protection, pre-rendered values, and validation errors display with ease.">
+    <meta property="og:description" content="Build HTML forms with sticky inputs, CSRF protection, pre-rendered values, and validation errors display with ease.">
+    <meta property="og:title" content="Forms">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
   <link rel="stylesheet" href="/docs/v0.x/assets/prism.min.css">
@@ -132,7 +132,7 @@
               </li>
                           <li>
                 <a href="/docs/v0.x/html-forms"
-                  >
+                  class="active" aria-current="page" >
                   Forms                </a>
               </li>
                           <li>
@@ -482,7 +482,7 @@
               </li>
                           <li>
                 <a href="/docs/v0.x/sms"
-                  class="active" aria-current="page" >
+                  >
                   SMS                </a>
               </li>
                           <li>
@@ -515,62 +515,250 @@
         </div>
             </div>
 </aside>  <main>
-    <h1>Lightpack SMS</h1>
-<blockquote>
-<p><strong>Lightpack SMS</strong> offers a clean, extensible, and framework-native way to send SMS messages via multiple providers.</p>
-</blockquote>
-<h2>Supported Providers</h2>
-<p>Out of the box:</p>
-<ul>
-<li><strong>TwilioProvider:</strong> Real SMS via Twilio API.</li>
-<li><strong>LogSmsProvider:</strong> Writes SMS to logs (for dev/test).</li>
-<li><strong>NullSmsProvider:</strong> Discards SMS (for test/mocking).</li>
-</ul>
-<p>For <strong>Twilio</strong> support, you will need to install its PHP SDK:<br />
-<code>composer require twilio/sdk</code></p>
-<p>Please run following command to create <code>config/sms.php</code> configuration file.</p>
-<pre><code class="language-cli">php console create:config --support=sms</code></pre>
-<h2>Sending an SMS</h2>
-<pre><code class="language-php">sms()-&gt;send('+1234567890', 'Hello from Lightpack!');</code></pre>
-<h2>Extending with Custom Providers</h2>
-<p>Create your own provider by implementing <code>SmsProviderInterface</code>:</p>
-<pre><code class="language-php">namespace App\Sms\Providers;
-
-use Lightpack\Sms\SmsProviderInterface;
-
-class MyCustomProvider implements SmsProviderInterface
-{
-    public function send(string $phone, string $message, array $options = []): bool
-    {
-        // Your custom SMS logic
-        return true;
-    }
-}</code></pre>
-<p>Add to your config:</p>
-<pre><code class="language-php">'drivers' =&gt; [
-    'mycustom' =&gt; [
-        'provider' =&gt; App\Sms\Providers\MyCustomProvider::class,
-        // ...your config
-    ],
-]</code></pre>
+    <h1>HTML Forms</h1>
+<p class="tip">Lightpack provides a <code>Form</code> class for generating HTML form elements programmatically. Every method returns a raw HTML string — no wrappers, no divs, no extra markup — giving you complete control over layout and styling.</p>
 <hr />
-<h2>Error Handling &amp; Logging</h2>
+<h2>Quick Start</h2>
+<pre><code class="language-php">$form = new \Lightpack\Html\Form;</code></pre>
+<p>A quick form example for reference:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;open('/profile') ?&gt;
+
+    &lt;?= $form-&gt;label('Full Name') ?&gt;
+    &lt;?= $form-&gt;input('name') ?&gt;
+    &lt;?= $form-&gt;error('name') ?&gt;
+
+    &lt;?= $form-&gt;label('Email') ?&gt;
+    &lt;?= $form-&gt;email('email') ?&gt;
+    &lt;?= $form-&gt;error('email') ?&gt;
+
+    &lt;?= $form-&gt;label('Role') ?&gt;
+    &lt;?= $form-&gt;select('role', ['admin' =&gt; 'Admin', 'editor' =&gt; 'Editor']) ?&gt;
+
+    &lt;?= $form-&gt;submit('Save Changes') ?&gt;
+
+&lt;?= $form-&gt;close() ?&gt;</code></pre>
+<hr />
+<h2>Opening and Closing Forms</h2>
+<h3>open()</h3>
+<pre><code class="language-php">$form-&gt;open(string $action = '', string $method = 'POST', array $attrs = [], bool $csrf = true): string</code></pre>
 <ul>
-<li><strong>TwilioProvider:</strong> Catches exceptions, logs errors, returns <code>false</code> on failure.</li>
-<li><strong>LogSmsProvider:</strong> Always returns <code>true</code>, logs all messages.</li>
-<li><strong>NullSmsProvider:</strong> Always returns <code>true</code>, does nothing.</li>
-<li><strong>Best practice:</strong> Always check the boolean return value of <code>send()</code> and act accordingly.</li>
+<li>Generates the opening <code>&lt;form&gt;</code> tag. </li>
+<li>Default method is <code>POST</code>.</li>
+<li>Includes a CSRF token by default and handles method spoofing for <code>PUT</code>, <code>PATCH</code>, and <code>DELETE</code>.</li>
+</ul>
+<pre><code class="language-php">&lt;?= $form-&gt;open('/users') ?&gt;
+&lt;?= $form-&gt;open('/users/1', 'PUT') ?&gt;
+&lt;?= $form-&gt;open('/search', 'GET', ['class' =&gt; 'search-form']) ?&gt;</code></pre>
+<h3>openMultipart()</h3>
+<p>Same as <code>open()</code>, but sets <code>enctype="multipart/form-data"</code> — required for file uploads.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;openMultipart('/profile') ?&gt;</code></pre>
+<h3>close()</h3>
+<pre><code class="language-php">&lt;?= $form-&gt;close() ?&gt;</code></pre>
+<p>Outputs <code>&lt;/form&gt;</code>.</p>
+<hr />
+<h2>Text Input</h2>
+<pre><code class="language-php">$form-&gt;input(string $name, array $attrs = []): string</code></pre>
+<p>Generates a text input. Pass any HTML attribute via <code>$attrs</code>.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('username') ?&gt;
+&lt;?= $form-&gt;input('username', ['placeholder' =&gt; 'Enter username', 'class' =&gt; 'form-control']) ?&gt;</code></pre>
+<p>To set a default value when no session data exists:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('username', ['value' =&gt; 'john']) ?&gt;</code></pre>
+<p class="tip">If validation fails and the form is resubmitted, the previously entered value is automatically restored. This makes it easy to repopulate the form with the user's input making sticky forms a breeze.</p>
+<hr />
+<h2>Type-Specific Inputs</h2>
+<p>These all behave identically to <code>input()</code> but emit the correct <code>type</code> attribute according to the method name:</p>
+<pre><code class="language-php">$form-&gt;email(string $name, array $attrs = []): string
+$form-&gt;number(string $name, array $attrs = []): string
+$form-&gt;tel(string $name, array $attrs = []): string
+$form-&gt;url(string $name, array $attrs = []): string
+$form-&gt;date(string $name, array $attrs = []): string
+$form-&gt;search(string $name, array $attrs = []): string
+$form-&gt;color(string $name, array $attrs = []): string</code></pre>
+<p>Examples:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;email('email') ?&gt;
+&lt;?= $form-&gt;number('qty', ['min' =&gt; 1, 'max' =&gt; 99]) ?&gt;
+&lt;?= $form-&gt;date('birthdate') ?&gt;
+&lt;?= $form-&gt;tel('phone', ['placeholder' =&gt; '+1 555 0100']) ?&gt;</code></pre>
+<hr />
+<h2>Password</h2>
+<pre><code class="language-php">$form-&gt;password(string $name, array $attrs = []): string</code></pre>
+<p>Generates a password input. <strong>The value is never repopulated from previous input</strong>, regardless of session data. This is intentional — password fields should always be blank on reload.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;password('password') ?&gt;
+&lt;?= $form-&gt;password('password', ['autocomplete' =&gt; 'new-password']) ?&gt;</code></pre>
+<hr />
+<h2>Textarea</h2>
+<pre><code class="language-php">$form-&gt;textarea(string $name, array $attrs = []): string</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;textarea('bio') ?&gt;
+&lt;?= $form-&gt;textarea('bio', ['rows' =&gt; 6, 'placeholder' =&gt; 'Tell us about yourself']) ?&gt;</code></pre>
+<hr />
+<h2>Select Dropdown</h2>
+<pre><code class="language-php">$form-&gt;select(string $name, array $options, array $attrs = []): string</code></pre>
+<p>Pass a flat key-value array for options:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;select('country', ['us' =&gt; 'United States', 'uk' =&gt; 'United Kingdom', 'de' =&gt; 'Germany']) ?&gt;</code></pre>
+<p>To pre-select an option:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;select('country', ['us' =&gt; 'United States', 'uk' =&gt; 'United Kingdom'], ['selected' =&gt; 'us']) ?&gt;</code></pre>
+<h3>Option Groups</h3>
+<p>Wrap options in a nested array keyed by the group label:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;select('city', [
+    'Europe' =&gt; ['ldn' =&gt; 'London', 'ber' =&gt; 'Berlin', 'par' =&gt; 'Paris'],
+    'Asia'   =&gt; ['tok' =&gt; 'Tokyo', 'mum' =&gt; 'Mumbai'],
+]) ?&gt;</code></pre>
+<p>You can also mix flat options and groups:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;select('area', [
+    'all' =&gt; 'All Areas',
+    'Europe' =&gt; ['uk' =&gt; 'UK', 'de' =&gt; 'Germany'],
+]) ?&gt;</code></pre>
+<h3>Multiple Select</h3>
+<pre><code class="language-php">$form-&gt;selectMultiple(string $name, array $options, array $attrs = []): string</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;selectMultiple('interests', ['coding' =&gt; 'Coding', 'music' =&gt; 'Music', 'art' =&gt; 'Art']) ?&gt;</code></pre>
+<p>To pre-select multiple options:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;select('interests', ['coding' =&gt; 'Coding', 'music' =&gt; 'Music', 'art' =&gt; 'Art'], [
+    'multiple' =&gt; true,
+    'selected' =&gt; ['coding', 'art'],
+]) ?&gt;</code></pre>
+<hr />
+<h2>Checkbox</h2>
+<pre><code class="language-php">$form-&gt;checkbox(string $name, mixed $value = 1, array $attrs = []): string</code></pre>
+<p>For a single checkbox, use <code>checkbox()</code>. It emits a hidden input alongside the checkbox so the field is always present in the POST data — even when unchecked. This is intentional to ensure the field is always present in the POST data because by default, unchecked checkboxes are not sent in the POST data. That results in the field not being present in the POST data when the checkbox is unchecked.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;checkbox('agree', 1) ?&gt;</code></pre>
+<p>To mark it checked by default (when no previous input exists):</p>
+<pre><code class="language-php">&lt;?= $form-&gt;checkbox('agree', 1, ['checked' =&gt; true]) ?&gt;</code></pre>
+<h3>Checkbox Group</h3>
+<pre><code class="language-php">$form-&gt;checkboxes(string $name, array $options, array $attrs = []): string</code></pre>
+<p>For a group of checkboxes sharing the same array name, use <code>checkboxes()</code>. Unlike <code>checkbox()</code>, it does not emit hidden inputs. This means if the user checks nothing, the field is absent from <code>$_POST</code> entirely — PHP does not send unchecked checkboxes. Always handle this in your controller:</p>
+<pre><code class="language-php">$interests = request()-&gt;input('interests', []);</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;checkboxes('interests[]', [
+    'coding' =&gt; 'Coding',
+    'music'  =&gt; 'Music',
+    'art'    =&gt; 'Art',
+]) ?&gt;</code></pre>
+<p>Each checkbox and its label text are wrapped in a <code>&lt;label&gt;</code> element — clicking the text checks the checkbox.</p>
+<hr />
+<h2>Radio Button</h2>
+<pre><code class="language-php">$form-&gt;radio(string $name, mixed $value, array $attrs = []): string</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;radio('gender', 'male') ?&gt; Male
+&lt;?= $form-&gt;radio('gender', 'female') ?&gt; Female</code></pre>
+<p>To mark one checked by default (when no previous input exists):</p>
+<pre><code class="language-php">&lt;?= $form-&gt;radio('gender', 'male', ['checked' =&gt; true]) ?&gt; Male
+&lt;?= $form-&gt;radio('gender', 'female') ?&gt; Female</code></pre>
+<h3>Radio Group</h3>
+<pre><code class="language-php">$form-&gt;radios(string $name, array $options, array $attrs = []): string</code></pre>
+<p>Each radio and its label text are wrapped in a <code>&lt;label&gt;</code> element — clicking the text checks the radio. No radio is pre-selected unless <code>old()</code> data exists from a previous submission.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;radios('gender', ['male' =&gt; 'Male', 'female' =&gt; 'Female']) ?&gt;</code></pre>
+<p>For a <strong>default selection</strong> or <strong>custom markup</strong>, use individual <code>radio()</code> calls:</p>
+<pre><code class="language-php">&lt;?php foreach (['male' =&gt; 'Male', 'female' =&gt; 'Female'] as $val =&gt; $label): ?&gt;
+    &lt;label class="radio-option"&gt;
+        &lt;?= $form-&gt;radio('gender', $val, ['checked' =&gt; $val === 'male']) ?&gt;
+        &lt;?= $label ?&gt;
+    &lt;/label&gt;
+&lt;?php endforeach ?&gt;</code></pre>
+<hr />
+<h2>File Upload</h2>
+<pre><code class="language-php">$form-&gt;file(string $name, array $attrs = []): string</code></pre>
+<p>The value is <strong>never repopulated</strong> from previous input — browsers do not allow pre-filling file inputs.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;file('avatar') ?&gt;
+&lt;?= $form-&gt;file('avatar', ['accept' =&gt; 'image/*']) ?&gt;</code></pre>
+<p>Use <code>openMultipart()</code> when your form has file fields.</p>
+<hr />
+<h2>Hidden Input</h2>
+<pre><code class="language-php">$form-&gt;hidden(string $name, ?string $value = null, array $attrs = []): string</code></pre>
+<p>Hidden inputs are never repopulated from session data. The value you pass is always used.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;hidden('user_id', (string) $user-&gt;id) ?&gt;
+&lt;?= $form-&gt;hidden('_source', 'dashboard') ?&gt;</code></pre>
+<p>To emit a hidden input with no value:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;hidden('referral') ?&gt;</code></pre>
+<hr />
+<h2>Label</h2>
+<pre><code class="language-php">$form-&gt;label(string $text, string $for = '', array $attrs = []): string</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;label('Email Address', 'email') ?&gt;
+&lt;?= $form-&gt;label('Bio', 'bio', ['class' =&gt; 'required']) ?&gt;
+&lt;?= $form-&gt;label('Terms') ?&gt;</code></pre>
+<hr />
+<h2>Submit Button</h2>
+<pre><code class="language-php">$form-&gt;submit(string $text, array $attrs = []): string</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;submit('Save Changes') ?&gt;
+&lt;?= $form-&gt;submit('Delete', ['class' =&gt; 'btn-danger']) ?&gt;</code></pre>
+<hr />
+<h2>Button Element</h2>
+<pre><code class="language-php">$form-&gt;button(string $text, array $attrs = []): string</code></pre>
+<p>Generates a <code>&lt;button&gt;</code> element. Useful for JavaScript-driven actions or custom styling.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;button('Cancel', ['type' =&gt; 'button', 'onclick' =&gt; 'history.back()']) ?&gt;</code></pre>
+<hr />
+<h2>Datalist (Autocomplete)</h2>
+<pre><code class="language-php">$form-&gt;datalist(string $id, array $options): string</code></pre>
+<p>Generate a <code>&lt;datalist&gt;</code> element for providing autocomplete suggestions to an input field.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('city', ['list' =&gt; 'cities']) ?&gt;
+&lt;?= $form-&gt;datalist('cities', ['New York', 'London', 'Tokyo', 'Berlin']) ?&gt;</code></pre>
+<hr />
+<h2>Validation Errors</h2>
+<pre><code class="language-php">$form-&gt;error(string $name): string</code></pre>
+<p>Returns the validation error message for a field, or an empty string if there is none.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('email') ?&gt;
+&lt;?= $form-&gt;error('email') ?&gt;</code></pre>
+<p>Wrap in your own markup:</p>
+<pre><code class="language-php">&lt;?php $err = $form-&gt;error('email'); ?&gt;
+&lt;?php if ($err): ?&gt;
+    &lt;p class="error"&gt;&lt;?= $err ?&gt;&lt;/p&gt;
+&lt;?php endif ?&gt;</code></pre>
+<p>Works with array field names too:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;error('user[email]') ?&gt;</code></pre>
+<hr />
+<h2>Sticky Forms</h2>
+<p>When a form is submitted and validation fails, <strong>Lightpack</strong> stores the submitted input in the session. On the next render, <strong>all form methods automatically restore the previously submitted values</strong> — you do not need to call <code>old()</code> manually on each field.</p>
+<p>The only exceptions are:</p>
+<ul>
+<li><strong><code>password()</code></strong> — never repopulates, for security.</li>
+<li><strong><code>file()</code></strong> — browsers do not allow pre-filling file inputs.</li>
+<li><strong><code>hidden()</code></strong> — always uses the value you explicitly pass.</li>
 </ul>
 <hr />
-<h2>FAQ &amp; Troubleshooting</h2>
-<p><strong>Q: How do I switch providers?</strong><br />
-A: Change the <code>default</code> driver in your config or instantiate the desired provider.</p>
-<p><strong>Q: Can I queue SMS for async sending?</strong><br />
-A: Yes! Use Lightpack’s jobs system to queue jobs that call <code>sms()-&gt;send()</code>.</p>
-<p><strong>Q: How do I test SMS sending?</strong><br />
-A: Use LogSmsProvider or NullSmsProvider in your test environment.</p>
-<p><strong>Q: What if Twilio credentials are invalid?</strong><br />
-A: TwilioProvider will log the error and return <code>false</code>.</p>
+<h2>Array Field Names</h2>
+<p>Field names using bracket notation (e.g., <code>user[name]</code>, <code>user[address][city]</code>) are fully supported.</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('user[name]') ?&gt;
+&lt;?= $form-&gt;error('user[name]') ?&gt;
+
+&lt;?= $form-&gt;input('user[address][city]') ?&gt;
+&lt;?= $form-&gt;error('user[address][city]') ?&gt;
+
+&lt;?= $form-&gt;checkboxes('interests[]', ['php' =&gt; 'PHP', 'js' =&gt; 'JavaScript']) ?&gt;</code></pre>
+<hr />
+<h2>Passing HTML Attributes</h2>
+<p>Every method accepts an <code>$attrs</code> array as its last parameter. Pass any valid HTML attribute as a key-value pair:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('email', [
+    'class'       =&gt; 'form-control',
+    'placeholder' =&gt; 'you@example.com',
+    'required'    =&gt; true,
+    'autofocus'   =&gt; true,
+]) ?&gt;</code></pre>
+<p><strong>Boolean attributes</strong> (<code>required</code>, <code>autofocus</code>, <code>disabled</code>, <code>readonly</code>, <code>multiple</code>) use <code>true</code> and <code>false</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>true</code></td>
+<td>Attribute emitted with no value: <code>disabled</code></td>
+</tr>
+<tr>
+<td><code>false</code></td>
+<td>Attribute omitted entirely</td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td>Attribute omitted entirely</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-php">&lt;?= $form-&gt;input('qty', ['required' =&gt; true, 'disabled' =&gt; false]) ?&gt;
+// → &lt;input ... required&gt;</code></pre>
+<p>This makes conditional attributes natural — just pass a boolean expression:</p>
+<pre><code class="language-php">&lt;?= $form-&gt;input('ref', ['disabled' =&gt; $isLocked, 'required' =&gt; $isRequired]) ?&gt;</code></pre>
+<pre><code class="language-php">&lt;?= $form-&gt;input('code', ['oninput' =&gt; 'validate(this.value)']) ?&gt;
+&lt;?= $form-&gt;button('Reset', ['type' =&gt; 'button', 'onclick' =&gt; 'resetForm()']) ?&gt;</code></pre>
 <hr />  </main>
   <nav class="toc"></nav>
       </div>
