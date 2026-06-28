@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
-  <title><?= $title ?? 'Lightpack PHP Web Framework' ?></title>
+  <title><?= $title ? $title . ' - Lightpack PHP Web Framework' : 'Lightpack PHP Web Framework' ?></title>
   <?php if ($description): ?>
     <meta name="description" content="<?= htmlspecialchars($description) ?>">
     <meta property="og:description" content="<?= htmlspecialchars($description) ?>">
