@@ -17,6 +17,7 @@
         { "title": "Sessions", "file": "sessions", "description": "Manage user sessions securely with flash messages, intended URLs, and custom session drivers." },
         { "title": "Cookies", "file": "cookies", "description": "Set, get, encrypt, and expire cookies with secure defaults and path scoping." },
         { "title": "Validation", "file": "validation", "description": "Validate user input with built-in rules, custom validators, and error message handling." },
+        { "title": "Forms", "file": "html-forms", "description": "Build HTML forms with sticky inputs, CSRF protection, pre-rendered values, and validation errors display with ease." },
         { "title": "Filesystem", "file": "filesystem", "description": "Work with local files and directory operations." },
         { "title": "Configuration", "file": "configuration", "description": "Structure and load application configuration files per environment." },
         { "title": "Environments", "file": "environments", "description": "Configure environment variables and settings for local, staging, and production." },
