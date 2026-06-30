@@ -516,12 +516,12 @@
             </div>
 </aside>  <main>
     <h1>Tags System</h1>
-<p>Lightpack’s Tags system provides framework-native way to add tagging support to any Lucid model. It is designed for many-to-many polymorphic tagging (e.g., posts, products, users can all be tagged).</p>
+<p>Lightpack's Tags system provides framework-native way to add tagging support to any Lucid model. It is designed for many-to-many polymorphic tagging (e.g., posts, products, users can all be tagged).</p>
 <hr />
 <h2>Migration</h2>
 <p>The Tags system uses two tables:</p>
 <ul>
-<li><code>tags</code>: Stores tag definitions (<code>id</code>, <code>name</code>, <code>slug</code>, timestamps).</li>
+<li><code>tags</code>: Stores tag definitions (<code>id</code>, <code>tenant_id</code>, <code>name</code>, <code>slug</code>, timestamps). <code>tenant_id</code> defaults to <code>0</code> for non-tenant apps.</li>
 <li><code>tag_morphs</code>: Pivot table connecting tags to models (<code>tag_id</code>, <code>morph_id</code>, <code>morph_type</code>).</li>
 </ul>
 <p>Create schema migration file:</p>
@@ -554,7 +554,34 @@ $post-&gt;tags()-&gt;sync([1, 3]);</code></pre>
 <h3>filters()</h3>
 <p>Query scope to filter models by tag IDs.</p>
 <pre><code class="language-php">// All posts with tag 1 or 2
-$posts = Post::filters(['tags' =&gt; [1, 2]])-&gt;all(); </code></pre>
+$posts = Post::filters(['tags' =&gt; [1, 2]])-&gt;all();</code></pre>
+<hr />
+<h2>Multi-Tenancy</h2>
+<p>If your model extends <code>TenantModel</code>, tags are automatically scoped to the current tenant.</p>
+<h3>Basic Usage</h3>
+<pre><code class="language-php">use Lightpack\Tags\TagsTrait;
+
+class Post extends TenantModel {
+    use TagsTrait;
+}</code></pre>
+<pre><code class="language-php">TenantContext::set($tenantId);
+
+// Creates tag with tenant_id automatically set
+$tag = new TenantTag(['name' =&gt; 'News', 'slug' =&gt; 'news']);
+$tag-&gt;save();
+
+// Only returns this tenant's tags
+$tags = $post-&gt;tags;</code></pre>
+<h3>Custom Tag Model</h3>
+<p>Override <code>getTagModel()</code> if you need a custom tag model with additional methods:</p>
+<pre><code class="language-php">class Post extends TenantModel {
+    use TagsTrait;
+
+    protected function getTagModel(): string
+    {
+        return AppTag::class;
+    }
+}</code></pre>
 <hr />
 <h2>Edge Cases &amp; Behavior</h2>
 <ul>

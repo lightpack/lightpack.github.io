@@ -531,8 +531,8 @@
 <h2>Database Schema</h2>
 <p>Tables created by the included migration:</p>
 <ul>
-<li><code>roles</code>: Stores all roles.</li>
-<li><code>permissions</code>: Stores all permissions.</li>
+<li><code>roles</code>: Stores all roles (id, tenant_id, name, description, timestamps). <code>tenant_id</code> defaults to <code>0</code> for non-tenant apps.</li>
+<li><code>permissions</code>: Stores all permissions (id, tenant_id, name, description, timestamps). <code>tenant_id</code> defaults to <code>0</code>.</li>
 <li><code>user_role</code>: Pivot table linking users and roles.</li>
 <li><code>role_permission</code>: Pivot table linking roles and permissions.</li>
 </ul>
@@ -585,6 +585,18 @@ $canDelete = User::filters(['permission' =&gt; 11])-&gt;all();
 
 // By role and permission both
 $filtered = User::filters(['role' =&gt; 'admin', 'permission' =&gt; 'edit_post'])-&gt;all();</code></pre>
+<h2>Multi-Tenancy</h2>
+<p>If your user model extends <code>TenantModel</code>, roles and permissions are automatically scoped to the current tenant.</p>
+<h3>Basic Usage</h3>
+<pre><code class="language-php">class User extends TenantModel {
+    use RbacTrait;
+}</code></pre>
+<pre><code class="language-php">$user = new User(23);
+
+$user-&gt;assignRole('editor');
+$user-&gt;hasRole('editor');     // true for this tenant only
+$user-&gt;can('edit_post');      // true for this tenant only</code></pre>
+<p>Role names and permission names are scoped per tenant, so different tenants can define their own "admin" roles with different permissions.</p>
 <h3>Fetch Role Permissions</h3>
 <pre><code class="language-php">$role = new Role(23);
 

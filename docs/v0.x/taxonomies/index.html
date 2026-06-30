@@ -521,7 +521,7 @@
 <h2>Migration</h2>
 <p>The Taxonomies system requires two tables:</p>
 <ul>
-<li><code>taxonomies</code>: Stores taxonomy nodes (id, name, slug, type, parent_id, sort_order, meta, timestamps).</li>
+<li><code>taxonomies</code>: Stores taxonomy nodes (id, tenant_id, name, slug, type, parent_id, sort_order, meta, timestamps). <code>tenant_id</code> defaults to <code>0</code> for non-tenant apps.</li>
 <li><code>taxonomy_morphs</code>: Pivot table connecting taxonomies to any model (taxonomy_id, morph_id, morph_type).</li>
 </ul>
 <p>Create schema migration file:</p>
@@ -666,6 +666,37 @@ $taxonomy-&gt;moveTo(null); // Move to root</code></pre>
 <ul>
 <li><strong>Notes:</strong> Throws if any move would create a cycle.</li>
 </ul>
+<hr />
+<h2>Multi-Tenancy</h2>
+<p>If your model extends <code>TenantModel</code>, taxonomies are automatically scoped to the current tenant.</p>
+<h3>Basic Usage</h3>
+<pre><code class="language-php">use Lightpack\Taxonomies\TaxonomyTrait;
+
+class Post extends TenantModel {
+    use TaxonomyTrait;
+}</code></pre>
+<pre><code class="language-php">TenantContext::set($tenantId);
+
+// Creates taxonomy with tenant_id automatically set
+$taxonomy = new TenantTaxonomy([
+    'name' =&gt; 'News',
+    'slug' =&gt; 'news',
+    'type' =&gt; 'category'
+]);
+$taxonomy-&gt;save();
+
+// Only returns this tenant's taxonomies
+$taxonomies = $post-&gt;taxonomies;</code></pre>
+<h3>Custom Taxonomy Model</h3>
+<p>Override <code>getTaxonomyModel()</code> if you need a custom taxonomy model with additional methods:</p>
+<pre><code class="language-php">class Post extends TenantModel {
+    use TaxonomyTrait;
+
+    protected function getTaxonomyModel(): string
+    {
+        return AppTaxonomy::class;
+    }
+}</code></pre>
 <hr />
 <h2>Edge Cases &amp; Behavior</h2>
 <ul>

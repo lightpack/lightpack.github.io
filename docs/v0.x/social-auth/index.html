@@ -596,6 +596,31 @@ route()-&gt;get('/api/auth/{provider}/callback', [SocialAuthController::class, '
 <li>API returns JSON: <code>{ access_token, token_type, user }</code></li>
 </ol>
 <hr />
+<h2>Multi-Tenancy</h2>
+<p>The SocialAuth module is fully multi-tenancy aware. When used in a multi-tenant application, social accounts are automatically scoped by <code>tenant_id</code>.</p>
+<h3>How It Works</h3>
+<ul>
+<li>The <code>social_accounts</code> table includes a <code>tenant_id</code> column (defaults to <code>0</code> for non-tenant apps).</li>
+<li>The unique constraint is scoped to <code>(tenant_id, provider, provider_id)</code>, allowing the same social account to be linked across different tenants.</li>
+<li>During redirect, the current <code>tenant_id</code> is stored in session (web) or encoded in the OAuth <code>state</code> (API).</li>
+<li>During callback, the <code>tenant_id</code> is restored from session or state, and <code>TenantContext</code> is set.</li>
+<li>The <code>findOrCreateUser()</code> method scopes social account lookups by <code>tenant_id</code> and assigns <code>tenant_id</code> to new social accounts and users.</li>
+</ul>
+<h3>Preparing Your User Model</h3>
+<p>For tenant-aware social authentication, extend <code>TenantModel</code>:</p>
+<pre><code class="language-php">use Lightpack\Database\Lucid\TenantModel;
+
+class User extends TenantModel
+{
+    // ...
+}</code></pre>
+<h3>What You Don't Need To Do</h3>
+<ul>
+<li>No manual <code>tenant_id</code> assignment in routes or controllers.</li>
+<li>No extra query scoping needed; the framework handles isolation automatically.</li>
+</ul>
+<h3>Backward Compatibility</h3>
+<p>Non-tenant apps continue to work seamlessly. <code>tenant_id</code> defaults to <code>0</code>, ensuring no breaking changes.</p>
 <h2>Adding a Custom Provider</h2>
 <p>Create a new provider class implementing <code>SocialAuthInterface</code>:</p>
 <pre><code class="language-php">namespace App\SocialAuth\Providers;
