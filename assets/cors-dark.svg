@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Two crossing arrows for cross-origin -->
-    <path d="M4 8l4-4 4 4" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M8 4v10" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
-    <path d="M20 16l-4 4-4-4" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M16 20V10" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <!-- Browser window -->
+    <rect x="4" y="5" width="16" height="14" rx="2" stroke="#000000" stroke-width="1"/>
+    <!-- Window header dots -->
+    <circle cx="7" cy="8" r="0.8" fill="#000000"/>
+    <circle cx="9.5" cy="8" r="0.8" fill="#000000" fill-opacity="0.4"/>
+    <circle cx="12" cy="8" r="0.8" fill="#000000" fill-opacity="0.4"/>
+    <!-- Checkmark -->
+    <path d="M8 13l3 3 5-5" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
