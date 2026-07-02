@@ -96,6 +96,7 @@
         { "title": "Settings", "file": "settings", "description": "Manage dynamic application settings with key-value persistence and caching." },
         { "title": "Tags", "file": "tags", "description": "Implement tag-based categorization with polymorphic taggable relationships." },
         { "title": "Taxonomies", "file": "taxonomies", "description": "Build hierarchical category systems with nested term relationships." },
+        { "title": "Localization", "file": "localization", "description": "Build multilingual applications with file-based translations, placeholder replacement, and pluralization support for multiple locales." },
         { "title": "Faker", "file": "faker", "description": "Generate fake data for names, addresses, emails, and more in multiple locales." },
         { "title": "Audit", "file": "audit", "description": "Track model changes, user actions, and data history with automatic audit logs." },
         { "title": "RBAC", "file": "rbac", "description": "Implement role-based access control with permissions, roles, and user assignments." },
