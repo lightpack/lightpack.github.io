@@ -257,6 +257,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lightpackphp.com/docs/v0.x/localization/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lightpackphp.com/docs/v0.x/faker/</loc>
     <priority>0.8</priority>
   </url>
