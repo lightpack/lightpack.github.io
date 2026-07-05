@@ -654,26 +654,21 @@ Outputs a closing <code>&lt;/form&gt;</code> tag.</p>
 <h2>dd()</h2>
 <p><code>dd(...$args)</code></p>
 <p><strong>What it does:</strong>
-“Dump and Die”—outputs the contents of variables (like <code>var_dump</code>) and stops the script.</p>
+“Dump and Die”—outputs the contents of variables in a styled, collapsible HTML dump and stops the script. It is aware of the CLI and web environments and formats the output accordingly.</p>
 <p><strong>When to use:</strong></p>
 <ul>
 <li>For debugging: inspect variables, arrays, or objects at any point in your code.</li>
 <li>Use in development only; never leave in production code.</li>
 </ul>
-<p><strong>Example:</strong></p>
-<pre><code class="language-php">dd($user, $posts);</code></pre>
-<h2>pp()</h2>
-<p><code>pp(...$args)</code></p>
-<p><strong>What it does:</strong>
-“Pretty Print”—outputs variables using <code>print_r</code> and stops the script. This function is useful for debugging purposes, especially when working with arrays and objects.</p>
-<p><strong>When to use:</strong></p>
-<ul>
-<li>For debugging: best for arrays and objects where structure matters. This provides a clear and readable representation of the data.</li>
-<li>Use in development only.</li>
-</ul>
-<p><strong>Example:</strong></p>
-<pre><code class="language-php">pp($myArray);</code></pre>
-<pre><code class="language-php">pp($var1, $var2, $var3)</code></pre>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-php">// Dump multiple variables
+dd($user, $posts);
+
+// Label variables with named arguments
+dd(user: $user, posts: $posts);
+
+// Single-key arrays are also shown with their key as the label
+dd(['user' =&gt; $user], ['posts' =&gt; $posts]);</code></pre>
 <h2>halt()</h2>
 <p><code>halt(int $code, string $message = '', array $headers = [])</code></p>
 <p><strong>What it does:</strong>
