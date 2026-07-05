@@ -45,7 +45,8 @@
         { "title": "Eager Loading", "file": "eager-loading", "description": "Solve the N+1 query problem by preloading related model data efficiently." },
         { "title": "Collections", "file": "collections", "description": "Transform query results into powerful collection objects with filtering and mapping methods." },
         { "title": "Transformers", "file": "transformers", "description": "Serialize model data for APIs with field selection, includes, and nested resource control." },
-        { "title": "Multi-Tenancy", "file": "multi-tenancy", "description": "Build SaaS applications with tenant-isolated databases and row-level scoping." }
+        { "title": "Multi-Tenancy", "file": "multi-tenancy", "description": "Build SaaS applications with tenant-isolated databases and row-level scoping." },
+        { "title": "Resource Query", "file": "resource-query", "description": "Build resource collection queries with filters, sorts, includes, aggregates, and pagination via allowlists easily for the current HTTP request." }
       ]
     },
     {
