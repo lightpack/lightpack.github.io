@@ -117,6 +117,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://lightpackphp.com/docs/v0.x/resource-query/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://lightpackphp.com/docs/v0.x/authentication/</loc>
     <priority>0.8</priority>
   </url>
