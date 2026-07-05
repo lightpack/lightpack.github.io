@@ -431,6 +431,11 @@
                   Taxonomies                </a>
               </li>
                           <li>
+                <a href="/docs/v0.x/localization"
+                  >
+                  Localization                </a>
+              </li>
+                          <li>
                 <a href="/docs/v0.x/faker"
                   >
                   Faker                </a>
@@ -587,6 +592,15 @@
 <h4>create:tool</h4>
 <p>Generate a new AI tool class in <code>app/Tools</code>.</p>
 <pre><code class="language-cli">php console create:tool SearchProducts</code></pre>
+<h4>create:lang</h4>
+<p>Create a new language translation file in <code>lang</code> directory.</p>
+<pre><code class="language-cli">php console create:lang</code></pre>
+<ul>
+<li><code>--locale</code> : Set the locale (default: <code>en</code>).</li>
+<li><code>--file</code> : Set the translation file name (default: <code>messages</code>).</li>
+<li><code>--support=validation</code> : Create a validation translation file.</li>
+<li><code>--force</code> : Overwrite an existing file.</li>
+</ul>
 <hr />
 <h3>File Storage</h3>
 <h4>link:storage</h4>

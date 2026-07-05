@@ -14,6 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../assets/logo.ico" type="image/x-icon">
   <title>Localization - Lightpack PHP Web Framework</title>
+      <meta name="description" content="Build multilingual applications with file-based translations, placeholder replacement, and pluralization support for multiple locales.">
+    <meta property="og:description" content="Build multilingual applications with file-based translations, placeholder replacement, and pluralization support for multiple locales.">
     <meta property="og:title" content="Localization">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/docs/v0.x/assets/styles.css">
@@ -429,6 +431,11 @@
                   Taxonomies                </a>
               </li>
                           <li>
+                <a href="/docs/v0.x/localization"
+                  class="active" aria-current="page" >
+                  Localization                </a>
+              </li>
+                          <li>
                 <a href="/docs/v0.x/faker"
                   >
                   Faker                </a>
@@ -525,7 +532,7 @@
 </ul>
 <h2>Quick Start</h2>
 <h3>Create translation files</h3>
-<p>Run the following command to create the default language directory:</p>
+<p>Run the following command to create a new language translation file:</p>
 <pre><code class="language-bash">php console create:lang</code></pre>
 <p>It will prompt you to enter the language locale (e.g., <code>en</code>, <code>hi</code>, <code>es</code>) and translation file name to be created.</p>
 <p>Below is an example of the translation file structure <code>lang/en/messages.php</code>:</p>
