@@ -982,10 +982,8 @@ response()-&gt;setStatus(302)-&gt;setHeader('Location', '/login');</code></pre>
   "data": { ... },
   "errors": { ... }
 }</code></pre>
-<p>Just include the trait in your controller and use the methods:</p>
-<pre><code class="language-php">use Lightpack\Http\ApiResponseTrait;
-
-class PostController extends Controller
+<p>Just include the trait <code>\Lightpack\Http\ApiResponseTrait</code> in your controller and use the methods:</p>
+<pre><code class="language-php">class PostController extends Controller
 {
     use ApiResponseTrait;
 
