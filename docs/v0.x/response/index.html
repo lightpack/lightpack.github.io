@@ -974,6 +974,96 @@ return redirect()-&gt;to('/login');
 // Avoid - manual header management
 response()-&gt;setStatus(302)-&gt;setHeader('Location', '/login');</code></pre>
 <hr />
+<h2>API Responses</h2>
+<p>Building APIs with <code>response()-&gt;json()</code> leaves the response shape up to each developer. One endpoint returns <code>{status: 'ok', result: ...}</code>, another returns <code>{success: true, data: ...}</code>, and errors look different everywhere. <code>ApiResponseTrait</code> solves that by giving controllers a single, predictable envelope for every success and error response:</p>
+<pre><code class="language-json">{
+  "success": true|false,
+  "message": "Optional message",
+  "data": { ... },
+  "errors": { ... }
+}</code></pre>
+<h3>Available Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Status</th>
+<th>Use for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>respondSuccess()</code></td>
+<td>200</td>
+<td>Default success</td>
+</tr>
+<tr>
+<td><code>respondCreated()</code></td>
+<td>201</td>
+<td>After inserts</td>
+</tr>
+<tr>
+<td><code>respondAccepted()</code></td>
+<td>202</td>
+<td>Async / queued work</td>
+</tr>
+<tr>
+<td><code>respondNoContent()</code></td>
+<td>204</td>
+<td>DELETE or PATCH with empty body</td>
+</tr>
+<tr>
+<td><code>respondBadRequest()</code></td>
+<td>400</td>
+<td>Malformed request or business rule</td>
+</tr>
+<tr>
+<td><code>respondUnauthorized()</code></td>
+<td>401</td>
+<td>Authentication required</td>
+</tr>
+<tr>
+<td><code>respondForbidden()</code></td>
+<td>403</td>
+<td>Authenticated but not allowed</td>
+</tr>
+<tr>
+<td><code>respondNotFound()</code></td>
+<td>404</td>
+<td>Missing resource</td>
+</tr>
+<tr>
+<td><code>respondValidationError()</code></td>
+<td>422</td>
+<td>Validation failures</td>
+</tr>
+<tr>
+<td><code>respondError()</code></td>
+<td>500+</td>
+<td>Generic / custom errors</td>
+</tr>
+</tbody>
+</table>
+<h3>Examples</h3>
+<p>Success:</p>
+<pre><code class="language-php">return $this-&gt;respondCreated($product, 'Product created');</code></pre>
+<pre><code class="language-json">{
+  "success": true,
+  "message": "Product created",
+  "data": { "id": 1, "name": "Widget" }
+}</code></pre>
+<p>Validation error:</p>
+<pre><code class="language-php">return $this-&gt;respondValidationError([
+    'email' =&gt; 'Email is invalid.',
+]);</code></pre>
+<pre><code class="language-json">{
+  "success": false,
+  "message": "Validation failed.",
+  "errors": { "email": "Email is invalid." }
+}</code></pre>
+<p>Custom error:</p>
+<pre><code class="language-php">return $this-&gt;respondError('Payment failed', 402, ['card' =&gt; 'Declined']);</code></pre>
+<hr />
 <h2>View Rendering</h2>
 <ul>
 <li><strong>Render a Template:</strong><pre><code class="language-php">response()-&gt;view('emails/welcome', ['name' =&gt; 'Alice']);</code></pre>
