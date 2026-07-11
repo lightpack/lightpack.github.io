@@ -982,6 +982,19 @@ response()-&gt;setStatus(302)-&gt;setHeader('Location', '/login');</code></pre>
   "data": { ... },
   "errors": { ... }
 }</code></pre>
+<p>Just include the trait in your controller and use the methods:</p>
+<pre><code class="language-php">use Lightpack\Http\ApiResponseTrait;
+
+class PostController extends Controller
+{
+    use ApiResponseTrait;
+
+    public function store()
+    {
+        // Your logic here
+        return $this-&gt;respondCreated(['id' =&gt; 123]);
+    }
+}</code></pre>
 <h3>Available Methods</h3>
 <table>
 <thead>
