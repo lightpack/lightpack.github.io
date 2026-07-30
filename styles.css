@@ -18,8 +18,6 @@
 }
 
 header {
-  /* background-color: #000; */
-  /* color: #888; */
   background-color: #f0eee6;
   color: #494949;
 }
@@ -33,7 +31,6 @@ header {
 .container .features button {
   font-size: 0.9rem;
 }
-
 
 /* Blockquote mobile improvements */
 
@@ -144,4 +141,242 @@ header {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* === New Sections === */
+
+/* Stays Strip — Simple, Fast, Stable, Free */
+.stays-strip {
+  background: #1a1a1a;
+  padding: 3rem 0;
+}
+
+.stay-item {
+  padding: 1.5rem 1rem;
+}
+
+.stay-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.stay-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.stay-desc {
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767.98px) {
+  .stay-item {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #333;
+  }
+  .stay-item:last-child {
+    border-bottom: none;
+  }
+  .stay-desc {
+    max-width: 100%;
+  }
+}
+
+/* Wedge Section — AI built in */
+.wedge-section {
+  padding: 5rem 0;
+  background: #f0eee6;
+}
+
+.wedge-badge {
+  display: inline-block;
+  background: #ef5350;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Code Block */
+.code-block {
+  background: #1e1e2e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #181828;
+  border-bottom: 1px solid #2a2a3a;
+}
+
+.code-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-filename {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: #888;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.code-body {
+  margin: 0;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  overflow-x: auto;
+}
+
+.code-body code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* PHP syntax highlighting */
+.php-keyword { color: #c678dd; }
+.php-var { color: #e06c75; }
+.php-func { color: #61afef; }
+.php-str { color: #98c379; }
+.php-comment { color: #7c7c93; font-style: italic; }
+
+.code-caption {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* Fatigue Section */
+.fatigue-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+/* Deploy Section */
+.deploy-section {
+  padding: 5rem 0;
+  background: #f0eee6;
+}
+
+/* Contrast Table */
+.contrast-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.contrast-table {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contrast-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.contrast-row:last-child {
+  border-bottom: none;
+}
+
+.contrast-header {
+  background: #f8f8f8;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contrast-col {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contrast-col:first-child {
+  border-right: 1px solid #eee;
+  color: #999;
+}
+
+.contrast-lightpack {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.contrast-header .contrast-col:first-child {
+  color: #999;
+}
+
+.contrast-header .contrast-lightpack {
+  color: #ef5350;
+}
+
+.contrast-col code {
+  background: #f0eee6;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: #c678dd;
+}
+
+@media (max-width: 767.98px) {
+  .contrast-table {
+    border-radius: 0;
+  }
+  .contrast-col {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 5rem 0;
+  background: #f0eee6;
+  text-align: center;
+}
+
+/* Footer */
+.footer-section {
+  padding: 2rem 0;
+  background: #1a1a1a;
+}
+
+.footer-section .text-danger {
+  color: #ef5350 !important;
+}
+
+.footer-section a {
+  color: #ddd !important;
+  transition: color 0.15s;
+}
+
+.footer-section a:hover {
+  color: #ef5350 !important;
 }
