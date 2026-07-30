@@ -1,138 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-7X4FXHWZMR');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lightpack is a PHP framework with everything built in — routing, ORM, auth, AI, queues, real-time, deployment. 60+ components. No magic. No bloat. No breaking changes. No paid tools.">
-    <link rel="icon" href="assets/logo.ico" type="image/x-icon">
-    <title>Lightpack — Craft powerful PHP applications with peace of mind</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7X4FXHWZMR"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-7X4FXHWZMR')</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lightpack is a PHP framework with everything built in — routing, ORM, auth, AI, queues, real-time, deployment. 60+ components. No magic. No bloat. No breaking changes.">
+<link rel="icon" href="assets/logo.ico" type="image/x-icon">
+<title>Lightpack — Craft powerful PHP applications with peace of mind</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<!-- ==================== NAV ==================== -->
-<nav class="lp-nav">
-    <div class="container lp-nav-inner">
-        <div class="lp-nav-brand">
-            <img src="assets/logo-dark.svg" alt="Lightpack" width="28" height="28">
-            <span>Lightpack</span>
-        </div>
-        <div class="lp-nav-links">
-            <a href="/docs/v0.x/install">Docs</a>
-            <a href="https://github.com/lightpack" target="_blank">GitHub</a>
-            <a href="/docs/v0.x/install" class="lp-btn lp-btn-primary lp-btn-sm">Get Started</a>
-        </div>
-    </div>
-</nav>
+<!-- NAV -->
+<nav class="lp-nav"><div class="lp-container lp-nav-inner">
+<div class="lp-nav-brand"><img src="assets/logo-primary.svg" alt="" width="28" height="28"><span>Lightpack</span></div>
+<div class="lp-nav-links"><a href="/docs/v0.x/install">Docs</a><a href="https://github.com/lightpack" target="_blank">GitHub</a><a href="/docs/v0.x/install" class="lp-btn lp-btn-primary lp-btn-sm">Get Started</a></div>
+</div></nav>
 
-<!-- ==================== HERO (dark) ==================== -->
-<section class="lp-hero">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <h1>Craft powerful <span>PHP applications</span> with peace of mind.</h1>
-                <p>Everything you need to build and deploy — without the magic, the bloat, the breaking changes, or the paid deployment tools.</p>
-                <div class="lp-hero-cta">
-                    <a href="/docs/v0.x/install" class="lp-btn lp-btn-primary lp-btn-lg">Get Started</a>
-                    <a href="https://github.com/lightpack" target="_blank" class="lp-btn lp-btn-ghost-dark lp-btn-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        View on GitHub
-                    </a>
-                </div>
-                <div class="lp-hero-stats">
-                    <span>60+ built-in components</span>
-                    <span>Boot time &lt; 5ms</span>
-                    <span>Memory &lt; 2MB</span>
-                    <span>Zero packages needed</span>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="lp-code">
-                    <div class="lp-code-header">
-                        <span class="lp-code-dot" style="background:#ff5f56"></span>
-                        <span class="lp-code-dot" style="background:#ffbd2e"></span>
-                        <span class="lp-code-dot" style="background:#27c93f"></span>
-                        <span class="lp-code-filename">app/Controllers/ArticleController.php</span>
-                    </div>
-                    <pre class="lp-code-body"><code><span class="tk-kw">class</span> ArticleController
+<!-- 1. HERO -->
+<section class="lp-hero"><div class="lp-hero-glow"></div><div class="lp-container lp-hero-content"><div class="row align-items-center g-5">
+<div class="col-lg-6">
+<h1>Craft powerful <span>PHP applications</span> with peace of mind.</h1>
+<p>Everything you need to build and deploy — without the magic, the bloat, the breaking changes, or the paid deployment tools.</p>
+<div class="lp-hero-cta"><a href="/docs/v0.x/install" class="lp-btn lp-btn-primary lp-btn-lg">Get Started</a><a href="https://github.com/lightpack" target="_blank" class="lp-btn lp-btn-ghost lp-btn-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>View on GitHub</a></div>
+<div class="lp-hero-stats"><span>60+ built-in components</span><span>Boot time &lt; 5ms</span><span>Memory &lt; 2MB</span><span>Zero packages needed</span></div>
+</div>
+<div class="col-lg-6">
+<div class="lp-code"><div class="lp-code-header"><span class="lp-code-dot" style="background:#ff5f56"></span><span class="lp-code-dot" style="background:#ffbd2e"></span><span class="lp-code-dot" style="background:#27c93f"></span><span class="lp-code-filename">ArticleController.php</span></div>
+<pre class="lp-code-body"><code><span class="tk-kw">class</span> ArticleController
 {
     <span class="tk-kw">public function</span> summarize(<span class="tk-var">$id</span>)
     {
         <span class="tk-var">$article</span> = Article::<span class="tk-fn">find</span>(<span class="tk-var">$id</span>);
 
         <span class="tk-var">$summary</span> = <span class="tk-fn">ai</span>()-><span class="tk-fn">ask</span>(
-            <span class="tk-str">"Summarize this article in 2 sentences: </span><span class="tk-var">$article</span><span class="tk-str">->body"</span>
+            <span class="tk-str">"Summarize: </span><span class="tk-var">$article</span><span class="tk-str">->body"</span>
         );
 
         <span class="tk-kw">return</span> <span class="tk-fn">response</span>()-><span class="tk-fn">json</span>([
             <span class="tk-str">'summary'</span> => <span class="tk-var">$summary</span>,
         ]);
     }
-}</code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+}</code></pre></div>
+</div>
+</div></div></section>
 
-<!-- ==================== STAYS STRIP (dark) ==================== -->
-<section class="lp-stays">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 col-md-3 lp-stay">
-                <div class="lp-stay-label">Stays</div>
-                <div class="lp-stay-value">Simple</div>
-                <p class="lp-stay-desc">No facades. No magic methods. No auto-discovery. Code that does what it says.</p>
-            </div>
-            <div class="col-6 col-md-3 lp-stay">
-                <div class="lp-stay-label">Stays</div>
-                <div class="lp-stay-value">Fast</div>
-                <p class="lp-stay-desc">Boot time under 5ms. Memory footprint under 2MB. Minimal by design.</p>
-            </div>
-            <div class="col-6 col-md-3 lp-stay">
-                <div class="lp-stay-label">Stays</div>
-                <div class="lp-stay-value">Stable</div>
-                <p class="lp-stay-desc">No breaking changes on upgrade. Stable progression, not upgrade PTSD.</p>
-            </div>
-            <div class="col-6 col-md-3 lp-stay">
-                <div class="lp-stay-label">Stays</div>
-                <div class="lp-stay-value">Free</div>
-                <p class="lp-stay-desc">Open source. No paid tiers. No Forge. No Envoyer. Free means free.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- 2. PAIN -->
+<section class="lp-section lp-surface-1"><div class="lp-container"><div class="row justify-content-center"><div class="col-lg-9 text-center">
+<div class="lp-eyebrow">The Problem</div>
+<h2 class="lp-h2">You know the feeling.</h2>
+<ul class="lp-pain-list">
+<li>Every upgrade breaks something. You spend a day fixing what worked yesterday.</li>
+<li>Every new feature adds a dependency. Your <code>composer.json</code> has 80 packages.</li>
+<li>Every "free" framework leads to paid tools. Deploy? That's extra. Queues? Extra. Monitoring? Extra.</li>
+<li>Every debugging session takes you through 5 files of magic you didn't write.</li>
+<li>You spend more time fighting your framework than building your app.</li>
+</ul>
+<p class="lp-pain-bridge">That's not peace of mind. <span>That's framework fatigue.</span></p>
+</div></div></div></section>
 
-<!-- ==================== AI WEDGE (light) ==================== -->
-<section class="lp-section lp-light">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-5">
-                <div class="lp-badge">First in PHP</div>
-                <h2 class="lp-section-title">AI, built in.<br>Not a package. Not a wrapper.</h2>
-                <p class="lp-section-sub">Every PHP developer is thinking about AI. In other frameworks, you install a package, configure an API key, write a wrapper, handle errors, manage rate limits. In Lightpack, you write one line.</p>
-                <a href="/docs/v0.x/ai-service" class="lp-link">Read the AI docs &rarr;</a>
-            </div>
-            <div class="col-lg-7">
-                <div class="lp-code">
-                    <div class="lp-code-header">
-                        <span class="lp-code-dot" style="background:#ff5f56"></span>
-                        <span class="lp-code-dot" style="background:#ffbd2e"></span>
-                        <span class="lp-code-dot" style="background:#27c93f"></span>
-                        <span class="lp-code-filename">ai.php — Multi-provider: OpenAI, Anthropic, Gemini</span>
-                    </div>
-                    <pre class="lp-code-body"><code><span class="tk-cm">// Ask any question</span>
+<!-- 3. FOUR STAYS -->
+<section class="lp-section"><div class="lp-container">
+<div class="text-center lp-mb-4"><div class="lp-eyebrow">The Promise</div><h2 class="lp-h2">Four things that never change.</h2><p class="lp-lead" style="margin:0 auto">Lightpack stays simple. Stays fast. Stays stable. Stays free. Not as a marketing claim — as a design principle.</p></div>
+<div class="lp-stays-grid">
+<div class="lp-stay-card"><div class="lp-stay-card-num">01</div><h3>Stays <span>Simple</span></h3><p>No facades. No magic methods. No auto-discovery. What you see is what it does. When you trace a request, you can follow it from route to controller to response without jumping through service providers, middleware stacks, and reflection-based resolution.</p><div class="lp-stay-proof">File-based config. Explicit route definitions. No annotation parsing.</div></div>
+<div class="lp-stay-card"><div class="lp-stay-card-num">02</div><h3>Stays <span>Fast</span></h3><p>Boot time under 5ms. Memory footprint under 2MB. Lightpack doesn't load what you don't use. No service provider booting 40 bindings on every request. No global middleware chain that runs even for your API routes.</p><div class="lp-stay-proof">Benchmark: 5ms boot / 2MB RAM / 12,000+ req/s on a single core</div></div>
+<div class="lp-stay-card"><div class="lp-stay-card-num">03</div><h3>Stays <span>Stable</span></h3><p>No breaking changes on upgrade. Your code from v0.1 still runs on v0.x. Lightpack evolves by adding, not by replacing. When a better approach is found, the old one stays documented and supported — not deprecated and removed in the next major.</p><div class="lp-stay-proof">Every release is backward compatible. No upgrade guides. No migration scripts.</div></div>
+<div class="lp-stay-card"><div class="lp-stay-card-num">04</div><h3>Stays <span>Free</span></h3><p>Open source. No paid tiers. No freemium model. No "community edition" with the good features locked behind a license. Everything — including deployment — is free. Free means free.</p><div class="lp-stay-proof">MIT licensed. No paid add-ons. No commercial upsell. Ever.</div></div>
+</div>
+</div></section>
+
+<!-- 4. AI WEDGE -->
+<section class="lp-section lp-surface-1"><div class="lp-container">
+<div class="row align-items-center g-5">
+<div class="col-lg-5"><div class="lp-eyebrow">The Wedge</div><h2 class="lp-h2">AI, built in.<br>Not a package. Not a wrapper.</h2><p class="lp-lead lp-mt-3">Every PHP developer is thinking about AI. In other frameworks, you install a package, configure an API key, write a wrapper, handle errors, manage rate limits. In Lightpack, you write one line.</p><a href="/docs/v0.x/ai-service" class="lp-link lp-mt-2">Read the AI docs &rarr;</a></div>
+<div class="col-lg-7">
+<div class="lp-code"><div class="lp-code-header"><span class="lp-code-dot" style="background:#ff5f56"></span><span class="lp-code-dot" style="background:#ffbd2e"></span><span class="lp-code-dot" style="background:#27c93f"></span><span class="lp-code-filename">Multi-provider: OpenAI, Anthropic, Gemini</span></div>
+<pre class="lp-code-body"><code><span class="tk-cm">// Ask any question</span>
 <span class="tk-var">$answer</span> = <span class="tk-fn">ai</span>()-><span class="tk-fn">ask</span>(<span class="tk-str">"What is Lightpack?"</span>);
 
 <span class="tk-cm">// Generate embeddings for semantic search</span>
@@ -144,419 +91,144 @@
     <span class="tk-fn">ob_flush</span>();
 });
 
-<span class="tk-cm">// No package. No wrapper. No config marathon.</span>
-<span class="tk-cm">// Just AI, in your PHP app.</span></code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== FATIGUE NARRATIVE (dark) ==================== -->
-<section class="lp-section lp-dark lp-fatigue">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-9 text-center">
-                <h2>Tired of framework fatigue?</h2>
-                <p>You know the feeling. Every upgrade breaks something. Every new feature adds a dependency. Every "free" framework leads to paid tools. You spend more time fighting your framework than building your app.</p>
-                <p>Lightpack was built for you. Not as a better Laravel. Not as a lighter Symfony. As something different: <span class="lp-fatigue-highlight">a framework that gives you everything you need, and then gets out of your way.</span></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== FEATURES (light) ==================== -->
-<section class="lp-section lp-light">
-    <div class="container">
-        <div class="lp-features-header">
-            <h2>Everything in the box. Nothing outside it.</h2>
-            <p>60+ built-in components. Zero packages required for a standard web app. Not "batteries available" — batteries installed.</p>
-        </div>
-        <div class="lp-features-controls">
-            <ul class="lp-feature-tabs" id="feature-tabs">
-                <li><button class="active" data-category="all">All</button></li>
-                <li><button data-category="basics">Basics</button></li>
-                <li><button data-category="databases">Databases</button></li>
-                <li><button data-category="lucid-orm">ORM</button></li>
-                <li><button data-category="authentication">Auth</button></li>
-                <li><button data-category="utilities">Utilities</button></li>
-                <li><button data-category="advanced">Advanced</button></li>
-                <li><button data-category="deployment">Deployment</button></li>
-            </ul>
-            <input type="text" class="lp-feature-search" id="feature-search" placeholder="Search features...">
-        </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3" id="feature-cards">
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/routing" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/routing-dark.svg" alt="" class="lp-feature-icon"><h3>Routing</h3></div>
-                <p>Routing that does what you expect. No magic, no surprises.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/controllers" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/controllers-dark.svg" alt="" class="lp-feature-icon"><h3>Controllers</h3></div>
-                <p>Controllers that do one thing well. No surprises, no inheritance maze.</p>
-            </a></div>
-
-            <div class="col" data-category="lucid-orm"><a href="/docs/v0.x/orm-introduction" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/orm-dark.svg" alt="" class="lp-feature-icon"><h3>Lucid ORM</h3></div>
-                <p>An ORM that doesn't guess. You set the table name. You define the relationships. It does exactly what you tell it.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/events" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/events-dark.svg" alt="" class="lp-feature-icon"><h3>Events</h3></div>
-                <p>Events that keep your code loose. Fire an event, let listeners handle the rest. Simple.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/filters" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/filters-dark.svg" alt="" class="lp-feature-icon"><h3>Filters</h3></div>
-                <p>Filter requests before they reach your controller. Your code, your rules.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/filesystem" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/filesystem-dark.svg" alt="" class="lp-feature-icon"><h3>Filesystem</h3></div>
-                <p>A filesystem abstraction that just works. Local, S3, whatever. Same API.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/environments" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/environments-dark.svg" alt="" class="lp-feature-icon"><h3>Environments</h3></div>
-                <p>Manage config per environment. Development, staging, production. Clear and explicit.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/validation" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/validation-dark.svg" alt="" class="lp-feature-icon"><h3>Validation</h3></div>
-                <p>Validate input with rules you can read. No buried config, no guesswork.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/html-forms" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/forms-dark.svg" alt="" class="lp-feature-icon"><h3>Forms</h3></div>
-                <p>Forms with CSRF protection and validation errors built in. No extra package.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/console" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/cli-dark.svg" alt="" class="lp-feature-icon"><h3>Console CLI</h3></div>
-                <p>A CLI that generates code and runs your tasks. Extend it when you need to.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/caching" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/cache-dark.svg" alt="" class="lp-feature-icon"><h3>Caching</h3></div>
-                <p>Driver-based caching. File, Redis, Memcached. Same API, zero config gymnastics.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/logging" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/logger-dark.svg" alt="" class="lp-feature-icon"><h3>Logging</h3></div>
-                <p>PSR-3 logging. Compatible with the standard, no lock-in.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/containers" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/container-dark.svg" alt="" class="lp-feature-icon"><h3>Containers</h3></div>
-                <p>A service locator that's honest about being a service locator. No facades, no auto-discovery.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/moment" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/date-dark.svg" alt="" class="lp-feature-icon"><h3>Moment</h3></div>
-                <p>Date and time utilities that don't make you reach for a package.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/mails" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/mailing-dark.svg" alt="" class="lp-feature-icon"><h3>Mails</h3></div>
-                <p>Send HTML emails through any SMTP provider. Built in, not bolted on.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/queue" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/queue-dark.svg" alt="" class="lp-feature-icon"><h3>Queue</h3></div>
-                <p>Queue heavy work. Let your users get on with their day.</p>
-            </a></div>
-
-            <div class="col" data-category="authentication"><a href="/docs/v0.x/authentication" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/auth-dark.svg" alt="" class="lp-feature-icon"><h3>Authentication</h3></div>
-                <p>Session or API token auth. Built in. Not a paid third-party service.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/testing" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/testing-dark.svg" alt="" class="lp-feature-icon"><h3>Testing</h3></div>
-                <p>Test your routes, responses, and JSON endpoints. No PHPUnit configuration marathon.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/cable" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/realtime-dark.svg" alt="" class="lp-feature-icon"><h3>Cable</h3></div>
-                <p>Real-time updates via HTTP polling. No WebSocket server, no Node.js, no extra infrastructure.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/settings" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/settings-dark.svg" alt="" class="lp-feature-icon"><h3>Settings</h3></div>
-                <p>Dynamic app settings with a simple API. Store, retrieve, done.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/secrets" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/secrets-dark.svg" alt="" class="lp-feature-icon"><h3>Secrets</h3></div>
-                <p>Store secrets securely. Not in env files, not in plain text. Properly.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/captcha" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/captcha-dark.svg" alt="" class="lp-feature-icon"><h3>Captcha</h3></div>
-                <p>Built-in CAPTCHA. No package, no API key setup beyond your provider.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/audit" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/audit-dark.svg" alt="" class="lp-feature-icon"><h3>Audit</h3></div>
-                <p>Audit trails built in. Know who did what, when. No extra package.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/ai-service" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/ai-dark.svg" alt="" class="lp-feature-icon"><h3>AI</h3></div>
-                <p>The first PHP framework with AI built in. Multi-provider. Embeddings, semantic search, agent mode. No package.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/mfa" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/mfa-dark.svg" alt="" class="lp-feature-icon"><h3>MFA</h3></div>
-                <p>Multi-factor auth built in. Not a paid add-on, not a third-party service.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/rbac" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/rbac-dark.svg" alt="" class="lp-feature-icon"><h3>RBAC</h3></div>
-                <p>Role-based access control. Define permissions explicitly, enforce them everywhere.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/tags" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/tags-dark.svg" alt="" class="lp-feature-icon"><h3>Tags</h3></div>
-                <p>Tagging built in. Organize and search your data without a package.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/taxonomies" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/taxonomies-dark.svg" alt="" class="lp-feature-icon"><h3>Taxonomies</h3></div>
-                <p>Hierarchical taxonomies for complex data. Built in, not bolted on.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/sms" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/sms-dark.svg" alt="" class="lp-feature-icon"><h3>SMS</h3></div>
-                <p>SMS via pluggable gateways. Twilio, Vonage, whatever. Same API.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/uploads" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/uploads-dark.svg" alt="" class="lp-feature-icon"><h3>Uploads</h3></div>
-                <p>Secure file uploads with flexible storage. No extra package needed.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/rate-limiter" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/limiter-dark.svg" alt="" class="lp-feature-icon"><h3>Limiter</h3></div>
-                <p>Rate limiting built in. Protect your endpoints without a package.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/image-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/image-dark.svg" alt="" class="lp-feature-icon"><h3>Image</h3></div>
-                <p>Process and resize images. Built-in utility, not an external dependency.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/encryption-decryption-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/crypto-dark.svg" alt="" class="lp-feature-icon"><h3>Crypto</h3></div>
-                <p>Modern crypto utilities. Encrypt, decrypt, hash. Built in.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/asset-loading-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/asset-dark.svg" alt="" class="lp-feature-icon"><h3>Asset</h3></div>
-                <p>Asset management and versioning. No build tool configuration needed.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/localization" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/localization-dark.svg" alt="" class="lp-feature-icon"><h3>Localization</h3></div>
-                <p>Multi-language support with translations, placeholders, and pluralization. Built in.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/otp-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/otp-dark.svg" alt="" class="lp-feature-icon"><h3>OTP</h3></div>
-                <p>OTP generation and verification. For 2FA, for verification flows. Built in.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/social-auth" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/social-auth-dark.svg" alt="" class="lp-feature-icon"><h3>Social Auth</h3></div>
-                <p>Social auth for Google, GitHub, Facebook, and more. Built in, no package.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/csv-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/csv-dark.svg" alt="" class="lp-feature-icon"><h3>CSV</h3></div>
-                <p>Stream and export CSV data. High performance, built in.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/pdf" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/pdf-dark.svg" alt="" class="lp-feature-icon"><h3>PDF</h3></div>
-                <p>Generate PDFs from templates or raw data. Built in, no external library to wire up.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/views" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/views-dark.svg" alt="" class="lp-feature-icon"><h3>Views</h3></div>
-                <p>Render HTML templates and layouts. Simple, explicit, no template engine to configure.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/request" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/request-dark.svg" alt="" class="lp-feature-icon"><h3>Request</h3></div>
-                <p>HTTP request data, unified and simple. No facade, no magic.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/response" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/response-dark.svg" alt="" class="lp-feature-icon"><h3>Response</h3></div>
-                <p>Structured HTTP responses. JSON, redirects, downloads. Explicit and clear.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/sessions" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/sessions-dark.svg" alt="" class="lp-feature-icon"><h3>Sessions</h3></div>
-                <p>Session management that's secure by default. No configuration marathon.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/cookies" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/cookies-dark.svg" alt="" class="lp-feature-icon"><h3>Cookies</h3></div>
-                <p>HTTP cookies, handled simply. Set, get, forget.</p>
-            </a></div>
-
-            <div class="col" data-category="basics"><a href="/docs/v0.x/configuration" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/configuration-dark.svg" alt="" class="lp-feature-icon"><h3>Configuration</h3></div>
-                <p>Centralized config. One place, clear and readable.</p>
-            </a></div>
-
-            <div class="col" data-category="databases"><a href="/docs/v0.x/migrations" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/migrations-dark.svg" alt="" class="lp-feature-icon"><h3>Migrations</h3></div>
-                <p>Version your database schema. Migrate, rollback, track. Built in.</p>
-            </a></div>
-
-            <div class="col" data-category="databases"><a href="/docs/v0.x/seeder" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/seeder-dark.svg" alt="" class="lp-feature-icon"><h3>Seeder</h3></div>
-                <p>Seed your database with initial or test data. Simple, built in.</p>
-            </a></div>
-
-            <div class="col" data-category="databases"><a href="/docs/v0.x/factory" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/factory-dark.svg" alt="" class="lp-feature-icon"><h3>Factory</h3></div>
-                <p>Generate fake data for testing. No Faker package to install.</p>
-            </a></div>
-
-            <div class="col" data-category="lucid-orm"><a href="/docs/v0.x/collections" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/collections-dark.svg" alt="" class="lp-feature-icon"><h3>Collections</h3></div>
-                <p>Chainable collection utilities. Filter, map, reduce. Readable and explicit.</p>
-            </a></div>
-
-            <div class="col" data-category="lucid-orm"><a href="/docs/v0.x/transformers" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/transformers-dark.svg" alt="" class="lp-feature-icon"><h3>Transformers</h3></div>
-                <p>Transform data for APIs. Shape your output explicitly, not magically.</p>
-            </a></div>
-
-            <div class="col" data-category="lucid-orm"><a href="/docs/v0.x/resource-query" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/resource-query-dark.svg" alt="" class="lp-feature-icon"><h3>Resource Query</h3></div>
-                <p>Declarative API query builder. Filter, sort, include, paginate — with allowlists. Security by default. 30 lines become 5.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/password" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/password-dark.svg" alt="" class="lp-feature-icon"><h3>Password</h3></div>
-                <p>Secure password hashing and verification. Bcrypt, Argon2. Built in.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/url" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/url-dark.svg" alt="" class="lp-feature-icon"><h3>URL</h3></div>
-                <p>URL helpers for generating and parsing. Simple, no dependency.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/mutex-lock" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/mutex-lock-dark.svg" alt="" class="lp-feature-icon"><h3>Mutex Lock</h3></div>
-                <p>Mutex locks to prevent race conditions. Atomic, reliable, built in.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/process" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/process-dark.svg" alt="" class="lp-feature-icon"><h3>Process</h3></div>
-                <p>Run system processes from your app. When you need to, safely.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/array-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/array-dark.svg" alt="" class="lp-feature-icon"><h3>Array</h3></div>
-                <p>Array helpers that save you from writing the same boilerplate.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/string-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/string-dark.svg" alt="" class="lp-feature-icon"><h3>String</h3></div>
-                <p>String manipulation utilities. No need for a package.</p>
-            </a></div>
-
-            <div class="col" data-category="utilities"><a href="/docs/v0.x/js-utils" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/js-dark.svg" alt="" class="lp-feature-icon"><h3>PHP to JS</h3></div>
-                <p>Share PHP data with JavaScript. Simple, no bridge to configure.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/schedule" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/schedule-dark.svg" alt="" class="lp-feature-icon"><h3>Schedule</h3></div>
-                <p>Schedule tasks and commands. Cron-like, built in.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/providers" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/providers-dark.svg" alt="" class="lp-feature-icon"><h3>Providers</h3></div>
-                <p>Register and bootstrap services. Explicit, no auto-discovery.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/cors" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/cors-dark.svg" alt="" class="lp-feature-icon"><h3>CORS</h3></div>
-                <p>CORS configuration. Set your policies, done.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/http-client" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/http-client-dark.svg" alt="" class="lp-feature-icon"><h3>HTTP Client</h3></div>
-                <p>HTTP client for external APIs. Built in, no Guzzle to install.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/faker" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/faker-dark.svg" alt="" class="lp-feature-icon"><h3>Faker</h3></div>
-                <p>Fake data generation for testing and seeding. Built in.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/webhook" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/webhook-dark.svg" alt="" class="lp-feature-icon"><h3>Webhook</h3></div>
-                <p>Send and receive webhooks. Event-driven, built in.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/storage" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/storage-dark.svg" alt="" class="lp-feature-icon"><h3>Storage</h3></div>
-                <p>File storage across local and cloud drivers. Same API, zero hassle.</p>
-            </a></div>
-
-            <div class="col" data-category="advanced"><a href="/docs/v0.x/pipeline-pattern" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/pipeline-dark.svg" alt="" class="lp-feature-icon"><h3>Pipeline</h3></div>
-                <p>Chain operations through a pipeline. Transform data step by step, explicitly.</p>
-            </a></div>
-
-            <div class="col" data-category="deployment"><a href="/docs/v0.x/deployment" class="lp-feature-card" target="_blank">
-                <div class="lp-feature-header"><img src="assets/deploy-dark.svg" alt="" class="lp-feature-icon"><h3>Deploy</h3></div>
-                <p>Server provisioning, zero-downtime deploys, SSL, queue management, database backups. One CLI. Free. No Forge. No Envoyer.</p>
-            </a></div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ==================== DEPLOY (dark) ==================== -->
-<section class="lp-section lp-dark">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <div class="lp-badge">Built-in Deployment</div>
-                <h2 class="lp-section-title">Deploy without the tax.</h2>
-                <p class="lp-section-sub">Building the app is half the job. Deploying it is the other half — and it's the half that costs the most time and money.</p>
-                <div class="lp-deploy-cost">
-                    <div class="lp-deploy-cost-item">
-                        <div class="lp-deploy-cost-label">Forge + Envoyer</div>
-                        <div class="lp-deploy-cost-value">$22-39<span style="font-size:0.9rem;color:var(--lp-text-on-dark-muted)">/mo</span></div>
-                    </div>
-                    <div class="lp-deploy-cost-divider">vs.</div>
-                    <div class="lp-deploy-cost-item">
-                        <div class="lp-deploy-cost-label">Lightpack Deploy</div>
-                        <div class="lp-deploy-cost-value free">$0<span style="font-size:0.9rem;color:var(--lp-text-on-dark-muted)">/forever</span></div>
-                    </div>
-                </div>
-                <p class="lp-section-sub">Server provisioning, zero-downtime deployment, SSL, queue management, database backups, log streaming. One CLI. Free. Built in.</p>
-                <a href="/docs/v0.x/deployment" class="lp-link">Read the deployment docs &rarr;</a>
-            </div>
-            <div class="col-lg-6">
-                <div class="lp-code">
-                    <div class="lp-code-header">
-                        <span class="lp-code-dot" style="background:#ff5f56"></span>
-                        <span class="lp-code-dot" style="background:#ffbd2e"></span>
-                        <span class="lp-code-dot" style="background:#27c93f"></span>
-                        <span class="lp-code-filename">terminal</span>
-                    </div>
-                    <pre class="lp-code-body"><code><span class="tk-cm"># Provision a new server</span>
+<span class="tk-cm">// Agent mode — multi-step reasoning</span>
+<span class="tk-var">$result</span> = <span class="tk-fn">ai</span>()-><span class="tk-fn">agent</span>(<span class="tk-str">"Analyze this codebase"</span>)
+    -><span class="tk-fn">tools</span>([<span class="tk-str">'read_file'</span>, <span class="tk-str">'search'</span>])
+    -><span class="tk-fn">run</span>();</code></pre></div>
+</div>
+</div>
+<div class="lp-ai-usecases">
+<div class="lp-ai-usecase"><h4>Semantic Search</h4><p>Embed your content. Search by meaning, not keywords.</p></div>
+<div class="lp-ai-usecase"><h4>Content Generation</h4><p>Summaries, descriptions, tags — generated on demand.</p></div>
+<div class="lp-ai-usecase"><h4>Agent Mode</h4><p>Multi-step reasoning with tool access. Built in.</p></div>
+<div class="lp-ai-usecase"><h4>Multi-Provider</h4><p>OpenAI, Anthropic, Gemini. Switch with one config line.</p></div>
+</div>
+</div></section>
+
+<!-- 5. FATIGUE NARRATIVE -->
+<section class="lp-section"><div class="lp-container"><div class="row justify-content-center"><div class="col-lg-9 text-center">
+<div class="lp-eyebrow">The Story</div>
+<h2 class="lp-h2">A framework that gets out of your way.</h2>
+<p class="lp-lead" style="margin:1rem auto 1.5rem">Lightpack wasn't built to be a better version of something else. It was built for developers who want to build apps, not fight frameworks.</p>
+<p class="lp-body" style="max-width:680px;margin:0 auto 1rem">You know what you need: routing, controllers, an ORM, auth, queues, caching, testing, deployment. You don't need 80 packages to get them. You don't need magic that makes debugging a detective job. You don't need breaking changes that turn upgrade day into a firefight.</p>
+<p class="lp-body" style="max-width:680px;margin:0 auto 1rem">You need a framework that gives you everything, stays out of your way, and keeps working. For years.</p>
+<p class="lp-body" style="max-width:680px;margin:0 auto"><span class="lp-text-white">That's Lightpack.</span> Not "batteries included" — batteries installed. Not "stable enough" — stable by contract. Not "free to start" — free, period.</p>
+</div></div></div></section>
+
+<!-- 6. FEATURES -->
+<section class="lp-section lp-surface-1"><div class="lp-container">
+<div class="lp-features-header"><div class="lp-eyebrow">The Toolbox</div><h2>Everything in the box. Nothing outside it.</h2><p>60+ built-in components. Zero packages required for a standard web app. Not "batteries available" — batteries installed.</p></div>
+<div class="lp-features-controls">
+<ul class="lp-feature-tabs" id="feature-tabs">
+<li><button class="active" data-category="all">All</button></li>
+<li><button data-category="basics">Basics</button></li>
+<li><button data-category="databases">Databases</button></li>
+<li><button data-category="lucid-orm">ORM</button></li>
+<li><button data-category="authentication">Auth</button></li>
+<li><button data-category="utilities">Utilities</button></li>
+<li><button data-category="advanced">Advanced</button></li>
+<li><button data-category="deployment">Deployment</button></li>
+</ul>
+<input type="text" class="lp-feature-search" id="feature-search" placeholder="Search features...">
+</div>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3" id="feature-cards">
+
+<div class="col" data-category="basics"><a href="/docs/v0.x/routing" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/routing-dark.svg" alt="" class="lp-feature-icon"><h3>Routing</h3></div><p>Routing that does what you expect. No magic, no surprises.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/controllers" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/controllers-dark.svg" alt="" class="lp-feature-icon"><h3>Controllers</h3></div><p>Controllers that do one thing well. No surprises, no inheritance maze.</p></a></div>
+<div class="col" data-category="lucid-orm"><a href="/docs/v0.x/orm-introduction" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/orm-dark.svg" alt="" class="lp-feature-icon"><h3>Lucid ORM</h3></div><p>An ORM that doesn't guess. You set the table name. You define the relationships. It does exactly what you tell it.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/events" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/events-dark.svg" alt="" class="lp-feature-icon"><h3>Events</h3></div><p>Events that keep your code loose. Fire an event, let listeners handle the rest. Simple.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/filters" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/filters-dark.svg" alt="" class="lp-feature-icon"><h3>Filters</h3></div><p>Filter requests before they reach your controller. Your code, your rules.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/filesystem" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/filesystem-dark.svg" alt="" class="lp-feature-icon"><h3>Filesystem</h3></div><p>A filesystem abstraction that just works. Local, S3, whatever. Same API.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/environments" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/environments-dark.svg" alt="" class="lp-feature-icon"><h3>Environments</h3></div><p>Manage config per environment. Development, staging, production. Clear and explicit.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/validation" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/validation-dark.svg" alt="" class="lp-feature-icon"><h3>Validation</h3></div><p>Validate input with rules you can read. No buried config, no guesswork.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/html-forms" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/forms-dark.svg" alt="" class="lp-feature-icon"><h3>Forms</h3></div><p>Forms with CSRF protection and validation errors built in. No extra package.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/console" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/cli-dark.svg" alt="" class="lp-feature-icon"><h3>Console CLI</h3></div><p>A CLI that generates code and runs your tasks. Extend it when you need to.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/caching" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/cache-dark.svg" alt="" class="lp-feature-icon"><h3>Caching</h3></div><p>Driver-based caching. File, Redis, Memcached. Same API, zero config gymnastics.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/logging" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/logger-dark.svg" alt="" class="lp-feature-icon"><h3>Logging</h3></div><p>PSR-3 logging. Compatible with the standard, no lock-in.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/containers" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/container-dark.svg" alt="" class="lp-feature-icon"><h3>Containers</h3></div><p>A service locator that's honest about being a service locator. No facades, no auto-discovery.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/moment" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/date-dark.svg" alt="" class="lp-feature-icon"><h3>Moment</h3></div><p>Date and time utilities that don't make you reach for a package.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/mails" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/mailing-dark.svg" alt="" class="lp-feature-icon"><h3>Mails</h3></div><p>Send HTML emails through any SMTP provider. Built in, not bolted on.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/queue" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/queue-dark.svg" alt="" class="lp-feature-icon"><h3>Queue</h3></div><p>Queue heavy work. Let your users get on with their day.</p></a></div>
+<div class="col" data-category="authentication"><a href="/docs/v0.x/authentication" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/auth-dark.svg" alt="" class="lp-feature-icon"><h3>Authentication</h3></div><p>Session or API token auth. Built in. Not a paid third-party service.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/testing" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/testing-dark.svg" alt="" class="lp-feature-icon"><h3>Testing</h3></div><p>Test your routes, responses, and JSON endpoints. No PHPUnit configuration marathon.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/cable" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/realtime-dark.svg" alt="" class="lp-feature-icon"><h3>Cable</h3></div><p>Real-time updates via HTTP polling. No WebSocket server, no Node.js, no extra infrastructure.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/settings" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/settings-dark.svg" alt="" class="lp-feature-icon"><h3>Settings</h3></div><p>Dynamic app settings with a simple API. Store, retrieve, done.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/secrets" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/secrets-dark.svg" alt="" class="lp-feature-icon"><h3>Secrets</h3></div><p>Store secrets securely. Not in env files, not in plain text. Properly.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/captcha" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/captcha-dark.svg" alt="" class="lp-feature-icon"><h3>Captcha</h3></div><p>Built-in CAPTCHA. No package, no API key setup beyond your provider.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/audit" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/audit-dark.svg" alt="" class="lp-feature-icon"><h3>Audit</h3></div><p>Audit trails built in. Know who did what, when. No extra package.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/ai-service" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/ai-dark.svg" alt="" class="lp-feature-icon"><h3>AI</h3></div><p>The first PHP framework with AI built in. Multi-provider. Embeddings, semantic search, agent mode. No package.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/mfa" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/mfa-dark.svg" alt="" class="lp-feature-icon"><h3>MFA</h3></div><p>Multi-factor auth built in. Not a paid add-on, not a third-party service.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/rbac" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/rbac-dark.svg" alt="" class="lp-feature-icon"><h3>RBAC</h3></div><p>Role-based access control. Define permissions explicitly, enforce them everywhere.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/tags" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/tags-dark.svg" alt="" class="lp-feature-icon"><h3>Tags</h3></div><p>Tagging built in. Organize and search your data without a package.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/taxonomies" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/taxonomies-dark.svg" alt="" class="lp-feature-icon"><h3>Taxonomies</h3></div><p>Hierarchical taxonomies for complex data. Built in, not bolted on.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/sms" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/sms-dark.svg" alt="" class="lp-feature-icon"><h3>SMS</h3></div><p>SMS via pluggable gateways. Twilio, Vonage, whatever. Same API.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/uploads" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/uploads-dark.svg" alt="" class="lp-feature-icon"><h3>Uploads</h3></div><p>Secure file uploads with flexible storage. No extra package needed.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/rate-limiter" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/limiter-dark.svg" alt="" class="lp-feature-icon"><h3>Limiter</h3></div><p>Rate limiting built in. Protect your endpoints without a package.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/image-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/image-dark.svg" alt="" class="lp-feature-icon"><h3>Image</h3></div><p>Process and resize images. Built-in utility, not an external dependency.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/encryption-decryption-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/crypto-dark.svg" alt="" class="lp-feature-icon"><h3>Crypto</h3></div><p>Modern crypto utilities. Encrypt, decrypt, hash. Built in.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/asset-loading-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/asset-dark.svg" alt="" class="lp-feature-icon"><h3>Asset</h3></div><p>Asset management and versioning. No build tool configuration needed.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/localization" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/localization-dark.svg" alt="" class="lp-feature-icon"><h3>Localization</h3></div><p>Multi-language support with translations, placeholders, and pluralization. Built in.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/otp-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/otp-dark.svg" alt="" class="lp-feature-icon"><h3>OTP</h3></div><p>OTP generation and verification. For 2FA, for verification flows. Built in.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/social-auth" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/social-auth-dark.svg" alt="" class="lp-feature-icon"><h3>Social Auth</h3></div><p>Social auth for Google, GitHub, Facebook, and more. Built in, no package.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/csv-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/csv-dark.svg" alt="" class="lp-feature-icon"><h3>CSV</h3></div><p>Stream and export CSV data. High performance, built in.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/pdf" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/pdf-dark.svg" alt="" class="lp-feature-icon"><h3>PDF</h3></div><p>Generate PDFs from templates or raw data. Built in, no external library to wire up.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/views" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/views-dark.svg" alt="" class="lp-feature-icon"><h3>Views</h3></div><p>Render HTML templates and layouts. Simple, explicit, no template engine to configure.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/request" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/request-dark.svg" alt="" class="lp-feature-icon"><h3>Request</h3></div><p>HTTP request data, unified and simple. No facade, no magic.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/response" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/response-dark.svg" alt="" class="lp-feature-icon"><h3>Response</h3></div><p>Structured HTTP responses. JSON, redirects, downloads. Explicit and clear.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/sessions" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/sessions-dark.svg" alt="" class="lp-feature-icon"><h3>Sessions</h3></div><p>Session management that's secure by default. No configuration marathon.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/cookies" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/cookies-dark.svg" alt="" class="lp-feature-icon"><h3>Cookies</h3></div><p>HTTP cookies, handled simply. Set, get, forget.</p></a></div>
+<div class="col" data-category="basics"><a href="/docs/v0.x/configuration" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/configuration-dark.svg" alt="" class="lp-feature-icon"><h3>Configuration</h3></div><p>Centralized config. One place, clear and readable.</p></a></div>
+<div class="col" data-category="databases"><a href="/docs/v0.x/migrations" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/migrations-dark.svg" alt="" class="lp-feature-icon"><h3>Migrations</h3></div><p>Version your database schema. Migrate, rollback, track. Built in.</p></a></div>
+<div class="col" data-category="databases"><a href="/docs/v0.x/seeder" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/seeder-dark.svg" alt="" class="lp-feature-icon"><h3>Seeder</h3></div><p>Seed your database with initial or test data. Simple, built in.</p></a></div>
+<div class="col" data-category="databases"><a href="/docs/v0.x/factory" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/factory-dark.svg" alt="" class="lp-feature-icon"><h3>Factory</h3></div><p>Generate fake data for testing. No Faker package to install.</p></a></div>
+<div class="col" data-category="lucid-orm"><a href="/docs/v0.x/collections" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/collections-dark.svg" alt="" class="lp-feature-icon"><h3>Collections</h3></div><p>Chainable collection utilities. Filter, map, reduce. Readable and explicit.</p></a></div>
+<div class="col" data-category="lucid-orm"><a href="/docs/v0.x/transformers" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/transformers-dark.svg" alt="" class="lp-feature-icon"><h3>Transformers</h3></div><p>Transform data for APIs. Shape your output explicitly, not magically.</p></a></div>
+<div class="col" data-category="lucid-orm"><a href="/docs/v0.x/resource-query" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/resource-query-dark.svg" alt="" class="lp-feature-icon"><h3>Resource Query</h3></div><p>Declarative API query builder. Filter, sort, include, paginate — with allowlists. Security by default. 30 lines become 5.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/password" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/password-dark.svg" alt="" class="lp-feature-icon"><h3>Password</h3></div><p>Secure password hashing and verification. Bcrypt, Argon2. Built in.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/url" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/url-dark.svg" alt="" class="lp-feature-icon"><h3>URL</h3></div><p>URL helpers for generating and parsing. Simple, no dependency.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/mutex-lock" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/mutex-lock-dark.svg" alt="" class="lp-feature-icon"><h3>Mutex Lock</h3></div><p>Mutex locks to prevent race conditions. Atomic, reliable, built in.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/process" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/process-dark.svg" alt="" class="lp-feature-icon"><h3>Process</h3></div><p>Run system processes from your app. When you need to, safely.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/array-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/array-dark.svg" alt="" class="lp-feature-icon"><h3>Array</h3></div><p>Array helpers that save you from writing the same boilerplate.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/string-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/string-dark.svg" alt="" class="lp-feature-icon"><h3>String</h3></div><p>String manipulation utilities. No need for a package.</p></a></div>
+<div class="col" data-category="utilities"><a href="/docs/v0.x/js-utils" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/js-dark.svg" alt="" class="lp-feature-icon"><h3>PHP to JS</h3></div><p>Share PHP data with JavaScript. Simple, no bridge to configure.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/schedule" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/schedule-dark.svg" alt="" class="lp-feature-icon"><h3>Schedule</h3></div><p>Schedule tasks and commands. Cron-like, built in.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/providers" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/providers-dark.svg" alt="" class="lp-feature-icon"><h3>Providers</h3></div><p>Register and bootstrap services. Explicit, no auto-discovery.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/cors" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/cors-dark.svg" alt="" class="lp-feature-icon"><h3>CORS</h3></div><p>CORS configuration. Set your policies, done.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/http-client" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/http-client-dark.svg" alt="" class="lp-feature-icon"><h3>HTTP Client</h3></div><p>HTTP client for external APIs. Built in, no Guzzle to install.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/faker" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/faker-dark.svg" alt="" class="lp-feature-icon"><h3>Faker</h3></div><p>Fake data generation for testing and seeding. Built in.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/webhook" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/webhook-dark.svg" alt="" class="lp-feature-icon"><h3>Webhook</h3></div><p>Send and receive webhooks. Event-driven, built in.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/storage" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/storage-dark.svg" alt="" class="lp-feature-icon"><h3>Storage</h3></div><p>File storage across local and cloud drivers. Same API, zero hassle.</p></a></div>
+<div class="col" data-category="advanced"><a href="/docs/v0.x/pipeline-pattern" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/pipeline-dark.svg" alt="" class="lp-feature-icon"><h3>Pipeline</h3></div><p>Chain operations through a pipeline. Transform data step by step, explicitly.</p></a></div>
+<div class="col" data-category="deployment"><a href="/docs/v0.x/deployment" class="lp-feature-card" target="_blank"><div class="lp-feature-header"><img src="assets/deploy-dark.svg" alt="" class="lp-feature-icon"><h3>Deploy</h3></div><p>Server provisioning, zero-downtime deploys, SSL, queue management, database backups. One CLI. Free.</p></a></div>
+
+</div>
+</div></section>
+
+<!-- 7. DEPLOY -->
+<section class="lp-section"><div class="lp-container">
+<div class="row align-items-center g-5">
+<div class="col-lg-6">
+<div class="lp-eyebrow">The Delivery</div>
+<h2 class="lp-h2">Deploy without the tax.</h2>
+<p class="lp-lead lp-mt-3">Building the app is half the job. Deploying it is the other half — and it's the half that costs the most time and money.</p>
+<div class="lp-deploy-cost">
+<div class="lp-deploy-cost-item"><div class="lp-deploy-cost-label">Paid deployment tools</div><div class="lp-deploy-cost-value">$22-39<span style="font-size:0.9rem;color:var(--lp-text-dim)">/mo</span></div></div>
+<div class="lp-deploy-cost-divider">vs.</div>
+<div class="lp-deploy-cost-item"><div class="lp-deploy-cost-label">Lightpack Deploy</div><div class="lp-deploy-cost-value free">$0<span style="font-size:0.9rem;color:var(--lp-text-dim)">/forever</span></div></div>
+</div>
+<div class="lp-deploy-features">
+<div class="lp-deploy-feature">Server provisioning</div>
+<div class="lp-deploy-feature">Zero-downtime deployment</div>
+<div class="lp-deploy-feature">SSL certificate management</div>
+<div class="lp-deploy-feature">Queue worker management</div>
+<div class="lp-deploy-feature">Database backups</div>
+<div class="lp-deploy-feature">Real-time log streaming</div>
+</div>
+<a href="/docs/v0.x/deployment" class="lp-link lp-mt-3">Read the deployment docs &rarr;</a>
+</div>
+<div class="col-lg-6">
+<div class="lp-code"><div class="lp-code-header"><span class="lp-code-dot" style="background:#ff5f56"></span><span class="lp-code-dot" style="background:#ffbd2e"></span><span class="lp-code-dot" style="background:#27c93f"></span><span class="lp-code-filename">terminal</span></div>
+<pre class="lp-code-body"><code><span class="tk-cm"># Provision a new server</span>
 <span class="tk-out">$</span> php console deploy:server myapp.com
 
 <span class="tk-cm"># Deploy with zero downtime</span>
@@ -570,123 +242,118 @@
 <span class="tk-out">$</span> php console db:backup
 
 <span class="tk-cm"># Stream logs in real-time</span>
-<span class="tk-out">$</span> php console logs:stream</code></pre>
-                </div>
-                <p class="lp-code-caption">One CLI. From your machine to production. No Forge. No Envoyer. No bash scripts. No SSH-and-pray.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<span class="tk-out">$</span> php console logs:stream</code></pre></div>
+<p class="lp-code-caption">One CLI. From your machine to production. No bash scripts. No SSH-and-pray.</p>
+</div>
+</div></div></section>
 
-<!-- ==================== CONTRAST TABLE (light) ==================== -->
-<section class="lp-section lp-light">
-    <div class="container">
-        <h2 class="lp-section-title lp-text-center" style="margin-bottom:2.5rem">What you're used to vs. what you get</h2>
-        <div class="lp-contrast">
-            <div class="lp-contrast-row lp-contrast-header">
-                <div class="lp-contrast-col">The old way</div>
-                <div class="lp-contrast-col lp-contrast-win">Lightpack</div>
-            </div>
-            <div class="lp-contrast-row">
-                <div class="lp-contrast-col">Install 40-80 Composer packages for a standard app</div>
-                <div class="lp-contrast-col lp-contrast-win">60+ components built in. Zero packages needed.</div>
-            </div>
-            <div class="lp-contrast-row">
-                <div class="lp-contrast-col">Pay $22-39/month for Forge + Envoyer to deploy</div>
-                <div class="lp-contrast-col lp-contrast-win">Deployment suite built in. Free. One CLI.</div>
-            </div>
-            <div class="lp-contrast-row">
-                <div class="lp-contrast-col">Breaking changes every major release. Upgrade PTSD.</div>
-                <div class="lp-contrast-col lp-contrast-win">Stable progression. No breaking changes. Ever.</div>
-            </div>
-            <div class="lp-contrast-row">
-                <div class="lp-contrast-col">Facades, magic methods, auto-discovery. Debug through 5 files.</div>
-                <div class="lp-contrast-col lp-contrast-win">Explicit code. What you see is what it does.</div>
-            </div>
-            <div class="lp-contrast-row">
-                <div class="lp-contrast-col">Auth via third-party service. MFA via package. Admin panel via paid license.</div>
-                <div class="lp-contrast-col lp-contrast-win">Auth, MFA, RBAC, audit — all built in. Free.</div>
-            </div>
-            <div class="lp-contrast-row">
-                <div class="lp-contrast-col">AI integration: install package, configure, wrap, handle errors.</div>
-                <div class="lp-contrast-col lp-contrast-win"><code>ai()->ask("...")</code>. Built in. Multi-provider.</div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- 8. STABILITY -->
+<section class="lp-section lp-surface-1"><div class="lp-container">
+<div class="text-center lp-mb-4"><div class="lp-eyebrow">The Contract</div><h2 class="lp-h2">Your code keeps working. For years.</h2><p class="lp-lead" style="margin:0 auto">No breaking changes. No upgrade guides. No migration scripts. When Lightpack evolves, it adds — it doesn't replace.</p></div>
+<div class="lp-stability-timeline">
+<div class="lp-stability-point"><div class="lp-stability-dot"></div><div class="lp-stability-version">v0.1</div><div class="lp-stability-note">First release</div></div>
+<div class="lp-stability-point"><div class="lp-stability-dot"></div><div class="lp-stability-version">v0.5</div><div class="lp-stability-note">Added AI service</div></div>
+<div class="lp-stability-point"><div class="lp-stability-dot"></div><div class="lp-stability-version">v0.8</div><div class="lp-stability-note">Added deployment</div></div>
+<div class="lp-stability-point"><div class="lp-stability-dot"></div><div class="lp-stability-version">v0.x</div><div class="lp-stability-note">Current — all v0.1 code still runs</div></div>
+</div>
+<p class="lp-body lp-text-center" style="max-width:620px;margin:2rem auto 0">Every release is backward compatible. When a better approach is found, the old one stays documented and supported. You upgrade when you want to, not when you have to.</p>
+</div></section>
 
-<!-- ==================== CTA (dark) ==================== -->
-<section class="lp-cta">
-    <div class="container">
-        <h2>If you're tired of framework fatigue,<br>Lightpack is your home.</h2>
-        <p>Install it. Build something. Deploy it. Your code keeps working. For years.</p>
-        <div class="lp-cta-buttons">
-            <a href="/docs/v0.x/install" class="lp-btn lp-btn-primary lp-btn-lg">Get Started</a>
-            <a href="https://github.com/lightpack" target="_blank" class="lp-btn lp-btn-ghost-dark lp-btn-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                Star on GitHub
-            </a>
-        </div>
-    </div>
-</section>
+<!-- 9. EXPLICITNESS -->
+<section class="lp-section"><div class="lp-container">
+<div class="text-center lp-mb-4"><div class="lp-eyebrow">The Philosophy</div><h2 class="lp-h2">What you see is what it does.</h2><p class="lp-lead" style="margin:0 auto">No facades. No magic methods. No auto-discovery. When you trace a request, you can follow it — line by line — from route to controller to response.</p></div>
+<div class="lp-explicit-compare">
+<div class="lp-explicit-col bad">
+<h4>The pattern you're used to</h4>
+<div class="lp-code"><div class="lp-code-header"><span class="lp-code-dot" style="background:#ff5f56"></span><span class="lp-code-dot" style="background:#ffbd2e"></span><span class="lp-code-dot" style="background:#27c93f"></span><span class="lp-code-filename">magic.php</span></div>
+<pre class="lp-code-body"><code><span class="tk-cm">// Where does this come from?</span>
+<span class="tk-var">$user</span> = User::<span class="tk-fn">find</span>(<span class="tk-var">$id</span>);
 
-<!-- ==================== FOOTER (dark) ==================== -->
-<footer class="lp-footer">
-    <div class="container">
-        <div class="lp-footer-inner">
-            <div>
-                <div class="lp-footer-brand">
-                    <img src="assets/logo-dark.svg" alt="Lightpack" width="22" height="22">
-                    <span>Lightpack</span>
-                </div>
-                <p class="lp-footer-tagline">A PHP framework you can understand, trust, and rely on. For years.</p>
-            </div>
-            <div>
-                <div class="lp-footer-links">
-                    <a href="/docs/v0.x/install">Docs</a>
-                    <a href="https://github.com/lightpack" target="_blank">GitHub</a>
-                    <a href="/docs/v0.x/deployment">Deployment</a>
-                    <a href="/docs/v0.x/ai-service">AI</a>
-                </div>
-                <p class="lp-footer-note">Open source. Free means free.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+<span class="tk-cm">// What does this resolve to?</span>
+<span class="tk-fn">Cache</span>::<span class="tk-fn">get</span>(<span class="tk-str">'key'</span>);
+
+<span class="tk-cm">// Which provider handles this?</span>
+<span class="tk-fn">event</span>(<span class="tk-kw">new</span> UserRegistered(<span class="tk-var">$user</span>));
+
+<span class="tk-cm">// 5 files deep to find out.</span></code></pre></div>
+</div>
+<div class="lp-explicit-col good">
+<h4>The Lightpack way</h4>
+<div class="lp-code"><div class="lp-code-header"><span class="lp-code-dot" style="background:#ff5f56"></span><span class="lp-code-dot" style="background:#ffbd2e"></span><span class="lp-code-dot" style="background:#27c93f"></span><span class="lp-code-filename">explicit.php</span></div>
+<pre class="lp-code-body"><code><span class="tk-cm">// You know exactly where this goes</span>
+<span class="tk-var">$user</span> = <span class="tk-kw">new</span> UserModel();
+<span class="tk-var">$user</span> = <span class="tk-var">$user</span>-><span class="tk-fn">find</span>(<span class="tk-var">$id</span>);
+
+<span class="tk-cm">// You know exactly what this does</span>
+<span class="tk-var">$cache</span> = <span class="tk-kw">new</span> Cache(<span class="tk-kw">new</span> FileDriver());
+<span class="tk-var">$value</span> = <span class="tk-var">$cache</span>-><span class="tk-fn">get</span>(<span class="tk-str">'key'</span>);
+
+<span class="tk-cm">// You know exactly who handles it</span>
+<span class="tk-fn">event</span>()-><span class="tk-fn">dispatch</span>(
+    <span class="tk-kw">new</span> UserRegistered(<span class="tk-var">$user</span>),
+    [UserRegisteredListener::<span class="tk-kw">class</span>]
+);</code></pre></div>
+</div>
+</div>
+<p class="lp-body lp-text-center" style="max-width:620px;margin:2rem auto 0">Explicit doesn't mean verbose. It means <span class="lp-text-white">you can read your code and know what it does</span> — without opening 5 files, without checking a service provider, without wondering what a facade resolves to at runtime.</p>
+</div></section>
+
+<!-- 10. CONTRAST TABLE -->
+<section class="lp-section lp-surface-1"><div class="lp-container">
+<div class="text-center lp-mb-4"><div class="lp-eyebrow">The Difference</div><h2 class="lp-h2">What you're used to vs. what you get.</h2></div>
+<div class="lp-contrast">
+<div class="lp-contrast-row lp-contrast-header"><div class="lp-contrast-col">The old way</div><div class="lp-contrast-col lp-contrast-win">Lightpack</div></div>
+<div class="lp-contrast-row"><div class="lp-contrast-col">Install 40-80 packages for a standard app</div><div class="lp-contrast-col lp-contrast-win">60+ components built in. Zero packages needed.</div></div>
+<div class="lp-contrast-row"><div class="lp-contrast-col">Pay monthly for deployment tools</div><div class="lp-contrast-col lp-contrast-win">Deployment suite built in. Free. One CLI.</div></div>
+<div class="lp-contrast-row"><div class="lp-contrast-col">Breaking changes every major release</div><div class="lp-contrast-col lp-contrast-win">Stable progression. No breaking changes. Ever.</div></div>
+<div class="lp-contrast-row"><div class="lp-contrast-col">Facades, magic methods, auto-discovery</div><div class="lp-contrast-col lp-contrast-win">Explicit code. What you see is what it does.</div></div>
+<div class="lp-contrast-row"><div class="lp-contrast-col">Auth via package. MFA via package. Admin via license.</div><div class="lp-contrast-col lp-contrast-win">Auth, MFA, RBAC, audit — all built in. Free.</div></div>
+<div class="lp-contrast-row"><div class="lp-contrast-col">AI: install package, configure, wrap, handle errors</div><div class="lp-contrast-col lp-contrast-win"><code>ai()->ask("...")</code>. Built in. Multi-provider.</div></div>
+</div>
+</div></section>
+
+<!-- 11. CTA -->
+<section class="lp-cta"><div class="lp-cta-glow"></div><div class="lp-container lp-cta-content">
+<h2>If you're tired of framework fatigue,<br>Lightpack is your home.</h2>
+<p>Install it. Build something. Deploy it. Your code keeps working. For years.</p>
+<div class="lp-cta-buttons"><a href="/docs/v0.x/install" class="lp-btn lp-btn-primary lp-btn-lg">Get Started</a><a href="https://github.com/lightpack" target="_blank" class="lp-btn lp-btn-ghost lp-btn-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>Star on GitHub</a></div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="lp-footer"><div class="lp-container"><div class="lp-footer-inner">
+<div><div class="lp-footer-brand"><img src="assets/logo-primary.svg" alt="" width="22" height="22"><span>Lightpack</span></div><p class="lp-footer-tagline">A PHP framework you can understand, trust, and rely on. For years.</p></div>
+<div><div class="lp-footer-links"><a href="/docs/v0.x/install">Docs</a><a href="https://github.com/lightpack" target="_blank">GitHub</a><a href="/docs/v0.x/deployment">Deployment</a><a href="/docs/v0.x/ai-service">AI</a></div><p class="lp-footer-note">Open source. Free means free.</p></div>
+</div></div></footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const tabButtons = document.querySelectorAll('#feature-tabs button');
-        const searchInput = document.getElementById('feature-search');
-        const featureCards = document.querySelectorAll('#feature-cards .lp-feature-card');
-        let activeCategory = 'all';
-        let searchTerm = '';
-
-        function filterFeatures() {
-            featureCards.forEach(card => {
-                const category = card.parentNode.getAttribute('data-category');
-                const text = card.innerText.toLowerCase();
-                const matchesCategory = (activeCategory === 'all') || (category === activeCategory);
-                const matchesSearch = text.includes(searchTerm);
-                card.parentNode.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
-            });
-        }
-
-        tabButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                tabButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                activeCategory = this.getAttribute('data-category');
-                filterFeatures();
-            });
+document.addEventListener('DOMContentLoaded', function () {
+    const tabButtons = document.querySelectorAll('#feature-tabs button');
+    const searchInput = document.getElementById('feature-search');
+    const featureCards = document.querySelectorAll('#feature-cards .lp-feature-card');
+    let activeCategory = 'all';
+    let searchTerm = '';
+    function filterFeatures() {
+        featureCards.forEach(card => {
+            const category = card.parentNode.getAttribute('data-category');
+            const text = card.innerText.toLowerCase();
+            const matchesCategory = (activeCategory === 'all') || (category === activeCategory);
+            const matchesSearch = text.includes(searchTerm);
+            card.parentNode.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
         });
-
-        searchInput.addEventListener('input', function () {
-            searchTerm = this.value.trim().toLowerCase();
+    }
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeCategory = this.getAttribute('data-category');
             filterFeatures();
         });
     });
+    searchInput.addEventListener('input', function () {
+        searchTerm = this.value.trim().toLowerCase();
+        filterFeatures();
+    });
+});
 </script>
-
 </body>
 </html>
