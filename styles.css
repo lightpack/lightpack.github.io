@@ -202,6 +202,90 @@ header {
   box-shadow: 0 20px 50px rgba(0,0,0,0.18);
   border: 1px solid rgba(0,0,0,0.05);
 }
+
+/* Concept illustrations */
+.lp-illustration {
+  width: 100%;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #ffffff 0%, #f7f5ee 100%);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lp-illustration svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 460px;
+}
+.lp-ill-tenancy svg, .lp-ill-ai svg, .lp-ill-deploy svg { max-height: 380px; }
+
+/* Comparison table */
+.lp-compare { background: #fff; }
+.lp-compare-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.lp-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  min-width: 560px;
+  background: #fff;
+}
+.lp-compare-table th, .lp-compare-table td {
+  padding: 0.9rem 1.1rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.92rem;
+}
+.lp-compare-table thead th {
+  background: #1e1e2e;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: none;
+}
+.lp-compare-table td:first-child, .lp-compare-table th:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+.lp-compare-table th.lp-compare-brand {
+  background: #ef5350;
+  color: #fff;
+}
+.lp-compare-table td.lp-yes {
+  color: #1d6b44;
+  font-weight: 700;
+}
+.lp-compare-table td.lp-meh {
+  color: #b07d00;
+  font-weight: 600;
+}
+.lp-compare-table td.lp-no {
+  color: #999;
+  font-weight: 600;
+}
+.lp-compare-table td.lp-compare-brand-cell,
+.lp-compare-table tbody td:nth-child(2) {
+  background: rgba(239, 83, 80, 0.05);
+}
+.lp-compare-table tbody tr:last-child td { border-bottom: none; }
+.lp-compare-table tbody tr:hover td { background: rgba(0,0,0,0.015); }
+.lp-compare-table tbody tr:hover td:nth-child(2) { background: rgba(239, 83, 80, 0.08); }
+.lp-compare-note { font-size: 0.85rem; }
+
+@media (max-width: 767.98px) {
+  .lp-compare-table th, .lp-compare-table td { padding: 0.7rem 0.6rem; font-size: 0.82rem; }
+}
 .lp-code-bar {
   display: flex;
   align-items: center;

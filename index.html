@@ -64,26 +64,81 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="lp-code-window">
-                        <div class="lp-code-bar">
-                            <span class="lp-dot-r"></span><span class="lp-dot-y"></span><span class="lp-dot-g"></span>
-                            <span class="lp-code-file">routes/web.php</span>
-                        </div>
-<pre class="lp-code"><span class="c-c">// Define a route, bind a controller, ship it.</span>
-<span class="c-k">use</span> App\Controllers\OrderController;
+                    <div class="lp-illustration lp-ill-hero" aria-hidden="true">
+                        <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lightpack architecture stack">
+                            <defs>
+                                <linearGradient id="lg-core" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#ef5350"/><stop offset="1" stop-color="#c62828"/>
+                                </linearGradient>
+                                <linearGradient id="lg-layer" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7f5ee"/>
+                                </linearGradient>
+                                <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+                                    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.08"/>
+                                </filter>
+                            </defs>
 
-<span class="c-f">Route::</span>post(<span class="c-s">'/orders'</span>, [OrderController::class, <span class="c-s">'store'</span>])
-    -&gt;filter(<span class="c-s">'auth'</span>)
-    -&gt;filter(<span class="c-s">'rate:60,1'</span>);
+                            <!-- Core badge -->
+                            <g filter="url(#shadow)">
+                                <rect x="150" y="18" width="180" height="46" rx="10" fill="url(#lg-core)"/>
+                                <text x="240" y="47" text-anchor="middle" font-family="Montserrat,Arial" font-size="18" font-weight="700" fill="#fff">LIGHTPACK CORE</text>
+                            </g>
+                            <line x1="240" y1="64" x2="240" y2="86" stroke="#c9c6b8" stroke-width="2"/>
 
-<span class="c-c">// Lucid ORM &mdash; expressive, fast, no magic headaches.</span>
-<span class="c-k">$order</span> = Order::with(<span class="c-s">'items'</span>)-&gt;find(<span class="c-k">$id</span>);
-<span class="c-k">$order</span>-&gt;status = <span class="c-s">'paid'</span>;
-<span class="c-k">$order</span>-&gt;save();
+                            <!-- Layer: HTTP -->
+                            <g filter="url(#shadow)">
+                                <rect x="40" y="86" width="400" height="68" rx="10" fill="url(#lg-layer)" stroke="#e2dfd2"/>
+                                <text x="56" y="110" font-family="Montserrat,Arial" font-size="11" font-weight="700" fill="#888">HTTP LAYER</text>
+                                <g font-family="Montserrat,Arial" font-size="11" font-weight="600">
+                                    <rect x="56"  y="120" width="68" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="90"  y="135" text-anchor="middle" fill="#c62828">Routing</text>
+                                    <rect x="132" y="120" width="72" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="168" y="135" text-anchor="middle" fill="#c62828">Request</text>
+                                    <rect x="212" y="120" width="78" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="251" y="135" text-anchor="middle" fill="#c62828">Response</text>
+                                    <rect x="298" y="120" width="56" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="326" y="135" text-anchor="middle" fill="#c62828">CORS</text>
+                                    <rect x="362" y="120" width="64" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="394" y="135" text-anchor="middle" fill="#c62828">Filters</text>
+                                </g>
+                            </g>
+                            <line x1="240" y1="154" x2="240" y2="170" stroke="#c9c6b8" stroke-width="2"/>
 
-<span class="c-c">// Multi-tenancy is automatic &mdash; scoped per tenant.</span>
-Tenant::set(<span class="c-k">$tenantId</span>);
-<span class="c-k">$docs</span> = Document::all(); <span class="c-c">// already filtered</span></pre>
+                            <!-- Layer: Application -->
+                            <g filter="url(#shadow)">
+                                <rect x="40" y="170" width="400" height="68" rx="10" fill="url(#lg-layer)" stroke="#e2dfd2"/>
+                                <text x="56" y="194" font-family="Montserrat,Arial" font-size="11" font-weight="700" fill="#888">APPLICATION LAYER</text>
+                                <g font-family="Montserrat,Arial" font-size="11" font-weight="600">
+                                    <rect x="56"  y="204" width="78"  height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="95"  y="219" text-anchor="middle" fill="#c62828">Controllers</text>
+                                    <rect x="142" y="204" width="74"  height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="179" y="219" text-anchor="middle" fill="#c62828">Validation</text>
+                                    <rect x="224" y="204" width="60"  height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="254" y="219" text-anchor="middle" fill="#c62828">Events</text>
+                                    <rect x="292" y="204" width="58"  height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="321" y="219" text-anchor="middle" fill="#c62828">Queue</text>
+                                    <rect x="358" y="204" width="68"  height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="392" y="219" text-anchor="middle" fill="#c62828">Schedule</text>
+                                </g>
+                            </g>
+                            <line x1="240" y1="238" x2="240" y2="254" stroke="#c9c6b8" stroke-width="2"/>
+
+                            <!-- Layer: Data -->
+                            <g filter="url(#shadow)">
+                                <rect x="40" y="254" width="400" height="68" rx="10" fill="url(#lg-layer)" stroke="#e2dfd2"/>
+                                <text x="56" y="278" font-family="Montserrat,Arial" font-size="11" font-weight="700" fill="#888">DATA LAYER</text>
+                                <g font-family="Montserrat,Arial" font-size="11" font-weight="600">
+                                    <rect x="56"  y="288" width="80" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="96"  y="303" text-anchor="middle" fill="#c62828">Lucid ORM</text>
+                                    <rect x="144" y="288" width="78" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="183" y="303" text-anchor="middle" fill="#c62828">Migrations</text>
+                                    <rect x="230" y="288" width="84" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="272" y="303" text-anchor="middle" fill="#c62828">Collections</text>
+                                    <rect x="322" y="288" width="104" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="374" y="303" text-anchor="middle" fill="#c62828">Multi-Tenancy</text>
+                                </g>
+                            </g>
+                            <line x1="240" y1="322" x2="240" y2="338" stroke="#c9c6b8" stroke-width="2"/>
+
+                            <!-- Layer: Infrastructure -->
+                            <g filter="url(#shadow)">
+                                <rect x="40" y="338" width="400" height="68" rx="10" fill="url(#lg-layer)" stroke="#e2dfd2"/>
+                                <text x="56" y="362" font-family="Montserrat,Arial" font-size="11" font-weight="700" fill="#888">INFRASTRUCTURE</text>
+                                <g font-family="Montserrat,Arial" font-size="11" font-weight="600">
+                                    <rect x="56"  y="372" width="60" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="86"  y="387" text-anchor="middle" fill="#c62828">Cache</text>
+                                    <rect x="124" y="372" width="64" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="156" y="387" text-anchor="middle" fill="#c62828">Logging</text>
+                                    <rect x="196" y="372" width="68" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="230" y="387" text-anchor="middle" fill="#c62828">Storage</text>
+                                    <rect x="272" y="372" width="64" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="304" y="387" text-anchor="middle" fill="#c62828">Secrets</text>
+                                    <rect x="344" y="372" width="64" height="22" rx="11" fill="#ef53501a" stroke="#ef535055"/><text x="376" y="387" text-anchor="middle" fill="#c62828">Deploy</text>
+                                </g>
+                            </g>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -132,85 +187,36 @@ Tenant::set(<span class="c-k">$tenantId</span>);
         </section>
 
         <!-- Code Showcase -->
-        <section class="py-5 lp-showcase">
+        <section class="py-5 lp-compare">
             <div class="container">
                 <div class="text-center mb-5 lp-section-head">
-                    <span class="lp-eyebrow lp-eyebrow-center">Developer experience</span>
-                    <h2 class="fw-bold mt-2">Clean, idiomatic, and a joy to write</h2>
-                    <p class="text-muted mx-auto lp-section-sub">One consistent API across the whole framework. Switch between tasks without switching mental models.</p>
+                    <span class="lp-eyebrow lp-eyebrow-center">How it stacks up</span>
+                    <h2 class="fw-bold mt-2">Batteries included. By default.</h2>
+                    <p class="text-muted mx-auto lp-section-sub">Capabilities other frameworks make you assemble from third-party packages &mdash; built in, integrated, and consistent in Lightpack.</p>
                 </div>
-                <div class="lp-tabs" id="code-tabs">
-                    <button class="lp-tab active" data-tab="routing">Routing</button>
-                    <button class="lp-tab" data-tab="orm">Lucid ORM</button>
-                    <button class="lp-tab" data-tab="tenancy">Multi-Tenancy</button>
-                    <button class="lp-tab" data-tab="ai">AI Service</button>
+                <div class="lp-compare-wrap">
+                    <table class="lp-compare-table">
+                        <thead>
+                            <tr>
+                                <th class="lp-compare-feature">Capability</th>
+                                <th class="lp-compare-brand">Lightpack</th>
+                                <th>Typical PHP framework</th>
+                                <th>DIY / glue packages</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Active Record ORM</td><td class="lp-yes">Included</td><td class="lp-yes">Included</td><td class="lp-meh">Manual</td></tr>
+                            <tr><td>Native multi-tenancy</td><td class="lp-yes">Built in</td><td class="lp-no">Add-on</td><td class="lp-no">Build it</td></tr>
+                            <tr><td>AI service (chat, stream, agents)</td><td class="lp-yes">Built in</td><td class="lp-no">Add-on</td><td class="lp-no">Build it</td></tr>
+                            <tr><td>RBAC + MFA</td><td class="lp-yes">Built in</td><td class="lp-meh">Partial</td><td class="lp-no">Build it</td></tr>
+                            <tr><td>Deployment suite (provision, HTTPS, rollback)</td><td class="lp-yes">Built in</td><td class="lp-no">Manual</td><td class="lp-no">Build it</td></tr>
+                            <tr><td>Queues, scheduling, webhooks</td><td class="lp-yes">Built in</td><td class="lp-meh">Partial</td><td class="lp-no">Build it</td></tr>
+                            <tr><td>Audit, secrets, mutex locks</td><td class="lp-yes">Built in</td><td class="lp-no">Add-on</td><td class="lp-no">Build it</td></tr>
+                            <tr><td>Stable API, no breaking churn</td><td class="lp-yes">By design</td><td class="lp-meh">Varies</td><td class="lp-meh">Varies</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="lp-code-window lp-code-large">
-                    <div class="lp-code-bar">
-                        <span class="lp-dot-r"></span><span class="lp-dot-y"></span><span class="lp-dot-g"></span>
-                        <span class="lp-code-file" id="code-file-label">routes/web.php</span>
-                    </div>
-<pre class="lp-code lp-code-block" data-tab="routing"><span class="c-c">// RESTful routing with filters, groups, and named routes.</span>
-<span class="c-f">Route::</span>group([<span class="c-s">'prefix'</span> =&gt; <span class="c-s">'/api'</span>, <span class="c-s">'filter'</span> =&gt; <span class="c-s">'auth'</span>], function () {
-    <span class="c-f">Route::</span>get(<span class="c-s">'/posts'</span>, [PostController::class, <span class="c-s">'index'</span>]);
-    <span class="c-f">Route::</span>post(<span class="c-s">'/posts'</span>, [PostController::class, <span class="c-s">'store'</span>])
-        -&gt;filter(<span class="c-s">'validate:PostRequest'</span>);
-});
-
-<span class="c-c">// Controllers stay thin &mdash; business logic lives where it belongs.</span>
-<span class="c-k">class</span> <span class="c-f">PostController</span> <span class="c-k">extends</span> Controller {
-    <span class="c-k">public function</span> store(<span class="c-k">$request</span>) {
-        <span class="c-k">$post</span> = Post::create(<span class="c-k">$request</span>-&gt;validated());
-        <span class="c-k">return</span> response()-&gt;json(<span class="c-k">$post</span>, <span class="c-n">201</span>);
-    }
-}</pre>
-<pre class="lp-code lp-code-block d-none" data-tab="orm"><span class="c-c">// Lucid ORM &mdash; Active Record that stays readable at scale.</span>
-<span class="c-k">$users</span> = User::where(<span class="c-s">'active'</span>, <span class="c-n">true</span>)
-    -&gt;orderBy(<span class="c-s">'created_at'</span>, <span class="c-s">'desc'</span>)
-    -&gt;limit(<span class="c-n">10</span>)
-    -&gt;get();
-
-<span class="c-c">// Eager load to kill the N+1 problem.</span>
-<span class="c-k">$posts</span> = Post::with([<span class="c-s">'author'</span>, <span class="c-s">'tags'</span>])-&gt;paginate(<span class="c-n">15</span>);
-
-<span class="c-c">// Collections make transforming data fluent.</span>
-<span class="c-k">$titles</span> = <span class="c-k">$posts</span>-&gt;map(fn (<span class="c-k">$p</span>) =&gt; <span class="c-k">$p</span>-&gt;title);
-
-<span class="c-c">// Transactions, scopes, and relations &mdash; all built in.</span>
-DB::transaction(fn () =&gt; Order::create(<span class="c-k">$data</span>));</pre>
-<pre class="lp-code lp-code-block d-none" data-tab="tenancy"><span class="c-c">// Row-level multi-tenancy &mdash; automatic, no boilerplate.</span>
-<span class="c-k">class</span> <span class="c-f">Document</span> <span class="c-k">extends</span> Model {
-    <span class="c-k">use</span> TenantScoped;  <span class="c-c">// auto-filter + auto-assign</span>
-}
-
-<span class="c-c">// Resolve the tenant from the subdomain, set the context once.</span>
-<span class="c-k">$tenant</span> = Tenant::resolveFromSubdomain(<span class="c-k">$request</span>);
-Tenant::set(<span class="c-k">$tenant</span>-&gt;id);
-
-<span class="c-c">// Every query is now scoped. Every insert is now tagged.</span>
-<span class="c-k">$docs</span> = Document::where(<span class="c-s">'status'</span>, <span class="c-s">'draft'</span>)-&gt;get();
-Document::create([<span class="c-s">'title'</span> =&gt; <span class="c-s">'Q3 report'</span>]); <span class="c-c">// tenant_id auto-set</span>
-
-<span class="c-c">// Need isolated databases per tenant? That's supported too.</span>
-Tenant::connection(<span class="c-k">$tenant</span>-&gt;id)-&gt;run(fn () =&gt; Invoice::all());</pre>
-<pre class="lp-code lp-code-block d-none" data-tab="ai"><span class="c-c">// One AI API across OpenAI, Anthropic, Gemini, and more.</span>
-<span class="c-k">$ai</span> = ai()-&gt;provider(<span class="c-s">'openai'</span>)-&gt;model(<span class="c-s">'gpt-4o'</span>);
-
-<span class="c-c">// Ask a question, get a structured answer.</span>
-<span class="c-k">$reply</span> = <span class="c-k">$ai</span>-&gt;ask(<span class="c-s">'Summarize this support ticket in 2 lines.'</span>, [
-    <span class="c-s">'context'</span> =&gt; <span class="c-k">$ticket</span>-&gt;body,
-]);
-
-<span class="c-c">// Stream tokens to the browser as they arrive.</span>
-<span class="c-k">foreach</span> (<span class="c-k">$ai</span>-&gt;stream(<span class="c-s">'Draft a refund reply...'</span>) <span class="c-k">as</span> <span class="c-k">$chunk</span>) {
-    echo <span class="c-k">$chunk</span>-&gt;text;
-    ob_flush();
-}
-
-<span class="c-c">// Agent mode: multi-turn problem solving with tool calls.</span>
-<span class="c-k">$agent</span> = <span class="c-k">$ai</span>-&gt;agent()-&gt;tools([SearchTool::class, CalcTool::class]);
-<span class="c-k">$result</span> = <span class="c-k">$agent</span>-&gt;run(<span class="c-s">'Find last quarter revenue and compute growth %.'</span>);</pre>
-                </div>
+                <p class="text-center text-muted mt-3 lp-compare-note">60+ integrated components. One install. One mental model.</p>
             </div>
         </section>
 
@@ -232,20 +238,78 @@ Tenant::connection(<span class="c-k">$tenant</span>-&gt;id)-&gt;run(fn () =&gt; 
                         <a href="/docs/v0.x/multi-tenancy" class="btn btn-outline-danger px-4 mt-3" target="_blank">Read the multi-tenancy guide &rarr;</a>
                     </div>
                     <div class="col-lg-6">
-                        <div class="lp-code-window">
-                            <div class="lp-code-bar">
-                                <span class="lp-dot-r"></span><span class="lp-dot-y"></span><span class="lp-dot-g"></span>
-                                <span class="lp-code-file">app/Models/Document.php</span>
-                            </div>
-<pre class="lp-code"><span class="c-k">class</span> <span class="c-f">Document</span> <span class="c-k">extends</span> Model {
-    <span class="c-k">use</span> TenantScoped;
-}
+                        <div class="lp-illustration lp-ill-tenancy" aria-hidden="true">
+                            <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three multi-tenancy strategies">
+                                <defs>
+                                    <filter id="t-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.08"/>
+                                    </filter>
+                                </defs>
+                                <g font-family="Montserrat,Arial" text-anchor="middle">
 
-<span class="c-c">// Middleware resolves tenant once per request.</span>
-Tenant::set(<span class="c-k">$request</span>-&gt;tenant-&gt;id);
+                                    <!-- Strategy 1: DB-per-tenant -->
+                                    <text x="80" y="34" font-size="11" font-weight="700" fill="#888">DATABASE-PER-TENANT</text>
+                                    <g filter="url(#t-shadow)">
+                                        <g transform="translate(40,52)">
+                                            <ellipse cx="40" cy="10" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                            <rect x="6" y="10" width="68" height="40" fill="#fff" stroke="#e2dfd2"/>
+                                            <ellipse cx="40" cy="50" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                            <text x="40" y="36" font-size="10" font-weight="600" fill="#c62828">Tenant A</text>
+                                        </g>
+                                        <g transform="translate(40,108)">
+                                            <ellipse cx="40" cy="10" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                            <rect x="6" y="10" width="68" height="40" fill="#fff" stroke="#e2dfd2"/>
+                                            <ellipse cx="40" cy="50" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                            <text x="40" y="36" font-size="10" font-weight="600" fill="#c62828">Tenant B</text>
+                                        </g>
+                                        <g transform="translate(40,164)">
+                                            <ellipse cx="40" cy="10" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                            <rect x="6" y="10" width="68" height="40" fill="#fff" stroke="#e2dfd2"/>
+                                            <ellipse cx="40" cy="50" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                            <text x="40" y="36" font-size="10" font-weight="600" fill="#c62828">Tenant C</text>
+                                        </g>
+                                    </g>
+                                    <text x="80" y="246" font-size="10" fill="#888">Full isolation</text>
 
-<span class="c-c">// That's it. Queries are scoped. Inserts are tagged.</span>
-<span class="c-k">$docs</span> = Document::latest()-&gt;take(<span class="c-n">20</span>)-&gt;get();</pre>
+                                    <!-- Strategy 2: Schema-per-tenant -->
+                                    <text x="240" y="34" font-size="11" font-weight="700" fill="#888">SCHEMA-PER-TENANT</text>
+                                    <g filter="url(#t-shadow)" transform="translate(200,52)">
+                                        <ellipse cx="40" cy="10" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                        <rect x="6" y="10" width="68" height="152" fill="#fff" stroke="#e2dfd2"/>
+                                        <ellipse cx="40" cy="162" rx="34" ry="9" fill="#fff" stroke="#e2dfd2"/>
+                                        <line x1="6" y1="60"  x2="74" y2="60"  stroke="#ef535055" stroke-dasharray="3 3"/>
+                                        <line x1="6" y1="110" x2="74" y2="110" stroke="#ef535055" stroke-dasharray="3 3"/>
+                                        <text x="40" y="42"  font-size="10" font-weight="600" fill="#c62828">Schema A</text>
+                                        <text x="40" y="92"  font-size="10" font-weight="600" fill="#c62828">Schema B</text>
+                                        <text x="40" y="142" font-size="10" font-weight="600" fill="#c62828">Schema C</text>
+                                    </g>
+                                    <text x="240" y="246" font-size="10" fill="#888">Balanced isolation</text>
+
+                                    <!-- Strategy 3: Row-level -->
+                                    <text x="400" y="34" font-size="11" font-weight="700" fill="#888">ROW-LEVEL</text>
+                                    <g filter="url(#t-shadow)" transform="translate(360,52)">
+                                        <rect x="0" y="0" width="80" height="172" rx="6" fill="#fff" stroke="#e2dfd2"/>
+                                        <rect x="8"  y="10" width="64" height="22" rx="4" fill="#ef53501a"/>
+                                        <text x="40" y="25" font-size="9" font-weight="600" fill="#c62828">row &middot; A</text>
+                                        <rect x="8"  y="38" width="64" height="22" rx="4" fill="#3f78e61a"/>
+                                        <text x="40" y="53" font-size="9" font-weight="600" fill="#1f4e9e">row &middot; B</text>
+                                        <rect x="8"  y="66" width="64" height="22" rx="4" fill="#ef53501a"/>
+                                        <text x="40" y="81" font-size="9" font-weight="600" fill="#c62828">row &middot; A</text>
+                                        <rect x="8"  y="94" width="64" height="22" rx="4" fill="#2ea66b1a"/>
+                                        <text x="40" y="109" font-size="9" font-weight="600" fill="#1d6b44">row &middot; C</text>
+                                        <rect x="8"  y="122" width="64" height="22" rx="4" fill="#3f78e61a"/>
+                                        <text x="40" y="137" font-size="9" font-weight="600" fill="#1f4e9e">row &middot; B</text>
+                                        <rect x="8"  y="150" width="64" height="18" rx="4" fill="#2ea66b1a"/>
+                                        <text x="40" y="163" font-size="9" font-weight="600" fill="#1d6b44">row &middot; C</text>
+                                    </g>
+                                    <text x="400" y="246" font-size="10" fill="#888">Auto-scoped</text>
+
+                                    <!-- Bottom bar -->
+                                    <rect x="40" y="270" width="400" height="56" rx="10" fill="#1e1e2e"/>
+                                    <text x="240" y="294" font-size="12" font-weight="700" fill="#fff">Automatic query filtering + insert tagging</text>
+                                    <text x="240" y="312" font-size="10" fill="#a0a0b8">Subdomain &middot; Session &middot; JWT/token resolution</text>
+                                </g>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -270,19 +334,65 @@ Tenant::set(<span class="c-k">$request</span>-&gt;tenant-&gt;id);
                         <a href="/docs/v0.x/ai-service" class="btn btn-outline-danger px-4 mt-3" target="_blank">Explore the AI service &rarr;</a>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-                        <div class="lp-code-window">
-                            <div class="lp-code-bar">
-                                <span class="lp-dot-r"></span><span class="lp-dot-y"></span><span class="lp-dot-g"></span>
-                                <span class="lp-code-file">app/Controllers/AIController.php</span>
-                            </div>
-<pre class="lp-code"><span class="c-k">$ai</span> = ai()-&gt;provider(<span class="c-s">'openai'</span>);
+                        <div class="lp-illustration lp-ill-ai" aria-hidden="true">
+                            <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI service hub connecting to providers">
+                                <defs>
+                                    <linearGradient id="ai-core" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#ef5350"/><stop offset="1" stop-color="#c62828"/>
+                                    </linearGradient>
+                                    <filter id="ai-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.1"/>
+                                    </filter>
+                                </defs>
+                                <g font-family="Montserrat,Arial" text-anchor="middle">
 
-<span class="c-k">foreach</span> (<span class="c-k">$ai</span>-&gt;stream(<span class="c-k">$prompt</span>) <span class="c-k">as</span> <span class="c-k">$chunk</span>) {
-    echo <span class="c-k">$chunk</span>-&gt;text;
-}
+                                    <!-- Providers (left) -->
+                                    <g filter="url(#ai-shadow)">
+                                        <g transform="translate(30,40)">
+                                            <rect width="110" height="40" rx="8" fill="#fff" stroke="#e2dfd2"/>
+                                            <text x="55" y="25" font-size="12" font-weight="700" fill="#222">OpenAI</text>
+                                        </g>
+                                        <g transform="translate(30,150)">
+                                            <rect width="110" height="40" rx="8" fill="#fff" stroke="#e2dfd2"/>
+                                            <text x="55" y="25" font-size="12" font-weight="700" fill="#222">Anthropic</text>
+                                        </g>
+                                        <g transform="translate(30,260)">
+                                            <rect width="110" height="40" rx="8" fill="#fff" stroke="#e2dfd2"/>
+                                            <text x="55" y="25" font-size="12" font-weight="700" fill="#222">Gemini</text>
+                                        </g>
+                                    </g>
 
-<span class="c-k">$vec</span> = <span class="c-k">$ai</span>-&gt;embed(<span class="c-k">$doc</span>);
-<span class="c-k">$matches</span> = <span class="c-k">$ai</span>-&gt;similar(<span class="c-k">$vec</span>, <span class="c-n">5</span>);</pre>
+                                    <!-- Connectors -->
+                                    <g stroke="#c9c6b8" stroke-width="2" fill="none">
+                                        <path d="M140 60  C 200 60, 200 170, 240 170"/>
+                                        <path d="M140 170 C 200 170,200 170, 240 170"/>
+                                        <path d="M140 280 C 200 280,200 170, 240 170"/>
+                                    </g>
+
+                                    <!-- Core hub -->
+                                    <g filter="url(#ai-shadow)">
+                                        <circle cx="290" cy="170" r="52" fill="url(#ai-core)"/>
+                                        <text x="290" y="166" font-size="13" font-weight="700" fill="#fff">Lightpack</text>
+                                        <text x="290" y="184" font-size="13" font-weight="700" fill="#fff">AI</text>
+                                    </g>
+
+                                    <!-- Capabilities (right) -->
+                                    <g stroke="#c9c6b8" stroke-width="2" fill="none">
+                                        <path d="M342 170 C 380 170, 380 60,  410 60"/>
+                                        <path d="M342 170 C 380 170, 380 115, 410 115"/>
+                                        <path d="M342 170 C 380 170, 380 170, 410 170"/>
+                                        <path d="M342 170 C 380 170, 380 225, 410 225"/>
+                                        <path d="M342 170 C 380 170, 380 280, 410 280"/>
+                                    </g>
+                                    <g filter="url(#ai-shadow)" font-size="11" font-weight="600">
+                                        <g transform="translate(410,46)"><rect width="50" height="28" rx="8" fill="#fff" stroke="#e2dfd2"/><text x="25" y="18" fill="#c62828">ask</text></g>
+                                        <g transform="translate(410,101)"><rect width="50" height="28" rx="8" fill="#fff" stroke="#e2dfd2"/><text x="25" y="18" fill="#c62828">stream</text></g>
+                                        <g transform="translate(410,156)"><rect width="50" height="28" rx="8" fill="#fff" stroke="#e2dfd2"/><text x="25" y="18" fill="#c62828">embed</text></g>
+                                        <g transform="translate(410,211)"><rect width="50" height="28" rx="8" fill="#fff" stroke="#e2dfd2"/><text x="25" y="18" fill="#c62828">agent</text></g>
+                                        <g transform="translate(410,266)"><rect width="50" height="28" rx="8" fill="#fff" stroke="#e2dfd2"/><text x="25" y="18" fill="#c62828">vision</text></g>
+                                    </g>
+                                </g>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -306,23 +416,71 @@ Tenant::set(<span class="c-k">$request</span>-&gt;tenant-&gt;id);
                         <a href="/docs/v0.x/deployment" class="btn btn-outline-danger px-4 mt-3" target="_blank">See the deployment suite &rarr;</a>
                     </div>
                     <div class="col-lg-6">
-                        <div class="lp-code-window lp-terminal">
-                            <div class="lp-code-bar">
-                                <span class="lp-dot-r"></span><span class="lp-dot-y"></span><span class="lp-dot-g"></span>
-                                <span class="lp-code-file">bash</span>
-                            </div>
-<pre class="lp-code"><span class="c-c">$ php lightpack deploy:provision</span>
-  Provisioning server... <span class="c-ok">done</span>
-  Installing runtime... <span class="c-ok">done</span>
+                        <div class="lp-illustration lp-ill-deploy" aria-hidden="true">
+                            <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deployment pipeline">
+                                <defs>
+                                    <linearGradient id="dp-node" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7f5ee"/>
+                                    </linearGradient>
+                                    <linearGradient id="dp-live" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0" stop-color="#2ea66b"/><stop offset="1" stop-color="#1d6b44"/>
+                                    </linearGradient>
+                                    <filter id="dp-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.1"/>
+                                    </filter>
+                                    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                                        <path d="M0 0 L8 4 L0 8 z" fill="#c9c6b8"/>
+                                    </marker>
+                                </defs>
+                                <g font-family="Montserrat,Arial" text-anchor="middle">
 
-<span class="c-c">$ php lightpack deploy:app</span>
-  Uploading build... <span class="c-ok">done</span>
-  Running migrations... <span class="c-ok">done</span>
-  Linking domain + HTTPS... <span class="c-ok">done</span>
-  <span class="c-ok">Deployed in 38s.</span>
+                                    <!-- Pipeline nodes -->
+                                    <g filter="url(#dp-shadow)">
+                                        <g transform="translate(20,120)">
+                                            <rect width="86" height="64" rx="10" fill="url(#dp-node)" stroke="#e2dfd2"/>
+                                            <text x="43" y="30" font-size="11" font-weight="700" fill="#222">Provision</text>
+                                            <text x="43" y="46" font-size="9" fill="#888">server setup</text>
+                                        </g>
+                                        <g transform="translate(130,120)">
+                                            <rect width="86" height="64" rx="10" fill="url(#dp-node)" stroke="#e2dfd2"/>
+                                            <text x="43" y="30" font-size="11" font-weight="700" fill="#222">Deploy</text>
+                                            <text x="43" y="46" font-size="9" fill="#888">atomic push</text>
+                                        </g>
+                                        <g transform="translate(240,120)">
+                                            <rect width="86" height="64" rx="10" fill="url(#dp-node)" stroke="#e2dfd2"/>
+                                            <text x="43" y="30" font-size="11" font-weight="700" fill="#222">Domain</text>
+                                            <text x="43" y="46" font-size="9" fill="#888">+ HTTPS</text>
+                                        </g>
+                                        <g transform="translate(350,116)">
+                                            <rect width="100" height="72" rx="10" fill="url(#dp-live)"/>
+                                            <text x="50" y="34" font-size="11" font-weight="700" fill="#fff">LIVE</text>
+                                            <text x="50" y="52" font-size="9" fill="#d6e6c8">in production</text>
+                                        </g>
+                                    </g>
 
-<span class="c-c">$ php lightpack deploy:rollback</span>
-  Releasing previous release... <span class="c-ok">done</span></pre>
+                                    <!-- Forward arrows -->
+                                    <g stroke="#c9c6b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+                                        <line x1="106" y1="152" x2="124" y2="152"/>
+                                        <line x1="216" y1="152" x2="234" y2="152"/>
+                                        <line x1="326" y1="152" x2="344" y2="152"/>
+                                    </g>
+
+                                    <!-- Rollback loop -->
+                                    <path d="M372 188 C 372 250, 173 250, 173 188" stroke="#ef5350" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+                                    <rect x="220" y="240" width="80" height="24" rx="8" fill="#ef53501a" stroke="#ef535055"/>
+                                    <text x="260" y="256" font-size="11" font-weight="700" fill="#c62828">rollback</text>
+
+                                    <!-- Top labels -->
+                                    <text x="63"  y="100" font-size="9" fill="#888">step 1</text>
+                                    <text x="173" y="100" font-size="9" fill="#888">step 2</text>
+                                    <text x="283" y="100" font-size="9" fill="#888">step 3</text>
+                                    <text x="400" y="100" font-size="9" fill="#888">result</text>
+
+                                    <!-- Bottom bar -->
+                                    <rect x="20" y="40" width="430" height="40" rx="10" fill="#1e1e2e"/>
+                                    <text x="235" y="64" font-size="12" font-weight="700" fill="#fff">One command. Provision &rarr; Deploy &rarr; Live</text>
+                                </g>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -1024,30 +1182,6 @@ Tenant::set(<span class="c-k">$request</span>-&gt;tenant-&gt;id);
                 filterFeatures();
             });
 
-        });
-
-        // Code showcase tabs
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('#code-tabs .lp-tab');
-            const blocks = document.querySelectorAll('.lp-code-block');
-            const fileLabel = document.getElementById('code-file-label');
-            const fileMap = {
-                routing: 'routes/web.php',
-                orm: 'app/Models/Post.php',
-                tenancy: 'app/Models/Document.php',
-                ai: 'app/Controllers/AIController.php',
-            };
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    const target = this.getAttribute('data-tab');
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    blocks.forEach(b => {
-                        b.classList.toggle('d-none', b.getAttribute('data-tab') !== target);
-                    });
-                    if (fileLabel) fileLabel.textContent = fileMap[target] || 'snippet.php';
-                });
-            });
         });
     </script>
 </body>
