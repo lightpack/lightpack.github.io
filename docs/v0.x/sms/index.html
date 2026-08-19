@@ -540,6 +540,9 @@
 <code>composer require twilio/sdk</code></p>
 <p>Please run following command to create <code>config/sms.php</code> configuration file.</p>
 <pre><code class="language-cli">php console create:config --support=sms</code></pre>
+<blockquote>
+<p><strong>Note:</strong> If <code>SMS_PROVIDER</code> is not set in your <code>.env</code> file or config, the default provider is <code>log</code>. Valid options: <code>twilio</code>, <code>log</code>, <code>null</code>.</p>
+</blockquote>
 <h2>Sending an SMS</h2>
 <pre><code class="language-php">sms()-&gt;send('+1234567890', 'Hello from Lightpack!');</code></pre>
 <h2>Extending with Custom Providers</h2>
@@ -574,7 +577,7 @@ class MyCustomProvider implements SmsProviderInterface
 <hr />
 <h2>FAQ &amp; Troubleshooting</h2>
 <p><strong>Q: How do I switch providers?</strong><br />
-A: Change the <code>default</code> driver in your config or instantiate the desired provider.</p>
+A: Change the <code>SMS_PROVIDER</code> value in your <code>.env</code> file or <code>sms.provider</code> in your config. The default is <code>log</code> if not specified. Valid options: <code>twilio</code>, <code>log</code>, <code>null</code>.</p>
 <p><strong>Q: Can I queue SMS for async sending?</strong><br />
 A: Yes! Use Lightpack’s jobs system to queue jobs that call <code>sms()-&gt;send()</code>.</p>
 <p><strong>Q: How do I test SMS sending?</strong><br />

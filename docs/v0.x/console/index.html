@@ -536,10 +536,36 @@
 <p>The console CLI provides a comprehensive set of commands for code generation, database management, job processing, application utilities, and more. Each command is described below with usage examples and options.</p>
 <h3>Code Generators</h3>
 <h4>create:config</h4>
-<p>Create a new <code>config</code> file in your project's <strong>config</strong> directory by copying from the example template.</p>
+<p>Create a new <code>config</code> file in your project's <strong>config</strong> directory.</p>
 <pre><code class="language-cli">php console create:config hello</code></pre>
 <p>You can force replace an existing config file with the same name using the <code>--force</code> flag.</p>
 <pre><code class="language-cli">php console create:config hello --force</code></pre>
+<p><strong>Generate a supported config template</strong> using <code>--support=&lt;name&gt;</code>:</p>
+<pre><code class="language-cli">php console create:config --support=db</code></pre>
+<p>Supported config templates:</p>
+<ul>
+<li><code>--support=ai</code> — AI services configuration</li>
+<li><code>--support=app</code> — Application settings</li>
+<li><code>--support=auth</code> — Authentication configuration</li>
+<li><code>--support=cable</code> — WebSocket / Cable configuration</li>
+<li><code>--support=captcha</code> — Captcha driver configuration</li>
+<li><code>--support=cookies</code> — Cookie settings</li>
+<li><code>--support=cors</code> — CORS configuration</li>
+<li><code>--support=db</code> — Database connection configuration</li>
+<li><code>--support=logs</code> — Logging configuration</li>
+<li><code>--support=mfa</code> — Multi-factor authentication configuration</li>
+<li><code>--support=redis</code> — Redis connection configuration</li>
+<li><code>--support=S3</code> — Amazon S3 storage configuration</li>
+<li><code>--support=session</code> — Session configuration</li>
+<li><code>--support=settings</code> — Application settings store</li>
+<li><code>--support=sms</code> — SMS provider configuration</li>
+<li><code>--support=social</code> — Social login (OAuth) configuration</li>
+<li><code>--support=storage</code> — File storage disk configuration</li>
+<li><code>--support=uploads</code> — File uploads configuration</li>
+<li><code>--support=webhooks</code> — Webhook configuration</li>
+<li><code>--support=deploy</code> — Deployment configuration</li>
+<li><code>--force</code> : Overwrite an existing config file.</li>
+</ul>
 <h4>create:env</h4>
 <p>Create a new <code>.env</code> file in your project root by copying from the example template.</p>
 <pre><code class="language-cli">php console create:env</code></pre>
@@ -579,6 +605,25 @@
 <h4>create:migration</h4>
 <p>Generate a new migration file in <code>database/migrations</code>.</p>
 <pre><code class="language-cli">php console create:migration create_table_users</code></pre>
+<p><strong>Generate a predefined schema migration</strong> using <code>--support=&lt;name&gt;</code>:</p>
+<pre><code class="language-cli">php console create:migration --support=users</code></pre>
+<p>Supported schema templates:</p>
+<ul>
+<li><code>--support=audits</code> — Audit log table</li>
+<li><code>--support=cable</code> — WebSocket / Cable tables</li>
+<li><code>--support=cache</code> — Cache table</li>
+<li><code>--support=jobs</code> — Queue jobs table</li>
+<li><code>--support=rbac</code> — Role-based access control tables</li>
+<li><code>--support=secrets</code> — Secrets table</li>
+<li><code>--support=settings</code> — Settings table</li>
+<li><code>--support=social</code> — Social login tables</li>
+<li><code>--support=tags</code> — Tags and taggables tables</li>
+<li><code>--support=taxonomies</code> — Taxonomy tables</li>
+<li><code>--support=uploads</code> — File uploads table</li>
+<li><code>--support=users</code> — Users table</li>
+<li><code>--support=webhooks</code> — Webhooks table</li>
+<li><code>--force</code> : Overwrite an existing migration file.</li>
+</ul>
 <h4>create:job</h4>
 <p>Generate a new job class in <code>app/Jobs</code>.</p>
 <pre><code class="language-cli">php console create:job SendEmailJob</code></pre>
@@ -674,6 +719,8 @@ php console jobs:retry --queue=emails</code></pre>
 <pre><code class="language-cli">php console app:serve</code></pre>
 <p><strong>Specify a custom port</strong> (default: 8000):</p>
 <pre><code class="language-cli">php console app:serve --port=3000</code></pre>
+<p><strong>Specify a custom host</strong> (default: 127.0.0.1):</p>
+<pre><code class="language-cli">php console app:serve --host=0.0.0.0</code></pre>
 <hr />
 <h3>Hot Reload &amp; Watch</h3>
 <h4>watch</h4>

@@ -749,7 +749,7 @@ $this-&gt;template($template);</code></pre>
 <li>✅ <strong>Automatic plain text</strong> - Generates readable plain text from your components</li>
 <li>✅ <strong>Beautiful default layout</strong> - Professional design out of the box</li>
 <li>✅ <strong>Programmatic building</strong> - Type-safe, IDE-friendly fluent interface</li>
-<li>✅ <strong>XSS protection</strong> - Automatic HTML escaping</li>
+<li>✅ <strong>XSS protection</strong> - Automatic HTML escaping at render time (component builders keep raw values available)</li>
 <li>✅ <strong>Customizable</strong> - Override colors, fonts, spacing, and layouts</li>
 <li>✅ <strong>UTF-8 safe</strong> - Handles international characters and currency symbols</li>
 </ul>
@@ -856,8 +856,11 @@ $template-&gt;html('&lt;p style="color: #666;"&gt;Custom &lt;strong&gt;formatted
 <pre><code class="language-php">// ❌ DANGEROUS - XSS vulnerability
 $template-&gt;html($userInput);
 
-// ✅ SAFE - Use paragraph() instead (auto-escaped)
+// ✅ SAFE - Use paragraph() instead (auto-escaped at render time)
 $template-&gt;paragraph($userInput);</code></pre>
+<blockquote>
+<p><strong>Note:</strong> All component builder methods (<code>button()</code>, <code>heading()</code>, <code>paragraph()</code>, <code>link()</code>, <code>alert()</code>, <code>code()</code>, <code>bulletList()</code>, <code>keyValueTable()</code>, <code>table()</code>, <code>image()</code>) keep raw values internally and escape them at render time. This means you can still access unescaped values before calling <code>toHtml()</code> or <code>toPlainText()</code>.</p>
+</blockquote>
 <h3>Header &amp; Footer</h3>
 <h4>logo()</h4>
 <p>Add a logo to the email header:</p>

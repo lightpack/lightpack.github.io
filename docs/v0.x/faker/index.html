@@ -621,6 +621,7 @@ $faker-&gt;setLocaleData([
 <ul>
 <li><code>sentence(int $words = 8): string</code> — Random sentence using common English words</li>
 <li><code>paragraph(int $sentences = 3): string</code> — Random paragraph (each sentence has 7-15 words)</li>
+<li><code>richText(int $paragraphs = 3): string</code> — Structured HTML content (h2, intro, h3, bullet list, body paragraphs, blockquote, conclusion) suitable for blog posts or product descriptions</li>
 </ul>
 <h3>Dates &amp; Time</h3>
 <ul>
@@ -658,7 +659,17 @@ $email2 = $uniqueFaker-&gt;email(); // Always different from $email1</code></pre
 <li>Throws <code>RuntimeException</code> if unable to generate unique value after 100 attempts</li>
 <li>Tracks all generated values in memory to ensure uniqueness</li>
 <li>Supports all Faker methods via <code>__call()</code> magic method</li>
+<li><code>unique()</code> returns a <strong>cached instance</strong> — the same <code>UniqueFaker</code> is reused across calls within the same batch</li>
+<li>Call <code>resetUnique()</code> to clear the cached state and start a fresh uniqueness scope</li>
 </ul>
+<h3>resetUnique()</h3>
+<p>Clears the cached <code>UniqueFaker</code> state so the next <code>unique()</code> call starts fresh:</p>
+<pre><code class="language-php">$faker-&gt;unique()-&gt;email(); // starts tracking
+$faker-&gt;resetUnique();     // clears all tracked values
+$faker-&gt;unique()-&gt;email(); // fresh start, may repeat previous values</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>Factory::make()</code> calls <code>resetUnique()</code> automatically before each batch, so uniqueness is scoped per <code>make()</code> call.</p>
+</blockquote>
 <p><strong>Example of exhaustion:</strong></p>
 <pre><code class="language-php">$unique = $faker-&gt;unique();
 // This will eventually throw RuntimeException after 100 failed attempts
@@ -699,7 +710,7 @@ for ($i = 0; $i &lt; 10; $i++) {
 <pre><code class="language-php">$post = [
     'title' =&gt; ucwords($faker-&gt;sentence(6)),
     'slug' =&gt; $faker-&gt;slug(5),
-    'content' =&gt; $faker-&gt;paragraph(5),
+    'content' =&gt; $faker-&gt;richText(5),
     'author' =&gt; $faker-&gt;name(),
     'published_at' =&gt; $faker-&gt;datetime('Y-m-d H:i:s'),
 ];</code></pre>

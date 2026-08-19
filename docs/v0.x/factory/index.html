@@ -553,20 +553,18 @@
 {
     protected function template(): array
     {
-        $faker = new Faker();
-
         return [
-            'name' =&gt; $faker-&gt;name(),
-            'email' =&gt; $faker-&gt;unique()-&gt;email(),
-            'address' =&gt; $faker-&gt;address(),
-            'created_at' =&gt; $faker-&gt;date('Y-m-d H:i:s'),
+            'name' =&gt; $this-&gt;faker-&gt;name(),
+            'email' =&gt; $this-&gt;faker-&gt;unique()-&gt;email(),
+            'address' =&gt; $this-&gt;faker-&gt;address(),
+            'created_at' =&gt; $this-&gt;faker-&gt;date('Y-m-d H:i:s'),
         ];
     }
 }</code></pre>
 <h3>Core Methods</h3>
 <ul>
 <li><code>times(int $count): static</code> — Specify how many entities to generate. Returns <code>$this</code> for method chaining.</li>
-<li><code>make(array $overrides = []): array</code> — Generate a single entity array, or an array of arrays if <code>times()</code> was called. <strong>Resets the batch count after use.</strong></li>
+<li><code>make(array $overrides = []): array</code> — Generate a single entity array, or an array of arrays if <code>times()</code> was called. <strong>Resets the batch count and unique state after use.</strong></li>
 <li><strong>Field overrides:</strong> Pass an array to <code>make()</code> to override default values. In batch mode, the same overrides apply to <strong>all</strong> generated items.</li>
 </ul>
 <p><strong>Examples:</strong></p>

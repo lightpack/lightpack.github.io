@@ -564,13 +564,13 @@ class HomeTest extends TestCase
 <p>Once you have made a request to a route, you can then assert returned response using following assertion methods:</p>
 <pre><code class="language-php">$this-&gt;assertRouteNotFound();
 $this-&gt;assertResponseStatus();
-$this-&gt;assertResponseBody();</code></pre>
+$this-&gt;assertResponseBody();
+$this-&gt;assertResponseBodyContains();</code></pre>
 <ul>
 <li><strong>assertRouteNotFound()</strong> </li>
 </ul>
-<p>Asserts that the last request resulted in a 404 Not Found response. Use this to verify that a route does not exist or is not accessible.</p>
-<pre><code class="language-php">$this-&gt;request('GET', '/invalid-route');
-$this-&gt;assertRouteNotFound();</code></pre>
+<p>Sets up an expectation that the next request to the given route will throw a <code>RouteNotFoundException</code>. Pass the route as the argument — the method internally makes the <code>GET</code> request and expects the exception.</p>
+<pre><code class="language-php">$this-&gt;assertRouteNotFound('/invalid-route');</code></pre>
 <ul>
 <li><strong>assertResponseStatus()</strong> </li>
 </ul>
@@ -587,11 +587,18 @@ $this-&gt;assertResponseStatus(302);</code></pre>
 <p>Asserts that the response body matches the given string exactly. Use this to confirm the precise output returned by the route.</p>
 <pre><code class="language-php">$this-&gt;request('GET', '/hello');
 $this-&gt;assertResponseBody('Hello, World!');</code></pre>
+<ul>
+<li><strong>assertResponseBodyContains()</strong></li>
+</ul>
+<p>Asserts that the response body contains the given string. Use this for partial matches when you don't need to check the entire response.</p>
+<pre><code class="language-php">$this-&gt;request('GET', '/page');
+$this-&gt;assertResponseBodyContains('Welcome');</code></pre>
 <h2>Asserting JSON Responses</h2>
 <pre><code class="language-php">$this-&gt;assertResponseHasValidJson();
 $this-&gt;assertResponseJson();
 $this-&gt;assertResponseJsonHasKey();
-$this-&gt;assertResponseJsonKeyValue();</code></pre>
+$this-&gt;assertResponseJsonKeyValue();
+$this-&gt;assertResponseJsonKeyMissing();</code></pre>
 <ul>
 <li>
 <p><strong>assertResponseHasValidJson()</strong></p>
@@ -617,9 +624,16 @@ $this-&gt;assertResponseJsonHasKey('profile.email');</code></pre>
 <pre><code class="language-php">$this-&gt;request('GET', '/api/user');
 $this-&gt;assertResponseJsonKeyValue('profile.email', 'john@example.com');</code></pre>
 </li>
+<li>
+<p><strong>assertResponseJsonKeyMissing()</strong></p>
+<p>Asserts that a specific key is absent from the response JSON. Supports dot notation for nested keys.</p>
+<pre><code class="language-php">$this-&gt;request('GET', '/api/user');
+$this-&gt;assertResponseJsonKeyMissing('password');</code></pre>
+</li>
 </ul>
 <h2>Asserting Redirect Responses</h2>
 <pre><code class="language-php">$this-&gt;assertRedirectUrl();
+$this-&gt;assertRedirectRoute();
 $this-&gt;assertResponseIsRedirect();</code></pre>
 <ul>
 <li>
@@ -632,6 +646,17 @@ $this-&gt;assertResponseIsRedirect();</code></pre>
 $this-&gt;assertRedirectUrl('/dashboard');</code></pre>
 </li>
 <li>
+<p><strong>assertRedirectRoute()</strong></p>
+<p>Asserts that the response is a redirect to a named route. Accepts route name and optional route parameters. Use this instead of <code>assertRedirectUrl()</code> when your redirect uses named routes.</p>
+<pre><code class="language-php">$this-&gt;request('POST', '/login', [
+    'email' =&gt; 'foo@bar.com',
+    'password' =&gt; 'secret'
+]);
+$this-&gt;assertRedirectRoute('dashboard');</code></pre>
+<p>With route parameters:</p>
+<pre><code class="language-php">$this-&gt;assertRedirectRoute('profile.show', ['id' =&gt; 1]);</code></pre>
+</li>
+<li>
 <p><strong>assertResponseIsRedirect()</strong></p>
 <p>Asserts that the response is a redirect (any 3xx status code). Use this to check if the action results in a redirect, regardless of destination.</p>
 <pre><code class="language-php">$this-&gt;request('POST', '/logout');
@@ -641,7 +666,9 @@ $this-&gt;assertResponseIsRedirect();</code></pre>
 <h2>Asserting Sessions</h2>
 <pre><code class="language-php">$this-&gt;withSession();
 $this-&gt;assertSessionHas();
+$this-&gt;assertSessionMissing();
 $this-&gt;assertSessionHasErrors();
+$this-&gt;assertSessionHasNoErrors();
 $this-&gt;assertSessionHasOldInput();</code></pre>
 <ul>
 <li>
@@ -658,6 +685,14 @@ $this-&gt;request('GET', '/dashboard');</code></pre>
     'password' =&gt; 'secret'
 ]);
 $this-&gt;assertSessionHas('user_id');</code></pre>
+<p>With expected value:</p>
+<pre><code class="language-php">$this-&gt;assertSessionHas('status', 'active');</code></pre>
+</li>
+<li>
+<p><strong>assertSessionMissing()</strong></p>
+<p>Asserts that the session does not contain the given key. Use this to verify that session data was cleared after an action.</p>
+<pre><code class="language-php">$this-&gt;request('POST', '/logout');
+$this-&gt;assertSessionMissing('user_id');</code></pre>
 </li>
 <li>
 <p><strong>assertSessionHasErrors()</strong></p>
@@ -667,6 +702,17 @@ $this-&gt;assertSessionHas('user_id');</code></pre>
     'password' =&gt; ''
 ]);
 $this-&gt;assertSessionHasErrors(['email', 'password']);</code></pre>
+<p>Without arguments, asserts that the session has at least one validation error:</p>
+<pre><code class="language-php">$this-&gt;assertSessionHasErrors();</code></pre>
+</li>
+<li>
+<p><strong>assertSessionHasNoErrors()</strong></p>
+<p>Asserts that the session contains no validation errors. Use this to verify that a successful request did not produce validation errors.</p>
+<pre><code class="language-php">$this-&gt;request('POST', '/register', [
+    'email' =&gt; 'foo@bar.com',
+    'password' =&gt; 'secret'
+]);
+$this-&gt;assertSessionHasNoErrors();</code></pre>
 </li>
 <li>
 <p><strong>assertSessionHasOldInput()</strong></p>
@@ -708,7 +754,7 @@ $this-&gt;assertResponseHeaderEquals('Content-Type', 'application/json');</code>
 <h2>Asserting Signed URLs</h2>
 <pre><code class="language-php">$this-&gt;assertInvalidUrlSignature();</code></pre>
 <p>Asserts that the request will throw an <code>InvalidUrlSignatureException</code> with a 403 status code. </p>
-<p>Use this before making a request to a signed URL that should fail due to an tampered, invalid, expired, or missing signature.</p>
+<p>Use this before making a request to a signed URL that should fail due to a tampered, invalid, expired, or missing signature.</p>
 <pre><code class="language-php">  $this-&gt;assertInvalidUrlSignature();
   $this-&gt;request('GET', '/download/123?signature=bad');</code></pre>
 <h2>Asserting Cookies</h2>
@@ -742,21 +788,67 @@ $this-&gt;assertCookieEquals('theme', 'dark');</code></pre>
 $this-&gt;assertCookieMissing('old_token');</code></pre>
 </li>
 </ul>
+<h2>Asserting Authentication</h2>
+<pre><code class="language-php">$this-&gt;assertGuest();
+$this-&gt;assertAuthenticated();</code></pre>
+<ul>
+<li>
+<p><strong>assertGuest()</strong></p>
+<p>Asserts that the current user is a guest (not authenticated).</p>
+<pre><code class="language-php">$this-&gt;request('POST', '/logout');
+$this-&gt;assertGuest();</code></pre>
+</li>
+<li>
+<p><strong>assertAuthenticated()</strong></p>
+<p>Asserts that the current user is authenticated.</p>
+<pre><code class="language-php">auth()-&gt;loginAs($user);
+$this-&gt;assertAuthenticated();</code></pre>
+</li>
+</ul>
 <h2>Asserting File Uploads</h2>
 <pre><code class="language-php">$this-&gt;withFiles();</code></pre>
 <ul>
 <li>
 <p><strong>withFiles()</strong></p>
-<p>Sets files for the next request. Use this to simulate file uploads in your tests.</p>
-<pre><code class="language-php">$file = [
-    'name' =&gt; 'avatar.png',
-    'type' =&gt; 'image/png',
-    'tmp_name' =&gt; __DIR__ . '/fixtures/avatar.png',
-    'error' =&gt; UPLOAD_ERR_OK,
-    'size' =&gt; filesize(__DIR__ . '/fixtures/avatar.png'),
-];
-$this-&gt;withFiles(['avatar' =&gt; $file]);
-$this-&gt;request('POST', '/upload');</code></pre>
+<p>Simulates file uploads for the next request. Accepts file specs keyed by form field name. Each spec may contain <code>name</code>, <code>content</code>, and <code>mime</code> — all optional with sensible defaults.</p>
+<p>Storage is automatically faked to an isolated temp directory so that <code>store()</code> never writes to the real storage directory. All temp files and the temp storage directory are cleaned up after the test.</p>
+<p><strong>Single file upload:</strong></p>
+<pre><code class="language-php">$this-&gt;withFiles([
+    'avatar' =&gt; ['name' =&gt; 'photo.jpg', 'mime' =&gt; 'image/jpeg'],
+])-&gt;request('POST', '/settings/avatar');</code></pre>
+<p><strong>Multiple files on the same field:</strong></p>
+<pre><code class="language-php">$this-&gt;withFiles([
+    'images' =&gt; [
+        ['name' =&gt; 'photo1.jpg', 'mime' =&gt; 'image/jpeg'],
+        ['name' =&gt; 'photo2.jpg', 'mime' =&gt; 'image/jpeg'],
+        ['name' =&gt; 'photo3.png', 'mime' =&gt; 'image/png'],
+    ],
+])-&gt;request('POST', '/gallery');</code></pre>
+<p><strong>With custom content:</strong></p>
+<pre><code class="language-php">$this-&gt;withFiles([
+    'document' =&gt; ['name' =&gt; 'report.pdf', 'content' =&gt; '%PDF-1.4...', 'mime' =&gt; 'application/pdf'],
+])-&gt;request('POST', '/upload');</code></pre>
+</li>
+<li>
+<p><strong>fakeStorage()</strong></p>
+<p>Replaces the <code>storage</code> service in the container with a <code>LocalStorage</code> instance pointing to an isolated temp directory. This ensures <code>store()</code>, <code>delete()</code>, and other storage operations during your test never touch the real <code>storage/</code> directory.</p>
+<p><strong>You usually don't call this directly</strong> — <code>withFiles()</code> calls it automatically when faking file uploads.</p>
+<p><strong>Call it manually</strong> only when you need storage faking without a file upload. For example, testing a route that deletes a file from storage:</p>
+<pre><code class="language-php">public function testDeleteFileRoute()
+{
+    // Fake storage so delete() operates on a temp dir, not real storage
+    $dir = $this-&gt;fakeStorage();
+
+    // Create a fake file in the temp storage so the route can delete it
+    file_put_contents($dir . '/report.pdf', 'fake content');
+
+    // Hit the DELETE route — it will call $storage-&gt;delete('report.pdf')
+    $this-&gt;request('DELETE', '/files/report');
+
+    // Assert the file was actually removed from temp storage
+    $this-&gt;assertFalse(file_exists($dir . '/report.pdf'));
+}</code></pre>
+<p>The temp directory and all its contents are automatically removed after the test.</p>
 </li>
 </ul>
 <h2>Asserting Emails</h2>
@@ -919,6 +1011,36 @@ class UserDatabaseTest extends TestCase
 <li>Automatically rolls back changes after each test</li>
 <li>Ensures clean database state between tests</li>
 </ul>
+<h3>Database Assertions</h3>
+<pre><code class="language-php">$this-&gt;assertDatabaseHas();
+$this-&gt;assertDatabaseMissing();
+$this-&gt;assertDatabaseCount();</code></pre>
+<ul>
+<li>
+<p><strong>assertDatabaseHas()</strong></p>
+<p>Asserts that a database table contains a row matching the given conditions. Use this to verify that a record was created or updated correctly.</p>
+<pre><code class="language-php">$this-&gt;request('POST', '/register', [
+    'email' =&gt; 'foo@bar.com',
+    'password' =&gt; 'secret'
+]);
+
+$this-&gt;assertDatabaseHas('users', ['email' =&gt; 'foo@bar.com']);</code></pre>
+</li>
+<li>
+<p><strong>assertDatabaseMissing()</strong></p>
+<p>Asserts that a database table contains no row matching the given conditions. Use this to verify that a record was deleted or never created.</p>
+<pre><code class="language-php">$this-&gt;request('DELETE', '/users/1');
+
+$this-&gt;assertDatabaseMissing('users', ['id' =&gt; 1]);</code></pre>
+</li>
+<li>
+<p><strong>assertDatabaseCount()</strong></p>
+<p>Asserts that a database table has the given number of rows.</p>
+<pre><code class="language-php">$this-&gt;request('POST', '/users/bulk', ['count' =&gt; 5]);
+
+$this-&gt;assertDatabaseCount('users', 5);</code></pre>
+</li>
+</ul>
 <h2>Authentication Testing</h2>
 <p>Use <code>auth()-&gt;loginAs()</code> to simulate a logged-in user without requiring credentials.</p>
 <pre><code class="language-php">public function testAuthenticatedUserCanAccessDashboard()
@@ -935,7 +1057,7 @@ class UserDatabaseTest extends TestCase
 {
     $this-&gt;request('GET', '/admin/users');
     $this-&gt;assertResponseStatus(302);
-    $this-&gt;assertRedirectUrl('/login');
+    $this-&gt;assertRedirectRoute('login');
 }</code></pre>
 <p>Testing API authentication:</p>
 <pre><code class="language-php">public function testApiRequiresAuthentication()
@@ -957,8 +1079,8 @@ public function testApiWithValidToken()
         'password' =&gt; 'secret'
     ])
     -&gt;assertResponseStatus(302)
-    -&gt;assertRedirectUrl('/dashboard')
-    -&gt;assertSessionHas('_logged_in', true)
+    -&gt;assertRedirectRoute('dashboard')
+    -&gt;assertSessionHasNoErrors()
     -&gt;assertMailSent()
     -&gt;assertMailSentTo('user@example.com');</code></pre>  </main>
   <nav class="toc"></nav>
