@@ -560,6 +560,103 @@
 <blockquote>
 <p>In short: <code>up()</code> is the <strong>do</strong> part of a migration; <code>down()</code> is the <strong>undo</strong>.</p></p>
 </blockquote>
+<h2>Reserved Table Names</h2>
+<p>Lightpack uses certain table names internally for framework features (jobs queue, cache, settings, etc.). These names are reserved — avoid using them for your own application tables.</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td>Auth</td>
+</tr>
+<tr>
+<td><code>access_tokens</code></td>
+<td>Auth</td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td>Queue</td>
+</tr>
+<tr>
+<td><code>cache</code></td>
+<td>Cache</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td>Settings</td>
+</tr>
+<tr>
+<td><code>secrets</code></td>
+<td>Secrets</td>
+</tr>
+<tr>
+<td><code>audit_logs</code></td>
+<td>Audit</td>
+</tr>
+<tr>
+<td><code>cable_messages</code></td>
+<td>Cable</td>
+</tr>
+<tr>
+<td><code>cable_presence</code></td>
+<td>Cable</td>
+</tr>
+<tr>
+<td><code>roles</code></td>
+<td>RBAC</td>
+</tr>
+<tr>
+<td><code>permissions</code></td>
+<td>RBAC</td>
+</tr>
+<tr>
+<td><code>user_role</code></td>
+<td>RBAC</td>
+</tr>
+<tr>
+<td><code>role_permission</code></td>
+<td>RBAC</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>Tags</td>
+</tr>
+<tr>
+<td><code>tag_morphs</code></td>
+<td>Tags</td>
+</tr>
+<tr>
+<td><code>taxonomies</code></td>
+<td>Taxonomies</td>
+</tr>
+<tr>
+<td><code>taxonomy_morphs</code></td>
+<td>Taxonomies</td>
+</tr>
+<tr>
+<td><code>uploads</code></td>
+<td>Uploads</td>
+</tr>
+<tr>
+<td><code>social_accounts</code></td>
+<td>Social Auth</td>
+</tr>
+<tr>
+<td><code>webhook_events</code></td>
+<td>Webhooks</td>
+</tr>
+<tr>
+<td><code>migrations</code></td>
+<td>Migrations</td>
+</tr>
+</tbody>
+</table>
+<p>If your application requires a table name that conflicts with a reserved name, use a domain-specific name instead. For example, name your job listings table <code>job_postings</code> instead of <code>jobs</code>. If you already have a conflicting table, create a rename migration to rename your domain table before generating the framework table.</p>
 <h2>Running Migrations</h2>
 <p>To run your migration files:</p>
 <pre><code class="language-terminal">php console migrate:up</code></pre>
